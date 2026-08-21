@@ -1,0 +1,17 @@
+{
+  "currency": "EUR",
+  "items": [
+    { "sku":"SAAS", "name":"SaaS Launch Kit", "price":89, "was":129, "badge":"Most popular",
+      "desc":"Everything a SaaS needs on day one: landing, pricing with a monthly/annual toggle, features, changelog, docs shell and a legal page.",
+      "feat":["7 pages","Pricing toggle","Docs shell","Light + dark"], "accent":"#5b8cff" },
+    { "sku":"AI", "name":"AI Product Kit", "price":89, "was":129, "badge":"New",
+      "desc":"Built for AI tools and agents: a demo-first hero, prompt showcase, model comparison table, API docs page and a waitlist flow.",
+      "feat":["6 pages","Demo hero","Compare table","Waitlist"], "accent":"#22d3a7" },
+    { "sku":"STUDIO", "name":"Studio & Portfolio Kit", "price":79, "was":109, "badge":null,
+      "desc":"For agencies, freelancers and studios: a work grid, case-study layout, services page, about and a contact page that actually converts.",
+      "feat":["6 pages","Case studies","Work grid","Contact"], "accent":"#c084fc" },
+    { "sku":"BUNDLE", "name":"The Complete Bundle", "price":149, "was":327, "badge":"Best value",
+      "desc":"All three kits plus every future kit, free, forever. One payment, the entire library, unlimited projects.",
+      "feat":["All 3 kits","Future kits free","19 pages","Lifetime"], "accent":"#f59e0b" }
+  ]
+}
