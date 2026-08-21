@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Documentation — Northwind</title>
+<meta name="description" content="Install an SDK, send your first events, define a signal and deliver it. The complete Northwind developer guide, API reference and SDK documentation.">
+<meta name="theme-color" content="#0f7a68" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0d0e" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://northwind.example.com/docs.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Northwind">
+<meta property="og:title" content="Documentation — Northwind">
+<meta property="og:description" content="Install an SDK, send your first events, define a signal and deliver it. The complete Northwind developer guide, API reference and SDK documentation.">
+<meta property="og:url" content="https://northwind.example.com/docs.html">
+<meta property="og:image" content="https://northwind.example.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Northwind — customer signals for product-led revenue teams">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@northwindhq">
+<meta name="twitter:title" content="Documentation — Northwind">
+<meta name="twitter:description" content="Install an SDK, send your first events, define a signal and deliver it. The complete Northwind developer guide, API reference and SDK documentation.">
+<meta name="twitter:image" content="https://northwind.example.com/assets/og-image.png">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+<script>(function(){try{var t=localStorage.getItem("nw-theme");if(t==="dark"||t==="light"){document.documentElement.setAttribute("data-theme",t);document.documentElement.style.colorScheme=t;}}catch(e){}})();</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://northwind.example.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Documentation", "item": "https://northwind.example.com/docs.html" }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "Northwind documentation",
+      "description": "Install an SDK, send your first events, define a signal and deliver it — the complete Northwind developer guide and API reference.",
+      "url": "https://northwind.example.com/docs.html",
+      "datePublished": "2025-11-04",
+      "dateModified": "2026-08-14",
+      "inLanguage": "en-US",
+      "author": { "@type": "Organization", "name": "Northwind" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Northwind",
+        "logo": { "@type": "ImageObject", "url": "https://northwind.example.com/assets/og-image.png" }
+      },
+      "proficiencyLevel": "Beginner",
+      "articleSection": ["Getting started", "Guides", "API reference", "SDKs"]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header" data-scrolled="false">
+  <div class="container container--wide">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="Northwind — home">
+        <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect width="32" height="32" rx="9" fill="currentColor" fill-opacity="0.12"/><path d="M10 23V9.5l12 13V9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Northwind</span>
+      </a>
+      <ul class="nav__links"><li><a class="nav__link" href="features.html">Features</a></li><li><a class="nav__link" href="pricing.html">Pricing</a></li><li><a class="nav__link" href="docs.html" aria-current="page">Docs</a></li><li><a class="nav__link" href="changelog.html">Changelog</a></li><li><a class="nav__link" href="about.html">About</a></li></ul>
+      <span class="nav__spacer"></span>
+      <div class="nav__actions">
+        <button type="button" class="icon-btn theme-toggle" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6M18.7 18.7l-1.6-1.6M6.9 6.9 5.3 5.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.2A8.4 8.4 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        </button>
+        <a class="btn btn--secondary btn--sm" href="#signin">Sign in</a>
+        <a class="btn btn--primary btn--sm" href="#trial">Start free trial</a>
+        <button type="button" class="icon-btn nav__toggle" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open main menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav" data-open="false">
+  <div class="container">
+    <nav class="mobile-nav__list" aria-label="Mobile navigation"><a class="mobile-nav__link" href="features.html">Features<span class="text-subtle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a class="mobile-nav__link" href="pricing.html">Pricing<span class="text-subtle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a class="mobile-nav__link" href="docs.html" aria-current="page">Docs<span class="text-subtle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a class="mobile-nav__link" href="changelog.html">Changelog<span class="text-subtle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a class="mobile-nav__link" href="about.html">About<span class="text-subtle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></nav>
+    <div class="mobile-nav__actions">
+      <a class="btn btn--primary btn--lg btn--block" href="#trial">Start free trial</a>
+      <a class="btn btn--secondary btn--lg btn--block" href="#signin">Sign in</a>
+    </div>
+  </div>
+</div>
+<main id="main">
+<div class="container container--wide">
+  <div class="docs">
+
+    <aside class="docs-sidebar" aria-label="Documentation navigation" data-spy>
+      <button type="button" class="docs-search" aria-label="Search the documentation">
+        <svg width="15" height="15" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="5.4" stroke="currentColor" stroke-width="1.6"/><path d="m13.2 13.2 3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Search docs</span><kbd>&#8984;K</kbd>
+      </button>
+      <nav aria-label="Documentation sections"><div class="docs-nav__group"><p class="docs-nav__title">Getting started</p><div class="docs-nav__list"><a href="#introduction">Introduction</a><a href="#quickstart">Quickstart</a><a href="#concepts">Core concepts</a></div></div><div class="docs-nav__group"><p class="docs-nav__title">Guides</p><div class="docs-nav__list"><a href="#identify">Identifying accounts</a><a href="#signals-api">Building signals</a><a href="#segments">Segments &amp; scoring</a><a href="#playbooks">Playbooks</a><a href="#warehouse">Warehouse sync</a></div></div><div class="docs-nav__group"><p class="docs-nav__title">API reference</p><div class="docs-nav__list"><a href="#events-api">Events API</a><a href="#webhooks">Webhooks</a><a href="#errors">Errors</a><a href="#rate-limits">Rate limits</a><a href="#versioning">Versioning</a></div></div><div class="docs-nav__group"><p class="docs-nav__title">SDKs</p><div class="docs-nav__list"><a href="#sdks">Official SDKs</a></div></div></nav>
+    </aside>
+
+    <div class="docs-main">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb mb-4">
+          <li><a href="index.html">Home</a></li>
+          <li>Documentation</li>
+        </ol>
+      </nav>
+      <header class="mb-8">
+        <span class="eyebrow">Developer guide</span>
+        <h1>Northwind documentation</h1>
+        <p class="lede mt-4">Everything you need to send your first event, define your first signal, and deliver it somewhere useful. Written for engineers, readable by everyone else.</p>
+      </header>
+      <article class="prose" style="max-width:none">
+<h2 id="introduction" class="anchor">Introduction<a class="anchor__link" href="#introduction" aria-label="Permalink to Introduction"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M8.4 11.6a3.4 3.4 0 0 0 5 .3l2-2a3.4 3.4 0 1 0-4.8-4.8l-1.1 1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11.6 8.4a3.4 3.4 0 0 0-5-.3l-2 2a3.4 3.4 0 1 0 4.8 4.8l1.1-1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a></h2>
+<p>Northwind turns raw product activity into decisions your revenue team can act on. You send us events and account traits; we resolve them into accounts, evaluate them against the signals you define, and deliver the result to Slack, your CRM or your warehouse.</p>
+<p>This guide takes about twenty minutes end to end. By the end of it you will have events flowing, one signal firing, and a webhook receiving it.</p>
+
+<div class="callout callout--brand"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.25" stroke="currentColor" stroke-width="1.5"/><path d="M10 9v5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="10" cy="6.3" r="1" fill="currentColor"/></svg><div><p><strong>Prefer not to instrument?</strong> If your events already sit in Snowflake, BigQuery, Redshift or Postgres, skip straight to <a href="#warehouse">Warehouse sync</a>. No SDK required.</p></div></div>
+
+<h2 id="quickstart" class="anchor">Quickstart<a class="anchor__link" href="#quickstart" aria-label="Permalink to Quickstart"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M8.4 11.6a3.4 3.4 0 0 0 5 .3l2-2a3.4 3.4 0 1 0-4.8-4.8l-1.1 1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11.6 8.4a3.4 3.4 0 0 0-5-.3l-2 2a3.4 3.4 0 1 0 4.8 4.8l1.1-1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a></h2>
+<p>Three steps: install a server SDK, identify an account, and send an event. You need an API key from <strong>Settings &rarr; Developers</strong>. Keys are workspace-scoped and prefixed <code>nw_live_</code> or <code>nw_test_</code>.</p>
+
+<h3 id="install" class="anchor">1. Install the SDK<a class="anchor__link" href="#install" aria-label="Permalink to 1. Install the SDK"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M8.4 11.6a3.4 3.4 0 0 0 5 .3l2-2a3.4 3.4 0 1 0-4.8-4.8l-1.1 1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11.6 8.4a3.4 3.4 0 0 0-5-.3l-2 2a3.4 3.4 0 1 0 4.8 4.8l1.1-1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a></h3>
+<div class="code-block">
+  <div class="code-block__head">
+    <span class="code-block__lang">bash</span>
+    <button type="button" class="copy-btn" data-copy aria-label="Copy bash snippet to clipboard"><svg width="13" height="13" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2.2" stroke="currentColor" stroke-width="1.5"/><path d="M13 4.6A1.6 1.6 0 0 0 11.4 3H4.6A1.6 1.6 0 0 0 3 4.6v6.8A1.6 1.6 0 0 0 4.6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span data-copy-label>Copy</span></button>
+  </div>
+  <pre><code><span class="tok-comment"># npm</span>
+npm install @northwind/node
+
+<span class="tok-comment"># or with pnpm</span>
+pnpm add @northwind/node</code></pre>
+</div>
+
+<h3 id="initialise" class="anchor">2. Initialise the client<a class="anchor__link" href="#initialise" aria-label="Permalink to 2. Initialise the client"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M8.4 11.6a3.4 3.4 0 0 0 5 .3l2-2a3.4 3.4 0 1 0-4.8-4.8l-1.1 1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11.6 8.4a3.4 3.4 0 0 0-5-.3l-2 2a3.4 3.4 0 1 0 4.8 4.8l1.1-1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a></h3>
+<p>Set <code>region</code> to match your workspace residency. A key issued in <code>eu-1</code> will be rejected by <code>us-1</code>, which is deliberate.</p>
+<div class="code-block">
+  <div class="code-block__head">
+    <span class="code-block__lang">server.js</span>
+    <button type="button" class="copy-btn" data-copy aria-label="Copy server.js snippet to clipboard"><svg width="13" height="13" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2.2" stroke="currentColor" stroke-width="1.5"/><path d="M13 4.6A1.6 1.6 0 0 0 11.4 3H4.6A1.6 1.6 0 0 0 3 4.6v6.8A1.6 1.6 0 0 0 4.6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span data-copy-label>Copy</span></button>
+  </div>
+  <pre><code><span class="tok-key">import</span> { Northwind } <span class="tok-key">from</span> <span class="tok-str">'@northwind/node'</span>;
+
+<span class="tok-key">const</span> nw = <span class="tok-key">new</span> <span class="tok-fn">Northwind</span>({
+  apiKey: process.env.<span class="tok-str">NORTHWIND_API_KEY</span>,
+  <span class="tok-comment">// eu-1 or us-1 — must match your workspace residency</span>
+  region: <span class="tok-str">'eu-1'</span>
+});</code></pre>
+</div>
+
+<h3 id="first-event" class="anchor">3. Send your first event<a class="anchor__link" href="#first-event" aria-label="Permalink to 3. Send your first event"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M8.4 11.6a3.4 3.4 0 0 0 5 .3l2-2a3.4 3.4 0 1 0-4.8-4.8l-1.1 1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11.6 8.4a3.4 3.4 0 0 0-5-.3l-2 2a3.4 3.4 0 1 0 4.8 4.8l1.1-1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a></h3>
+<div class="code-block">
+  <div class="code-block__head">
+    <span class="code-block__lang">track.js</span>
+    <button type="button" class="copy-btn" data-copy aria-label="Copy track.js snippet to clipboard"><svg width="13" height="13" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2.2" stroke="currentColor" stroke-width="1.5"/><path d="M13 4.6A1.6 1.6 0 0 0 11.4 3H4.6A1.6 1.6 0 0 0 3 4.6v6.8A1.6 1.6 0 0 0 4.6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span data-copy-label>Copy</span></button>
+  </div>
+  <pre><code><span class="tok-key">await</span> nw.events.<span class="tok-fn">track</span>({
+  accountId: <span class="tok-str">'acct_harbourline'</span>,
+  userId:    <span class="tok-str">'usr_8812'</span>,
+  event:     <span class="tok-str">'report_exported'</span>,
+  timestamp: <span class="tok-key">new</span> <span class="tok-fn">Date</span>().<span class="tok-fn">toISOString</span>(),
+  properties: {
+    format:   <span class="tok-str">'csv'</span>,
+    rowCount: <span class="tok-num">18422</span>,
+    surface:  <span class="tok-str">'dashboard'</span>
+  }
+});</code></pre>
+</div>
+<p>Within a few seconds the event appears on the account timeline in the app. If it does not, check <strong>Settings &rarr; Developers &rarr; Event log</strong>, which shows every request we received including the ones we rejected and why.</p>
+
+<div class="callout callout--warn"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M8.7 2.9 1.9 15.2A1.5 1.5 0 0 0 3.2 17.5h13.6a1.5 1.5 0 0 0 1.3-2.3L11.3 2.9a1.5 1.5 0 0 0-2.6 0z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 7.6v3.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="10" cy="13.9" r="1" fill="currentColor"/></svg><div><p><strong>Never call the events API from a browser with a live key.</strong> Use the JavaScript SDK with a publishable key, or proxy through your own backend. Live keys grant read access to every account in the workspace.</p></div></div>
+
+<h2 id="concepts" class="anchor">Core concepts<a class="anchor__link" href="#concepts" aria-label="Permalink to Core concepts"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M8.4 11.6a3.4 3.4 0 0 0 5 .3l2-2a3.4 3.4 0 1 0-4.8-4.8l-1.1 1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11.6 8.4a3.4 3.4 0 0 0-5-.3l-2 2a3.4 3.4 0 1 0 4.8 4.8l1.1-1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a></h2>
+<p>Four objects make up the entire data model. Everything else is built from them.</p>
+<table>
+  <thead><tr><th scope="col">Object</th><th scope="col">What it is</th><th scope="col">Identified by</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Account</strong></td><td>A customer company. The unit of billing, health and every signal.</td><td><code>account_id</code></td></tr>
+    <tr><td><strong>User</strong></td><td>A person who belongs to one or more accounts.</td><td><code>user_id</code></td></tr>
+    <tr><td><strong>Event</strong></td><td>Something that happened, with a timestamp and properties.</td><td><code>event</code> + timestamp</td></tr>
+    <tr><td><strong>Signal</strong></td><td>A named condition over accounts, users and events.</td><td><code>signal_id</code></td></tr>
+  </tbody>
+</table>
+<p>Accounts are the centre of gravity. A user without an account is stored but invisible to signals, so identify the account first &mdash; ideally at signup, before any events are sent.</p>
+
+<h2 id="identify" class="anchor">Identifying accounts<a class="anchor__link" href="#identify" aria-label="Permalink to Identifying accounts"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M8.4 11.6a3.4 3.4 0 0 0 5 .3l2-2a3.4 3.4 0 1 0-4.8-4.8l-1.1 1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11.6 8.4a3.4 3.4 0 0 0-5-.3l-2 2a3.4 3.4 0 1 0 4.8 4.8l1.1-1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a></h2>
+<p>Call <code>identify</code> whenever an account or user trait changes. It is an upsert: the first call creates the record, later calls merge traits. Sending the same payload twice is free and harmless.</p>
+<div class="code-block">
+  <div class="code-block__head">
+    <span class="code-block__lang">identify.js</span>
+    <button type="button" class="copy-btn" data-copy aria-label="Copy identify.js snippet to clipboard"><svg width="13" height="13" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2.2" stroke="currentColor" stroke-width="1.5"/><path d="M13 4.6A1.6 1.6 0 0 0 11.4 3H4.6A1.6 1.6 0 0 0 3 4.6v6.8A1.6 1.6 0 0 0 4.6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span data-copy-label>Copy</span></button>
+  </div>
+  <pre><code><span class="tok-key">await</span> nw.accounts.<span class="tok-fn">identify</span>({
+  accountId: <span class="tok-str">'acct_harbourline'</span>,
+  traits: {
+    name:      <span class="tok-str">'Harbourline'</span>,
+    plan:      <span class="tok-str">'growth'</span>,
+    seats:     <span class="tok-num">48</span>,
+    mrr:       <span class="tok-num">4800</span>,
+    industry:  <span class="tok-str">'logistics'</span>,
+    createdAt: <span class="tok-str">'2024-02-11T09:14:00Z'</span>
+  }
+});
+
+<span class="tok-key">await</span> nw.users.<span class="tok-fn">identify</span>({
+  userId:    <span class="tok-str">'usr_8812'</span>,
+  accountId: <span class="tok-str">'acct_harbourline'</span>,
+  traits: { email: <span class="tok-str">'sara@harbourline.io'</span>, role: <span class="tok-str">'admin'</span> }
+});</code></pre>
+</div>
+<p>Traits accept strings, numbers, booleans and ISO&nbsp;8601 timestamps. Nested objects are flattened to one level with dot notation. Reserved trait names &mdash; <code>name</code>, <code>plan</code>, <code>mrr</code>, <code>seats</code>, <code>createdAt</code> &mdash; power the built-in signal library, so use them where they fit.</p>
+
+<blockquote>Identity resolution merges users across domains, SSO providers and shared inboxes automatically. If two records should not have merged, you can split them from the account settings screen and we will remember the decision.</blockquote>
+
+<h2 id="signals-api" class="anchor">Building signals<a class="anchor__link" href="#signals-api" aria-label="Permalink to Building signals"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M8.4 11.6a3.4 3.4 0 0 0 5 .3l2-2a3.4 3.4 0 1 0-4.8-4.8l-1.1 1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11.6 8.4a3.4 3.4 0 0 0-5-.3l-2 2a3.4 3.4 0 1 0 4.8 4.8l1.1-1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a></h2>
+<p>A signal is a named set of conditions plus a delivery target. You can build one in the visual editor or POST it to the API &mdash; both produce the same object, and the UI will happily show you a signal created over the API.</p>
+<div class="code-block">
+  <div class="code-block__head">
+    <span class="code-block__lang">signal.json</span>
+    <button type="button" class="copy-btn" data-copy aria-label="Copy signal.json snippet to clipboard"><svg width="13" height="13" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2.2" stroke="currentColor" stroke-width="1.5"/><path d="M13 4.6A1.6 1.6 0 0 0 11.4 3H4.6A1.6 1.6 0 0 0 3 4.6v6.8A1.6 1.6 0 0 0 4.6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span data-copy-label>Copy</span></button>
+  </div>
+  <pre><code>{
+  <span class="tok-str">"name"</span>: <span class="tok-str">"Champion went quiet"</span>,
+  <span class="tok-str">"severity"</span>: <span class="tok-str">"high"</span>,
+  <span class="tok-str">"evaluation"</span>: <span class="tok-str">"streaming"</span>,
+  <span class="tok-str">"conditions"</span>: [
+    {
+      <span class="tok-str">"subject"</span>: <span class="tok-str">"user.role"</span>,
+      <span class="tok-str">"operator"</span>: <span class="tok-str">"equals"</span>,
+      <span class="tok-str">"value"</span>: <span class="tok-str">"admin"</span>
+    },
+    {
+      <span class="tok-str">"subject"</span>: <span class="tok-str">"user.last_seen_at"</span>,
+      <span class="tok-str">"operator"</span>: <span class="tok-str">"older_than"</span>,
+      <span class="tok-str">"value"</span>: <span class="tok-str">"14d"</span>
+    },
+    {
+      <span class="tok-str">"subject"</span>: <span class="tok-str">"account.mrr"</span>,
+      <span class="tok-str">"operator"</span>: <span class="tok-str">"greater_than"</span>,
+      <span class="tok-str">"value"</span>: <span class="tok-num">1000</span>
+    }
+  ],
+  <span class="tok-str">"deliver_to"</span>: [<span class="tok-str">"slack:#cs-signals"</span>, <span class="tok-str">"salesforce:task"</span>]
+}</code></pre>
+</div>
+<p>Every visual signal compiles to SQL, which you can read at any time. This is deliberate: your data team should be able to audit a definition rather than rebuild it.</p>
+<div class="code-block">
+  <div class="code-block__head">
+    <span class="code-block__lang">SQL</span>
+    <button type="button" class="copy-btn" data-copy aria-label="Copy SQL snippet to clipboard"><svg width="13" height="13" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2.2" stroke="currentColor" stroke-width="1.5"/><path d="M13 4.6A1.6 1.6 0 0 0 11.4 3H4.6A1.6 1.6 0 0 0 3 4.6v6.8A1.6 1.6 0 0 0 4.6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span data-copy-label>Copy</span></button>
+  </div>
+  <pre><code><span class="tok-comment">-- the compiled form of the signal above</span>
+<span class="tok-key">SELECT</span> a.account_id
+<span class="tok-key">FROM</span>   accounts a
+<span class="tok-key">JOIN</span>   users u <span class="tok-key">ON</span> u.account_id = a.account_id
+<span class="tok-key">WHERE</span>  u.role = <span class="tok-str">'admin'</span>
+  <span class="tok-key">AND</span>  u.last_seen_at &lt; now() - <span class="tok-key">INTERVAL</span> <span class="tok-str">'14 days'</span>
+  <span class="tok-key">AND</span>  a.mrr &gt; <span class="tok-num">1000</span>
+<span class="tok-key">GROUP BY</span> a.account_id;</code></pre>
+</div>
+
+<h3 id="backtesting" class="anchor">Backtesting before you go live<a class="anchor__link" href="#backtesting" aria-label="Permalink to Backtesting before you go live"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M8.4 11.6a3.4 3.4 0 0 0 5 .3l2-2a3.4 3.4 0 1 0-4.8-4.8l-1.1 1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11.6 8.4a3.4 3.4 0 0 0-5-.3l-2 2a3.4 3.4 0 1 0 4.8 4.8l1.1-1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a></h3>
+<p>Call <code>POST /v1/signals/:id/backtest</code> to replay a signal against the last twelve months. The response returns firing counts per week and a sample of matched accounts, which is usually enough to tell whether the threshold is sensible before anyone is paged.</p>
+
+<h2 id="segments" class="anchor">Segments &amp; scoring<a class="anchor__link" href="#segments" aria-label="Permalink to Segments &amp; scoring"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M8.4 11.6a3.4 3.4 0 0 0 5 .3l2-2a3.4 3.4 0 1 0-4.8-4.8l-1.1 1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11.6 8.4a3.4 3.4 0 0 0-5-.3l-2 2a3.4 3.4 0 1 0 4.8 4.8l1.1-1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a></h2>
+<p>Segments are live queries over accounts. Membership updates within seconds of new events, so a segment is never stale in the way an exported list is.</p>
+<ul>
+  <li><strong>Filter segments</strong> return every account matching a condition set.</li>
+  <li><strong>Scored segments</strong> additionally rank members by a composite score built from adoption depth, feature breadth, support sentiment and billing health.</li>
+  <li><strong>Comparison</strong> puts two segments side by side to test whether a change actually moved retention.</li>
+</ul>
+<p>Every segment is addressable by the API and by reverse ETL, so the definition your CSMs work from is the same one your analysts query.</p>
+
+<h2 id="playbooks" class="anchor">Playbooks<a class="anchor__link" href="#playbooks" aria-label="Permalink to Playbooks"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M8.4 11.6a3.4 3.4 0 0 0 5 .3l2-2a3.4 3.4 0 1 0-4.8-4.8l-1.1 1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11.6 8.4a3.4 3.4 0 0 0-5-.3l-2 2a3.4 3.4 0 1 0 4.8 4.8l1.1-1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a></h2>
+<p>A playbook takes a firing signal and produces an action: a Slack message, a CRM task, a drafted email, or a webhook to something you built. Steps run in order, and any step can be gated behind human approval.</p>
+<ul>
+  <li><strong>Approval steps</strong> pause the run and notify a reviewer with the draft and full account context.</li>
+  <li><strong>Throttles</strong> cap how often an account or a recipient can be touched.</li>
+  <li><strong>Quiet hours</strong> respect each recipient&rsquo;s timezone, not the workspace&rsquo;s.</li>
+  <li><strong>Outcomes</strong> are recorded against the run so you can attribute saved ARR to a specific play.</li>
+</ul>
+
+<h2 id="warehouse" class="anchor">Warehouse sync<a class="anchor__link" href="#warehouse" aria-label="Permalink to Warehouse sync"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M8.4 11.6a3.4 3.4 0 0 0 5 .3l2-2a3.4 3.4 0 1 0-4.8-4.8l-1.1 1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11.6 8.4a3.4 3.4 0 0 0-5-.3l-2 2a3.4 3.4 0 1 0 4.8 4.8l1.1-1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a></h2>
+<p>Point Northwind at your warehouse instead of instrumenting from scratch. We read on the schedule you set, map your tables to our objects, and optionally write scores and signal history back out.</p>
+<table>
+  <thead><tr><th scope="col">Warehouse</th><th scope="col">Read</th><th scope="col">Reverse ETL</th><th scope="col">Auth</th></tr></thead>
+  <tbody>
+    <tr><td>Snowflake</td><td>Yes</td><td>Yes</td><td>Key pair or password</td></tr>
+    <tr><td>BigQuery</td><td>Yes</td><td>Yes</td><td>Service account</td></tr>
+    <tr><td>Redshift</td><td>Yes</td><td>Yes</td><td>IAM or password</td></tr>
+    <tr><td>Postgres</td><td>Yes</td><td>Yes</td><td>Password over TLS</td></tr>
+  </tbody>
+</table>
+<p>Sync definitions live in a YAML file you can keep in version control, so a schema change is a pull request rather than a support ticket.</p>
+
+<h2 id="events-api" class="anchor">Events API<a class="anchor__link" href="#events-api" aria-label="Permalink to Events API"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M8.4 11.6a3.4 3.4 0 0 0 5 .3l2-2a3.4 3.4 0 1 0-4.8-4.8l-1.1 1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11.6 8.4a3.4 3.4 0 0 0-5-.3l-2 2a3.4 3.4 0 1 0 4.8 4.8l1.1-1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a></h2>
+<p>The REST API accepts single events or batches of up to 500. Everything is idempotent on <code>event_id</code>; retrying a request that timed out is always safe.</p>
+<div class="code-block">
+  <div class="code-block__head">
+    <span class="code-block__lang">HTTP</span>
+    <button type="button" class="copy-btn" data-copy aria-label="Copy HTTP snippet to clipboard"><svg width="13" height="13" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2.2" stroke="currentColor" stroke-width="1.5"/><path d="M13 4.6A1.6 1.6 0 0 0 11.4 3H4.6A1.6 1.6 0 0 0 3 4.6v6.8A1.6 1.6 0 0 0 4.6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span data-copy-label>Copy</span></button>
+  </div>
+  <pre><code>POST /v1/events/batch HTTP/1.1
+Host: api.northwind.com
+Authorization: Bearer nw_live_••••••••
+Content-Type: application/json
+
+{
+  <span class="tok-str">"events"</span>: [
+    {
+      <span class="tok-str">"account_id"</span>: <span class="tok-str">"acct_harbourline"</span>,
+      <span class="tok-str">"event"</span>: <span class="tok-str">"report_exported"</span>,
+      <span class="tok-str">"timestamp"</span>: <span class="tok-str">"2026-08-14T10:22:04Z"</span>
+    },
+    {
+      <span class="tok-str">"account_id"</span>: <span class="tok-str">"acct_vantive"</span>,
+      <span class="tok-str">"event"</span>: <span class="tok-str">"seat_added"</span>,
+      <span class="tok-str">"timestamp"</span>: <span class="tok-str">"2026-08-14T10:22:09Z"</span>
+    }
+  ]
+}</code></pre>
+</div>
+<table>
+  <thead><tr><th scope="col">Field</th><th scope="col">Type</th><th scope="col">Required</th><th scope="col">Notes</th></tr></thead>
+  <tbody>
+    <tr><td><code>account_id</code></td><td>string</td><td>Yes*</td><td>*Required unless <code>user_id</code> is supplied and already mapped.</td></tr>
+    <tr><td><code>user_id</code></td><td>string</td><td>No</td><td>Attributes the event to a person.</td></tr>
+    <tr><td><code>event</code></td><td>string</td><td>Yes</td><td>Snake case recommended. Max 64 characters.</td></tr>
+    <tr><td><code>timestamp</code></td><td>ISO 8601</td><td>No</td><td>Defaults to receipt time. Backdating up to 2 years accepted.</td></tr>
+    <tr><td><code>properties</code></td><td>object</td><td>No</td><td>Max 64 keys, one level of nesting.</td></tr>
+  </tbody>
+</table>
+
+<h2 id="webhooks" class="anchor">Webhooks<a class="anchor__link" href="#webhooks" aria-label="Permalink to Webhooks"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M8.4 11.6a3.4 3.4 0 0 0 5 .3l2-2a3.4 3.4 0 1 0-4.8-4.8l-1.1 1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11.6 8.4a3.4 3.4 0 0 0-5-.3l-2 2a3.4 3.4 0 1 0 4.8 4.8l1.1-1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a></h2>
+<p>Subscribe to <code>signal.fired</code>, <code>signal.resolved</code>, <code>playbook.completed</code> and <code>account.score_changed</code>. Payloads are JSON and delivery is at-least-once, so make your handler idempotent on the event <code>id</code>.</p>
+<div class="code-block">
+  <div class="code-block__head">
+    <span class="code-block__lang">webhook payload</span>
+    <button type="button" class="copy-btn" data-copy aria-label="Copy webhook payload snippet to clipboard"><svg width="13" height="13" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2.2" stroke="currentColor" stroke-width="1.5"/><path d="M13 4.6A1.6 1.6 0 0 0 11.4 3H4.6A1.6 1.6 0 0 0 3 4.6v6.8A1.6 1.6 0 0 0 4.6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span data-copy-label>Copy</span></button>
+  </div>
+  <pre><code>{
+  <span class="tok-str">"id"</span>: <span class="tok-str">"evt_01J9Z4T7C2QK"</span>,
+  <span class="tok-str">"type"</span>: <span class="tok-str">"signal.fired"</span>,
+  <span class="tok-str">"created_at"</span>: <span class="tok-str">"2026-08-14T10:24:11Z"</span>,
+  <span class="tok-str">"data"</span>: {
+    <span class="tok-str">"signal"</span>: { <span class="tok-str">"id"</span>: <span class="tok-str">"sig_2f81"</span>, <span class="tok-str">"name"</span>: <span class="tok-str">"Champion went quiet"</span> },
+    <span class="tok-str">"account"</span>: { <span class="tok-str">"id"</span>: <span class="tok-str">"acct_vantive"</span>, <span class="tok-str">"name"</span>: <span class="tok-str">"Vantive Group"</span> },
+    <span class="tok-str">"severity"</span>: <span class="tok-str">"high"</span>,
+    <span class="tok-str">"explanation"</span>: {
+      <span class="tok-str">"triggering_events"</span>: [<span class="tok-str">"usr_5511:last_seen_at"</span>],
+      <span class="tok-str">"threshold"</span>: <span class="tok-str">"14d"</span>,
+      <span class="tok-str">"observed"</span>: <span class="tok-str">"21d"</span>
+    }
+  }
+}</code></pre>
+</div>
+
+<h3 id="verifying" class="anchor">Verifying signatures<a class="anchor__link" href="#verifying" aria-label="Permalink to Verifying signatures"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M8.4 11.6a3.4 3.4 0 0 0 5 .3l2-2a3.4 3.4 0 1 0-4.8-4.8l-1.1 1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11.6 8.4a3.4 3.4 0 0 0-5-.3l-2 2a3.4 3.4 0 1 0 4.8 4.8l1.1-1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a></h3>
+<p>Every delivery carries an <code>Nw-Signature</code> header of the form <code>t=1755168251,v1=&lt;hex&gt;</code>. Compute an HMAC-SHA256 of <code>{timestamp}.{raw_body}</code> with your endpoint secret and compare in constant time. Reject anything older than five minutes.</p>
+<div class="code-block">
+  <div class="code-block__head">
+    <span class="code-block__lang">verify.js</span>
+    <button type="button" class="copy-btn" data-copy aria-label="Copy verify.js snippet to clipboard"><svg width="13" height="13" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2.2" stroke="currentColor" stroke-width="1.5"/><path d="M13 4.6A1.6 1.6 0 0 0 11.4 3H4.6A1.6 1.6 0 0 0 3 4.6v6.8A1.6 1.6 0 0 0 4.6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span data-copy-label>Copy</span></button>
+  </div>
+  <pre><code><span class="tok-key">import</span> crypto <span class="tok-key">from</span> <span class="tok-str">'node:crypto'</span>;
+
+<span class="tok-key">function</span> <span class="tok-fn">verify</span>(rawBody, header, secret) {
+  <span class="tok-key">const</span> [ts, sig] = header.<span class="tok-fn">split</span>(<span class="tok-str">','</span>).<span class="tok-fn">map</span>(p =&gt; p.<span class="tok-fn">split</span>(<span class="tok-str">'='</span>)[<span class="tok-num">1</span>]);
+  <span class="tok-key">const</span> expected = crypto
+    .<span class="tok-fn">createHmac</span>(<span class="tok-str">'sha256'</span>, secret)
+    .<span class="tok-fn">update</span>(`${ts}.${rawBody}`)
+    .<span class="tok-fn">digest</span>(<span class="tok-str">'hex'</span>);
+  <span class="tok-key">return</span> crypto.<span class="tok-fn">timingSafeEqual</span>(<span class="tok-fn">Buffer</span>.<span class="tok-fn">from</span>(sig), <span class="tok-fn">Buffer</span>.<span class="tok-fn">from</span>(expected));
+}</code></pre>
+</div>
+<p>Failed deliveries are retried with exponential backoff for 24 hours. After that the endpoint is disabled and the workspace owner is emailed.</p>
+
+<h2 id="errors" class="anchor">Errors<a class="anchor__link" href="#errors" aria-label="Permalink to Errors"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M8.4 11.6a3.4 3.4 0 0 0 5 .3l2-2a3.4 3.4 0 1 0-4.8-4.8l-1.1 1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11.6 8.4a3.4 3.4 0 0 0-5-.3l-2 2a3.4 3.4 0 1 0 4.8 4.8l1.1-1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a></h2>
+<p>Errors return a machine-readable <code>code</code>, a human-readable <code>message</code>, a link to the relevant documentation, and a <code>request_id</code> that our support team can look up directly.</p>
+<div class="code-block">
+  <div class="code-block__head">
+    <span class="code-block__lang">HTTP 422</span>
+    <button type="button" class="copy-btn" data-copy aria-label="Copy HTTP 422 snippet to clipboard"><svg width="13" height="13" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2.2" stroke="currentColor" stroke-width="1.5"/><path d="M13 4.6A1.6 1.6 0 0 0 11.4 3H4.6A1.6 1.6 0 0 0 3 4.6v6.8A1.6 1.6 0 0 0 4.6 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span data-copy-label>Copy</span></button>
+  </div>
+  <pre><code>{
+  <span class="tok-str">"error"</span>: {
+    <span class="tok-str">"type"</span>: <span class="tok-str">"validation_error"</span>,
+    <span class="tok-str">"code"</span>: <span class="tok-str">"missing_account_id"</span>,
+    <span class="tok-str">"message"</span>: <span class="tok-str">"Every event must include account_id or user_id."</span>,
+    <span class="tok-str">"doc_url"</span>: <span class="tok-str">"https://northwind.example.com/docs.html#errors"</span>,
+    <span class="tok-str">"request_id"</span>: <span class="tok-str">"req_01J9Z4T7C2QK"</span>
+  }
+}</code></pre>
+</div>
+<table>
+  <thead><tr><th scope="col">Status</th><th scope="col">Type</th><th scope="col">What to do</th></tr></thead>
+  <tbody>
+    <tr><td><code>400</code></td><td>malformed_request</td><td>Fix the payload. Not retryable.</td></tr>
+    <tr><td><code>401</code></td><td>authentication_error</td><td>Check the key and the region.</td></tr>
+    <tr><td><code>403</code></td><td>permission_error</td><td>The key lacks the scope. Not retryable.</td></tr>
+    <tr><td><code>422</code></td><td>validation_error</td><td>A field failed validation. Not retryable.</td></tr>
+    <tr><td><code>429</code></td><td>rate_limit_error</td><td>Back off using <code>Retry-After</code>.</td></tr>
+    <tr><td><code>5xx</code></td><td>api_error</td><td>Retry with exponential backoff and jitter.</td></tr>
+  </tbody>
+</table>
+
+<h2 id="rate-limits" class="anchor">Rate limits<a class="anchor__link" href="#rate-limits" aria-label="Permalink to Rate limits"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M8.4 11.6a3.4 3.4 0 0 0 5 .3l2-2a3.4 3.4 0 1 0-4.8-4.8l-1.1 1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11.6 8.4a3.4 3.4 0 0 0-5-.3l-2 2a3.4 3.4 0 1 0 4.8 4.8l1.1-1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a></h2>
+<p>Limits are per workspace, not per key, and are returned on every response as <code>Nw-RateLimit-Remaining</code> and <code>Nw-RateLimit-Reset</code>.</p>
+<table>
+  <thead><tr><th scope="col">Endpoint group</th><th scope="col">Starter</th><th scope="col">Growth</th><th scope="col">Scale</th></tr></thead>
+  <tbody>
+    <tr><td>Event ingestion</td><td>100 / sec</td><td>1,000 / sec</td><td>10,000 / sec</td></tr>
+    <tr><td>Reads</td><td>20 / sec</td><td>100 / sec</td><td>500 / sec</td></tr>
+    <tr><td>Backtests</td><td>2 / hour</td><td>20 / hour</td><td>100 / hour</td></tr>
+  </tbody>
+</table>
+<p>Batching is the cheapest path to throughput: a batch of 500 events counts as one request against the ingestion limit.</p>
+
+<h2 id="versioning" class="anchor">Versioning<a class="anchor__link" href="#versioning" aria-label="Permalink to Versioning"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M8.4 11.6a3.4 3.4 0 0 0 5 .3l2-2a3.4 3.4 0 1 0-4.8-4.8l-1.1 1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11.6 8.4a3.4 3.4 0 0 0-5-.3l-2 2a3.4 3.4 0 1 0 4.8 4.8l1.1-1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a></h2>
+<p>The API is versioned by date. Your workspace is pinned to the version current when it was created, and you upgrade explicitly by sending an <code>Nw-Version</code> header.</p>
+<ul>
+  <li><strong>Additive changes</strong> &mdash; new fields, new endpoints &mdash; ship without a version bump. Write clients that ignore unknown fields.</li>
+  <li><strong>Breaking changes</strong> get a new dated version and are announced on the <a href="changelog.html">changelog</a> at least six months before the old one is retired.</li>
+  <li><strong>Deprecated fields</strong> continue to return values for the full notice period and are flagged with a <code>Nw-Deprecation</code> response header.</li>
+</ul>
+
+<h2 id="sdks" class="anchor">Official SDKs<a class="anchor__link" href="#sdks" aria-label="Permalink to Official SDKs"><svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M8.4 11.6a3.4 3.4 0 0 0 5 .3l2-2a3.4 3.4 0 1 0-4.8-4.8l-1.1 1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M11.6 8.4a3.4 3.4 0 0 0-5-.3l-2 2a3.4 3.4 0 1 0 4.8 4.8l1.1-1.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a></h2>
+<p>All SDKs are MIT licensed, developed in the open, and follow the same release cadence as the API.</p>
+<table>
+  <thead><tr><th scope="col">Language</th><th scope="col">Package</th><th scope="col">Use for</th></tr></thead>
+  <tbody>
+    <tr><td>Node.js</td><td><code>@northwind/node</code></td><td>Server-side ingestion, playbook webhooks</td></tr>
+    <tr><td>Browser</td><td><code>@northwind/js</code></td><td>Client-side events with a publishable key</td></tr>
+    <tr><td>Python</td><td><code>northwind</code></td><td>Batch jobs, data pipelines, notebooks</td></tr>
+    <tr><td>Go</td><td><code>go.northwind.dev/nw</code></td><td>High-throughput ingestion services</td></tr>
+    <tr><td>Ruby</td><td><code>northwind-ruby</code></td><td>Rails applications</td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout--info"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.25" stroke="currentColor" stroke-width="1.5"/><path d="M10 9v5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="10" cy="6.3" r="1" fill="currentColor"/></svg><div><p><strong>Something missing?</strong> The REST API is complete and documented &mdash; every SDK is a thin wrapper over it. If you build a client for another language, tell us and we will link it here.</p></div></div>
+
+<div class="docs-footer">
+  <p class="text-subtle small">Last updated 14 August 2026 &middot; API version 2026-08-01</p>
+  <div class="docs-pager">
+    <a href="changelog.html"><span>Next</span>Changelog <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</div>
+</article>
+    </div>
+
+    <aside class="docs-toc" aria-label="On this page" data-spy>
+      <p class="docs-toc__title">On this page</p>
+      <ul><li><a href="#introduction">Introduction</a></li><li><a href="#quickstart">Quickstart</a></li><li><a href="#concepts">Core concepts</a></li><li><a href="#identify">Identifying accounts</a></li><li><a href="#signals-api">Building signals</a></li><li><a href="#segments">Segments &amp; scoring</a></li><li><a href="#playbooks">Playbooks</a></li><li><a href="#warehouse">Warehouse sync</a></li><li><a href="#events-api">Events API</a></li><li><a href="#webhooks">Webhooks</a></li><li><a href="#errors">Errors</a></li><li><a href="#rate-limits">Rate limits</a></li><li><a href="#versioning">Versioning</a></li><li><a href="#sdks">Official SDKs</a></li></ul>
+    </aside>
+
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="container container--wide">
+    <div class="footer__top">
+      <div class="footer__about">
+        <a class="brand" href="index.html" aria-label="Northwind — home">
+          <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect width="32" height="32" rx="9" fill="currentColor" fill-opacity="0.12"/><path d="M10 23V9.5l12 13V9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Northwind</span>
+        </a>
+        <p>Northwind unifies product usage, billing and support into one account timeline, then tells your team exactly who to talk to today.</p>
+        <p class="tiny text-subtle" style="margin-top:1.25rem;display:flex;align-items:center;gap:.5rem;">
+          <span class="dot" aria-hidden="true"></span> All systems operational
+        </p>
+      </div>
+
+      <div class="footer__col">
+        <h3>Product</h3>
+        <ul>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="changelog.html">Changelog</a></li>
+          <li><a href="features.html#integrations">Integrations</a></li>
+          <li><a href="pricing.html#compare">Compare plans</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3>Developers</h3>
+        <ul>
+          <li><a href="docs.html">Documentation</a></li>
+          <li><a href="docs.html#quickstart">Quickstart</a></li>
+          <li><a href="docs.html#events-api">Events API</a></li>
+          <li><a href="docs.html#sdks">SDKs</a></li>
+          <li><a href="docs.html#webhooks">Webhooks</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="about.html#team">Team</a></li>
+          <li><a href="about.html#careers">Careers</a></li>
+          <li><a href="#press">Press kit</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="legal.html#privacy">Privacy policy</a></li>
+          <li><a href="legal.html#terms">Terms of service</a></li>
+          <li><a href="legal.html#subprocessors">Sub-processors</a></li>
+          <li><a href="legal.html#dpa">Data processing</a></li>
+          <li><a href="#security">Security</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; <span data-year>2026</span> Northwind Labs BV. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="legal.html#privacy">Privacy</a>
+        <a href="legal.html#terms">Terms</a>
+        <a href="legal.html#cookies">Cookies</a>
+      </div>
+      <div class="footer__social">
+        <a href="#x" aria-label="Northwind on X"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.1l-6.8 7.8L21.8 21h-6.2l-4.9-6.4L5.1 21H2l7.3-8.3L2.4 3h6.4l4.4 5.8L17.5 3zm-1.1 16.1h1.7L7.7 4.8H5.9l10.5 14.3z"/></svg></a>
+        <a href="#github" aria-label="Northwind on GitHub"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2a10 10 0 0 0-3.16 19.5c.5.09.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.93.83.09-.65.35-1.1.63-1.35-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2.2z"/></svg></a>
+        <a href="#linkedin" aria-label="Northwind on LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.2h4v11.3H3V9.2zm6.5 0h3.8v1.55h.05a4.2 4.2 0 0 1 3.78-2.08c4.04 0 4.79 2.66 4.79 6.12v5.71h-4v-5.06c0-1.21-.02-2.76-1.68-2.76-1.69 0-1.95 1.32-1.95 2.68v5.14h-3.99V9.2z"/></svg></a>
+        <a href="#rss" aria-label="Northwind changelog RSS feed"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="6.2" cy="17.8" r="2.2"/><path d="M4 4v3.2c6.96 0 12.6 5.64 12.6 12.6H20C20 11.1 12.9 4 4 4zm0 6.3v3.2c3.48 0 6.3 2.82 6.3 6.3h3.2c0-5.25-4.25-9.5-9.5-9.5z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

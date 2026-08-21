@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Models — context windows, capabilities and per-token pricing | Lumen</title>
+<meta name="description" content="Compare the Lumen model family: context windows from 8K to 1M tokens, capability matrix, measured latency and transparent per-million-token pricing.">
+<meta name="theme-color" content="#fcfbf9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0b0f" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://lumen.example.com/models.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumen">
+<meta property="og:url" content="https://lumen.example.com/models.html">
+<meta property="og:title" content="Models — context windows, capabilities and per-token pricing | Lumen">
+<meta property="og:description" content="Five models, one API. Compare context windows, capabilities, latency and price per million tokens.">
+<meta property="og:image" content="assets/og-models.png">
+<meta property="og:image:alt" content="The Lumen model comparison matrix.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Models — context windows, capabilities and per-token pricing | Lumen">
+<meta name="twitter:description" content="Five models, one API. Compare context, capability, latency and price.">
+<meta name="twitter:image" content="assets/og-models.png">
+
+<link rel="stylesheet" href="css/style.css">
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("lumen-theme");
+      if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Lumen model family",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Web",
+  "url": "https://lumen.example.com/models.html",
+  "description": "Five language models behind one API: lumen-flash, lumen-pro, lumen-max, lumen-embed and lumen-guard.",
+  "featureList": [
+    "Context windows from 8K to 1M tokens",
+    "Tool calling and parallel tool execution",
+    "Structured JSON output against a schema",
+    "Prompt caching at 90% discount",
+    "Vision input on flash, pro and max"
+  ],
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "EUR",
+    "lowPrice": "0.06",
+    "highPrice": "36.00",
+    "offerCount": "5"
+  }
+}
+</script>
+</head>
+
+<body class="full-height">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" data-header>
+  <div class="container container--wide">
+    <a class="brand" href="index.html" aria-label="Lumen — home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l1.9 4.9 4.9 1.9-4.9 1.9L10 15.2 8.1 10.3 3.2 8.4l4.9-1.9L10 1.6z"/><path d="M15.6 13.2l.8 2.1 2.1.8-2.1.8-.8 2.1-.8-2.1-2.1-.8 2.1-.8.8-2.1z" opacity=".55"/></svg>
+      </span>
+      Lumen
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Product</a>
+      <a href="playground.html">Playground</a>
+      <a href="models.html" aria-current="page">Models</a>
+      <a href="api.html">API</a>
+      <a href="pricing.html">Pricing</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="icon-moon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.5 11.8A6.8 6.8 0 018.2 3.5a6.8 6.8 0 108.3 8.3z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 1.8v1.8M10 16.4v1.8M18.2 10h-1.8M3.6 10H1.8M15.8 4.2l-1.3 1.3M5.5 14.5l-1.3 1.3M15.8 15.8l-1.3-1.3M5.5 5.5L4.2 4.2"/></svg>
+      </button>
+      <a class="btn btn--secondary btn--sm header-cta" href="api.html">Docs</a>
+      <a class="btn btn--primary btn--sm header-cta" href="waitlist.html">Start free</a>
+      <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav" data-mobile-nav>
+  <ul>
+    <li><a href="index.html">Product</a></li>
+    <li><a href="playground.html">Playground</a></li>
+    <li><a href="models.html" aria-current="page">Models</a></li>
+    <li><a href="api.html">API reference</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+  </ul>
+  <a class="btn btn--primary btn--block" href="waitlist.html">Start free</a>
+</div>
+
+<main id="main">
+
+  <section class="page-head">
+    <div class="container container--wide">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5L10.5 8 6 12.5"/></svg>
+        <span aria-current="page">Models</span>
+      </nav>
+      <p class="eyebrow">Model family</p>
+      <h1>Five models. One API. No renegotiation.</h1>
+      <p class="lead">
+        Swap models by changing a string. Prices are per million tokens, billed to the
+        token — no rounding up to the nearest thousand, no minimum spend, and cached
+        input costs 90% less.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================== MODEL CARDS ============================== -->
+  <section class="section" aria-labelledby="lineup-heading">
+    <div class="container container--wide">
+      <h2 class="sr-only" id="lineup-heading">The line-up</h2>
+
+      <div class="grid grid-3">
+        <article class="card card--pad-lg card--interactive reveal">
+          <div class="cluster mb-4" style="justify-content:space-between">
+            <h3 class="mono">lumen-flash</h3>
+            <span class="badge">Fastest</span>
+          </div>
+          <p>High-volume work where latency is the product: classification, routing, drafting, extraction. Roughly a quarter the price of pro at 85% of its quality on our internal evals.</p>
+          <div class="calc-lines" style="margin-top:var(--sp-5)">
+            <div class="calc-line"><span>Context</span><span>128K</span></div>
+            <div class="calc-line"><span>Input</span><span>€0.80 / M</span></div>
+            <div class="calc-line"><span>Output</span><span>€2.40 / M</span></div>
+          </div>
+        </article>
+
+        <article class="card card--pad-lg card--interactive reveal reveal-delay-1" style="border-color:color-mix(in srgb, var(--brand) 38%, var(--border))">
+          <div class="cluster mb-4" style="justify-content:space-between">
+            <h3 class="mono">lumen-pro</h3>
+            <span class="badge badge--brand">Recommended</span>
+          </div>
+          <p>The default for agents. Best-in-family tool calling, a 400K window that swallows an entire codebase or contract set, and the steadiest instruction-following we ship.</p>
+          <div class="calc-lines" style="margin-top:var(--sp-5)">
+            <div class="calc-line"><span>Context</span><span>400K</span></div>
+            <div class="calc-line"><span>Input</span><span>€2.60 / M</span></div>
+            <div class="calc-line"><span>Output</span><span>€10.40 / M</span></div>
+          </div>
+        </article>
+
+        <article class="card card--pad-lg card--interactive reveal reveal-delay-2">
+          <div class="cluster mb-4" style="justify-content:space-between">
+            <h3 class="mono">lumen-max</h3>
+            <span class="badge">Deepest</span>
+          </div>
+          <p>Extended reasoning for problems worth waiting on — migration plans, multi-document synthesis, adversarial review. Slower and dearer on purpose; use it selectively.</p>
+          <div class="calc-lines" style="margin-top:var(--sp-5)">
+            <div class="calc-line"><span>Context</span><span>1M</span></div>
+            <div class="calc-line"><span>Input</span><span>€9.00 / M</span></div>
+            <div class="calc-line"><span>Output</span><span>€36.00 / M</span></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="grid grid-2 mt-5">
+        <article class="card card--pad-lg card--interactive reveal">
+          <div class="cluster mb-4" style="justify-content:space-between">
+            <h3 class="mono">lumen-embed</h3>
+            <span class="badge">Retrieval</span>
+          </div>
+          <p>1,024-dimension embeddings for search, clustering and deduplication. Matryoshka-truncatable to 256 dimensions when index size matters more than the last point of recall. <strong>€0.06 / M input.</strong></p>
+        </article>
+
+        <article class="card card--pad-lg card--interactive reveal reveal-delay-1">
+          <div class="cluster mb-4" style="justify-content:space-between">
+            <h3 class="mono">lumen-guard</h3>
+            <span class="badge">Safety</span>
+          </div>
+          <p>A small classifier for policy screening on the way in and on the way out. Returns a label, a confidence and the matched policy clause — never free text. <strong>€0.20 / M input.</strong></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== SPEC TABLE ============================== -->
+  <section class="section section--subtle" aria-labelledby="specs-heading">
+    <div class="container container--wide">
+      <div class="section-head">
+        <p class="eyebrow">Specifications</p>
+        <h2 id="specs-heading">Context, latency and price</h2>
+        <p>Latency is measured p50 time-to-first-token from Frankfurt over the last 30 days, at a 4K-token prompt.</p>
+      </div>
+
+      <div class="table-wrap table-wrap--cards">
+        <div class="table-scroll">
+          <table class="table--hover table--cards table--fixed-first">
+            <caption>Lumen model specifications, updated 1 August 2026. Prices in EUR per million tokens.</caption>
+            <thead>
+              <tr>
+                <th scope="col">Model</th>
+                <th scope="col">Context</th>
+                <th scope="col">Max output</th>
+                <th scope="col">Input / M</th>
+                <th scope="col">Output / M</th>
+                <th scope="col">Cached input / M</th>
+                <th scope="col">p50 TTFT</th>
+                <th scope="col">Best for</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="mono">lumen-flash</th>
+                <td data-label="Context"><span class="cell-num">128K</span></td>
+                <td data-label="Max output"><span class="cell-num">8K</span></td>
+                <td data-label="Input / M"><span class="cell-num">€0.80</span></td>
+                <td data-label="Output / M"><span class="cell-num">€2.40</span></td>
+                <td data-label="Cached input / M"><span class="cell-num">€0.08</span></td>
+                <td data-label="p50 TTFT"><span class="cell-num">180 ms</span></td>
+                <td data-label="Best for">Classification, routing, extraction, first-draft replies</td>
+              </tr>
+              <tr>
+                <th scope="row" class="mono">lumen-pro</th>
+                <td data-label="Context"><span class="cell-num">400K</span></td>
+                <td data-label="Max output"><span class="cell-num">32K</span></td>
+                <td data-label="Input / M"><span class="cell-num">€2.60</span></td>
+                <td data-label="Output / M"><span class="cell-num">€10.40</span></td>
+                <td data-label="Cached input / M"><span class="cell-num">€0.26</span></td>
+                <td data-label="p50 TTFT"><span class="cell-num">210 ms</span></td>
+                <td data-label="Best for">Agents, tool use, long documents, production RAG</td>
+              </tr>
+              <tr>
+                <th scope="row" class="mono">lumen-max</th>
+                <td data-label="Context"><span class="cell-num">1M</span></td>
+                <td data-label="Max output"><span class="cell-num">64K</span></td>
+                <td data-label="Input / M"><span class="cell-num">€9.00</span></td>
+                <td data-label="Output / M"><span class="cell-num">€36.00</span></td>
+                <td data-label="Cached input / M"><span class="cell-num">€0.90</span></td>
+                <td data-label="p50 TTFT"><span class="cell-num">640 ms</span></td>
+                <td data-label="Best for">Extended reasoning, migrations, adversarial review</td>
+              </tr>
+              <tr>
+                <th scope="row" class="mono">lumen-embed</th>
+                <td data-label="Context"><span class="cell-num">8K</span></td>
+                <td data-label="Max output"><span class="subtle">—</span></td>
+                <td data-label="Input / M"><span class="cell-num">€0.06</span></td>
+                <td data-label="Output / M"><span class="subtle">—</span></td>
+                <td data-label="Cached input / M"><span class="subtle">—</span></td>
+                <td data-label="p50 TTFT"><span class="cell-num">40 ms</span></td>
+                <td data-label="Best for">Vector search, clustering, near-duplicate detection</td>
+              </tr>
+              <tr>
+                <th scope="row" class="mono">lumen-guard</th>
+                <td data-label="Context"><span class="cell-num">32K</span></td>
+                <td data-label="Max output"><span class="cell-num">1K</span></td>
+                <td data-label="Input / M"><span class="cell-num">€0.20</span></td>
+                <td data-label="Output / M"><span class="cell-num">€0.60</span></td>
+                <td data-label="Cached input / M"><span class="subtle">—</span></td>
+                <td data-label="p50 TTFT"><span class="cell-num">90 ms</span></td>
+                <td data-label="Best for">Policy screening, PII detection, jailbreak defence</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-note">
+          Cached input applies to any prefix repeated within five minutes — system prompts,
+          tool definitions and retrieved context all qualify. Most agent workloads land
+          between 60% and 80% cache hit rate.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== CAPABILITY MATRIX ============================== -->
+  <section class="section" aria-labelledby="caps-heading">
+    <div class="container container--wide">
+      <div class="section-head">
+        <p class="eyebrow">Capability matrix</p>
+        <h2 id="caps-heading">What each model can actually do</h2>
+        <p>Capabilities are enforced server-side. Calling one a model does not support returns <code>400 unsupported_capability</code> rather than degrading silently.</p>
+      </div>
+
+      <div class="table-wrap table-wrap--cards">
+        <div class="table-scroll">
+          <table class="table--hover table--cards table--fixed-first">
+            <caption>Feature support by model.</caption>
+            <thead>
+              <tr>
+                <th scope="col">Model</th>
+                <th scope="col">Tool calling</th>
+                <th scope="col">Parallel tools</th>
+                <th scope="col">Vision</th>
+                <th scope="col">JSON schema</th>
+                <th scope="col">Streaming</th>
+                <th scope="col">Prompt caching</th>
+                <th scope="col">Fine-tuning</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="mono">lumen-flash</th>
+                <td data-label="Tool calling"><span class="cell-yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span class="sr-only">Yes</span></span></td>
+                <td data-label="Parallel tools"><span class="cell-yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span class="sr-only">Yes</span></span></td>
+                <td data-label="Vision"><span class="cell-yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span class="sr-only">Yes</span></span></td>
+                <td data-label="JSON schema"><span class="cell-yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span class="sr-only">Yes</span></span></td>
+                <td data-label="Streaming"><span class="cell-yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span class="sr-only">Yes</span></span></td>
+                <td data-label="Prompt caching"><span class="cell-yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span class="sr-only">Yes</span></span></td>
+                <td data-label="Fine-tuning"><span class="cell-yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span class="sr-only">Yes</span></span></td>
+              </tr>
+              <tr>
+                <th scope="row" class="mono">lumen-pro</th>
+                <td data-label="Tool calling"><span class="cell-yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span class="sr-only">Yes</span></span></td>
+                <td data-label="Parallel tools"><span class="cell-yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span class="sr-only">Yes</span></span></td>
+                <td data-label="Vision"><span class="cell-yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span class="sr-only">Yes</span></span></td>
+                <td data-label="JSON schema"><span class="cell-yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span class="sr-only">Yes</span></span></td>
+                <td data-label="Streaming"><span class="cell-yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span class="sr-only">Yes</span></span></td>
+                <td data-label="Prompt caching"><span class="cell-yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span class="sr-only">Yes</span></span></td>
+                <td data-label="Fine-tuning"><span class="cell-yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span class="sr-only">Yes</span></span></td>
+              </tr>
+              <tr>
+                <th scope="row" class="mono">lumen-max</th>
+                <td data-label="Tool calling"><span class="cell-yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span class="sr-only">Yes</span></span></td>
+                <td data-label="Parallel tools"><span class="cell-yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span class="sr-only">Yes</span></span></td>
+                <td data-label="Vision"><span class="cell-yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span class="sr-only">Yes</span></span></td>
+                <td data-label="JSON schema"><span class="cell-yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span class="sr-only">Yes</span></span></td>
+                <td data-label="Streaming"><span class="cell-yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span class="sr-only">Yes</span></span></td>
+                <td data-label="Prompt caching"><span class="cell-yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span class="sr-only">Yes</span></span></td>
+                <td data-label="Fine-tuning"><span class="cell-no"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7"/></svg><span class="sr-only">No</span></span></td>
+              </tr>
+              <tr>
+                <th scope="row" class="mono">lumen-embed</th>
+                <td data-label="Tool calling"><span class="cell-no"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7"/></svg><span class="sr-only">No</span></span></td>
+                <td data-label="Parallel tools"><span class="cell-no"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7"/></svg><span class="sr-only">No</span></span></td>
+                <td data-label="Vision"><span class="cell-no"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7"/></svg><span class="sr-only">No</span></span></td>
+                <td data-label="JSON schema"><span class="cell-no"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7"/></svg><span class="sr-only">No</span></span></td>
+                <td data-label="Streaming"><span class="cell-no"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7"/></svg><span class="sr-only">No</span></span></td>
+                <td data-label="Prompt caching"><span class="cell-no"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7"/></svg><span class="sr-only">No</span></span></td>
+                <td data-label="Fine-tuning"><span class="cell-yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span class="sr-only">Yes</span></span></td>
+              </tr>
+              <tr>
+                <th scope="row" class="mono">lumen-guard</th>
+                <td data-label="Tool calling"><span class="cell-no"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7"/></svg><span class="sr-only">No</span></span></td>
+                <td data-label="Parallel tools"><span class="cell-no"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7"/></svg><span class="sr-only">No</span></span></td>
+                <td data-label="Vision"><span class="cell-yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span class="sr-only">Yes</span></span></td>
+                <td data-label="JSON schema"><span class="cell-yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span class="sr-only">Yes</span></span></td>
+                <td data-label="Streaming"><span class="cell-no"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7"/></svg><span class="sr-only">No</span></span></td>
+                <td data-label="Prompt caching"><span class="cell-no"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7"/></svg><span class="sr-only">No</span></span></td>
+                <td data-label="Fine-tuning"><span class="cell-yes"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg><span class="sr-only">Yes</span></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== CHOOSING ============================== -->
+  <section class="section section--subtle" aria-labelledby="choose-heading">
+    <div class="container">
+      <div class="split split--60-40">
+        <div>
+          <p class="eyebrow">Choosing</p>
+          <h2 id="choose-heading">Start on pro. Move down, not up.</h2>
+          <p class="lead mt-4">
+            Build against <code>lumen-pro</code> until the behaviour is right, then try
+            <code>lumen-flash</code> on the same evaluation set. Most teams find half their
+            traffic runs fine on flash — that is where the 31% average saving comes from.
+          </p>
+
+          <ol class="steps mt-7">
+            <li class="step">
+              <h3>Write the eval first</h3>
+              <p>Fifty real examples with the answer you want. Without it, a model change is a coin flip.</p>
+            </li>
+            <li class="step">
+              <h3>Route by difficulty</h3>
+              <p>Send the easy 60% to flash and escalate only when confidence drops below your threshold.</p>
+            </li>
+            <li class="step">
+              <h3>Reserve max for the rare case</h3>
+              <p>Deep reasoning on 2% of traffic barely moves the bill and noticeably moves quality.</p>
+            </li>
+          </ol>
+        </div>
+
+        <div class="code-block reveal">
+          <div class="code-head">
+            <span class="code-file">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M9 1.5H4.5A1.5 1.5 0 003 3v10a1.5 1.5 0 001.5 1.5h7A1.5 1.5 0 0013 13V5.5L9 1.5z"/><path d="M9 1.5V5.5H13"/></svg>
+              router.py
+            </span>
+            <button class="copy-btn" type="button" data-copy="#code-router" aria-label="Copy code sample">
+              <svg class="icon-copy" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="9" rx="1.6"/><path d="M10.5 5.5v-1A1.5 1.5 0 009 3H4a1.5 1.5 0 00-1.5 1.5v6A1.5 1.5 0 004 12h1"/></svg>
+              <svg class="icon-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>
+              <span data-copy-label>Copy</span>
+            </button>
+          </div>
+          <pre><code id="code-router"><span class="tok-com"># Escalate only when the cheap model is unsure.</span>
+<span class="tok-kw">def</span> <span class="tok-fn">answer</span><span class="tok-punc">(</span><span class="tok-var">question</span><span class="tok-punc">):</span>
+    <span class="tok-var">draft</span> <span class="tok-op">=</span> <span class="tok-var">client</span><span class="tok-punc">.</span><span class="tok-meth">run</span><span class="tok-punc">(</span>
+        <span class="tok-prop">model</span><span class="tok-op">=</span><span class="tok-str">"lumen-flash"</span><span class="tok-punc">,</span>
+        <span class="tok-prop">input</span><span class="tok-op">=</span><span class="tok-var">question</span><span class="tok-punc">,</span>
+        <span class="tok-prop">confidence</span><span class="tok-op">=</span><span class="tok-const">True</span><span class="tok-punc">,</span>
+    <span class="tok-punc">)</span>
+
+    <span class="tok-kw">if</span> <span class="tok-var">draft</span><span class="tok-punc">.</span><span class="tok-var">confidence</span> <span class="tok-op">&gt;=</span> <span class="tok-num">0.82</span><span class="tok-punc">:</span>
+        <span class="tok-kw">return</span> <span class="tok-var">draft</span>
+
+    <span class="tok-com"># ~9% of traffic reaches this line.</span>
+    <span class="tok-kw">return</span> <span class="tok-var">client</span><span class="tok-punc">.</span><span class="tok-meth">run</span><span class="tok-punc">(</span>
+        <span class="tok-prop">model</span><span class="tok-op">=</span><span class="tok-str">"lumen-pro"</span><span class="tok-punc">,</span>
+        <span class="tok-prop">input</span><span class="tok-op">=</span><span class="tok-var">question</span><span class="tok-punc">,</span>
+        <span class="tok-prop">context</span><span class="tok-op">=</span><span class="tok-var">draft</span><span class="tok-punc">.</span><span class="tok-var">reasoning</span><span class="tok-punc">,</span>
+    <span class="tok-punc">)</span></code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== RATE LIMITS ============================== -->
+  <section class="section" id="limits" aria-labelledby="limits-heading">
+    <div class="container container--wide">
+      <div class="section-head">
+        <p class="eyebrow">Rate limits</p>
+        <h2 id="limits-heading">Limits by plan</h2>
+        <p>Limits are per workspace, not per key. Hitting one returns <code>429</code> with a <code>Retry-After</code> header — the SDKs back off for you.</p>
+      </div>
+
+      <div class="table-wrap table-wrap--cards">
+        <div class="table-scroll">
+          <table class="table--hover table--cards table--fixed-first">
+            <caption>Requests per minute, tokens per minute and concurrency by plan.</caption>
+            <thead>
+              <tr>
+                <th scope="col">Plan</th>
+                <th scope="col">Requests / min</th>
+                <th scope="col">Tokens / min</th>
+                <th scope="col">Concurrent runs</th>
+                <th scope="col">Batch queue</th>
+                <th scope="col">Support</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Free</th>
+                <td data-label="Requests / min"><span class="cell-num">60</span></td>
+                <td data-label="Tokens / min"><span class="cell-num">40,000</span></td>
+                <td data-label="Concurrent runs"><span class="cell-num">4</span></td>
+                <td data-label="Batch queue"><span class="subtle">—</span></td>
+                <td data-label="Support">Community</td>
+              </tr>
+              <tr>
+                <th scope="row">Starter</th>
+                <td data-label="Requests / min"><span class="cell-num">600</span></td>
+                <td data-label="Tokens / min"><span class="cell-num">400,000</span></td>
+                <td data-label="Concurrent runs"><span class="cell-num">25</span></td>
+                <td data-label="Batch queue"><span class="cell-num">10K jobs</span></td>
+                <td data-label="Support">Email, 1 business day</td>
+              </tr>
+              <tr>
+                <th scope="row">Scale</th>
+                <td data-label="Requests / min"><span class="cell-num">4,000</span></td>
+                <td data-label="Tokens / min"><span class="cell-num">3,000,000</span></td>
+                <td data-label="Concurrent runs"><span class="cell-num">200</span></td>
+                <td data-label="Batch queue"><span class="cell-num">250K jobs</span></td>
+                <td data-label="Support">Shared Slack, 4 hours</td>
+              </tr>
+              <tr>
+                <th scope="row">Enterprise</th>
+                <td data-label="Requests / min"><span class="cell-num">Custom</span></td>
+                <td data-label="Tokens / min"><span class="cell-num">Custom</span></td>
+                <td data-label="Concurrent runs"><span class="cell-num">Custom</span></td>
+                <td data-label="Batch queue"><span class="cell-num">Unlimited</span></td>
+                <td data-label="Support">Named engineer, 1 hour</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-note">
+          Need more? Limits are soft above Starter — write to us with a traffic estimate and
+          we will raise them, usually the same day.
+        </p>
+      </div>
+
+      <div class="callout callout--info mt-6">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M10 9v4.5M10 6.4h.01"/></svg>
+        <div>
+          <strong>Batch runs cost 50% less</strong>
+          Anything that can wait an hour — nightly enrichment, backfills, evaluation sweeps —
+          belongs in the batch queue at half the per-token price.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Try every model on the free tier</h2>
+        <p>Five million tokens a month across the whole family, including max. No card, no quota negotiation.</p>
+        <div class="cluster cluster--center">
+          <a class="btn btn--primary btn--lg" href="waitlist.html">Get an API key</a>
+          <a class="btn btn--secondary btn--lg" href="pricing.html">Estimate your bill</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container container--wide">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a class="brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l1.9 4.9 4.9 1.9-4.9 1.9L10 15.2 8.1 10.3 3.2 8.4l4.9-1.9L10 1.6z"/><path d="M15.6 13.2l.8 2.1 2.1.8-2.1.8-.8 2.1-.8-2.1-2.1-.8 2.1-.8.8-2.1z" opacity=".55"/></svg>
+          </span>
+          Lumen
+        </a>
+        <p>The agent runtime for teams that have to ship, explain and defend their AI features.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Product</h3>
+        <ul>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="playground.html">Playground</a></li>
+          <li><a href="models.html">Models</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="waitlist.html">Get access</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Developers</h3>
+        <ul>
+          <li><a href="api.html">API reference</a></li>
+          <li><a href="api.html#authentication">Authentication</a></li>
+          <li><a href="api.html#errors">Error codes</a></li>
+          <li><a href="api.html#streaming">Streaming</a></li>
+          <li><a href="models.html#limits">Rate limits</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="index.html#why-heading">About</a></li>
+          <li><a href="index.html#proof-heading">Customers</a></li>
+          <li><a href="pricing.html#faq">FAQ</a></li>
+          <li><a href="waitlist.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span data-year>2026</span> Lumen Systems. A fictional product used for this template.</p>
+      <div class="footer-social">
+        <a class="icon-btn" href="#" aria-label="Lumen on X"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M12.6 3h2.4l-5.2 6 6.2 8h-4.9l-3.8-5-4.4 5H.5l5.6-6.4L.2 3h5l3.5 4.6L12.6 3zm-.9 12.6h1.4L5.4 4.3H3.9l7.8 11.3z"/></svg></a>
+        <a class="icon-btn" href="#" aria-label="Lumen on GitHub"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.3a8.7 8.7 0 00-2.8 17c.4.1.6-.2.6-.5v-1.7c-2.4.5-3-1.2-3-1.2-.4-1-1-1.3-1-1.3-.8-.5.1-.5.1-.5.9.1 1.3.9 1.3.9.8 1.3 2.1.9 2.6.7.1-.6.3-1 .6-1.2-1.9-.2-3.9-1-3.9-4.2 0-.9.3-1.7.9-2.3-.1-.2-.4-1.1.1-2.3 0 0 .7-.2 2.3.9a8 8 0 014.2 0c1.6-1.1 2.3-.9 2.3-.9.5 1.2.2 2.1.1 2.3.6.6.9 1.4.9 2.3 0 3.2-2 4-3.9 4.2.3.3.6.8.6 1.7v2.5c0 .3.2.6.6.5A8.7 8.7 0 0010 1.3z"/></svg></a>
+        <a class="icon-btn" href="#" aria-label="Lumen on LinkedIn"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5.4 17H2.6V7.4h2.8V17zM4 6.2A1.6 1.6 0 114 3a1.6 1.6 0 010 3.2zM17.4 17h-2.8v-4.7c0-1.1 0-2.6-1.6-2.6s-1.8 1.2-1.8 2.5V17H8.4V7.4h2.7v1.3h.1a3 3 0 012.7-1.5c2.9 0 3.5 1.9 3.5 4.4V17z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

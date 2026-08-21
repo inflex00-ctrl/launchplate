@@ -1,0 +1,119 @@
+AI PRODUCT KIT — TEMPLATE LICENCE
+=================================
+
+Version 1.0
+
+This licence governs your use of the AI Product Kit (the "Kit"): the HTML, CSS,
+JavaScript, SVG assets and documentation distributed together in this package.
+
+By using the Kit you accept these terms.
+
+
+1. GRANT OF LICENCE
+-------------------
+
+On purchase, you are granted a perpetual, worldwide, non-exclusive licence to use
+the Kit as described below. The licence is granted to one individual or one
+company, referred to here as "you".
+
+
+2. WHAT YOU MAY DO
+------------------
+
+2.1  Use the Kit in an unlimited number of projects, personal and commercial,
+     with no per-project fee.
+
+2.2  Use the Kit in work you produce for clients, and transfer the resulting
+     website, including its modified source, to that client.
+
+2.3  Modify the Kit in any way — colours, typography, layout, copy, structure,
+     code — and combine it with other work.
+
+2.4  Deploy the result publicly or privately, on any host, with no attribution
+     required. Attribution is welcome but never obligatory.
+
+2.5  Use the Kit in projects that are themselves sold, such as a SaaS product,
+     a client site or a commercial application.
+
+
+3. WHAT YOU MAY NOT DO
+----------------------
+
+3.1  You may not resell, relicense, sublicense, rent, lease or otherwise
+     redistribute the Kit itself, in whole or in substantial part, whether in its
+     original form or after modification, and whether for payment or for free.
+
+3.2  You may not distribute the Kit as a template, theme, starter, boilerplate,
+     UI kit or component library, including on template marketplaces, theme
+     shops, asset bundles, or as part of a "collection of templates" product.
+
+3.3  You may not make the Kit's source available in a form whose primary purpose
+     is for others to reuse it as a template — for example a public repository
+     presented as a template, or a downloadable starter.
+
+3.4  You may not claim to be the original author of the Kit, nor register any
+     trademark or claim any exclusive right in it.
+
+3.5  You may not use the Kit to create a product that competes directly with it,
+     meaning a template or theme product sold to developers or designers.
+
+The distinction that matters: you may sell what you BUILD with the Kit. You may
+not sell the Kit.
+
+
+4. TEAMS AND CONTRACTORS
+------------------------
+
+4.1  If the licensee is a company, all employees and contractors of that company
+     may use the Kit on that company's projects.
+
+4.2  A contractor working for several clients needs one licence, and may use the
+     Kit for all of those clients under clause 2.2.
+
+4.3  You may not share the Kit's files with third parties except as part of a
+     delivered project under clause 2.2.
+
+
+5. THIRD-PARTY CONTENT
+----------------------
+
+5.1  The Kit contains no third-party fonts, icon libraries or images. Typography
+     uses each operating system's own font stack; all icons and graphics were
+     created for this Kit and are covered by this licence.
+
+5.2  The product name "Lumen", along with all company names, customer quotes,
+     prices, performance figures and statistics in the demo content, are
+     fictional and provided for illustration only. Replace them before
+     publishing. Do not present the invented figures as claims about your own
+     product.
+
+
+6. NO WARRANTY
+--------------
+
+THE KIT IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHOR BE LIABLE
+FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT
+OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE KIT OR THE USE OR
+OTHER DEALINGS IN THE KIT.
+
+
+7. TERMINATION
+--------------
+
+This licence terminates automatically if you breach any of its terms. On
+termination you must stop using the Kit and delete your copies. Projects already
+delivered to clients before termination are unaffected.
+
+
+8. REFUNDS
+----------
+
+Because the Kit is delivered as source code that cannot be returned, all sales
+are final once the files have been downloaded, except where a refund is required
+by applicable consumer law.
+
+
+Questions about what this licence permits should be sent to the seller before you
+rely on an interpretation of it.

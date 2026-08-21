@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Changelog — Northwind</title>
+<meta name="description" content="Every Northwind release with version tags and change types. We ship roughly every two weeks and give six months notice before any breaking API change.">
+<meta name="theme-color" content="#0f7a68" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0d0e" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://northwind.example.com/changelog.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Northwind">
+<meta property="og:title" content="Changelog — Northwind">
+<meta property="og:description" content="Every Northwind release with version tags and change types. We ship roughly every two weeks and give six months notice before any breaking API change.">
+<meta property="og:url" content="https://northwind.example.com/changelog.html">
+<meta property="og:image" content="https://northwind.example.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Northwind — customer signals for product-led revenue teams">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@northwindhq">
+<meta name="twitter:title" content="Changelog — Northwind">
+<meta name="twitter:description" content="Every Northwind release with version tags and change types. We ship roughly every two weeks and give six months notice before any breaking API change.">
+<meta name="twitter:image" content="https://northwind.example.com/assets/og-image.png">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+<script>(function(){try{var t=localStorage.getItem("nw-theme");if(t==="dark"||t==="light"){document.documentElement.setAttribute("data-theme",t);document.documentElement.style.colorScheme=t;}}catch(e){}})();</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://northwind.example.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Changelog", "item": "https://northwind.example.com/changelog.html" }
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "name": "Northwind changelog",
+      "description": "Every Northwind release, in reverse chronological order, with version tags and change types.",
+      "url": "https://northwind.example.com/changelog.html",
+      "isPartOf": { "@type": "WebSite", "name": "Northwind", "url": "https://northwind.example.com/" },
+      "hasPart": [
+        {
+          "@type": "TechArticle",
+          "headline": "Signals v3 — continuous evaluation",
+          "datePublished": "2026-08-14",
+          "url": "https://northwind.example.com/changelog.html#v4-2-0",
+          "author": { "@type": "Organization", "name": "Northwind" }
+        },
+        {
+          "@type": "TechArticle",
+          "headline": "Reverse ETL is generally available",
+          "datePublished": "2026-07-29",
+          "url": "https://northwind.example.com/changelog.html#v4-1-0",
+          "author": { "@type": "Organization", "name": "Northwind" }
+        },
+        {
+          "@type": "TechArticle",
+          "headline": "Composite health scoring",
+          "datePublished": "2026-07-08",
+          "url": "https://northwind.example.com/changelog.html#v4-0-0",
+          "author": { "@type": "Organization", "name": "Northwind" }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header" data-scrolled="false">
+  <div class="container container--wide">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="Northwind — home">
+        <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect width="32" height="32" rx="9" fill="currentColor" fill-opacity="0.12"/><path d="M10 23V9.5l12 13V9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Northwind</span>
+      </a>
+      <ul class="nav__links"><li><a class="nav__link" href="features.html">Features</a></li><li><a class="nav__link" href="pricing.html">Pricing</a></li><li><a class="nav__link" href="docs.html">Docs</a></li><li><a class="nav__link" href="changelog.html" aria-current="page">Changelog</a></li><li><a class="nav__link" href="about.html">About</a></li></ul>
+      <span class="nav__spacer"></span>
+      <div class="nav__actions">
+        <button type="button" class="icon-btn theme-toggle" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6M18.7 18.7l-1.6-1.6M6.9 6.9 5.3 5.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.2A8.4 8.4 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        </button>
+        <a class="btn btn--secondary btn--sm" href="#signin">Sign in</a>
+        <a class="btn btn--primary btn--sm" href="#trial">Start free trial</a>
+        <button type="button" class="icon-btn nav__toggle" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open main menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav" data-open="false">
+  <div class="container">
+    <nav class="mobile-nav__list" aria-label="Mobile navigation"><a class="mobile-nav__link" href="features.html">Features<span class="text-subtle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a class="mobile-nav__link" href="pricing.html">Pricing<span class="text-subtle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a class="mobile-nav__link" href="docs.html">Docs<span class="text-subtle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a class="mobile-nav__link" href="changelog.html" aria-current="page">Changelog<span class="text-subtle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a class="mobile-nav__link" href="about.html">About<span class="text-subtle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></nav>
+    <div class="mobile-nav__actions">
+      <a class="btn btn--primary btn--lg btn--block" href="#trial">Start free trial</a>
+      <a class="btn btn--secondary btn--lg btn--block" href="#signin">Sign in</a>
+    </div>
+  </div>
+</div>
+<main id="main">
+
+<section class="page-hero" aria-labelledby="changelog-heading">
+  <div class="container">
+    <div class="page-hero__inner">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb">
+          <li><a href="index.html">Home</a></li>
+          <li>Changelog</li>
+        </ol>
+      </nav>
+      <h1 id="changelog-heading">Changelog</h1>
+      <p class="lede">Every change we ship, written by the people who shipped it. We release roughly every two weeks and never quietly remove anything.</p>
+      <div class="btn-row mt-6">
+        <a class="btn btn--secondary" href="#rss">Subscribe via RSS</a>
+        <a class="btn btn--ghost" href="docs.html#versioning">API versioning policy <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-label="Release history">
+  <div class="container">
+    <div class="with-aside">
+      <div class="changelog"><article class="release" id="v4-2-0">
+  <div class="release__meta">
+    <p class="release__date"><time datetime="2026-08-14">14 August 2026</time></p>
+    <p><span class="release__version release__version--latest">v4.2.0</span> <span class="badge badge--brand">Latest</span></p>
+  </div>
+  <div class="release__body">
+    <div class="release__tags"><span class="badge badge--brand">New</span><span class="badge badge--info">Improved</span><span class="badge badge--warn">Breaking</span></div>
+    <h2><a href="#v4-2-0" style="color:inherit;text-decoration:none">Signals v3 &mdash; continuous evaluation</a></h2>
+    <p>Signals no longer wait for a nightly job. Every account is now evaluated against every active condition as events arrive, with a median firing latency of 1.8 seconds. This is the largest change to the evaluation engine since launch, and it is live for every workspace.</p>
+    <div class="change-list"><div class="change"><span class="badge badge--brand">New</span><p><strong>Streaming evaluation.</strong> Conditions are checked as events land rather than on a schedule. Nightly evaluation remains available for signals that depend on billing state, which still settles daily.</p></div><div class="change"><span class="badge badge--brand">New</span><p><strong>Signal backtesting.</strong> Before activating a signal, replay it against the last twelve months of history to see how often it would have fired and against which accounts.</p></div><div class="change"><span class="badge badge--brand">New</span><p><strong>Firing explanations.</strong> Every firing now links to the specific events, thresholds and time windows that produced it. Available in the UI and on the API as <code>explanation</code>.</p></div><div class="change"><span class="badge badge--info">Improved</span><p>Signal editor now shows the compiled SQL for any condition built in the visual builder, so your data team can review rather than rebuild.</p></div><div class="change"><span class="badge badge--info">Improved</span><p>Throttle configuration moved to the signal level, with per-channel overrides. The old workspace-wide throttle is migrated automatically.</p></div><div class="change"><span class="badge badge--warn">Breaking</span><p>The <code>signals.evaluated_at</code> field is deprecated in favour of <code>signals.fired_at</code>. The old field continues to return values until <strong>1 February 2027</strong>.</p></div></div>
+  </div>
+</article><article class="release" id="v4-1-0">
+  <div class="release__meta">
+    <p class="release__date"><time datetime="2026-07-29">29 July 2026</time></p>
+    <p><span class="release__version">v4.1.0</span></p>
+  </div>
+  <div class="release__body">
+    <div class="release__tags"><span class="badge badge--brand">New</span><span class="badge badge--info">Improved</span><span class="badge badge--muted">Fixed</span></div>
+    <h2><a href="#v4-1-0" style="color:inherit;text-decoration:none">Reverse ETL is generally available</a></h2>
+    <p>Push scores, segment membership and signal history back into Snowflake, BigQuery, Redshift or Postgres on a schedule you control. Available on Scale and Enterprise plans after four months in private beta with 60 customers.</p>
+    <div class="change-list"><div class="change"><span class="badge badge--brand">New</span><p><strong>Reverse ETL destinations.</strong> Write <code>account_scores</code>, <code>segment_members</code> and <code>signal_events</code> back to a schema you nominate, with full-refresh or incremental modes.</p></div><div class="change"><span class="badge badge--brand">New</span><p><strong>dbt source generation.</strong> Northwind emits a <code>sources.yml</code> for the tables it writes, so downstream models pick them up without hand-editing.</p></div><div class="change"><span class="badge badge--info">Improved</span><p>Warehouse sync now supports key-pair authentication for Snowflake in addition to username and password.</p></div><div class="change"><span class="badge badge--info">Improved</span><p>Sync failures now surface the underlying warehouse error rather than a generic message. Long overdue.</p></div><div class="change"><span class="badge badge--muted">Fixed</span><p>Fixed a case where a sync that timed out mid-batch could double-count events for accounts whose IDs sorted last.</p></div></div>
+  </div>
+</article><article class="release" id="v4-0-0">
+  <div class="release__meta">
+    <p class="release__date"><time datetime="2026-07-08">8 July 2026</time></p>
+    <p><span class="release__version">v4.0.0</span></p>
+  </div>
+  <div class="release__body">
+    <div class="release__tags"><span class="badge badge--brand">New</span><span class="badge badge--warn">Breaking</span></div>
+    <h2><a href="#v4-0-0" style="color:inherit;text-decoration:none">Composite health scoring</a></h2>
+    <p>Health is now a weighted composite of adoption depth, feature breadth, support sentiment and billing health, rather than a single usage number. Existing scores are preserved under the name Usage score.</p>
+    <div class="change-list"><div class="change"><span class="badge badge--brand">New</span><p><strong>Composite scores.</strong> Define your own weights across four component dimensions, or start from one of three templates for PLG, seat-based and usage-based businesses.</p></div><div class="change"><span class="badge badge--brand">New</span><p><strong>Score history.</strong> Every account keeps a daily score series for two years, so you can chart the slope rather than argue about the number.</p></div><div class="change"><span class="badge badge--brand">New</span><p><strong>Cohort comparison.</strong> Compare score distributions between two segments to test whether an onboarding change actually moved retention.</p></div><div class="change"><span class="badge badge--warn">Breaking</span><p><code>account.health_score</code> now returns the composite score. Your previous values are available as <code>account.usage_score</code> with no change in definition.</p></div></div>
+  </div>
+</article><article class="release" id="v3-9-2">
+  <div class="release__meta">
+    <p class="release__date"><time datetime="2026-06-24">24 June 2026</time></p>
+    <p><span class="release__version">v3.9.2</span></p>
+  </div>
+  <div class="release__body">
+    <div class="release__tags"><span class="badge badge--ok">Security</span><span class="badge badge--muted">Fixed</span></div>
+    <h2><a href="#v3-9-2" style="color:inherit;text-decoration:none">Security hardening and session controls</a></h2>
+    <p>Our annual penetration test closed with no critical or high findings. Two medium findings are addressed here, along with new session controls requested by several Scale customers.</p>
+    <div class="change-list"><div class="change"><span class="badge badge--ok">Security</span><p><strong>Configurable session lifetime</strong> from 1 hour to 30 days, set per workspace. Idle timeout is now independent of absolute timeout.</p></div><div class="change"><span class="badge badge--ok">Security</span><p>Session tokens are now rotated on privilege change, so a role downgrade takes effect immediately rather than at next login.</p></div><div class="change"><span class="badge badge--ok">Security</span><p>Tightened the CSP on the application shell and removed the last two inline script exceptions.</p></div><div class="change"><span class="badge badge--muted">Fixed</span><p>Audit log export could omit entries from the final minute of the selected range. Fixed and backfilled for all affected workspaces.</p></div></div>
+  </div>
+</article><article class="release" id="v3-9-0">
+  <div class="release__meta">
+    <p class="release__date"><time datetime="2026-06-03">3 June 2026</time></p>
+    <p><span class="release__version">v3.9.0</span></p>
+  </div>
+  <div class="release__body">
+    <div class="release__tags"><span class="badge badge--brand">New</span><span class="badge badge--info">Improved</span></div>
+    <h2><a href="#v3-9-0" style="color:inherit;text-decoration:none">Playbook approval steps</a></h2>
+    <p>Automation is only useful if you trust it. Playbooks can now pause for a human before anything reaches a customer, with the draft, the reasoning and the account context in one review screen.</p>
+    <div class="change-list"><div class="change"><span class="badge badge--brand">New</span><p><strong>Approval steps.</strong> Insert a review gate anywhere in a playbook. Approvers are notified in Slack and can approve, edit or reject inline.</p></div><div class="change"><span class="badge badge--brand">New</span><p><strong>Draft editing.</strong> Generated emails can be edited before sending, and edits feed back into the template so the next draft is closer.</p></div><div class="change"><span class="badge badge--info">Improved</span><p>Playbook runs now show a full execution trace with timing for each step, which makes debugging a stalled play far less mysterious.</p></div><div class="change"><span class="badge badge--info">Improved</span><p>Quiet hours are now timezone-aware per recipient rather than per workspace.</p></div></div>
+  </div>
+</article><article class="release" id="v3-8-1">
+  <div class="release__meta">
+    <p class="release__date"><time datetime="2026-05-19">19 May 2026</time></p>
+    <p><span class="release__version">v3.8.1</span></p>
+  </div>
+  <div class="release__body">
+    <div class="release__tags"><span class="badge badge--info">Improved</span><span class="badge badge--muted">Fixed</span></div>
+    <h2><a href="#v3-8-1" style="color:inherit;text-decoration:none">Faster account search and timeline loading</a></h2>
+    <p>A round of performance work aimed at the two screens people open most. Account search is now roughly six times faster at the 95th percentile, and timelines render progressively instead of blocking.</p>
+    <div class="change-list"><div class="change"><span class="badge badge--info">Improved</span><p>Account search moved to a dedicated index. P95 query time dropped from 1,240ms to 190ms across all workspaces.</p></div><div class="change"><span class="badge badge--info">Improved</span><p>Timelines stream in reverse chronological pages rather than loading the full history before first paint.</p></div><div class="change"><span class="badge badge--info">Improved</span><p>Reduced the application bundle by 38% by removing a charting dependency we were using for exactly one sparkline.</p></div><div class="change"><span class="badge badge--muted">Fixed</span><p>Timeline entries from Zendesk could appear with the ticket creation time rather than the event time when the two differed across a day boundary.</p></div><div class="change"><span class="badge badge--muted">Fixed</span><p>Keyboard navigation skipped the filter bar on the segments screen for Safari users.</p></div></div>
+  </div>
+</article><article class="release" id="v3-8-0">
+  <div class="release__meta">
+    <p class="release__date"><time datetime="2026-04-28">28 April 2026</time></p>
+    <p><span class="release__version">v3.8.0</span></p>
+  </div>
+  <div class="release__body">
+    <div class="release__tags"><span class="badge badge--brand">New</span><span class="badge badge--info">Improved</span></div>
+    <h2><a href="#v3-8-0" style="color:inherit;text-decoration:none">EU data residency for every plan</a></h2>
+    <p>Choose Frankfurt or Virginia when you create a workspace. Residency now applies to event storage, backups, search indexes and logs &mdash; and it is included at no extra charge on every paid plan, not only Enterprise.</p>
+    <div class="change-list"><div class="change"><span class="badge badge--brand">New</span><p><strong>Per-workspace residency.</strong> Selected at creation and immutable afterwards, so there is never ambiguity about where a record lives.</p></div><div class="change"><span class="badge badge--brand">New</span><p><strong>Sub-processor notifications</strong> by email and RSS, 30 days before any change takes effect.</p></div><div class="change"><span class="badge badge--info">Improved</span><p>Data export now includes a machine-readable manifest listing every table, row count and checksum.</p></div></div>
+  </div>
+</article><article class="release" id="v3-7-0">
+  <div class="release__meta">
+    <p class="release__date"><time datetime="2026-04-02">2 April 2026</time></p>
+    <p><span class="release__version">v3.7.0</span></p>
+  </div>
+  <div class="release__body">
+    <div class="release__tags"><span class="badge badge--brand">New</span><span class="badge badge--muted">Fixed</span></div>
+    <h2><a href="#v3-7-0" style="color:inherit;text-decoration:none">HubSpot two-way sync</a></h2>
+    <p>HubSpot joins Salesforce with full two-way synchronisation: read company and deal properties into signals, write scores and signal events back onto the company record.</p>
+    <div class="change-list"><div class="change"><span class="badge badge--brand">New</span><p><strong>HubSpot two-way sync</strong> with field-level mapping and conflict rules you configure rather than inherit.</p></div><div class="change"><span class="badge badge--brand">New</span><p><strong>Deal-stage signals.</strong> Trigger on usage changes within an open opportunity, which turns out to be the single most requested signal we have shipped.</p></div><div class="change"><span class="badge badge--muted">Fixed</span><p>Salesforce sync no longer retries indefinitely on a permanently invalid field mapping. It now fails loudly after three attempts and tells you which field.</p></div></div>
+  </div>
+</article></div>
+
+      <aside>
+        <div class="subscribe-card">
+          <h3>Get the release notes</h3>
+          <p>One email per release. No newsletter, no marketing, unsubscribe in one click.</p>
+          <form class="inline-form" action="#subscribe" method="post" novalidate>
+            <label class="sr-only" for="release-email">Email address</label>
+            <input class="input" type="email" id="release-email" name="email" placeholder="you@company.com" autocomplete="email" required>
+            <button class="btn btn--primary" type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size:var(--step-0);margin-bottom:.75rem">Release cadence</h3>
+          <ul class="check-list" style="margin-top:0">
+            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Every two weeks</strong> for features and improvements</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Same day</strong> for security patches</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Six months notice</strong> before any breaking API change</span></li>
+          </ul>
+        </div>
+
+        <div class="callout callout--brand">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.25" stroke="currentColor" stroke-width="1.5"/><path d="M10 9v5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="10" cy="6.3" r="1" fill="currentColor"/></svg>
+          <div>
+            <p><strong>Following the API?</strong> Deprecations are announced here and on the <a href="docs.html#versioning">versioning page</a> at least six months ahead, with a migration guide for each one.</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="cta-heading">
+  <div class="container">
+    <div class="cta">
+      <h2 id="cta-heading">Stop finding out after renewal.</h2>
+      <p class="lede">Connect your product data in an afternoon. Northwind starts surfacing at-risk and expansion-ready accounts inside the first week &mdash; no data team required.</p>
+      <div class="btn-row btn-row--center">
+        <a class="btn btn--primary btn--lg" href="#trial">Start your 14-day trial <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="btn btn--secondary btn--lg" href="#demo">Book a 20-minute demo</a>
+      </div>
+      <p class="cta__note">No credit card &middot; Full product access &middot; Cancel in one click</p>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="container container--wide">
+    <div class="footer__top">
+      <div class="footer__about">
+        <a class="brand" href="index.html" aria-label="Northwind — home">
+          <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect width="32" height="32" rx="9" fill="currentColor" fill-opacity="0.12"/><path d="M10 23V9.5l12 13V9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Northwind</span>
+        </a>
+        <p>Northwind unifies product usage, billing and support into one account timeline, then tells your team exactly who to talk to today.</p>
+        <p class="tiny text-subtle" style="margin-top:1.25rem;display:flex;align-items:center;gap:.5rem;">
+          <span class="dot" aria-hidden="true"></span> All systems operational
+        </p>
+      </div>
+
+      <div class="footer__col">
+        <h3>Product</h3>
+        <ul>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="changelog.html">Changelog</a></li>
+          <li><a href="features.html#integrations">Integrations</a></li>
+          <li><a href="pricing.html#compare">Compare plans</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3>Developers</h3>
+        <ul>
+          <li><a href="docs.html">Documentation</a></li>
+          <li><a href="docs.html#quickstart">Quickstart</a></li>
+          <li><a href="docs.html#events-api">Events API</a></li>
+          <li><a href="docs.html#sdks">SDKs</a></li>
+          <li><a href="docs.html#webhooks">Webhooks</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="about.html#team">Team</a></li>
+          <li><a href="about.html#careers">Careers</a></li>
+          <li><a href="#press">Press kit</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="legal.html#privacy">Privacy policy</a></li>
+          <li><a href="legal.html#terms">Terms of service</a></li>
+          <li><a href="legal.html#subprocessors">Sub-processors</a></li>
+          <li><a href="legal.html#dpa">Data processing</a></li>
+          <li><a href="#security">Security</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; <span data-year>2026</span> Northwind Labs BV. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="legal.html#privacy">Privacy</a>
+        <a href="legal.html#terms">Terms</a>
+        <a href="legal.html#cookies">Cookies</a>
+      </div>
+      <div class="footer__social">
+        <a href="#x" aria-label="Northwind on X"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.1l-6.8 7.8L21.8 21h-6.2l-4.9-6.4L5.1 21H2l7.3-8.3L2.4 3h6.4l4.4 5.8L17.5 3zm-1.1 16.1h1.7L7.7 4.8H5.9l10.5 14.3z"/></svg></a>
+        <a href="#github" aria-label="Northwind on GitHub"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2a10 10 0 0 0-3.16 19.5c.5.09.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.93.83.09-.65.35-1.1.63-1.35-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2.2z"/></svg></a>
+        <a href="#linkedin" aria-label="Northwind on LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.2h4v11.3H3V9.2zm6.5 0h3.8v1.55h.05a4.2 4.2 0 0 1 3.78-2.08c4.04 0 4.79 2.66 4.79 6.12v5.71h-4v-5.06c0-1.21-.02-2.76-1.68-2.76-1.69 0-1.95 1.32-1.95 2.68v5.14h-3.99V9.2z"/></svg></a>
+        <a href="#rss" aria-label="Northwind changelog RSS feed"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="6.2" cy="17.8" r="2.2"/><path d="M4 4v3.2c6.96 0 12.6 5.64 12.6 12.6H20C20 11.1 12.9 4 4 4zm0 6.3v3.2c3.48 0 6.3 2.82 6.3 6.3h3.2c0-5.25-4.25-9.5-9.5-9.5z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

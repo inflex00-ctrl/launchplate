@@ -1,0 +1,126 @@
+SaaS Launch Kit — Standard Licence
+==================================
+
+This licence governs your use of the SaaS Launch Kit (the "Kit"): the HTML,
+CSS, JavaScript, image assets, documentation and copy contained in this
+package.
+
+By downloading, opening or using the Kit you agree to these terms.
+
+
+1. GRANT OF LICENCE
+-------------------
+
+Subject to the restrictions in section 2, you are granted a perpetual,
+worldwide, non-exclusive, non-transferable licence to:
+
+  a) Use the Kit in an unlimited number of personal projects.
+
+  b) Use the Kit in an unlimited number of commercial projects, including
+     projects that generate revenue.
+
+  c) Use the Kit in client work, including work for which you are paid, and
+     transfer the resulting end product to that client. The client receives
+     the end product; they do not receive a licence to the Kit itself.
+
+  d) Modify, adapt, extend, restyle and translate the Kit, and port it to
+     any framework, templating language or content management system, for
+     use in end products permitted by this licence.
+
+  e) Deploy end products built with the Kit to an unlimited number of
+     domains, indefinitely.
+
+  f) Continue using the Kit and any end product built with it after any
+     support or update period has ended.
+
+No attribution is required, though it is appreciated.
+
+
+2. RESTRICTIONS
+---------------
+
+You may NOT:
+
+  a) Resell, redistribute, sublicense, rent, lease, lend or give away the
+     Kit itself, in whole or in substantial part, whether modified or
+     unmodified, and whether for payment or free of charge.
+
+  b) Distribute the Kit, or a derivative of it, as a template, theme,
+     starter kit, boilerplate, UI library, component pack, page-builder
+     template, or any other product whose primary value to the recipient is
+     the design and code of the Kit rather than a finished end product.
+
+  c) Include the Kit in a bundle, marketplace listing, course package or
+     collection of templates offered to third parties.
+
+  d) Claim authorship of the original Kit, or represent it as your own
+     original template work when distributing it as a template.
+
+  e) Use the Kit to build a product or service that competes directly with
+     the Kit as a template offering.
+
+The distinction is this: you may build and sell anything you like WITH the
+Kit. You may not sell the Kit.
+
+
+3. END PRODUCTS
+---------------
+
+An "end product" is a finished website, web application, or other deliverable
+in which the Kit has been customised and combined with your own content,
+branding and functionality, and whose value to the end user comes from that
+combination rather than from the template code.
+
+A website for your company or your client is an end product.
+A theme sold on a marketplace is not.
+
+
+4. THIRD-PARTY CONTENT
+----------------------
+
+All copy, company names, people, quotations, statistics, logos and product
+details in the Kit are fictional and provided as placeholders for design
+purposes only. "Northwind", "Harbourline", "Vantive", "Merrow", "Northgate",
+"Cadence" and "Lumenly" are invented names and any resemblance to real
+organisations is coincidental. You are responsible for replacing all
+placeholder content before publishing.
+
+The legal text on legal.html is illustrative placeholder copy. It is NOT
+legal advice and must be replaced with documents prepared or reviewed by a
+qualified lawyer in your jurisdiction before publication.
+
+
+5. NO WARRANTY
+--------------
+
+THE KIT IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+
+
+6. LIMITATION OF LIABILITY
+--------------------------
+
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE KIT OR THE USE OR
+OTHER DEALINGS IN THE KIT.
+
+
+7. TERMINATION
+--------------
+
+This licence terminates automatically if you breach section 2. On
+termination you must stop distributing the Kit, though end products already
+built and deployed in compliance with this licence may remain in use.
+
+
+Summary
+-------
+
+  ALLOWED:     unlimited personal use, unlimited commercial use, client
+               work, modification, porting to any framework, unlimited
+               domains, no attribution required.
+
+  NOT ALLOWED: reselling or redistributing the Kit itself as a template,
+               theme, starter or component pack.

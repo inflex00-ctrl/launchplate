@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Northwind</title>
+<meta name="description" content="Northwind was founded in Amsterdam in 2021 by three people tired of finding out about churn after the renewal call. Meet the team and how we work.">
+<meta name="theme-color" content="#0f7a68" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0d0e" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://northwind.example.com/about.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Northwind">
+<meta property="og:title" content="About — Northwind">
+<meta property="og:description" content="Northwind was founded in Amsterdam in 2021 by three people tired of finding out about churn after the renewal call. Meet the team and how we work.">
+<meta property="og:url" content="https://northwind.example.com/about.html">
+<meta property="og:image" content="https://northwind.example.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Northwind — customer signals for product-led revenue teams">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@northwindhq">
+<meta name="twitter:title" content="About — Northwind">
+<meta name="twitter:description" content="Northwind was founded in Amsterdam in 2021 by three people tired of finding out about churn after the renewal call. Meet the team and how we work.">
+<meta name="twitter:image" content="https://northwind.example.com/assets/og-image.png">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+<script>(function(){try{var t=localStorage.getItem("nw-theme");if(t==="dark"||t==="light"){document.documentElement.setAttribute("data-theme",t);document.documentElement.style.colorScheme=t;}}catch(e){}})();</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://northwind.example.com/" },
+        { "@type": "ListItem", "position": 2, "name": "About", "item": "https://northwind.example.com/about.html" }
+      ]
+    },
+    {
+      "@type": "AboutPage",
+      "name": "About Northwind",
+      "url": "https://northwind.example.com/about.html",
+      "description": "Northwind was founded in 2021 by three people who were tired of finding out about churn after the renewal call. Here is who we are and how we work.",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "Northwind",
+        "legalName": "Northwind Labs BV",
+        "url": "https://northwind.example.com/",
+        "foundingDate": "2021-03-01",
+        "numberOfEmployees": { "@type": "QuantitativeValue", "value": 62 },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Keizersgracht 241",
+          "addressLocality": "Amsterdam",
+          "postalCode": "1016 EA",
+          "addressCountry": "NL"
+        },
+        "founder": [
+          { "@type": "Person", "name": "Elin Vasquez", "jobTitle": "Chief Executive Officer" },
+          { "@type": "Person", "name": "Jonas Feld", "jobTitle": "Chief Technology Officer" },
+          { "@type": "Person", "name": "Ama Boateng", "jobTitle": "Chief Product Officer" }
+        ]
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header" data-scrolled="false">
+  <div class="container container--wide">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="Northwind — home">
+        <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect width="32" height="32" rx="9" fill="currentColor" fill-opacity="0.12"/><path d="M10 23V9.5l12 13V9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Northwind</span>
+      </a>
+      <ul class="nav__links"><li><a class="nav__link" href="features.html">Features</a></li><li><a class="nav__link" href="pricing.html">Pricing</a></li><li><a class="nav__link" href="docs.html">Docs</a></li><li><a class="nav__link" href="changelog.html">Changelog</a></li><li><a class="nav__link" href="about.html" aria-current="page">About</a></li></ul>
+      <span class="nav__spacer"></span>
+      <div class="nav__actions">
+        <button type="button" class="icon-btn theme-toggle" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6M18.7 18.7l-1.6-1.6M6.9 6.9 5.3 5.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.2A8.4 8.4 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        </button>
+        <a class="btn btn--secondary btn--sm" href="#signin">Sign in</a>
+        <a class="btn btn--primary btn--sm" href="#trial">Start free trial</a>
+        <button type="button" class="icon-btn nav__toggle" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open main menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav" data-open="false">
+  <div class="container">
+    <nav class="mobile-nav__list" aria-label="Mobile navigation"><a class="mobile-nav__link" href="features.html">Features<span class="text-subtle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a class="mobile-nav__link" href="pricing.html">Pricing<span class="text-subtle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a class="mobile-nav__link" href="docs.html">Docs<span class="text-subtle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a class="mobile-nav__link" href="changelog.html">Changelog<span class="text-subtle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a class="mobile-nav__link" href="about.html" aria-current="page">About<span class="text-subtle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></nav>
+    <div class="mobile-nav__actions">
+      <a class="btn btn--primary btn--lg btn--block" href="#trial">Start free trial</a>
+      <a class="btn btn--secondary btn--lg btn--block" href="#signin">Sign in</a>
+    </div>
+  </div>
+</div>
+<main id="main">
+
+<section class="page-hero" aria-labelledby="about-heading">
+  <div class="container">
+    <div class="page-hero__inner">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb">
+          <li><a href="index.html">Home</a></li>
+          <li>About</li>
+        </ol>
+      </nav>
+      <h1 id="about-heading">We started Northwind because we kept losing customers we could have saved</h1>
+      <p class="lede">Sixty-two people across seven countries, building the tool the three of us needed and could not buy.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="story" aria-labelledby="story-heading">
+  <div class="container">
+    <div class="split">
+      <div class="split__body">
+        <span class="eyebrow">Our story</span>
+        <h2 id="story-heading">A $400,000 lesson</h2>
+        <p>In late 2020, an account worth four hundred thousand dollars a year told us they were not renewing. It was not a surprise to the data. Their admin had not logged in for six weeks, their support tickets had turned sour, and their seat count had quietly halved.</p>
+        <p class="mt-4">All of that was visible &mdash; in three separate tools, on three separate dashboards, none of which anyone opened on a Tuesday morning when there were meetings to attend. The information existed. Nobody was told.</p>
+        <p class="mt-4">We left three months later and started Northwind on the premise that the hard part is not analysis, it is delivery. The number on a dashboard changes nothing. A message that arrives in front of the right person, with the reason attached and the next step drafted, changes everything.</p>
+        <p class="mt-4">Five years on, the premise has held up. The product has grown a lot; the belief underneath it has not moved.</p>
+      </div>
+      <div class="split__media">
+        <div class="card" style="padding:0;overflow:hidden">
+          <div class="figure-band" style="grid-template-columns:minmax(0,1fr);gap:0;padding:0">
+            <div style="padding:2rem;border-bottom:1px solid var(--border)">
+              <div class="stat__value">2021</div>
+              <p class="stat__label">Founded in Amsterdam</p>
+            </div>
+            <div style="padding:2rem;border-bottom:1px solid var(--border)">
+              <div class="stat__value">62</div>
+              <p class="stat__label">People across 7 countries</p>
+            </div>
+            <div style="padding:2rem;border-bottom:1px solid var(--border)">
+              <div class="stat__value">1,400+</div>
+              <p class="stat__label">Companies running on Northwind</p>
+            </div>
+            <div style="padding:2rem">
+              <div class="stat__value">$18M</div>
+              <p class="stat__label">Series A, led by Kestrel Ventures</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="values" aria-labelledby="values-heading">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">How we work</span>
+      <h2 id="values-heading">Four things we actually do, not four words on a wall</h2>
+      <p class="lede">Every one of these has cost us something at least once. That is roughly how we know they are real.</p>
+    </div>
+    <div class="value-list"><div class="value">
+  <span class="feature-icon" style="margin:0"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.8" stroke="currentColor" stroke-width="1.6"/><path d="m15.4 8.6-2 4.8-4.8 2 2-4.8 4.8-2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+  <div><h3>Say the useful thing</h3><p>Vague status updates protect the person giving them and nobody else. We write plainly about what is broken, what slipped, and what we got wrong &mdash; internally, and in the postmortems we publish to customers.</p></div>
+</div><div class="value">
+  <span class="feature-icon" style="margin:0"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 3 8.4 4.4L12 11.8 3.6 7.4 12 3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m4.2 12 7.8 4.1 7.8-4.1M4.2 16.4l7.8 4.1 7.8-4.1" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+  <div><h3>Build the boring parts properly</h3><p>Audit logs, error messages, rate-limit headers, migration guides. Nobody buys software because of them and everybody suffers when they are missing. We treat them as features with owners and deadlines.</p></div>
+</div><div class="value">
+  <span class="feature-icon" style="margin:0"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="9.5" cy="8" r="3.4" stroke="currentColor" stroke-width="1.6"/><path d="M3.4 19.4a6.1 6.1 0 0 1 12.2 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M16.2 5.1a3.4 3.4 0 0 1 0 6.5M17.6 14.2a6.1 6.1 0 0 1 3 5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+  <div><h3>Customers are colleagues</h3><p>Every engineer does a support rotation. Every quarter, the whole company watches three recorded onboarding sessions in full, including the awkward parts. It is the cheapest research we do.</p></div>
+</div><div class="value">
+  <span class="feature-icon" style="margin:0"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.8 4.8 5.6v5.7c0 4.3 2.9 8.2 7.2 9.9 4.3-1.7 7.2-5.6 7.2-9.9V5.6L12 2.8z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m9.2 12 2 2 3.6-3.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  <div><h3>Earn the trust before you need it</h3><p>We publish our sub-processors, notify changes 30 days ahead, and put security controls on every paid plan. Selling governance as an upsell to the people who need it most has always struck us as backwards.</p></div>
+</div></div>
+  </div>
+</section>
+
+<section class="section" id="timeline" aria-labelledby="timeline-heading">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Milestones</span>
+      <h2 id="timeline-heading">Five years, briefly</h2>
+    </div>
+    <div class="timeline"><div class="milestone"><div class="milestone__year">2021</div><div><h3>Three people and a spreadsheet</h3><p>Elin, Jonas and Ama leave a Series C company after watching a $400k account churn that three separate dashboards had flagged, none of which anyone read. The first prototype is a cron job posting to Slack.</p></div></div><div class="milestone"><div class="milestone__year">2022</div><div><h3>First hundred customers</h3><p>Northwind launches publicly in March. The signal library grows from 4 to 22 entries, almost all of them suggested by customers who wanted something we had not thought of.</p></div></div><div class="milestone"><div class="milestone__year">2023</div><div><h3>Warehouse-native</h3><p>After the tenth customer asks us to read from Snowflake rather than be instrumented, we rebuild ingestion around the warehouse. It becomes the reason most teams choose us.</p></div></div><div class="milestone"><div class="milestone__year">2024</div><div><h3>SOC 2 and Europe</h3><p>We complete SOC&nbsp;2 Type&nbsp;II, open the Frankfurt region, and hire our first two people outside the Netherlands. The team reaches 30.</p></div></div><div class="milestone"><div class="milestone__year">2025</div><div><h3>Series A</h3><p>$18M led by Kestrel Ventures, with participation from every angel who backed the seed. We commit publicly to keeping security controls on all paid plans.</p></div></div><div class="milestone"><div class="milestone__year">2026</div><div><h3>Continuous evaluation</h3><p>Signals v3 ships streaming evaluation to every workspace. 1,400 companies now run their renewal and expansion motions on Northwind.</p></div></div></div>
+  </div>
+</section>
+
+<section class="section section--alt" id="team" aria-labelledby="team-heading">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Team</span>
+      <h2 id="team-heading">The people behind it</h2>
+      <p class="lede">A sample of the leadership team. The other fifty-four are on the careers page, which is a better read than this one.</p>
+    </div>
+    <div class="team-grid"><article class="member">
+  <div class="member__portrait" aria-hidden="true">EV</div>
+  <div>
+    <h3 class="member__name">Elin Vasquez</h3>
+    <p class="member__role">Co-founder &amp; CEO</p>
+    <p class="member__bio">Previously led customer success at two B2B platforms. Still takes support rotations.</p>
+  </div>
+</article><article class="member">
+  <div class="member__portrait" aria-hidden="true">JF</div>
+  <div>
+    <h3 class="member__name">Jonas Feld</h3>
+    <p class="member__role">Co-founder &amp; CTO</p>
+    <p class="member__bio">Built streaming infrastructure at a payments company. Wrote the first evaluation engine on a train.</p>
+  </div>
+</article><article class="member">
+  <div class="member__portrait" aria-hidden="true">AB</div>
+  <div>
+    <h3 class="member__name">Ama Boateng</h3>
+    <p class="member__role">Co-founder &amp; CPO</p>
+    <p class="member__bio">Spent six years in RevOps before deciding to build the tool she kept failing to buy.</p>
+  </div>
+</article><article class="member">
+  <div class="member__portrait" aria-hidden="true">MK</div>
+  <div>
+    <h3 class="member__name">Mira Kaufmann</h3>
+    <p class="member__role">VP Engineering</p>
+    <p class="member__bio">Runs the platform team. Champion of the boring-parts-properly value, and its main enforcer.</p>
+  </div>
+</article><article class="member">
+  <div class="member__portrait" aria-hidden="true">TR</div>
+  <div>
+    <h3 class="member__name">Tomas Ruiz</h3>
+    <p class="member__role">Head of Design</p>
+    <p class="member__bio">Responsible for the fact that the product has fewer screens than it did two years ago.</p>
+  </div>
+</article><article class="member">
+  <div class="member__portrait" aria-hidden="true">SL</div>
+  <div>
+    <h3 class="member__name">Sana Lindqvist</h3>
+    <p class="member__role">Head of Security</p>
+    <p class="member__bio">Led our SOC 2 programme. Answers your security questionnaire personally.</p>
+  </div>
+</article><article class="member">
+  <div class="member__portrait" aria-hidden="true">DP</div>
+  <div>
+    <h3 class="member__name">Divya Patel</h3>
+    <p class="member__role">Head of Data</p>
+    <p class="member__bio">Owns the scoring models and the argument about what &lsquo;active&rsquo; means.</p>
+  </div>
+</article><article class="member">
+  <div class="member__portrait" aria-hidden="true">NO</div>
+  <div>
+    <h3 class="member__name">Niall O'Brien</h3>
+    <p class="member__role">Head of Customer Success</p>
+    <p class="member__bio">Onboarded the first 200 customers by hand. Knows what breaks and when.</p>
+  </div>
+</article></div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="about-quote-heading">
+  <div class="container container--narrow">
+    <h2 class="sr-only" id="about-quote-heading">What working with us is like</h2>
+    <figure class="quote quote--feature">
+  <div class="quote__stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.4 5.1 5.6.8-4 3.9.95 5.6L10 14.4l-4.95 2.6L6 11.4 2 7.5l5.6-.8L10 1.6z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.4 5.1 5.6.8-4 3.9.95 5.6L10 14.4l-4.95 2.6L6 11.4 2 7.5l5.6-.8L10 1.6z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.4 5.1 5.6.8-4 3.9.95 5.6L10 14.4l-4.95 2.6L6 11.4 2 7.5l5.6-.8L10 1.6z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.4 5.1 5.6.8-4 3.9.95 5.6L10 14.4l-4.95 2.6L6 11.4 2 7.5l5.6-.8L10 1.6z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.4 5.1 5.6.8-4 3.9.95 5.6L10 14.4l-4.95 2.6L6 11.4 2 7.5l5.6-.8L10 1.6z"/></svg></div>
+  <blockquote>&ldquo;I have never had a vendor tell me, unprompted, that the feature I asked for was a bad idea and here is what we think you actually need. They were right. That conversation is why we renewed for three years.&rdquo;</blockquote>
+  <figcaption class="quote__person">
+    <span class="avatar avatar--brand" aria-hidden="true">NO</span>
+    <span>
+      <span class="quote__name">Hannah Whitlock</span><br>
+      <span class="quote__role">COO, Merrow Health</span>
+    </span>
+  </figcaption>
+</figure>
+  </div>
+</section>
+
+<section class="section section--alt" id="careers" aria-labelledby="careers-heading">
+  <div class="container">
+    <div class="with-aside">
+      <div>
+        <span class="eyebrow">Careers</span>
+        <h2 id="careers-heading">Open roles</h2>
+        <p class="lede mt-4 mb-8">We hire slowly and pay at the top of the band for the location. Every role is open to remote candidates within three hours of Central European Time unless it says otherwise.</p>
+        <div class="grid" style="gap:.75rem"><a class="card card--hover" href="#careers" style="display:flex;align-items:center;justify-content:space-between;gap:1.5rem;text-decoration:none;padding:1.15rem 1.35rem">
+  <span>
+    <span style="display:block;font-weight:620;color:var(--text-strong);font-size:var(--step-0)">Senior Backend Engineer</span>
+    <span class="small text-subtle">Engineering &middot; Amsterdam or remote (CET &plusmn;3)</span>
+  </span>
+  <span class="text-brand" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</a><a class="card card--hover" href="#careers" style="display:flex;align-items:center;justify-content:space-between;gap:1.5rem;text-decoration:none;padding:1.15rem 1.35rem">
+  <span>
+    <span style="display:block;font-weight:620;color:var(--text-strong);font-size:var(--step-0)">Product Designer</span>
+    <span class="small text-subtle">Design &middot; Amsterdam</span>
+  </span>
+  <span class="text-brand" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</a><a class="card card--hover" href="#careers" style="display:flex;align-items:center;justify-content:space-between;gap:1.5rem;text-decoration:none;padding:1.15rem 1.35rem">
+  <span>
+    <span style="display:block;font-weight:620;color:var(--text-strong);font-size:var(--step-0)">Solutions Engineer</span>
+    <span class="small text-subtle">Customer &middot; London or remote (UK)</span>
+  </span>
+  <span class="text-brand" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</a><a class="card card--hover" href="#careers" style="display:flex;align-items:center;justify-content:space-between;gap:1.5rem;text-decoration:none;padding:1.15rem 1.35rem">
+  <span>
+    <span style="display:block;font-weight:620;color:var(--text-strong);font-size:var(--step-0)">Data Engineer</span>
+    <span class="small text-subtle">Data &middot; Amsterdam or remote (CET &plusmn;3)</span>
+  </span>
+  <span class="text-brand" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</a><a class="card card--hover" href="#careers" style="display:flex;align-items:center;justify-content:space-between;gap:1.5rem;text-decoration:none;padding:1.15rem 1.35rem">
+  <span>
+    <span style="display:block;font-weight:620;color:var(--text-strong);font-size:var(--step-0)">Technical Writer</span>
+    <span class="small text-subtle">Product &middot; Remote (CET &plusmn;3)</span>
+  </span>
+  <span class="text-brand" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</a></div>
+      </div>
+      <aside>
+        <div class="card">
+          <h3 style="font-size:var(--step-0);margin-bottom:.9rem">How we hire</h3>
+          <ul class="check-list" style="margin-top:0">
+            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Four steps, three weeks.</strong> Never more.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Paid work sample</strong> instead of a take-home you do for free.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Salary in the ad.</strong> Always.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Feedback either way</strong> within two working days.</span></li>
+          </ul>
+        </div>
+        <div class="callout callout--brand">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.25" stroke="currentColor" stroke-width="1.5"/><path d="M10 9v5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="10" cy="6.3" r="1" fill="currentColor"/></svg>
+          <div><p><strong>Nothing that fits?</strong> Send us a note anyway. Two of our best hires arrived that way.</p></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="logos" aria-label="Customers">
+  <div class="container">
+    <p class="logos__label">The companies we get to work with</p>
+    <div class="logos__row"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v18M12 3a2.4 2.4 0 1 0 0 4.8A2.4 2.4 0 0 0 12 3zM5 13a7 7 0 0 0 14 0" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M7.5 9h9" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg><span>Harbourline</span></span><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="3.2" fill="currentColor"/></svg><span>Cadence</span></span><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20.5 2.8 4.5h18.4L12 20.5z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg><span>Vantive</span></span><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.6 20.4 7.3v9.4L12 21.4 3.6 16.7V7.3L12 2.6z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg><span>Merrow</span></span><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4.6" y="4.6" width="14.8" height="14.8" rx="2.4" transform="rotate(45 12 12)" stroke="currentColor" stroke-width="1.9"/></svg><span>Northgate</span></span><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.3" stroke="currentColor" stroke-width="1.9"/><path d="M12 2.4v2.6M12 19v2.6M21.6 12H19M5 12H2.4M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9M18.8 18.8l-1.9-1.9M7.1 7.1 5.2 5.2" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg><span>Lumenly</span></span></div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="cta-heading">
+  <div class="container">
+    <div class="cta">
+      <h2 id="cta-heading">Stop finding out after renewal.</h2>
+      <p class="lede">Connect your product data in an afternoon. Northwind starts surfacing at-risk and expansion-ready accounts inside the first week &mdash; no data team required.</p>
+      <div class="btn-row btn-row--center">
+        <a class="btn btn--primary btn--lg" href="#trial">Start your 14-day trial <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="btn btn--secondary btn--lg" href="#demo">Book a 20-minute demo</a>
+      </div>
+      <p class="cta__note">No credit card &middot; Full product access &middot; Cancel in one click</p>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="container container--wide">
+    <div class="footer__top">
+      <div class="footer__about">
+        <a class="brand" href="index.html" aria-label="Northwind — home">
+          <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect width="32" height="32" rx="9" fill="currentColor" fill-opacity="0.12"/><path d="M10 23V9.5l12 13V9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Northwind</span>
+        </a>
+        <p>Northwind unifies product usage, billing and support into one account timeline, then tells your team exactly who to talk to today.</p>
+        <p class="tiny text-subtle" style="margin-top:1.25rem;display:flex;align-items:center;gap:.5rem;">
+          <span class="dot" aria-hidden="true"></span> All systems operational
+        </p>
+      </div>
+
+      <div class="footer__col">
+        <h3>Product</h3>
+        <ul>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="changelog.html">Changelog</a></li>
+          <li><a href="features.html#integrations">Integrations</a></li>
+          <li><a href="pricing.html#compare">Compare plans</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3>Developers</h3>
+        <ul>
+          <li><a href="docs.html">Documentation</a></li>
+          <li><a href="docs.html#quickstart">Quickstart</a></li>
+          <li><a href="docs.html#events-api">Events API</a></li>
+          <li><a href="docs.html#sdks">SDKs</a></li>
+          <li><a href="docs.html#webhooks">Webhooks</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="about.html#team">Team</a></li>
+          <li><a href="about.html#careers">Careers</a></li>
+          <li><a href="#press">Press kit</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="legal.html#privacy">Privacy policy</a></li>
+          <li><a href="legal.html#terms">Terms of service</a></li>
+          <li><a href="legal.html#subprocessors">Sub-processors</a></li>
+          <li><a href="legal.html#dpa">Data processing</a></li>
+          <li><a href="#security">Security</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; <span data-year>2026</span> Northwind Labs BV. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="legal.html#privacy">Privacy</a>
+        <a href="legal.html#terms">Terms</a>
+        <a href="legal.html#cookies">Cookies</a>
+      </div>
+      <div class="footer__social">
+        <a href="#x" aria-label="Northwind on X"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.1l-6.8 7.8L21.8 21h-6.2l-4.9-6.4L5.1 21H2l7.3-8.3L2.4 3h6.4l4.4 5.8L17.5 3zm-1.1 16.1h1.7L7.7 4.8H5.9l10.5 14.3z"/></svg></a>
+        <a href="#github" aria-label="Northwind on GitHub"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2a10 10 0 0 0-3.16 19.5c.5.09.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.93.83.09-.65.35-1.1.63-1.35-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2.2z"/></svg></a>
+        <a href="#linkedin" aria-label="Northwind on LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.2h4v11.3H3V9.2zm6.5 0h3.8v1.55h.05a4.2 4.2 0 0 1 3.78-2.08c4.04 0 4.79 2.66 4.79 6.12v5.71h-4v-5.06c0-1.21-.02-2.76-1.68-2.76-1.69 0-1.95 1.32-1.95 2.68v5.14h-3.99V9.2z"/></svg></a>
+        <a href="#rss" aria-label="Northwind changelog RSS feed"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="6.2" cy="17.8" r="2.2"/><path d="M4 4v3.2c6.96 0 12.6 5.64 12.6 12.6H20C20 11.1 12.9 4 4 4zm0 6.3v3.2c3.48 0 6.3 2.82 6.3 6.3h3.2c0-5.25-4.25-9.5-9.5-9.5z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

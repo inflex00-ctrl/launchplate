@@ -1,0 +1,92 @@
+STUDIO & PORTFOLIO KIT ("MERIDIAN")
+Standard Licence — v1.0
+
+This licence is granted to the individual or single company that purchased the
+kit (the "Licensee"). It is perpetual, worldwide, non-exclusive and
+non-transferable.
+
+
+1. WHAT YOU MAY DO
+
+1.1  Use the kit to build an unlimited number of websites, for yourself or for
+     your employer.
+
+1.2  Use the kit for paid client work, on an unlimited number of client
+     projects, and charge whatever you wish for that work.
+
+1.3  Modify, extend, restyle, rewrite, translate and recombine any part of the
+     kit — HTML, CSS, JavaScript, copy, artwork — without restriction.
+
+1.4  Deploy the resulting websites on unlimited domains, publicly or privately,
+     commercially or otherwise.
+
+1.5  Hand the resulting website files to your client as part of the deliverable
+     for their project, including source files.
+
+1.6  Keep using the kit indefinitely. There is no subscription, no expiry and no
+     attribution requirement. Attribution is welcome but never required.
+
+
+2. WHAT YOU MAY NOT DO
+
+2.1  Resell, sublicense, rent, lease, share or give away the kit itself, in
+     whole or in substantial part, whether modified or unmodified.
+
+2.2  Distribute the kit — or a derivative whose primary value is the template
+     files — through any marketplace, theme shop, template directory, asset
+     bundle, membership library, course download or public repository.
+
+2.3  Offer the kit, or a lightly modified version of it, as your own template,
+     theme or starter product.
+
+2.4  Use the kit to build a website-builder, theme generator or similar service
+     whose output is substantially this template.
+
+2.5  Represent yourself as the original author of the kit.
+
+The distinction is simple: you may sell what you BUILD with the kit; you may not
+sell the KIT.
+
+
+3. TEAMS AND AGENCIES
+
+3.1  One licence covers one individual, or one company of any size, provided the
+     kit is used only by that company's own staff on that company's own projects
+     and client work.
+
+3.2  It does not extend to contractors or partner agencies working on their own
+     separate projects. They need their own licence.
+
+
+4. THIRD-PARTY CONTENT
+
+4.1  The kit contains no third-party fonts, images, icons or libraries. All
+     typography uses system font stacks; all imagery is generated from CSS; all
+     icons are original inline SVG. Nothing here requires a further licence.
+
+4.2  The demo content — the studio "Meridian", its projects, clients, staff,
+     awards, testimonials, prices and statistics — is fictional and provided for
+     demonstration only. The Licensee must replace it before publication and
+     must not present it as factual.
+
+
+5. WARRANTY AND LIABILITY
+
+5.1  The kit is provided "as is", without warranty of any kind, express or
+     implied, including but not limited to the warranties of merchantability,
+     fitness for a particular purpose and non-infringement.
+
+5.2  In no event shall the author be liable for any claim, damages or other
+     liability, whether in an action of contract, tort or otherwise, arising
+     from, out of or in connection with the kit or its use.
+
+
+6. TERMINATION
+
+6.1  This licence terminates automatically if the Licensee breaches section 2.
+     On termination the Licensee must cease distributing the kit; websites
+     already built and deployed under this licence are unaffected.
+
+
+Questions about a use case not covered above should be directed to the seller
+before you rely on it.

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Northwind — turn product usage into revenue you can see coming</title>
+<meta name="description" content="Northwind unifies product usage, billing and support into one account timeline, then tells your revenue team exactly which customers to act on today. Live in an afternoon.">
+<meta name="theme-color" content="#0f7a68" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0d0e" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://northwind.example.com/index.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Northwind">
+<meta property="og:title" content="Northwind — turn product usage into revenue you can see coming">
+<meta property="og:description" content="Northwind unifies product usage, billing and support into one account timeline, then tells your revenue team exactly which customers to act on today. Live in an afternoon.">
+<meta property="og:url" content="https://northwind.example.com/index.html">
+<meta property="og:image" content="https://northwind.example.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Northwind — customer signals for product-led revenue teams">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@northwindhq">
+<meta name="twitter:title" content="Northwind — turn product usage into revenue you can see coming">
+<meta name="twitter:description" content="Northwind unifies product usage, billing and support into one account timeline, then tells your revenue team exactly which customers to act on today. Live in an afternoon.">
+<meta name="twitter:image" content="https://northwind.example.com/assets/og-image.png">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+<script>(function(){try{var t=localStorage.getItem("nw-theme");if(t==="dark"||t==="light"){document.documentElement.setAttribute("data-theme",t);document.documentElement.style.colorScheme=t;}}catch(e){}})();</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://northwind.example.com/#organization",
+      "name": "Northwind",
+      "legalName": "Northwind Labs BV",
+      "url": "https://northwind.example.com/",
+      "logo": "https://northwind.example.com/assets/og-image.png",
+      "email": "hello@northwind.example.com",
+      "foundingDate": "2021-03-01",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Keizersgracht 241",
+        "addressLocality": "Amsterdam",
+        "postalCode": "1016 EA",
+        "addressCountry": "NL"
+      },
+      "sameAs": [
+        "https://x.com/northwindhq",
+        "https://www.linkedin.com/company/northwindhq",
+        "https://github.com/northwindhq"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://northwind.example.com/#website",
+      "url": "https://northwind.example.com/",
+      "name": "Northwind",
+      "publisher": { "@id": "https://northwind.example.com/#organization" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Northwind",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "Northwind unifies product usage, billing and support data into one account timeline and tells revenue teams which customers to act on today.",
+      "url": "https://northwind.example.com/",
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "29",
+        "highPrice": "249",
+        "offerCount": "3"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "312",
+        "bestRating": "5"
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header" data-scrolled="false">
+  <div class="container container--wide">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="Northwind — home">
+        <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect width="32" height="32" rx="9" fill="currentColor" fill-opacity="0.12"/><path d="M10 23V9.5l12 13V9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Northwind</span>
+      </a>
+      <ul class="nav__links"><li><a class="nav__link" href="features.html">Features</a></li><li><a class="nav__link" href="pricing.html">Pricing</a></li><li><a class="nav__link" href="docs.html">Docs</a></li><li><a class="nav__link" href="changelog.html">Changelog</a></li><li><a class="nav__link" href="about.html">About</a></li></ul>
+      <span class="nav__spacer"></span>
+      <div class="nav__actions">
+        <button type="button" class="icon-btn theme-toggle" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6M18.7 18.7l-1.6-1.6M6.9 6.9 5.3 5.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.2A8.4 8.4 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        </button>
+        <a class="btn btn--secondary btn--sm" href="#signin">Sign in</a>
+        <a class="btn btn--primary btn--sm" href="#trial">Start free trial</a>
+        <button type="button" class="icon-btn nav__toggle" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open main menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav" data-open="false">
+  <div class="container">
+    <nav class="mobile-nav__list" aria-label="Mobile navigation"><a class="mobile-nav__link" href="features.html">Features<span class="text-subtle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a class="mobile-nav__link" href="pricing.html">Pricing<span class="text-subtle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a class="mobile-nav__link" href="docs.html">Docs<span class="text-subtle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a class="mobile-nav__link" href="changelog.html">Changelog<span class="text-subtle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a class="mobile-nav__link" href="about.html">About<span class="text-subtle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></nav>
+    <div class="mobile-nav__actions">
+      <a class="btn btn--primary btn--lg btn--block" href="#trial">Start free trial</a>
+      <a class="btn btn--secondary btn--lg btn--block" href="#signin">Sign in</a>
+    </div>
+  </div>
+</div>
+<main id="main">
+
+<!-- ============================ HERO ============================ -->
+<section class="hero texture" aria-labelledby="hero-heading">
+  <div class="container">
+    <div class="hero__inner">
+      <a class="pill" href="changelog.html">
+        <span class="pill__tag">New</span>
+        <span>Signals v3 &mdash; continuous evaluation</span>
+        <span class="pill__arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+
+      <h1 class="display" id="hero-heading">Know which account to call<br class="hide-sm"> before the renewal call.</h1>
+
+      <p class="lede">Northwind unifies product usage, billing and support into a single account timeline &mdash; then tells your revenue team exactly who to act on today, and what to say.</p>
+
+      <div class="btn-row btn-row--center">
+        <a class="btn btn--primary btn--lg" href="#trial">Start free trial <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="btn btn--secondary btn--lg" href="#demo">Watch 2-minute tour</a>
+      </div>
+
+      <div class="hero__note">
+        <span><svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.25" stroke="currentColor" stroke-width="1.5"/><path d="M6.4 10.2 8.9 12.7 13.6 7.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> 14 days free</span>
+        <span><svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.25" stroke="currentColor" stroke-width="1.5"/><path d="M6.4 10.2 8.9 12.7 13.6 7.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> No credit card</span>
+        <span><svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.25" stroke="currentColor" stroke-width="1.5"/><path d="M6.4 10.2 8.9 12.7 13.6 7.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Live in an afternoon</span>
+      </div>
+    </div>
+
+    <div class="hero__visual">
+      <div class="mock" role="img" aria-label="Northwind dashboard showing account health signals, expansion-ready accounts and a 30-day activation trend">
+  <div class="mock__bar" aria-hidden="true">
+    <span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span>
+    <span class="mock__url">app.northwind.com/signals</span>
+  </div>
+  <div class="mock__body" aria-hidden="true">
+    <div class="mock__side">
+      <div class="mock__side-title">Workspace</div>
+      <div class="mock__nav" data-active="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 18V9m5 9V5m5 13v-6m5 6V8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Signals</span></div>
+      <div class="mock__nav"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="9.5" cy="8" r="3.4" stroke="currentColor" stroke-width="1.6"/><path d="M3.4 19.4a6.1 6.1 0 0 1 12.2 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M16.2 5.1a3.4 3.4 0 0 1 0 6.5M17.6 14.2a6.1 6.1 0 0 1 3 5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Accounts</span></div>
+      <div class="mock__nav"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="5.2" stroke="currentColor" stroke-width="1.6"/><circle cx="15" cy="15" r="5.2" stroke="currentColor" stroke-width="1.6"/></svg><span>Segments</span></div>
+      <div class="mock__nav"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13.2 2.5 4.8 13.1a.6.6 0 0 0 .47.97H11l-.6 7.4 8.4-10.6a.6.6 0 0 0-.47-.97H12.6l.6-7.4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span>Playbooks</span></div>
+      <div class="mock__nav"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><ellipse cx="12" cy="6" rx="7.5" ry="3.2" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 6v6c0 1.77 3.36 3.2 7.5 3.2s7.5-1.43 7.5-3.2V6" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 12v6c0 1.77 3.36 3.2 7.5 3.2s7.5-1.43 7.5-3.2v-6" stroke="currentColor" stroke-width="1.6"/></svg><span>Sources</span></div>
+      <div class="mock__side-title" style="margin-top:.8rem">Saved views</div>
+      <div class="mock__nav"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.8"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.8"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.8"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.8"/></svg><span>Expansion ready</span></div>
+      <div class="mock__nav"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.8"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.8"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.8"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.8"/></svg><span>Churn risk</span></div>
+      <div class="mock__nav"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.8"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.8"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.8"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.8"/></svg><span>Trials day 7</span></div>
+    </div>
+    <div class="mock__main">
+      <div class="mock__head">
+        <span class="mock__title">Signals &middot; last 30 days</span>
+        <span class="mock__chip">Live</span>
+      </div>
+      <div class="mock__stats">
+        <div class="mock__stat">
+          <div class="mock__stat-label">Accounts at risk</div>
+          <div class="mock__stat-value">18</div>
+          <div class="mock__stat-delta">&minus;32% vs. prev</div>
+        </div>
+        <div class="mock__stat">
+          <div class="mock__stat-label">Expansion ready</div>
+          <div class="mock__stat-value">47</div>
+          <div class="mock__stat-delta">+19% vs. prev</div>
+        </div>
+        <div class="mock__stat">
+          <div class="mock__stat-label">Pipeline influenced</div>
+          <div class="mock__stat-value">$1.4M</div>
+          <div class="mock__stat-delta">+11% vs. prev</div>
+        </div>
+      </div>
+      <div class="mock__panel">
+        <div class="mock__stat-label">Weekly active seats by cohort</div>
+        <div class="mock__chart"><div class="mock__bar-col" style="height:32%"></div><div class="mock__bar-col" style="height:38%"></div><div class="mock__bar-col" style="height:30%"></div><div class="mock__bar-col" style="height:44%"></div><div class="mock__bar-col" style="height:41%"></div><div class="mock__bar-col" style="height:52%"></div><div class="mock__bar-col" style="height:48%"></div><div class="mock__bar-col" style="height:61%"></div><div class="mock__bar-col" style="height:58%"></div><div class="mock__bar-col" style="height:70%"></div><div class="mock__bar-col" style="height:66%" data-strong="true"></div><div class="mock__bar-col" style="height:82%" data-strong="true"></div><div class="mock__bar-col" style="height:78%" data-strong="true"></div><div class="mock__bar-col" style="height:94%" data-strong="true"></div></div>
+      </div>
+      <div class="mock__rows">
+        <div class="mock__row">
+          <span class="mock__cell"><span class="mock__avatar">HL</span><strong>Harbourline</strong></span>
+          <span>Seats +42%</span><span class="mock__chip">Expansion</span>
+        </div>
+        <div class="mock__row">
+          <span class="mock__cell"><span class="mock__avatar">VT</span><strong>Vantive Group</strong></span>
+          <span>No login 14d</span><span class="badge badge--warn">At risk</span>
+        </div>
+        <div class="mock__row">
+          <span class="mock__cell"><span class="mock__avatar">MW</span><strong>Merrow Health</strong></span>
+          <span>Hit API limit</span><span class="badge badge--brand">Upgrade</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SOCIAL PROOF ======================== -->
+<section class="logos" aria-label="Customers using Northwind">
+  <div class="container">
+    <p class="logos__label">Trusted by revenue teams at 1,400+ B2B software companies</p>
+    <div class="logos__row"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v18M12 3a2.4 2.4 0 1 0 0 4.8A2.4 2.4 0 0 0 12 3zM5 13a7 7 0 0 0 14 0" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M7.5 9h9" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg><span>Harbourline</span></span><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="3.2" fill="currentColor"/></svg><span>Cadence</span></span><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20.5 2.8 4.5h18.4L12 20.5z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg><span>Vantive</span></span><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.6 20.4 7.3v9.4L12 21.4 3.6 16.7V7.3L12 2.6z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg><span>Merrow</span></span><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4.6" y="4.6" width="14.8" height="14.8" rx="2.4" transform="rotate(45 12 12)" stroke="currentColor" stroke-width="1.9"/></svg><span>Northgate</span></span><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.3" stroke="currentColor" stroke-width="1.9"/><path d="M12 2.4v2.6M12 19v2.6M21.6 12H19M5 12H2.4M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9M18.8 18.8l-1.9-1.9M7.1 7.1 5.2 5.2" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg><span>Lumenly</span></span></div>
+  </div>
+</section>
+
+<!-- ========================= FEATURES ========================== -->
+<section class="section section--alt" id="features" aria-labelledby="features-heading">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">The platform</span>
+      <h2 id="features-heading">Everything you need to run revenue on product data</h2>
+      <p class="lede">Six capabilities that replace the spreadsheet, the stale health score, and the Monday meeting where nobody can agree on which accounts are actually in trouble.</p>
+    </div>
+
+    <div class="bordered-grid"><article class="feature-cell">
+  <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 3v18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="6" cy="8" r="2.2" stroke="currentColor" stroke-width="1.6"/><circle cx="6" cy="16" r="2.2" stroke="currentColor" stroke-width="1.6"/><path d="M11 8h9M11 16h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+  <h3>One timeline per account</h3>
+  <p>Every product event, invoice, support ticket and email in a single chronological view. No more stitching together five tabs before a renewal call.</p>
+</article><article class="feature-cell">
+  <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 18V9m5 9V5m5 13v-6m5 6V8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+  <h3>Signals that actually fire</h3>
+  <p>Define what &ldquo;at risk&rdquo; means for your business in plain language. Northwind watches every account continuously and tells you the moment the definition is met.</p>
+</article><article class="feature-cell">
+  <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="5.2" stroke="currentColor" stroke-width="1.6"/><circle cx="15" cy="15" r="5.2" stroke="currentColor" stroke-width="1.6"/></svg></span>
+  <h3>Segments that stay fresh</h3>
+  <p>Build live cohorts from usage, plan, firmographics and billing state. Segments update within seconds of new events arriving &mdash; never a stale CSV again.</p>
+</article><article class="feature-cell">
+  <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13.2 2.5 4.8 13.1a.6.6 0 0 0 .47.97H11l-.6 7.4 8.4-10.6a.6.6 0 0 0-.47-.97H12.6l.6-7.4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+  <h3>Playbooks, not to-do lists</h3>
+  <p>Route a signal to a Slack channel, create the CRM task, draft the email, and log the outcome. Your team gets the next action, not another dashboard to check.</p>
+</article><article class="feature-cell">
+  <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><ellipse cx="12" cy="6" rx="7.5" ry="3.2" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 6v6c0 1.77 3.36 3.2 7.5 3.2s7.5-1.43 7.5-3.2V6" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 12v6c0 1.77 3.36 3.2 7.5 3.2s7.5-1.43 7.5-3.2v-6" stroke="currentColor" stroke-width="1.6"/></svg></span>
+  <h3>Warehouse-native by design</h3>
+  <p>Sync from Snowflake, BigQuery, Redshift or Postgres on your schedule, and push scored accounts straight back out. Your warehouse stays the source of truth.</p>
+</article><article class="feature-cell">
+  <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.8 4.8 5.6v5.7c0 4.3 2.9 8.2 7.2 9.9 4.3-1.7 7.2-5.6 7.2-9.9V5.6L12 2.8z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m9.2 12 2 2 3.6-3.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  <h3>Enterprise controls from day one</h3>
+  <p>SOC&nbsp;2 Type&nbsp;II, SAML SSO, SCIM provisioning, field-level permissions, EU data residency and a full audit log &mdash; on every paid plan, not just Enterprise.</p>
+</article></div>
+
+    <div class="btn-row btn-row--center mt-9">
+      <a class="btn btn--secondary" href="features.html">Explore every feature <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= HOW IT WORKS ======================== -->
+<section class="section" id="how" aria-labelledby="how-heading">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">How it works</span>
+      <h2 id="how-heading">Three steps, one afternoon</h2>
+      <p class="lede">You do not need a six-week implementation, a solutions architect, or a new data model. You need your events in one place and a clear definition of trouble.</p>
+    </div>
+    <div class="steps steps--connected"><article class="step"><span class="step__num" aria-hidden="true"></span><h3>Connect your data</h3><p>Drop in the JavaScript snippet, use a server SDK, or point Northwind at your warehouse. Most teams are sending events in under an hour &mdash; and yes, we backfill your history.</p></article><article class="step"><span class="step__num" aria-hidden="true"></span><h3>Describe what matters</h3><p>Pick from 40 pre-built signals for PLG, usage-based and seat-based models, or write your own conditions. No SQL required, though SQL is there when you want it.</p></article><article class="step"><span class="step__num" aria-hidden="true"></span><h3>Put it in front of people</h3><p>Signals land in Slack, your CRM, or an inbox your CSMs already read. Every action writes back, so the next quarter&rsquo;s model gets sharper on its own.</p></article></div>
+  </div>
+</section>
+
+<!-- ===================== SPLIT HIGHLIGHTS ====================== -->
+<section class="section section--flush-top" aria-label="Product highlights">
+  <div class="container">
+
+    <div class="split">
+      <div class="split__body">
+        <span class="eyebrow">Signals</span>
+        <h2>Your accounts, ranked by what deserves attention</h2>
+        <p>Northwind evaluates every account continuously against the conditions you care about &mdash; not nightly, not on refresh. When an account crosses a line, the right person hears about it the same hour.</p>
+        <ul class="check-list">
+          <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>40 pre-built signals</strong> for PLG, seat-based and usage-based models</span></li>
+          <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Composite scoring</strong> that blends usage depth, breadth, and billing health</span></li>
+          <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Explainable every time</strong> &mdash; each signal shows the events that triggered it</span></li>
+        </ul>
+        <p class="mt-6"><a class="link-arrow" href="features.html#signals">See how signals are built <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
+      </div>
+      <div class="split__media">
+        <div class="mock mock--sm">
+  <div class="mock__bar" aria-hidden="true">
+    <span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span>
+    <span class="mock__url">app.northwind.com</span>
+  </div>
+  <div class="mock__main" aria-hidden="true">
+    <div class="mock__head"><span class="mock__title">Signals &middot; this week</span><span class="mock__chip">12 new</span></div>
+    <div class="mock__panel"><div class="mock__stat-label">Accounts crossing a threshold</div><div class="mock__chart"><div class="mock__bar-col" style="height:22%"></div><div class="mock__bar-col" style="height:30%"></div><div class="mock__bar-col" style="height:26%"></div><div class="mock__bar-col" style="height:38%"></div><div class="mock__bar-col" style="height:35%"></div><div class="mock__bar-col" style="height:46%"></div><div class="mock__bar-col" style="height:44%"></div><div class="mock__bar-col" style="height:58%"></div><div class="mock__bar-col" style="height:54%"></div><div class="mock__bar-col" style="height:68%"></div><div class="mock__bar-col" style="height:64%" data-strong="true"></div><div class="mock__bar-col" style="height:79%" data-strong="true"></div><div class="mock__bar-col" style="height:75%" data-strong="true"></div><div class="mock__bar-col" style="height:88%" data-strong="true"></div></div></div>
+    <div class="mock__rows"><div class="mock__row"><span class="mock__cell"><span class="mock__avatar">HL</span><strong>Harbourline</strong></span><span>Seats +42% in 14d</span><span class="badge badge--brand">Expansion</span></div><div class="mock__row"><span class="mock__cell"><span class="mock__avatar">NG</span><strong>Northgate</strong></span><span>3 admins invited</span><span class="badge badge--brand">Expansion</span></div><div class="mock__row"><span class="mock__cell"><span class="mock__avatar">LM</span><strong>Lumenly</strong></span><span>API limit reached</span><span class="badge badge--ok">Upgrade</span></div><div class="mock__row"><span class="mock__cell"><span class="mock__avatar">CD</span><strong>Cadence</strong></span><span>Usage &minus;61%</span><span class="badge badge--warn">At risk</span></div></div>
+  </div>
+</div>
+      </div>
+    </div>
+
+    <div class="split split--reverse">
+      <div class="split__body">
+        <span class="eyebrow">Playbooks</span>
+        <h2>Delivered where the work already happens</h2>
+        <p>A signal nobody sees is a report. Northwind pushes each one into Slack, your CRM, or a lifecycle email with the context attached &mdash; the account, the reason, the numbers, and a draft of what to send.</p>
+        <ul class="check-list">
+          <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Two-way CRM sync</strong> with Salesforce and HubSpot, fields you control</span></li>
+          <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Outcome tracking</strong> so you can prove which plays actually saved revenue</span></li>
+          <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Quiet hours and throttles</strong> so your team is never spammed at 3am</span></li>
+        </ul>
+        <p class="mt-6"><a class="link-arrow" href="features.html#playbooks">Browse the playbook library <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
+      </div>
+      <div class="split__media">
+        <div class="mock mock--sm">
+  <div class="mock__bar" aria-hidden="true">
+    <span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span>
+    <span class="mock__url">app.northwind.com</span>
+  </div>
+  <div class="mock__main" aria-hidden="true">
+    <div class="mock__head"><span class="mock__title">Playbook run &middot; Renewal risk</span><span class="mock__chip">Automated</span></div>
+    <div class="mock__panel"><div class="mock__stat-label">Plays delivered, last 14 days</div><div class="mock__chart"><div class="mock__bar-col" style="height:30%"></div><div class="mock__bar-col" style="height:44%"></div><div class="mock__bar-col" style="height:38%"></div><div class="mock__bar-col" style="height:52%"></div><div class="mock__bar-col" style="height:48%"></div><div class="mock__bar-col" style="height:60%"></div><div class="mock__bar-col" style="height:55%"></div><div class="mock__bar-col" style="height:68%"></div><div class="mock__bar-col" style="height:64%"></div><div class="mock__bar-col" style="height:74%" data-strong="true"></div><div class="mock__bar-col" style="height:70%" data-strong="true"></div><div class="mock__bar-col" style="height:84%" data-strong="true"></div><div class="mock__bar-col" style="height:80%" data-strong="true"></div><div class="mock__bar-col" style="height:92%" data-strong="true"></div></div></div>
+    <div class="mock__rows"><div class="mock__row"><span class="mock__cell"><span class="mock__avatar">SL</span><strong>#cs-signals</strong></span><span>Playbook: Renewal risk</span><span class="badge badge--info">Slack</span></div><div class="mock__row"><span class="mock__cell"><span class="mock__avatar">SF</span><strong>Salesforce</strong></span><span>Task created for owner</span><span class="badge badge--info">CRM</span></div><div class="mock__row"><span class="mock__cell"><span class="mock__avatar">EM</span><strong>Lifecycle email</strong></span><span>Draft ready for review</span><span class="badge badge--muted">Queued</span></div></div>
+  </div>
+</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================== STATS =========================== -->
+<section class="section section--tight" aria-labelledby="stats-heading">
+  <div class="container">
+    <h2 class="sr-only" id="stats-heading">Results our customers report</h2>
+    <div class="stats">
+      <div class="stat"><div class="stat__value">31%</div><p class="stat__label">Less logo churn in year one</p></div>
+      <div class="stat"><div class="stat__value">4 days</div><p class="stat__label">Median time to first signal</p></div>
+      <div class="stat"><div class="stat__value">2.4&times;</div><p class="stat__label">More expansion conversations booked</p></div>
+      <div class="stat"><div class="stat__value">$1.4M</div><p class="stat__label">Median pipeline influenced per year</p></div>
+    </div>
+    <p class="table-note">Self-reported by 180 Northwind customers surveyed in Q1, twelve months after rollout.</p>
+  </div>
+</section>
+
+<!-- ======================= TESTIMONIALS ======================== -->
+<section class="section section--alt" id="customers" aria-labelledby="quotes-heading">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Customers</span>
+      <h2 id="quotes-heading">The teams who stopped guessing</h2>
+      <p class="lede">Rated 4.8 out of 5 across 312 reviews from CS, RevOps and data teams.</p>
+    </div>
+    <div class="quote-grid"><figure class="quote">
+  <div class="quote__stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.4 5.1 5.6.8-4 3.9.95 5.6L10 14.4l-4.95 2.6L6 11.4 2 7.5l5.6-.8L10 1.6z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.4 5.1 5.6.8-4 3.9.95 5.6L10 14.4l-4.95 2.6L6 11.4 2 7.5l5.6-.8L10 1.6z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.4 5.1 5.6.8-4 3.9.95 5.6L10 14.4l-4.95 2.6L6 11.4 2 7.5l5.6-.8L10 1.6z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.4 5.1 5.6.8-4 3.9.95 5.6L10 14.4l-4.95 2.6L6 11.4 2 7.5l5.6-.8L10 1.6z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.4 5.1 5.6.8-4 3.9.95 5.6L10 14.4l-4.95 2.6L6 11.4 2 7.5l5.6-.8L10 1.6z"/></svg></div>
+  <blockquote>&ldquo;We were doing quarterly health scores in a spreadsheet that was wrong the day it was published. Northwind replaced the whole ritual in a week, and our first save paid for the year.&rdquo;</blockquote>
+  <figcaption class="quote__person">
+    <span class="avatar" aria-hidden="true">SR</span>
+    <span>
+      <span class="quote__name">Sofia Renner</span><br>
+      <span class="quote__role">VP Customer Success, Harbourline</span>
+    </span>
+  </figcaption>
+</figure><figure class="quote">
+  <div class="quote__stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.4 5.1 5.6.8-4 3.9.95 5.6L10 14.4l-4.95 2.6L6 11.4 2 7.5l5.6-.8L10 1.6z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.4 5.1 5.6.8-4 3.9.95 5.6L10 14.4l-4.95 2.6L6 11.4 2 7.5l5.6-.8L10 1.6z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.4 5.1 5.6.8-4 3.9.95 5.6L10 14.4l-4.95 2.6L6 11.4 2 7.5l5.6-.8L10 1.6z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.4 5.1 5.6.8-4 3.9.95 5.6L10 14.4l-4.95 2.6L6 11.4 2 7.5l5.6-.8L10 1.6z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.4 5.1 5.6.8-4 3.9.95 5.6L10 14.4l-4.95 2.6L6 11.4 2 7.5l5.6-.8L10 1.6z"/></svg></div>
+  <blockquote>&ldquo;The thing I did not expect: our AEs actually use it. It shows up in Slack with the account, the reason, and the draft email. Adoption was basically instant.&rdquo;</blockquote>
+  <figcaption class="quote__person">
+    <span class="avatar" aria-hidden="true">DO</span>
+    <span>
+      <span class="quote__name">Daniel Okonkwo</span><br>
+      <span class="quote__role">Head of Revenue Ops, Vantive</span>
+    </span>
+  </figcaption>
+</figure><figure class="quote">
+  <div class="quote__stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.4 5.1 5.6.8-4 3.9.95 5.6L10 14.4l-4.95 2.6L6 11.4 2 7.5l5.6-.8L10 1.6z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.4 5.1 5.6.8-4 3.9.95 5.6L10 14.4l-4.95 2.6L6 11.4 2 7.5l5.6-.8L10 1.6z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.4 5.1 5.6.8-4 3.9.95 5.6L10 14.4l-4.95 2.6L6 11.4 2 7.5l5.6-.8L10 1.6z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.4 5.1 5.6.8-4 3.9.95 5.6L10 14.4l-4.95 2.6L6 11.4 2 7.5l5.6-.8L10 1.6z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.4 5.1 5.6.8-4 3.9.95 5.6L10 14.4l-4.95 2.6L6 11.4 2 7.5l5.6-.8L10 1.6z"/></svg></div>
+  <blockquote>&ldquo;We piped Northwind straight into BigQuery on day two. It is the rare tool that does not fight our data team for ownership of the model.&rdquo;</blockquote>
+  <figcaption class="quote__person">
+    <span class="avatar" aria-hidden="true">MK</span>
+    <span>
+      <span class="quote__name">Mira Kaufmann</span><br>
+      <span class="quote__role">Staff Data Engineer, Merrow</span>
+    </span>
+  </figcaption>
+</figure></div>
+  </div>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="section" id="faq" aria-labelledby="faq-heading">
+  <div class="container">
+    <div class="faq-split">
+      <div class="faq-split__aside">
+        <span class="eyebrow">FAQ</span>
+        <h2 id="faq-heading">Questions worth asking</h2>
+        <p class="text-muted mt-4">Still not sure? Our team answers in under an hour during European and US business days.</p>
+        <p class="mt-6"><a class="btn btn--secondary" href="#contact">Talk to a human <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
+      </div>
+      <div class="faq" data-faq><details class="faq__item">
+  <summary>How long does implementation actually take?<svg class="faq__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 6v12M6 12h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></summary>
+  <div class="faq__answer"><p>Median time from signing up to the first signal firing is <strong>four days</strong>. If your events already live in a warehouse, it is usually the same afternoon &mdash; we read from Snowflake, BigQuery, Redshift and Postgres without an ETL vendor in between.</p><p>Teams instrumenting from scratch use our JavaScript snippet or a server SDK and are typically live within a week, including historical backfill.</p></div>
+</details><details class="faq__item">
+  <summary>Do we need a data team to run this?<svg class="faq__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 6v12M6 12h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></summary>
+  <div class="faq__answer"><p>No. Signals are built from a plain-language condition builder that anyone in RevOps or CS can use. Everything is also expressible in SQL, and every signal shows you the query it compiles to &mdash; so your data team can audit it rather than maintain it.</p></div>
+</details><details class="faq__item">
+  <summary>How is Northwind different from our product analytics tool?<svg class="faq__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 6v12M6 12h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></summary>
+  <div class="faq__answer"><p>Analytics tools answer &ldquo;what happened to this metric?&rdquo; Northwind answers &ldquo;which account should someone call today, and why?&rdquo; We resolve users to accounts, join usage with billing and support state, and deliver the result as an action in the tools your team already has open.</p><p>Plenty of our customers keep their analytics tool. The two do different jobs.</p></div>
+</details><details class="faq__item">
+  <summary>What happens to our data?<svg class="faq__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 6v12M6 12h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></summary>
+  <div class="faq__answer"><p>Your data stays yours. We are SOC&nbsp;2 Type&nbsp;II certified, GDPR compliant, and offer EU data residency on every plan at no extra charge. We never train shared models on customer data, and you can export or delete everything through the API at any time.</p></div>
+</details><details class="faq__item">
+  <summary>Can we start on a trial without talking to sales?<svg class="faq__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 6v12M6 12h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></summary>
+  <div class="faq__answer"><p>Yes, and most teams do. The 14-day trial is the full product with no seat limits and no credit card. If you want a hand with instrumentation, our solutions engineers are free during the trial &mdash; but nothing is gated behind a call.</p></div>
+</details><details class="faq__item">
+  <summary>What does pricing depend on?<svg class="faq__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 6v12M6 12h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></summary>
+  <div class="faq__answer"><p>Tracked accounts, not seats. Invite your whole go-to-market team on every plan. Full detail, including the annual discount and the enterprise options, is on the <a href="pricing.html">pricing page</a>.</p></div>
+</details></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="cta-heading">
+  <div class="container">
+    <div class="cta">
+      <h2 id="cta-heading">Stop finding out after renewal.</h2>
+      <p class="lede">Connect your product data in an afternoon. Northwind starts surfacing at-risk and expansion-ready accounts inside the first week &mdash; no data team required.</p>
+      <div class="btn-row btn-row--center">
+        <a class="btn btn--primary btn--lg" href="#trial">Start your 14-day trial <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="btn btn--secondary btn--lg" href="#demo">Book a 20-minute demo</a>
+      </div>
+      <p class="cta__note">No credit card &middot; Full product access &middot; Cancel in one click</p>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="container container--wide">
+    <div class="footer__top">
+      <div class="footer__about">
+        <a class="brand" href="index.html" aria-label="Northwind — home">
+          <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect width="32" height="32" rx="9" fill="currentColor" fill-opacity="0.12"/><path d="M10 23V9.5l12 13V9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Northwind</span>
+        </a>
+        <p>Northwind unifies product usage, billing and support into one account timeline, then tells your team exactly who to talk to today.</p>
+        <p class="tiny text-subtle" style="margin-top:1.25rem;display:flex;align-items:center;gap:.5rem;">
+          <span class="dot" aria-hidden="true"></span> All systems operational
+        </p>
+      </div>
+
+      <div class="footer__col">
+        <h3>Product</h3>
+        <ul>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="changelog.html">Changelog</a></li>
+          <li><a href="features.html#integrations">Integrations</a></li>
+          <li><a href="pricing.html#compare">Compare plans</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3>Developers</h3>
+        <ul>
+          <li><a href="docs.html">Documentation</a></li>
+          <li><a href="docs.html#quickstart">Quickstart</a></li>
+          <li><a href="docs.html#events-api">Events API</a></li>
+          <li><a href="docs.html#sdks">SDKs</a></li>
+          <li><a href="docs.html#webhooks">Webhooks</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="about.html#team">Team</a></li>
+          <li><a href="about.html#careers">Careers</a></li>
+          <li><a href="#press">Press kit</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="legal.html#privacy">Privacy policy</a></li>
+          <li><a href="legal.html#terms">Terms of service</a></li>
+          <li><a href="legal.html#subprocessors">Sub-processors</a></li>
+          <li><a href="legal.html#dpa">Data processing</a></li>
+          <li><a href="#security">Security</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; <span data-year>2026</span> Northwind Labs BV. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="legal.html#privacy">Privacy</a>
+        <a href="legal.html#terms">Terms</a>
+        <a href="legal.html#cookies">Cookies</a>
+      </div>
+      <div class="footer__social">
+        <a href="#x" aria-label="Northwind on X"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.1l-6.8 7.8L21.8 21h-6.2l-4.9-6.4L5.1 21H2l7.3-8.3L2.4 3h6.4l4.4 5.8L17.5 3zm-1.1 16.1h1.7L7.7 4.8H5.9l10.5 14.3z"/></svg></a>
+        <a href="#github" aria-label="Northwind on GitHub"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2a10 10 0 0 0-3.16 19.5c.5.09.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.93.83.09-.65.35-1.1.63-1.35-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2.2z"/></svg></a>
+        <a href="#linkedin" aria-label="Northwind on LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.2h4v11.3H3V9.2zm6.5 0h3.8v1.55h.05a4.2 4.2 0 0 1 3.78-2.08c4.04 0 4.79 2.66 4.79 6.12v5.71h-4v-5.06c0-1.21-.02-2.76-1.68-2.76-1.69 0-1.95 1.32-1.95 2.68v5.14h-3.99V9.2z"/></svg></a>
+        <a href="#rss" aria-label="Northwind changelog RSS feed"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="6.2" cy="17.8" r="2.2"/><path d="M4 4v3.2c6.96 0 12.6 5.64 12.6 12.6H20C20 11.1 12.9 4 4 4zm0 6.3v3.2c3.48 0 6.3 2.82 6.3 6.3h3.2c0-5.25-4.25-9.5-9.5-9.5z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

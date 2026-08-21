@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pricing — usage-based, with a calculator that does not lie | Lumen</title>
+<meta name="description" content="Transparent per-token pricing for Lumen. Estimate your monthly cost with the interactive calculator, compare plans, and read the fine print before you sign up.">
+<meta name="theme-color" content="#fcfbf9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0b0f" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://lumen.example.com/pricing.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumen">
+<meta property="og:url" content="https://lumen.example.com/pricing.html">
+<meta property="og:title" content="Pricing — usage-based, with a calculator that does not lie | Lumen">
+<meta property="og:description" content="Estimate your monthly cost in seconds. Per-token pricing, a real free tier, and hard budget caps.">
+<meta property="og:image" content="assets/og-pricing.png">
+<meta property="og:image:alt" content="The Lumen pricing calculator.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pricing | Lumen">
+<meta name="twitter:description" content="Estimate your monthly cost in seconds. Per-token pricing and a real free tier.">
+<meta name="twitter:image" content="assets/og-pricing.png">
+
+<link rel="stylesheet" href="css/style.css">
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("lumen-theme");
+      if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Lumen",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Web",
+  "url": "https://lumen.example.com/pricing.html",
+  "offers": [
+    { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "EUR", "description": "5M tokens per month included" },
+    { "@type": "Offer", "name": "Starter", "price": "49", "priceCurrency": "EUR", "description": "€40 usage credit, 600 requests per minute" },
+    { "@type": "Offer", "name": "Scale", "price": "399", "priceCurrency": "EUR", "description": "€350 usage credit and 15% volume discount" }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is a token counted?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A token is roughly four characters of English. Both the text you send and the text the model generates are counted, along with tool definitions and retrieved context." }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens when I hit my budget cap?",
+      "acceptedAnswer": { "@type": "Answer", "text": "New runs return 429 budget_exceeded and nothing is billed beyond the cap. In-flight runs finish. You can raise or remove the cap at any time." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you charge for retrieval?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Embedding at index time is billed per token on lumen-embed. Queries against an existing index are free; the retrieved passages are billed as input tokens on the run that used them." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there an annual discount?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — two months free on annual platform fees. Usage is always billed monthly in arrears at the same per-token rate." }
+    }
+  ]
+}
+</script>
+</head>
+
+<body class="full-height">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" data-header>
+  <div class="container container--wide">
+    <a class="brand" href="index.html" aria-label="Lumen — home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l1.9 4.9 4.9 1.9-4.9 1.9L10 15.2 8.1 10.3 3.2 8.4l4.9-1.9L10 1.6z"/><path d="M15.6 13.2l.8 2.1 2.1.8-2.1.8-.8 2.1-.8-2.1-2.1-.8 2.1-.8.8-2.1z" opacity=".55"/></svg>
+      </span>
+      Lumen
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Product</a>
+      <a href="playground.html">Playground</a>
+      <a href="models.html">Models</a>
+      <a href="api.html">API</a>
+      <a href="pricing.html" aria-current="page">Pricing</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="icon-moon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.5 11.8A6.8 6.8 0 018.2 3.5a6.8 6.8 0 108.3 8.3z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 1.8v1.8M10 16.4v1.8M18.2 10h-1.8M3.6 10H1.8M15.8 4.2l-1.3 1.3M5.5 14.5l-1.3 1.3M15.8 15.8l-1.3-1.3M5.5 5.5L4.2 4.2"/></svg>
+      </button>
+      <a class="btn btn--secondary btn--sm header-cta" href="api.html">Docs</a>
+      <a class="btn btn--primary btn--sm header-cta" href="waitlist.html">Start free</a>
+      <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav" data-mobile-nav>
+  <ul>
+    <li><a href="index.html">Product</a></li>
+    <li><a href="playground.html">Playground</a></li>
+    <li><a href="models.html">Models</a></li>
+    <li><a href="api.html">API reference</a></li>
+    <li><a href="pricing.html" aria-current="page">Pricing</a></li>
+  </ul>
+  <a class="btn btn--primary btn--block" href="waitlist.html">Start free</a>
+</div>
+
+<main id="main">
+
+  <section class="page-head">
+    <div class="container container--wide">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5L10.5 8 6 12.5"/></svg>
+        <span aria-current="page">Pricing</span>
+      </nav>
+      <p class="eyebrow">Pricing</p>
+      <h1>Pay for tokens. Nothing else.</h1>
+      <p class="lead">
+        No per-seat licence, no minimum commitment, no charge for the seats that only read
+        dashboards. A modest platform fee buys throughput and support; everything else is
+        usage, billed to the token in arrears.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================== PLANS ============================== -->
+  <section class="section" aria-labelledby="plans-heading">
+    <div class="container container--wide">
+      <h2 class="sr-only" id="plans-heading">Plans</h2>
+
+      <div class="price-grid">
+
+        <article class="plan reveal">
+          <h3 class="plan-name">Free</h3>
+          <p class="plan-desc">For prototypes, side projects and the evaluation you have to run before anyone will sign anything.</p>
+          <div class="plan-price">
+            <span class="amount">€0</span>
+            <span class="period">forever</span>
+          </div>
+          <p class="plan-usage">5M tokens included every month</p>
+          <a class="btn btn--secondary btn--block" href="waitlist.html">Start free</a>
+          <ul class="plan-features">
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><span>Every model, including <strong>lumen-max</strong></span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><span>60 requests / minute</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><span>3 collections, 10K documents</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><span>7-day run history</span></li>
+            <li class="off"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9"/></svg><span>No SSO or audit export</span></li>
+          </ul>
+        </article>
+
+        <article class="plan plan--featured reveal reveal-delay-1">
+          <span class="plan-flag">Most popular</span>
+          <h3 class="plan-name">Starter</h3>
+          <p class="plan-desc">For the first agent that real people depend on, with throughput to survive a launch.</p>
+          <div class="plan-price">
+            <span class="amount">€49</span>
+            <span class="period">/ month + usage</span>
+          </div>
+          <p class="plan-usage">Includes €40 of usage credit</p>
+          <a class="btn btn--primary btn--block" href="waitlist.html">Start 14-day trial</a>
+          <ul class="plan-features">
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><span>Everything in Free, plus:</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><span><strong>600</strong> requests / minute</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><span>Unlimited collections, 2M documents</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><span>Batch queue at <strong>50% off</strong></span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><span>Budget caps &amp; spend alerts</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><span>Email support, one business day</span></li>
+          </ul>
+        </article>
+
+        <article class="plan reveal reveal-delay-2">
+          <h3 class="plan-name">Scale</h3>
+          <p class="plan-desc">For teams running several agents in production, with compliance people asking questions.</p>
+          <div class="plan-price">
+            <span class="amount">€399</span>
+            <span class="period">/ month + usage</span>
+          </div>
+          <p class="plan-usage">€350 credit and 15% off every token</p>
+          <a class="btn btn--secondary btn--block" href="waitlist.html">Talk to us</a>
+          <ul class="plan-features">
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><span>Everything in Starter, plus:</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><span><strong>4,000</strong> requests / minute</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><span>SAML SSO, SCIM and audit export</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><span>EU-only data residency</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><span>90-day run history</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><span>Shared Slack, four-hour response</span></li>
+          </ul>
+        </article>
+
+      </div>
+
+      <div class="card card--pad-lg card--inset mt-6">
+        <div class="split split--60-40" style="gap:var(--sp-5)">
+          <div>
+            <h3>Enterprise</h3>
+            <p class="mt-3">
+              Private deployment in your own VPC, a signed DPA with the sub-processors you
+              approve, custom retention, and a named engineer who answers in an hour. Annual
+              contracts start at €30,000.
+            </p>
+          </div>
+          <div class="cluster" style="justify-content:flex-end">
+            <a class="btn btn--secondary" href="waitlist.html">Request a call</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== CALCULATOR ============================== -->
+  <section class="section section--subtle" id="calculator" aria-labelledby="calc-heading">
+    <div class="container container--wide">
+      <div class="section-head">
+        <p class="eyebrow">Cost calculator</p>
+        <h2 id="calc-heading">What will this actually cost me?</h2>
+        <p>
+          Move the sliders to match your workload. The estimate uses real published rates,
+          picks the cheapest plan for you, and shows the arithmetic rather than hiding it.
+        </p>
+      </div>
+
+      <div class="calc" data-calc>
+        <div class="calc-controls">
+
+          <div class="field">
+            <label class="label" for="calc-model">Model</label>
+            <select class="select" id="calc-model" data-calc-model>
+              <option value="flash">lumen-flash — €0.80 / €2.40 per M</option>
+              <option value="pro" selected>lumen-pro — €2.60 / €10.40 per M</option>
+              <option value="max">lumen-max — €9.00 / €36.00 per M</option>
+            </select>
+            <p class="hint">Input and output rate per million tokens.</p>
+          </div>
+
+          <div class="range-row">
+            <div class="range-head">
+              <label class="label" for="calc-requests">Requests per month</label>
+              <output class="range-value" for="calc-requests" data-out="requests">250,000</output>
+            </div>
+            <input type="range" id="calc-requests" data-calc-requests min="0" max="11" step="1" value="8">
+          </div>
+
+          <div class="range-row">
+            <div class="range-head">
+              <label class="label" for="calc-input">Input tokens per request</label>
+              <output class="range-value" for="calc-input" data-out="input">4,000</output>
+            </div>
+            <input type="range" id="calc-input" data-calc-input min="0" max="9" step="1" value="4">
+            <p class="hint">System prompt, conversation history, tool definitions and any retrieved passages.</p>
+          </div>
+
+          <div class="range-row">
+            <div class="range-head">
+              <label class="label" for="calc-output">Output tokens per request</label>
+              <output class="range-value" for="calc-output" data-out="output">400</output>
+            </div>
+            <input type="range" id="calc-output" data-calc-output min="0" max="7" step="1" value="3">
+          </div>
+
+          <div class="range-row">
+            <div class="range-head">
+              <label class="label" for="calc-cache">Cache hit rate</label>
+              <output class="range-value" for="calc-cache" data-out="cache">65%</output>
+            </div>
+            <input type="range" id="calc-cache" data-calc-cache min="0" max="90" step="5" value="65">
+            <p class="hint">Repeated prefixes cost 90% less. Agent workloads typically land between 60% and 80%.</p>
+          </div>
+
+          <div class="field">
+            <label class="check">
+              <input type="checkbox" data-calc-batch>
+              <span>Half of this traffic can wait an hour — run it in the <strong>batch queue at 50% off</strong>.</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="calc-summary">
+          <p class="calc-total-label">Estimated monthly cost</p>
+          <p class="calc-total"><span class="cur">€</span><span data-calc-total>0</span></p>
+
+          <p class="calc-plan-note" data-calc-plan role="status">Cheapest on the Starter plan.</p>
+
+          <div class="calc-lines">
+            <div class="calc-line">
+              <span>Fresh input <span class="subtle" data-calc-fresh-tokens></span></span>
+              <span data-calc-fresh>€0.00</span>
+            </div>
+            <div class="calc-line">
+              <span>Cached input <span class="subtle" data-calc-cached-tokens></span></span>
+              <span data-calc-cached>€0.00</span>
+            </div>
+            <div class="calc-line">
+              <span>Output <span class="subtle" data-calc-output-tokens></span></span>
+              <span data-calc-outcost>€0.00</span>
+            </div>
+            <div class="calc-line" data-calc-batch-line hidden>
+              <span>Batch discount</span>
+              <span data-calc-batchsave>−€0.00</span>
+            </div>
+            <div class="calc-line" data-calc-volume-line hidden>
+              <span>Scale volume discount (15%)</span>
+              <span data-calc-volume>−€0.00</span>
+            </div>
+            <div class="calc-line">
+              <span>Platform fee</span>
+              <span data-calc-fee>€0.00</span>
+            </div>
+            <div class="calc-line calc-line--credit">
+              <span>Included credit</span>
+              <span data-calc-credit>−€0.00</span>
+            </div>
+            <div class="calc-line calc-line--total">
+              <span>Total per month</span>
+              <span data-calc-grand>€0.00</span>
+            </div>
+          </div>
+
+          <p class="calc-fineprint" data-calc-per-request>That is €0.0000 per request.</p>
+
+          <a class="btn btn--primary btn--block btn--lg" href="waitlist.html">Start on the free tier</a>
+          <p class="calc-fineprint">
+            Estimates exclude VAT and embedding costs at index time. Your first month is
+            capped automatically — you cannot overspend by accident.
+          </p>
+        </div>
+      </div>
+
+      <noscript>
+        <p class="callout callout--warn mt-5">The calculator needs JavaScript. The published rates are on the <a href="models.html">models page</a>.</p>
+      </noscript>
+    </div>
+  </section>
+
+  <!-- ============================== INCLUDED ============================== -->
+  <section class="section" aria-labelledby="included-heading">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <p class="eyebrow">Included everywhere</p>
+        <h2 id="included-heading">Not upsells. Just the product.</h2>
+      </div>
+
+      <div class="grid grid-3">
+        <article class="card card--interactive reveal">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.5l6.5 3v5c0 3.6-2.7 6.4-6.5 7.5-3.8-1.1-6.5-3.9-6.5-7.5v-5l6.5-3z"/></svg></div>
+          <h3>Your data stays yours</h3>
+          <p>Nothing you send is used to train a model, on any plan, including the free one. Zero-retention mode is a single flag.</p>
+        </article>
+        <article class="card card--interactive reveal reveal-delay-1">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15.5V9M7.7 15.5V5M12.3 15.5v-4M17 15.5V7"/></svg></div>
+          <h3>Usage you can see</h3>
+          <p>Cost per run, per key and per collection, live. Export the raw ledger as CSV whenever finance asks where the money went.</p>
+        </article>
+        <article class="card card--interactive reveal reveal-delay-2">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="8.5" width="13" height="8.5" rx="2"/><path d="M6.5 8.5V6a3.5 3.5 0 017 0v2.5"/></svg></div>
+          <h3>Caps that actually stop</h3>
+          <p>Set a monthly ceiling and Lumen refuses new runs past it. No overage invoice, no apologetic email from us.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FAQ ============================== -->
+  <section class="section section--subtle" id="faq" aria-labelledby="faq-heading">
+    <div class="container container--narrow">
+      <div class="section-head section-head--center">
+        <p class="eyebrow">Fine print</p>
+        <h2 id="faq-heading">Questions people ask before paying</h2>
+      </div>
+
+      <div class="faq">
+        <details open>
+          <summary>
+            How is a token counted?
+            <svg class="chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M10 4.5v11M4.5 10h11"/></svg>
+          </summary>
+          <div class="answer">
+            <p>A token is roughly four characters of English, or about ¾ of a word. We count both directions: the text you send and the text the model generates.</p>
+            <p>Tool definitions, system prompts and retrieved passages are input tokens too. That surprises people, which is why the calculator above asks for total input rather than just your prompt.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            What happens when I hit my budget cap?
+            <svg class="chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M10 4.5v11M4.5 10h11"/></svg>
+          </summary>
+          <div class="answer">
+            <p>New runs return <code>429 budget_exceeded</code> and nothing is billed beyond the cap. Runs already in flight finish normally so you never get a half-written answer.</p>
+            <p>You can raise or remove the cap instantly from settings, and alerts fire at 50%, 80% and 100% by default.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            Do you charge for retrieval?
+            <svg class="chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M10 4.5v11M4.5 10h11"/></svg>
+          </summary>
+          <div class="answer">
+            <p>Embedding at index time is billed per token on <code>lumen-embed</code> — €0.06 per million, so indexing a 500-page handbook costs under a cent.</p>
+            <p>Queries against an existing index are free. The passages that come back are billed as input tokens on the run that used them.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            Can I switch plans mid-month?
+            <svg class="chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M10 4.5v11M4.5 10h11"/></svg>
+          </summary>
+          <div class="answer">
+            <p>Yes, both directions, and the platform fee is prorated to the day. Usage credit is prorated the same way, so upgrading mid-month never costs you the credit you already had.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            Is there an annual discount?
+            <svg class="chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M10 4.5v11M4.5 10h11"/></svg>
+          </summary>
+          <div class="answer">
+            <p>Two months free on annual platform fees. Usage stays monthly in arrears at the same per-token rate — we will not ask you to pre-buy credits that expire.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            What counts as a “request” for rate limits?
+            <svg class="chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M10 4.5v11M4.5 10h11"/></svg>
+          </summary>
+          <div class="answer">
+            <p>One call to <code>POST /v1/runs</code>, however many tool calls happen inside it. An agent that makes nine tool calls and streams for forty seconds is still one request.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            Do you have a startup or non-profit programme?
+            <svg class="chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M10 4.5v11M4.5 10h11"/></svg>
+          </summary>
+          <div class="answer">
+            <p>Registered non-profits and companies under two years old with less than €2M raised get €5,000 of credit and Scale-tier limits for twelve months. One short form, no pitch deck.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            How do I cancel?
+            <svg class="chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M10 4.5v11M4.5 10h11"/></svg>
+          </summary>
+          <div class="answer">
+            <p>One button in settings, effective at the end of the billing period, no retention call. Export your collections and run history first — both stay available for 30 days after you leave.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Start free, upgrade when it hurts</h2>
+        <p>Five million tokens a month is genuinely enough to launch something small. When it is not, the next step is €49.</p>
+        <div class="cluster cluster--center">
+          <a class="btn btn--primary btn--lg" href="waitlist.html">Create a workspace</a>
+          <a class="btn btn--secondary btn--lg" href="models.html">Compare models</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container container--wide">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a class="brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l1.9 4.9 4.9 1.9-4.9 1.9L10 15.2 8.1 10.3 3.2 8.4l4.9-1.9L10 1.6z"/><path d="M15.6 13.2l.8 2.1 2.1.8-2.1.8-.8 2.1-.8-2.1-2.1-.8 2.1-.8.8-2.1z" opacity=".55"/></svg>
+          </span>
+          Lumen
+        </a>
+        <p>The agent runtime for teams that have to ship, explain and defend their AI features.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Product</h3>
+        <ul>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="playground.html">Playground</a></li>
+          <li><a href="models.html">Models</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="waitlist.html">Get access</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Developers</h3>
+        <ul>
+          <li><a href="api.html">API reference</a></li>
+          <li><a href="api.html#authentication">Authentication</a></li>
+          <li><a href="api.html#errors">Error codes</a></li>
+          <li><a href="api.html#streaming">Streaming</a></li>
+          <li><a href="models.html#limits">Rate limits</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="index.html#why-heading">About</a></li>
+          <li><a href="index.html#proof-heading">Customers</a></li>
+          <li><a href="pricing.html#faq">FAQ</a></li>
+          <li><a href="waitlist.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span data-year>2026</span> Lumen Systems. A fictional product used for this template.</p>
+      <div class="footer-social">
+        <a class="icon-btn" href="#" aria-label="Lumen on X"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M12.6 3h2.4l-5.2 6 6.2 8h-4.9l-3.8-5-4.4 5H.5l5.6-6.4L.2 3h5l3.5 4.6L12.6 3zm-.9 12.6h1.4L5.4 4.3H3.9l7.8 11.3z"/></svg></a>
+        <a class="icon-btn" href="#" aria-label="Lumen on GitHub"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.3a8.7 8.7 0 00-2.8 17c.4.1.6-.2.6-.5v-1.7c-2.4.5-3-1.2-3-1.2-.4-1-1-1.3-1-1.3-.8-.5.1-.5.1-.5.9.1 1.3.9 1.3.9.8 1.3 2.1.9 2.6.7.1-.6.3-1 .6-1.2-1.9-.2-3.9-1-3.9-4.2 0-.9.3-1.7.9-2.3-.1-.2-.4-1.1.1-2.3 0 0 .7-.2 2.3.9a8 8 0 014.2 0c1.6-1.1 2.3-.9 2.3-.9.5 1.2.2 2.1.1 2.3.6.6.9 1.4.9 2.3 0 3.2-2 4-3.9 4.2.3.3.6.8.6 1.7v2.5c0 .3.2.6.6.5A8.7 8.7 0 0010 1.3z"/></svg></a>
+        <a class="icon-btn" href="#" aria-label="Lumen on LinkedIn"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5.4 17H2.6V7.4h2.8V17zM4 6.2A1.6 1.6 0 114 3a1.6 1.6 0 010 3.2zM17.4 17h-2.8v-4.7c0-1.1 0-2.6-1.6-2.6s-1.8 1.2-1.8 2.5V17H8.4V7.4h2.7v1.3h.1a3 3 0 012.7-1.5c2.9 0 3.5 1.9 3.5 4.4V17z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+<script src="js/pricing.js" defer></script>
+</body>
+</html>

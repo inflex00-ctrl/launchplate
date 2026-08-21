@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pricing — Northwind</title>
+<meta name="description" content="Simple pricing that scales with tracked accounts, never with seats. Starter from $29/month, Growth $89/month, Scale $249/month. 14-day free trial, no credit card.">
+<meta name="theme-color" content="#0f7a68" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0d0e" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://northwind.example.com/pricing.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="product">
+<meta property="og:site_name" content="Northwind">
+<meta property="og:title" content="Pricing — Northwind">
+<meta property="og:description" content="Simple pricing that scales with tracked accounts, never with seats. Starter from $29/month, Growth $89/month, Scale $249/month. 14-day free trial, no credit card.">
+<meta property="og:url" content="https://northwind.example.com/pricing.html">
+<meta property="og:image" content="https://northwind.example.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Northwind — customer signals for product-led revenue teams">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@northwindhq">
+<meta name="twitter:title" content="Pricing — Northwind">
+<meta name="twitter:description" content="Simple pricing that scales with tracked accounts, never with seats. Starter from $29/month, Growth $89/month, Scale $249/month. 14-day free trial, no credit card.">
+<meta name="twitter:image" content="https://northwind.example.com/assets/og-image.png">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+<script>(function(){try{var t=localStorage.getItem("nw-theme");if(t==="dark"||t==="light"){document.documentElement.setAttribute("data-theme",t);document.documentElement.style.colorScheme=t;}}catch(e){}})();</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://northwind.example.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "https://northwind.example.com/pricing.html" }
+      ]
+    },
+    {
+      "@type": "Product",
+      "name": "Northwind",
+      "description": "Customer signal platform for B2B software companies. Pricing scales with tracked accounts, never with seats.",
+      "brand": { "@type": "Brand", "name": "Northwind" },
+      "url": "https://northwind.example.com/pricing.html",
+      "image": "https://northwind.example.com/assets/og-image.png",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Starter",
+          "price": "29.00",
+          "priceCurrency": "USD",
+          "url": "https://northwind.example.com/pricing.html#starter",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "29.00",
+            "priceCurrency": "USD",
+            "unitText": "MONTH"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Growth",
+          "price": "89.00",
+          "priceCurrency": "USD",
+          "url": "https://northwind.example.com/pricing.html#growth",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "89.00",
+            "priceCurrency": "USD",
+            "unitText": "MONTH"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Scale",
+          "price": "249.00",
+          "priceCurrency": "USD",
+          "url": "https://northwind.example.com/pricing.html#scale",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "249.00",
+            "priceCurrency": "USD",
+            "unitText": "MONTH"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What counts as a tracked account?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Any company record that sent at least one event in the billing month. Free trials, churned customers and internal test workspaces do not count toward your limit." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you charge per seat?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Every plan includes unlimited users. Invite your whole go-to-market team, your data team, and your executives at no additional cost." }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if we exceed our account limit?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nothing breaks. We notify you at 80 percent and 100 percent of your limit and give you 30 days to upgrade. Signals keep firing throughout." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can we change plans mid-cycle?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Upgrades take effect immediately and are prorated to the day. Downgrades take effect at your next renewal date." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer discounts for startups or non-profits?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Companies under 20 employees and under two years old get 50 percent off for the first year. Registered non-profits and educational institutions get 40 percent off permanently." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header" data-scrolled="false">
+  <div class="container container--wide">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="Northwind — home">
+        <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect width="32" height="32" rx="9" fill="currentColor" fill-opacity="0.12"/><path d="M10 23V9.5l12 13V9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Northwind</span>
+      </a>
+      <ul class="nav__links"><li><a class="nav__link" href="features.html">Features</a></li><li><a class="nav__link" href="pricing.html" aria-current="page">Pricing</a></li><li><a class="nav__link" href="docs.html">Docs</a></li><li><a class="nav__link" href="changelog.html">Changelog</a></li><li><a class="nav__link" href="about.html">About</a></li></ul>
+      <span class="nav__spacer"></span>
+      <div class="nav__actions">
+        <button type="button" class="icon-btn theme-toggle" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.5v2.2M12 19.3v2.2M21.5 12h-2.2M4.7 12H2.5M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6M18.7 18.7l-1.6-1.6M6.9 6.9 5.3 5.3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 14.2A8.4 8.4 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        </button>
+        <a class="btn btn--secondary btn--sm" href="#signin">Sign in</a>
+        <a class="btn btn--primary btn--sm" href="#trial">Start free trial</a>
+        <button type="button" class="icon-btn nav__toggle" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open main menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav" data-open="false">
+  <div class="container">
+    <nav class="mobile-nav__list" aria-label="Mobile navigation"><a class="mobile-nav__link" href="features.html">Features<span class="text-subtle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a class="mobile-nav__link" href="pricing.html" aria-current="page">Pricing<span class="text-subtle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a class="mobile-nav__link" href="docs.html">Docs<span class="text-subtle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a class="mobile-nav__link" href="changelog.html">Changelog<span class="text-subtle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a class="mobile-nav__link" href="about.html">About<span class="text-subtle"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></nav>
+    <div class="mobile-nav__actions">
+      <a class="btn btn--primary btn--lg btn--block" href="#trial">Start free trial</a>
+      <a class="btn btn--secondary btn--lg btn--block" href="#signin">Sign in</a>
+    </div>
+  </div>
+</div>
+<main id="main">
+
+<section class="page-hero page-hero--center" aria-labelledby="pricing-heading">
+  <div class="container">
+    <div class="page-hero__inner">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb" style="justify-content:center">
+          <li><a href="index.html">Home</a></li>
+          <li>Pricing</li>
+        </ol>
+      </nav>
+      <h1 id="pricing-heading">Priced by accounts, never by seats</h1>
+      <p class="lede">Bring the whole go-to-market team. Every plan includes unlimited users, every integration you need to get started, and a 14-day trial with no card.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="plans-heading">
+  <div class="container">
+    <h2 class="sr-only" id="plans-heading">Plans</h2>
+
+    <div class="flex justify-between items-center flex-wrap gap-4 mb-8" style="justify-content:center">
+      <div class="billing-toggle">
+        <button type="button" class="billing-toggle__label" data-billing-label="monthly" data-active="false">Monthly</button>
+        <button type="button" class="switch" data-billing-switch role="switch" aria-checked="true" aria-label="Bill annually and save 20 percent"></button>
+        <button type="button" class="billing-toggle__label" data-billing-label="annual" data-active="true">
+          Annual <span class="badge badge--brand">Save 20%</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="price-grid"><article class="plan" id="starter" aria-labelledby="starter-name">
+  <div class="plan__head">
+    <h2 class="plan__name" id="starter-name">Starter</h2>
+    
+  </div>
+  <p class="plan__desc">For teams instrumenting product signals for the first time.</p>
+  <p class="plan__price">
+    <span class="plan__currency" aria-hidden="true">$</span>
+    <span class="plan__amount" data-monthly="29" data-annual="23">23</span>
+    <span class="plan__period" data-period-label data-label-monthly="/ month" data-label-annual="/ month">/ month</span>
+  </p>
+  <p class="plan__billing-note" data-period-label data-label-monthly="Billed monthly &middot; cancel anytime" data-label-annual="$276 billed yearly &middot; save $72">$276 billed yearly &middot; save $72</p>
+  <div class="plan__cta">
+    <a class="btn btn--secondary btn--lg btn--block" href="#trial">Start free trial</a>
+  </div>
+  <div class="plan__features">
+    <p class="plan__features-title">Everything you need to start</p>
+    <ul><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>500</strong> tracked accounts, unlimited users</span></li><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>12</strong> pre-built signals across PLG and seat-based models</span></li><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Slack and email delivery</span></li><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>JavaScript, Node and Python SDKs</span></li><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>90-day event history</span></li><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Community support &amp; office hours</span></li></ul>
+  </div>
+</article><article class="plan plan--featured" id="growth" aria-labelledby="growth-name">
+  <div class="plan__head">
+    <h2 class="plan__name" id="growth-name">Growth</h2>
+    <span class="badge badge--brand">Most popular</span>
+  </div>
+  <p class="plan__desc">For go-to-market teams running renewal and expansion motions.</p>
+  <p class="plan__price">
+    <span class="plan__currency" aria-hidden="true">$</span>
+    <span class="plan__amount" data-monthly="89" data-annual="71">71</span>
+    <span class="plan__period" data-period-label data-label-monthly="/ month" data-label-annual="/ month">/ month</span>
+  </p>
+  <p class="plan__billing-note" data-period-label data-label-monthly="Billed monthly &middot; cancel anytime" data-label-annual="$852 billed yearly &middot; save $216">$852 billed yearly &middot; save $216</p>
+  <div class="plan__cta">
+    <a class="btn btn--primary btn--lg btn--block" href="#trial">Start free trial</a>
+  </div>
+  <div class="plan__features">
+    <p class="plan__features-title">Everything in Starter, plus</p>
+    <ul><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>5,000</strong> tracked accounts, unlimited users</span></li><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Unlimited custom signals</strong> and composite health scoring</span></li><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Two-way Salesforce and HubSpot sync</span></li><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Playbooks with outcome tracking</span></li><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Warehouse sync &mdash; Snowflake, BigQuery, Redshift, Postgres</span></li><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>SAML SSO and role-based permissions</span></li><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>2-year event history</span></li><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Priority support, 4-hour first response</span></li></ul>
+  </div>
+</article><article class="plan" id="scale" aria-labelledby="scale-name">
+  <div class="plan__head">
+    <h2 class="plan__name" id="scale-name">Scale</h2>
+    
+  </div>
+  <p class="plan__desc">For multi-product companies with compliance requirements.</p>
+  <p class="plan__price">
+    <span class="plan__currency" aria-hidden="true">$</span>
+    <span class="plan__amount" data-monthly="249" data-annual="199">199</span>
+    <span class="plan__period" data-period-label data-label-monthly="/ month" data-label-annual="/ month">/ month</span>
+  </p>
+  <p class="plan__billing-note" data-period-label data-label-monthly="Billed monthly &middot; cancel anytime" data-label-annual="$2,388 billed yearly &middot; save $600">$2,388 billed yearly &middot; save $600</p>
+  <div class="plan__cta">
+    <a class="btn btn--secondary btn--lg btn--block" href="#trial">Start free trial</a>
+  </div>
+  <div class="plan__features">
+    <p class="plan__features-title">Everything in Growth, plus</p>
+    <ul><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>25,000</strong> tracked accounts, unlimited users</span></li><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Multi-workspace with cross-product rollups</span></li><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>SCIM provisioning and full audit log</span></li><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>EU or US data residency</span></li><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reverse ETL back to your warehouse</span></li><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Custom data retention policies</span></li><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Named CSM and quarterly business reviews</span></li><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>99.9% uptime SLA</span></li></ul>
+  </div>
+</article></div>
+
+    <div class="card enterprise-band mt-8">
+      <div>
+        <h2 style="font-size:var(--step-2);margin-bottom:.5rem">Enterprise</h2>
+        <p class="text-muted small">Unlimited tracked accounts, single-tenant deployment, custom contractual terms, security review support, and a dedicated Slack Connect channel with our engineering team. Typically for companies above 25,000 accounts or with regulated data.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn--inverse btn--lg" href="#contact">Talk to sales <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+
+    <p class="table-note">Prices in USD, excluding VAT. All plans include a 14-day trial &mdash; no credit card, full product access.</p>
+  </div>
+</section>
+
+<section class="logos section--tight" aria-label="Customers">
+  <div class="container">
+    <p class="logos__label">1,400+ teams have already made the switch</p>
+    <div class="logos__row"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v18M12 3a2.4 2.4 0 1 0 0 4.8A2.4 2.4 0 0 0 12 3zM5 13a7 7 0 0 0 14 0" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M7.5 9h9" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg><span>Harbourline</span></span><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="3.2" fill="currentColor"/></svg><span>Cadence</span></span><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20.5 2.8 4.5h18.4L12 20.5z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg><span>Vantive</span></span><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.6 20.4 7.3v9.4L12 21.4 3.6 16.7V7.3L12 2.6z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg><span>Merrow</span></span><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4.6" y="4.6" width="14.8" height="14.8" rx="2.4" transform="rotate(45 12 12)" stroke="currentColor" stroke-width="1.9"/></svg><span>Northgate</span></span><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.3" stroke="currentColor" stroke-width="1.9"/><path d="M12 2.4v2.6M12 19v2.6M21.6 12H19M5 12H2.4M18.8 5.2l-1.9 1.9M7.1 16.9l-1.9 1.9M18.8 18.8l-1.9-1.9M7.1 7.1 5.2 5.2" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg><span>Lumenly</span></span></div>
+  </div>
+</section>
+
+<section class="section section--alt" id="compare" aria-labelledby="compare-heading">
+  <div class="container container--wide">
+    <div class="section-head section-head--center">
+      <span class="eyebrow">Compare</span>
+      <h2 id="compare-heading">Every feature, side by side</h2>
+      <p class="lede">No asterisks and no &ldquo;contact us&rdquo; rows. If it is in the table, it is in the plan.</p>
+    </div>
+
+    <div class="table-scroll">
+      <table class="table">
+        <caption class="sr-only">Detailed feature comparison of the Starter, Growth and Scale plans</caption>
+        <thead>
+          <tr>
+            <th scope="col">Feature</th>
+            <th scope="col">Starter<span class="table__hint">$29 / month</span></th>
+            <th scope="col">Growth<span class="table__hint">$89 / month</span></th>
+            <th scope="col">Scale<span class="table__hint">$249 / month</span></th>
+          </tr>
+        </thead>
+        <tbody><tr class="table__group"><td colspan="4">Data &amp; sources</td></tr><tr><th scope="row">Tracked accounts</th><td>500</td><td>5,000</td><td>25,000</td></tr><tr><th scope="row">Users &amp; seats</th><td>Unlimited</td><td>Unlimited</td><td>Unlimited</td></tr><tr><th scope="row">Event history</th><td>90 days</td><td>2 years</td><td>Custom</td></tr><tr><th scope="row">Warehouse sync</th><td><span class="table__no" role="img" aria-label="Not included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="16" height="16"><path d="M6 10h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td><td><span class="table__yes" role="img" aria-label="Included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td><span class="table__yes" role="img" aria-label="Included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td></tr><tr><th scope="row">Reverse ETL back to warehouse</th><td><span class="table__no" role="img" aria-label="Not included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="16" height="16"><path d="M6 10h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td><td><span class="table__no" role="img" aria-label="Not included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="16" height="16"><path d="M6 10h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td><td><span class="table__yes" role="img" aria-label="Included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td></tr><tr><th scope="row">Historical backfill</th><td>30 days</td><td>Full</td><td>Full</td></tr><tr class="table__group"><td colspan="4">Signals &amp; scoring</td></tr><tr><th scope="row">Pre-built signal library</th><td>12</td><td>40+</td><td>40+</td></tr><tr><th scope="row">Custom signals</th><td>3</td><td>Unlimited</td><td>Unlimited</td></tr><tr><th scope="row">Composite health scoring</th><td><span class="table__no" role="img" aria-label="Not included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="16" height="16"><path d="M6 10h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td><td><span class="table__yes" role="img" aria-label="Included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td><span class="table__yes" role="img" aria-label="Included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td></tr><tr><th scope="row">SQL signal editor</th><td><span class="table__no" role="img" aria-label="Not included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="16" height="16"><path d="M6 10h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td><td><span class="table__yes" role="img" aria-label="Included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td><span class="table__yes" role="img" aria-label="Included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td></tr><tr><th scope="row">Multi-product rollups</th><td><span class="table__no" role="img" aria-label="Not included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="16" height="16"><path d="M6 10h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td><td><span class="table__no" role="img" aria-label="Not included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="16" height="16"><path d="M6 10h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td><td><span class="table__yes" role="img" aria-label="Included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td></tr><tr class="table__group"><td colspan="4">Delivery &amp; automation</td></tr><tr><th scope="row">Slack &amp; email delivery</th><td><span class="table__yes" role="img" aria-label="Included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td><span class="table__yes" role="img" aria-label="Included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td><span class="table__yes" role="img" aria-label="Included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td></tr><tr><th scope="row">Salesforce &amp; HubSpot sync</th><td>One-way</td><td>Two-way</td><td>Two-way</td></tr><tr><th scope="row">Playbooks</th><td>1 active</td><td>Unlimited</td><td>Unlimited</td></tr><tr><th scope="row">Outcome tracking &amp; attribution</th><td><span class="table__no" role="img" aria-label="Not included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="16" height="16"><path d="M6 10h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td><td><span class="table__yes" role="img" aria-label="Included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td><span class="table__yes" role="img" aria-label="Included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td></tr><tr><th scope="row">Webhooks &amp; public API</th><td>Read only</td><td><span class="table__yes" role="img" aria-label="Included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td><span class="table__yes" role="img" aria-label="Included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td></tr><tr class="table__group"><td colspan="4">Security &amp; governance</td></tr><tr><th scope="row">SAML single sign-on</th><td><span class="table__no" role="img" aria-label="Not included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="16" height="16"><path d="M6 10h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td><td><span class="table__yes" role="img" aria-label="Included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td><span class="table__yes" role="img" aria-label="Included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td></tr><tr><th scope="row">SCIM provisioning</th><td><span class="table__no" role="img" aria-label="Not included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="16" height="16"><path d="M6 10h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td><td><span class="table__no" role="img" aria-label="Not included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="16" height="16"><path d="M6 10h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td><td><span class="table__yes" role="img" aria-label="Included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td></tr><tr><th scope="row">Role-based permissions</th><td><span class="table__no" role="img" aria-label="Not included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="16" height="16"><path d="M6 10h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td><td><span class="table__yes" role="img" aria-label="Included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td><td><span class="table__yes" role="img" aria-label="Included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td></tr><tr><th scope="row">Audit log</th><td><span class="table__no" role="img" aria-label="Not included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="16" height="16"><path d="M6 10h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td><td>90 days</td><td>Unlimited</td></tr><tr><th scope="row">Data residency (EU / US)</th><td><span class="table__no" role="img" aria-label="Not included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="16" height="16"><path d="M6 10h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td><td><span class="table__no" role="img" aria-label="Not included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="16" height="16"><path d="M6 10h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td><td><span class="table__yes" role="img" aria-label="Included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5 8 14.5 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td></tr><tr class="table__group"><td colspan="4">Support</td></tr><tr><th scope="row">Support channel</th><td>Community</td><td>Priority email</td><td>Named CSM</td></tr><tr><th scope="row">First response target</th><td>2 business days</td><td>4 hours</td><td>1 hour</td></tr><tr><th scope="row">Uptime SLA</th><td><span class="table__no" role="img" aria-label="Not included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="16" height="16"><path d="M6 10h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td><td><span class="table__no" role="img" aria-label="Not included"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true" width="16" height="16"><path d="M6 10h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></td><td>99.9%</td></tr><tr><th scope="row">Onboarding</th><td>Self-serve</td><td>Guided</td><td>White-glove</td></tr></tbody>
+      </table>
+    </div>
+    <p class="table-note">Need something that is not listed? <a href="#contact">Tell us what you need</a> &mdash; roughly a third of our roadmap starts as a procurement question.</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="pricing-quote-heading">
+  <div class="container container--narrow">
+    <h2 class="sr-only" id="pricing-quote-heading">What customers say about the value</h2>
+    <figure class="quote quote--feature">
+  <div class="quote__stars" aria-label="5 out of 5 stars"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.4 5.1 5.6.8-4 3.9.95 5.6L10 14.4l-4.95 2.6L6 11.4 2 7.5l5.6-.8L10 1.6z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.4 5.1 5.6.8-4 3.9.95 5.6L10 14.4l-4.95 2.6L6 11.4 2 7.5l5.6-.8L10 1.6z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.4 5.1 5.6.8-4 3.9.95 5.6L10 14.4l-4.95 2.6L6 11.4 2 7.5l5.6-.8L10 1.6z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.4 5.1 5.6.8-4 3.9.95 5.6L10 14.4l-4.95 2.6L6 11.4 2 7.5l5.6-.8L10 1.6z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.4 5.1 5.6.8-4 3.9.95 5.6L10 14.4l-4.95 2.6L6 11.4 2 7.5l5.6-.8L10 1.6z"/></svg></div>
+  <blockquote>&ldquo;We modelled it against three competitors and Northwind was the only one that did not get more expensive every time we hired. Two years in, the bill has grown with our customer base, not our headcount &mdash; which is exactly how it should work.&rdquo;</blockquote>
+  <figcaption class="quote__person">
+    <span class="avatar avatar--brand" aria-hidden="true">PA</span>
+    <span>
+      <span class="quote__name">Priya Anand</span><br>
+      <span class="quote__role">CFO, Northgate Software</span>
+    </span>
+  </figcaption>
+</figure>
+  </div>
+</section>
+
+<section class="section section--alt" id="pricing-faq" aria-labelledby="pricing-faq-heading">
+  <div class="container">
+    <div class="faq-split">
+      <div class="faq-split__aside">
+        <span class="eyebrow">Billing FAQ</span>
+        <h2 id="pricing-faq-heading">The awkward questions, answered</h2>
+        <p class="text-muted mt-4">Everything about limits, contracts, procurement and refunds &mdash; before you have to ask a salesperson.</p>
+        <p class="mt-6"><a class="btn btn--secondary" href="#contact">Ask us anything <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
+      </div>
+      <div class="faq"><details class="faq__item">
+  <summary>What counts as a tracked account?<svg class="faq__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 6v12M6 12h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></summary>
+  <div class="faq__answer"><p>Any company record that sent at least one event during the billing month. Trials you have not converted, churned customers, and internal test workspaces are all excluded &mdash; you only pay for accounts your team is actually working.</p></div>
+</details><details class="faq__item">
+  <summary>Do you charge per seat?<svg class="faq__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 6v12M6 12h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></summary>
+  <div class="faq__answer"><p>Never. Every plan includes unlimited users. We think charging per seat quietly punishes you for giving the whole go-to-market team visibility, which is the entire point of the product.</p></div>
+</details><details class="faq__item">
+  <summary>What happens if we go over the account limit?<svg class="faq__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 6v12M6 12h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></summary>
+  <div class="faq__answer"><p>Nothing breaks and nothing is throttled. We email you at 80% and again at 100% of your limit, then give you 30 days to upgrade or trim. Signals keep firing the whole time.</p></div>
+</details><details class="faq__item">
+  <summary>Can we change plans mid-cycle?<svg class="faq__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 6v12M6 12h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></summary>
+  <div class="faq__answer"><p>Yes. Upgrades apply immediately and are prorated to the day. Downgrades apply at your next renewal so you keep what you paid for. Both are self-serve in Settings &rarr; Billing &mdash; no email to sales required.</p></div>
+</details><details class="faq__item">
+  <summary>Is there a discount for startups or non-profits?<svg class="faq__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 6v12M6 12h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></summary>
+  <div class="faq__answer"><p>Companies with fewer than 20 employees and less than two years of trading get <strong>50% off the first year</strong>. Registered non-profits and accredited educational institutions get <strong>40% off permanently</strong>. Email <a href="#contact">billing@northwind.com</a> with a link to your company registration and we will apply it the same day.</p></div>
+</details><details class="faq__item">
+  <summary>What do you need for procurement and security review?<svg class="faq__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 6v12M6 12h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></summary>
+  <div class="faq__answer"><p>Our SOC&nbsp;2 Type&nbsp;II report, penetration test summary, DPA, sub-processor list and standard MSA are all available under NDA from the trust centre. On the Scale plan we will also complete your security questionnaire, and we accept redlines on the MSA.</p></div>
+</details><details class="faq__item">
+  <summary>Do you offer annual invoicing and purchase orders?<svg class="faq__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 6v12M6 12h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></summary>
+  <div class="faq__answer"><p>Yes on annual plans. We support bank transfer, invoice with net-30 terms, and purchase order numbers on the invoice. Card payments are also fine on any plan.</p></div>
+</details><details class="faq__item">
+  <summary>What is your refund policy?<svg class="faq__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 6v12M6 12h12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></summary>
+  <div class="faq__answer"><p>If Northwind is not working for you in the first 30 days of a paid plan, email us and we will refund the full amount, no questions and no exit survey. After that, annual plans can be cancelled at renewal.</p></div>
+</details></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="cta-heading">
+  <div class="container">
+    <div class="cta">
+      <h2 id="cta-heading">Stop finding out after renewal.</h2>
+      <p class="lede">Connect your product data in an afternoon. Northwind starts surfacing at-risk and expansion-ready accounts inside the first week &mdash; no data team required.</p>
+      <div class="btn-row btn-row--center">
+        <a class="btn btn--primary btn--lg" href="#trial">Start your 14-day trial <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="btn btn--secondary btn--lg" href="#demo">Book a 20-minute demo</a>
+      </div>
+      <p class="cta__note">No credit card &middot; Full product access &middot; Cancel in one click</p>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="container container--wide">
+    <div class="footer__top">
+      <div class="footer__about">
+        <a class="brand" href="index.html" aria-label="Northwind — home">
+          <svg class="brand__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect width="32" height="32" rx="9" fill="currentColor" fill-opacity="0.12"/><path d="M10 23V9.5l12 13V9" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Northwind</span>
+        </a>
+        <p>Northwind unifies product usage, billing and support into one account timeline, then tells your team exactly who to talk to today.</p>
+        <p class="tiny text-subtle" style="margin-top:1.25rem;display:flex;align-items:center;gap:.5rem;">
+          <span class="dot" aria-hidden="true"></span> All systems operational
+        </p>
+      </div>
+
+      <div class="footer__col">
+        <h3>Product</h3>
+        <ul>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="changelog.html">Changelog</a></li>
+          <li><a href="features.html#integrations">Integrations</a></li>
+          <li><a href="pricing.html#compare">Compare plans</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3>Developers</h3>
+        <ul>
+          <li><a href="docs.html">Documentation</a></li>
+          <li><a href="docs.html#quickstart">Quickstart</a></li>
+          <li><a href="docs.html#events-api">Events API</a></li>
+          <li><a href="docs.html#sdks">SDKs</a></li>
+          <li><a href="docs.html#webhooks">Webhooks</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="about.html#team">Team</a></li>
+          <li><a href="about.html#careers">Careers</a></li>
+          <li><a href="#press">Press kit</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="legal.html#privacy">Privacy policy</a></li>
+          <li><a href="legal.html#terms">Terms of service</a></li>
+          <li><a href="legal.html#subprocessors">Sub-processors</a></li>
+          <li><a href="legal.html#dpa">Data processing</a></li>
+          <li><a href="#security">Security</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; <span data-year>2026</span> Northwind Labs BV. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="legal.html#privacy">Privacy</a>
+        <a href="legal.html#terms">Terms</a>
+        <a href="legal.html#cookies">Cookies</a>
+      </div>
+      <div class="footer__social">
+        <a href="#x" aria-label="Northwind on X"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.1l-6.8 7.8L21.8 21h-6.2l-4.9-6.4L5.1 21H2l7.3-8.3L2.4 3h6.4l4.4 5.8L17.5 3zm-1.1 16.1h1.7L7.7 4.8H5.9l10.5 14.3z"/></svg></a>
+        <a href="#github" aria-label="Northwind on GitHub"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2a10 10 0 0 0-3.16 19.5c.5.09.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.93.83.09-.65.35-1.1.63-1.35-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2.2z"/></svg></a>
+        <a href="#linkedin" aria-label="Northwind on LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.2h4v11.3H3V9.2zm6.5 0h3.8v1.55h.05a4.2 4.2 0 0 1 3.78-2.08c4.04 0 4.79 2.66 4.79 6.12v5.71h-4v-5.06c0-1.21-.02-2.76-1.68-2.76-1.69 0-1.95 1.32-1.95 2.68v5.14h-3.99V9.2z"/></svg></a>
+        <a href="#rss" aria-label="Northwind changelog RSS feed"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="6.2" cy="17.8" r="2.2"/><path d="M4 4v3.2c6.96 0 12.6 5.64 12.6 12.6H20C20 11.1 12.9 4 4 4zm0 6.3v3.2c3.48 0 6.3 2.82 6.3 6.3h3.2c0-5.25-4.25-9.5-9.5-9.5z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

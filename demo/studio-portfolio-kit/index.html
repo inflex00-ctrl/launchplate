@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meridian — Independent Design Studio for Brand, Product &amp; Editorial</title>
+<meta name="description" content="Meridian is an independent design studio in Lisbon and Copenhagen. We build brand identities, digital products and editorial systems for founders, funds and cultural institutions.">
+<meta name="author" content="Meridian Studio">
+<meta name="theme-color" content="#f5f2ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#100f0d" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://meridian.studio/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Meridian Studio">
+<meta property="og:title" content="Meridian — Independent Design Studio">
+<meta property="og:description" content="Brand identity, digital product and editorial systems. An independent studio in Lisbon and Copenhagen, working since 2014.">
+<meta property="og:url" content="https://meridian.studio/">
+<meta property="og:image" content="https://meridian.studio/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Meridian — Independent Design Studio">
+<meta name="twitter:description" content="Brand identity, digital product and editorial systems. Lisbon &amp; Copenhagen.">
+<meta name="twitter:image" content="https://meridian.studio/og-cover.png">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2316130f'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23b4482a' stroke-width='2.4'/%3E%3Cpath d='M16 7v18' stroke='%23f5f2ec' stroke-width='2.4'/%3E%3C/svg%3E">
+
+<script>
+/* No-flash theme boot. Runs before first paint. */
+(function () {
+  try {
+    var t = localStorage.getItem("meridian-theme");
+    if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+  document.documentElement.className += " js";
+})();
+</script>
+
+<link rel="stylesheet" href="css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://meridian.studio/#organization",
+  "name": "Meridian Studio",
+  "alternateName": "Meridian",
+  "url": "https://meridian.studio/",
+  "description": "Independent design studio working on brand identity, digital product and editorial systems.",
+  "foundingDate": "2014",
+  "email": "studio@meridian.studio",
+  "telephone": "+351 210 000 140",
+  "numberOfEmployees": { "@type": "QuantitativeValue", "value": 12 },
+  "address": [
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua da Boavista 84",
+      "addressLocality": "Lisbon",
+      "postalCode": "1200-069",
+      "addressCountry": "PT"
+    },
+    {
+      "@type": "PostalAddress",
+      "streetAddress": "Refshalevej 153",
+      "addressLocality": "Copenhagen",
+      "postalCode": "1432",
+      "addressCountry": "DK"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/meridian.studio",
+    "https://www.linkedin.com/company/meridian-studio",
+    "https://www.are.na/meridian-studio"
+  ],
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brand identity and systems" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital product and interface design" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Editorial and publishing design" } }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="shell site-header__inner">
+    <a class="wordmark" href="index.html" aria-label="Meridian Studio — home">
+      <svg class="wordmark__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="9.25" stroke="currentColor" stroke-width="1.9"/>
+        <path d="M12 2.75v18.5" stroke="currentColor" stroke-width="1.9"/>
+        <path d="M2.75 12h18.5" stroke="currentColor" stroke-width="1.9" opacity="0.4"/>
+      </svg>
+      Meridian
+      <span class="wordmark__sub">Studio</span>
+    </a>
+
+    <nav class="nav nav--primary" aria-label="Primary">
+      <a class="nav__link" href="work.html">Work</a>
+      <a class="nav__link" href="services.html">Services</a>
+      <a class="nav__link" href="about.html">Studio</a>
+      <a class="nav__link" href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header__actions">
+      <p id="theme-status" class="visually-hidden" role="status" aria-live="polite"></p>
+      <button class="icon-btn" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2"/>
+          <path d="M12 2.6v2.2M12 19.2v2.2M4.2 12H2M22 12h-2.2M6.5 6.5 4.9 4.9M19.1 19.1l-1.6-1.6M17.5 6.5l1.6-1.6M4.9 19.1l1.6-1.6"/>
+        </svg>
+        <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1Z"/>
+        </svg>
+      </button>
+
+      <a class="btn btn--sm header__cta" href="contact.html">
+        Start a project
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12 12 4"/><path d="M5.6 4H12v6.4"/></svg>
+      </a>
+
+      <button class="icon-btn nav-toggle" type="button" data-nav-open aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+          <path d="M4 8h16M4 16h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= MOBILE NAV ================= -->
+<div class="mobile-nav" id="mobile-nav" data-open="false" aria-hidden="true">
+  <div class="mobile-nav__top">
+    <span class="wordmark">
+      <svg class="wordmark__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="9.25" stroke="currentColor" stroke-width="1.9"/>
+        <path d="M12 2.75v18.5" stroke="currentColor" stroke-width="1.9"/>
+      </svg>
+      Meridian
+    </span>
+    <button class="icon-btn" type="button" data-nav-close aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-nav__list" aria-label="Mobile">
+    <a class="mobile-nav__link" href="work.html"><span>01</span> Work</a>
+    <a class="mobile-nav__link" href="services.html"><span>02</span> Services</a>
+    <a class="mobile-nav__link" href="about.html"><span>03</span> Studio</a>
+    <a class="mobile-nav__link" href="contact.html"><span>04</span> Contact</a>
+  </nav>
+  <div class="mobile-nav__foot">
+    <a class="link" href="mailto:studio@meridian.studio">studio@meridian.studio</a>
+    <span class="pill"><span class="dot" aria-hidden="true"></span> Booking Q3</span>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero shell" aria-labelledby="hero-title">
+    <div class="hero__meta">
+      <p class="eyebrow">Lisbon &amp; Copenhagen — Independent since 2014</p>
+      <p class="pill pill--accent"><span class="dot" aria-hidden="true"></span> Two project slots open for Q3</p>
+    </div>
+
+    <h1 class="display-xl hero__title" id="hero-title">
+      <span class="line">We design</span>
+      <span class="line indent">the things</span>
+      <span class="line">people <span class="serif">trust</span>.</span>
+    </h1>
+
+    <div class="hero__foot">
+      <div>
+        <p class="lede">Meridian is a twelve-person studio building brand identities, digital products and the editorial systems that hold them together — for founders, funds and cultural institutions across Europe.</p>
+        <div class="hero__actions u-mt-4">
+          <a class="btn btn--lg" href="work.html">
+            See selected work
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12 12 4"/><path d="M5.6 4H12v6.4"/></svg>
+          </a>
+          <a class="btn btn--lg btn--ghost" href="services.html">How we work</a>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat">
+          <span class="stat__value">11</span>
+          <span class="stat__label">Years independent, no investors, no holding company</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value">68</span>
+          <span class="stat__label">Brand systems shipped across 14 markets</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value">91<sup>%</sup></span>
+          <span class="stat__label">Of new work arrives by referral</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HERO ARTWORK ================= -->
+  <div class="hero-band shell shell--wide">
+    <div class="art art--meridian art--cinema" role="img" aria-label="Abstract composition: concentric rings over a deep blue field with an ember-coloured disc rising from the lower left.">
+      <span class="art__field" aria-hidden="true"></span>
+    </div>
+  </div>
+
+  <!-- ================= CLIENT STRIP ================= -->
+  <section class="section section--tight shell" aria-label="Selected clients">
+    <p class="mono u-center" style="margin-bottom:1.25rem;">Trusted by teams who take design seriously</p>
+    <hr class="rule">
+    <div class="logo-strip">
+      <span class="logo-strip__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg> Halden</span>
+      <span class="logo-strip__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M4 18 12 5l8 13z"/></svg> Fold &amp; Cadence</span>
+      <span class="logo-strip__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M5 12h14"/></svg> Northbound</span>
+      <span class="logo-strip__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 4a8 8 0 0 0 0 16"/><path d="M12 4a8 8 0 0 1 0 16"/><path d="M4 12h16"/></svg> Verger</span>
+      <span class="logo-strip__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 4 20 12 12 20 4 12z"/></svg> Atlas Civic</span>
+      <span class="logo-strip__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 15c4-8 12-8 16 0"/><path d="M12 7v12"/></svg> Kestrel</span>
+      <span class="logo-strip__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="8.5" cy="12" r="4.5"/><circle cx="15.5" cy="12" r="4.5"/></svg> Ostro</span>
+    </div>
+    <hr class="rule">
+  </section>
+
+  <!-- ================= SELECTED WORK ================= -->
+  <section class="section section--flush-top shell shell--wide" aria-labelledby="work-title">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Selected work</p>
+        <h2 class="display-m section-head__title" id="work-title">Six projects that<br>explain the rest.</h2>
+      </div>
+      <p class="section-head__aside">We publish a small fraction of what we make. These are the projects where the brief was hardest and the thinking is easiest to see.</p>
+    </div>
+
+    <div class="work-grid">
+
+      <article class="work-card work-card--wide" data-reveal>
+        <div class="work-card__media">
+          <div class="art art--split art--wide" role="img" aria-label="Diagonal composition in ink and sand with an ember disc across the seam.">
+            <span class="art__field" aria-hidden="true"></span>
+          </div>
+          <div class="work-card__veil" aria-hidden="true">
+            <div class="work-card__veil-inner">
+              <p class="mono">Brand identity · Packaging · Art direction</p>
+              <p class="work-card__cta">Read the case study
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 12 4"/><path d="M5.6 4H12v6.4"/></svg>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="work-card__body">
+          <div>
+            <h3 class="work-card__title"><a class="work-card__link" href="case-study.html">Halden Optics</a></h3>
+            <p class="work-card__tags">Optical instruments for field science</p>
+          </div>
+          <span class="work-card__year">2025</span>
+        </div>
+      </article>
+
+      <article class="work-card work-card--slim work-card--drop" data-reveal>
+        <div class="work-card__media">
+          <div class="art art--strata art--portrait" role="img" aria-label="Horizontal strata of teal, bone, ember and clay, like a geological section.">
+            <span class="art__field" aria-hidden="true"></span>
+          </div>
+          <div class="work-card__veil" aria-hidden="true">
+            <div class="work-card__veil-inner">
+              <p class="mono">Identity · Editorial · Web</p>
+              <p class="work-card__cta">View project
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 12 4"/><path d="M5.6 4H12v6.4"/></svg>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="work-card__body">
+          <div>
+            <h3 class="work-card__title"><a class="work-card__link" href="case-study.html">Fold &amp; Cadence</a></h3>
+            <p class="work-card__tags">A publishing house rebuilt around its archive</p>
+          </div>
+          <span class="work-card__year">2025</span>
+        </div>
+      </article>
+
+      <article class="work-card work-card--slim" data-reveal>
+        <div class="work-card__media">
+          <div class="art art--halftone art--portrait" role="img" aria-label="Halftone dot field dissolving diagonally with a soft ember circle at centre.">
+            <span class="art__field" aria-hidden="true"></span>
+          </div>
+          <div class="work-card__veil" aria-hidden="true">
+            <div class="work-card__veil-inner">
+              <p class="mono">Product design · Design system</p>
+              <p class="work-card__cta">View project
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 12 4"/><path d="M5.6 4H12v6.4"/></svg>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="work-card__body">
+          <div>
+            <h3 class="work-card__title"><a class="work-card__link" href="case-study.html">Kestrel Health</a></h3>
+            <p class="work-card__tags">Clinical software that stops shouting</p>
+          </div>
+          <span class="work-card__year">2024</span>
+        </div>
+      </article>
+
+      <article class="work-card work-card--wide work-card--drop" data-reveal>
+        <div class="work-card__media">
+          <div class="art art--dune art--wide" role="img" aria-label="Warm gradient mesh in sand and ember, crossed by fine diagonal rules.">
+            <span class="art__field" aria-hidden="true"></span>
+          </div>
+          <div class="work-card__veil" aria-hidden="true">
+            <div class="work-card__veil-inner">
+              <p class="mono">Identity · Packaging · Retail</p>
+              <p class="work-card__cta">View project
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 12 4"/><path d="M5.6 4H12v6.4"/></svg>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="work-card__body">
+          <div>
+            <h3 class="work-card__title"><a class="work-card__link" href="case-study.html">Verger Coffee</a></h3>
+            <p class="work-card__tags">Direct-trade coffee, without the folklore</p>
+          </div>
+          <span class="work-card__year">2024</span>
+        </div>
+      </article>
+
+      <article class="work-card" data-reveal>
+        <div class="work-card__media">
+          <div class="art art--grid" role="img" aria-label="Fine rule grid over bone, interrupted by a deep teal block and a soft ember glow.">
+            <span class="art__field" aria-hidden="true"></span>
+          </div>
+          <div class="work-card__veil" aria-hidden="true">
+            <div class="work-card__veil-inner">
+              <p class="mono">Design system · Service design</p>
+              <p class="work-card__cta">View project
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 12 4"/><path d="M5.6 4H12v6.4"/></svg>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="work-card__body">
+          <div>
+            <h3 class="work-card__title"><a class="work-card__link" href="case-study.html">Atlas Civic</a></h3>
+            <p class="work-card__tags">A city&rsquo;s services, finally in one voice</p>
+          </div>
+          <span class="work-card__year">2024</span>
+        </div>
+      </article>
+
+      <article class="work-card" data-reveal>
+        <div class="work-card__media">
+          <div class="art art--eclipse" role="img" aria-label="Two overlapping discs in ember and bone against a deep blue-black field.">
+            <span class="art__field" aria-hidden="true"></span>
+          </div>
+          <div class="work-card__veil" aria-hidden="true">
+            <div class="work-card__veil-inner">
+              <p class="mono">Brand · Digital product</p>
+              <p class="work-card__cta">View project
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12 12 4"/><path d="M5.6 4H12v6.4"/></svg>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="work-card__body">
+          <div>
+            <h3 class="work-card__title"><a class="work-card__link" href="case-study.html">Northbound Capital</a></h3>
+            <p class="work-card__tags">Making a &euro;900M fund legible</p>
+          </div>
+          <span class="work-card__year">2023</span>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="u-mt-8 u-flex u-items-center" style="justify-content:center;">
+      <a class="btn btn--ghost btn--lg" href="work.html">
+        View the full archive — 24 projects
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12 12 4"/><path d="M5.6 4H12v6.4"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section class="section section--sunk" aria-labelledby="services-title">
+    <div class="shell">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">What we do</p>
+          <h2 class="display-m section-head__title" id="services-title">Four disciplines,<br>one argument.</h2>
+        </div>
+        <p class="section-head__aside">We are deliberately narrow. Everything we offer feeds the same outcome: a company that looks like it knows what it is doing, because it does.</p>
+      </div>
+
+      <div class="row-list">
+        <article class="row" data-reveal>
+          <span class="row__index">01</span>
+          <h3 class="row__title display-s">Brand identity<br>&amp; systems</h3>
+          <div class="row__body">
+            <p>Naming, positioning, wordmark, type system, colour, photographic direction and the guidelines that keep it alive after we leave. We build identities that a twelve-person marketing team can operate without calling us.</p>
+            <div class="row__tags">
+              <span class="pill">Positioning</span>
+              <span class="pill">Naming</span>
+              <span class="pill">Visual identity</span>
+              <span class="pill">Guidelines</span>
+            </div>
+          </div>
+          <p class="row__aside">6&ndash;10 weeks<br>from &euro;18,000</p>
+        </article>
+
+        <article class="row" data-reveal>
+          <span class="row__index">02</span>
+          <h3 class="row__title display-s">Digital product<br>&amp; interface</h3>
+          <div class="row__body">
+            <p>Marketing sites, web apps and the design systems underneath them. We work in the browser early and hand over components your engineers actually want to use — documented, tokenised, tested against real content.</p>
+            <div class="row__tags">
+              <span class="pill">UX &amp; IA</span>
+              <span class="pill">Interface design</span>
+              <span class="pill">Design systems</span>
+              <span class="pill">Front-end</span>
+            </div>
+          </div>
+          <p class="row__aside">8&ndash;16 weeks<br>from &euro;24,000</p>
+        </article>
+
+        <article class="row" data-reveal>
+          <span class="row__index">03</span>
+          <h3 class="row__title display-s">Editorial<br>&amp; publishing</h3>
+          <div class="row__body">
+            <p>Books, reports, annuals and long-form digital. Twenty years of print discipline applied to whatever surface the story needs. We set the grid, commission the images and sit on press.</p>
+            <div class="row__tags">
+              <span class="pill">Book design</span>
+              <span class="pill">Annual reports</span>
+              <span class="pill">Typesetting</span>
+              <span class="pill">Print production</span>
+            </div>
+          </div>
+          <p class="row__aside">4&ndash;12 weeks<br>from &euro;9,500</p>
+        </article>
+
+        <article class="row" data-reveal>
+          <span class="row__index">04</span>
+          <h3 class="row__title display-s">Motion<br>&amp; art direction</h3>
+          <div class="row__body">
+            <p>Identity in motion, campaign art direction, photographic and illustration commissioning. We write the brief, choose the makers and hold the standard through delivery.</p>
+            <div class="row__tags">
+              <span class="pill">Brand motion</span>
+              <span class="pill">Campaign</span>
+              <span class="pill">Commissioning</span>
+            </div>
+          </div>
+          <p class="row__aside">3&ndash;8 weeks<br>from &euro;7,000</p>
+        </article>
+      </div>
+
+      <div class="u-mt-6">
+        <a class="arrow-link" href="services.html">
+          Full services, packages and process
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12 12 4"/><path d="M5.6 4H12v6.4"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIAL ================= -->
+  <section class="section section--invert" aria-labelledby="quote-title">
+    <div class="shell">
+      <h2 class="visually-hidden" id="quote-title">What our clients say</h2>
+      <div class="testimonial-split">
+        <figure class="quote quote--wide">
+          <span class="quote__mark" aria-hidden="true">&ldquo;</span>
+          <blockquote class="quote__text">
+            We arrived with a hundred slides and left with one sentence. Six months later that sentence is on the door, in the fund documents, and in how our analysts introduce themselves.
+          </blockquote>
+          <figcaption class="quote__cite">
+            <span class="quote__avatar" aria-hidden="true">
+              <span class="portrait portrait--c"><span class="portrait__field"></span></span>
+            </span>
+            <span>
+              <span class="quote__name">Ines Marchetti</span>
+              <span class="quote__role">Managing Partner, Northbound Capital</span>
+            </span>
+          </figcaption>
+        </figure>
+
+        <div class="art art--signal art--square" role="img" aria-label="Radar-like arcs radiating from the lower-left corner in ember over deep blue.">
+          <span class="art__field" aria-hidden="true"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="section shell" aria-labelledby="cta-title">
+    <div class="cta">
+      <span class="cta__art" aria-hidden="true"></span>
+      <span class="cta__rings" aria-hidden="true"></span>
+      <div class="cta__inner">
+        <div>
+          <p class="eyebrow" style="color:var(--accent)">New projects</p>
+          <h2 class="cta__title u-mt-3" id="cta-title">Have something<br>worth doing <span class="serif">properly</span>?</h2>
+          <p class="cta__body">Tell us the problem in your own words. We reply to every brief within two working days — with a straight answer about whether we are the right studio for it.</p>
+        </div>
+        <div class="cta__actions">
+          <a class="btn btn--lg btn--on-invert" href="contact.html">
+            Start a project
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12 12 4"/><path d="M5.6 4H12v6.4"/></svg>
+          </a>
+          <a class="btn btn--lg btn--on-invert-ghost" href="mailto:studio@meridian.studio">Email the studio</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="shell">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <span class="wordmark">
+          <svg class="wordmark__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="9.25" stroke="currentColor" stroke-width="1.9"/>
+            <path d="M12 2.75v18.5" stroke="currentColor" stroke-width="1.9"/>
+            <path d="M2.75 12h18.5" stroke="currentColor" stroke-width="1.9" opacity="0.4"/>
+          </svg>
+          Meridian
+          <span class="wordmark__sub">Studio</span>
+        </span>
+        <p class="footer__pitch">An independent design studio in Lisbon and Copenhagen. Brand identity, digital product and editorial systems since 2014.</p>
+        <p class="u-mt-3"><span class="pill"><span class="dot" aria-hidden="true"></span> Booking Q3 2026</span></p>
+      </div>
+
+      <nav class="footer__col" aria-label="Footer — studio">
+        <h2 class="footer__title">Studio</h2>
+        <div class="footer__list">
+          <a href="work.html">Work</a>
+          <a href="services.html">Services</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </nav>
+
+      <nav class="footer__col" aria-label="Footer — elsewhere">
+        <h2 class="footer__title">Elsewhere</h2>
+        <div class="footer__list">
+          <a href="#">Instagram</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Are.na</a>
+          <a href="#">Newsletter</a>
+        </div>
+      </nav>
+
+      <div class="footer__col">
+        <h2 class="footer__title">Contact</h2>
+        <div class="footer__list">
+          <a href="mailto:studio@meridian.studio">studio@meridian.studio</a>
+          <a href="tel:+351210000140">+351 210 000 140</a>
+          <a href="#">Rua da Boavista 84, Lisbon</a>
+          <a href="#">Refshalevej 153, Copenhagen</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bar">
+      <p>&copy; <span data-year>2026</span> Meridian Studio, Lda. All rights reserved.</p>
+      <p><a href="#">Privacy</a> &nbsp;·&nbsp; <a href="#">Terms</a> &nbsp;·&nbsp; <a href="#">Imprint</a></p>
+    </div>
+  </div>
+  <p class="footer__monogram" aria-hidden="true">MERIDIAN</p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

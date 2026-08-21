@@ -1,0 +1,7 @@
+# Northwind — SaaS Launch Kit
+# Replace the Sitemap URL with your own domain before going live.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://northwind.example.com/sitemap.xml
