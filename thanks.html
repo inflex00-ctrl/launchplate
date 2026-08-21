@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Your download — Launchplate</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="css/site.css">
+<style>
+.dl{max-width:640px;margin:0 auto;text-align:center;padding:80px 0}
+.tick{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--acc),var(--acc2));
+  display:flex;align-items:center;justify-content:center;margin:0 auto 26px}
+.tick svg{width:30px;height:30px;stroke:#fff;fill:none;stroke-width:3.4}
+.files{display:flex;flex-direction:column;gap:12px;margin:34px 0;text-align:left}
+.f{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);
+  border-radius:12px;padding:17px 20px;transition:.18s}
+.f:hover{border-color:var(--acc)}
+.f b{flex:1;font-size:15.5px}
+.f span{font-size:12.5px;color:var(--dim)}
+.note{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:20px;
+  font-size:14px;color:var(--dim);text-align:left;margin-top:30px}
+.note b{color:var(--tx)}
+</style></head><body>
+<nav><div class="wrap"><a href="index.html" class="logo"><i></i>Launchplate</a></div></nav>
+<div class="wrap"><div class="dl">
+  <div class="tick"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
+  <h1 style="font-size:34px;letter-spacing:-1.2px">Payment received — thank you</h1>
+  <p class="sub" style="margin:16px auto 0">Your download links are below. They don't expire, so bookmark this page. A copy has also been sent to your email receipt address.</p>
+  <div class="files" id="files"></div>
+  <div class="note">
+    <b>Licence.</b> Unlimited personal and commercial projects, including client work, forever. You may not resell or redistribute the kits themselves as templates.<br><br>
+    <b>Need help or a refund?</b> Reply to your Stripe receipt email within 14 days and you'll get a full refund, no questions asked.
+  </div>
+</div></div>
+<script>
+// Which kit(s) to show is driven by ?kit= on the redirect Stripe sends the buyer to.
+var CATALOG={
+  SAAS:{n:'SaaS Launch Kit',f:'saas-launch-kit.zip'},
+  AI:{n:'AI Product Kit',f:'ai-product-kit.zip'},
+  STUDIO:{n:'Studio & Portfolio Kit',f:'studio-portfolio-kit.zip'},
+  BUNDLE:{n:'Complete Bundle',f:null}
+};
+var kit=(new URLSearchParams(location.search).get('kit')||'BUNDLE').toUpperCase();
+var show = kit==='BUNDLE' ? ['SAAS','AI','STUDIO'] : [kit];
+document.getElementById('files').innerHTML = show.map(function(k){
+  var c=CATALOG[k]; if(!c||!c.f) return '';
+  return '<a class="f" href="downloads/'+c.f+'" download>'+
+    '<svg viewBox="0 0 24 24" style="width:22px;height:22px;stroke:var(--acc2);fill:none;stroke-width:2.2">'+
+    '<path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>'+
+    '<b>'+c.n+'</b><span>ZIP · download</span></a>';
+}).join('');
+</script></body></html>
