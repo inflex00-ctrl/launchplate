@@ -30,7 +30,7 @@
     </svg>`;
 
   document.getElementById('grid').innerHTML = items.map(p => `
-    <article class="card">
+    <article class="card" id="${p.sku.toLowerCase()}">
       <div class="shot">${mock(p.accent)}${p.badge ? `<span class="badge" style="color:${p.accent}">${p.badge}</span>` : ''}</div>
       <div class="card-b">
         <h3>${p.name}</h3>
