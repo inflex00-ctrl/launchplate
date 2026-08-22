@@ -2,66 +2,6 @@
   "currency": "EUR",
   "items": [
     {
-      "sku": "SAAS",
-      "name": "SaaS Launch Kit",
-      "price": 49,
-      "badge": "Most popular",
-      "desc": "Everything a SaaS needs on day one: landing, pricing with a monthly/annual toggle, features, changelog, docs shell and a legal page.",
-      "feat": [
-        "7 pages",
-        "Pricing toggle",
-        "Docs shell",
-        "Light + dark"
-      ],
-      "accent": "#5b8cff",
-      "demo": "demo/saas-launch-kit/index.html",
-      "shots": [
-        "assets/shots/saas-1.png",
-        "assets/shots/saas-2.png"
-      ],
-      "pages": 7
-    },
-    {
-      "sku": "AI",
-      "name": "AI Product Kit",
-      "price": 49,
-      "badge": "New",
-      "desc": "Built for AI tools and agents: a demo-first hero, prompt showcase, model comparison table, API docs page and a waitlist flow.",
-      "feat": [
-        "6 pages",
-        "Demo hero",
-        "Compare table",
-        "Waitlist"
-      ],
-      "accent": "#22d3a7",
-      "demo": "demo/ai-product-kit/index.html",
-      "shots": [
-        "assets/shots/ai-1.png",
-        "assets/shots/ai-2.png"
-      ],
-      "pages": 6
-    },
-    {
-      "sku": "STUDIO",
-      "name": "Studio & Portfolio Kit",
-      "price": 49,
-      "badge": null,
-      "desc": "For agencies, freelancers and studios: a work grid, case-study layout, services page, about and a contact page that actually converts.",
-      "feat": [
-        "6 pages",
-        "Case studies",
-        "Work grid",
-        "Contact"
-      ],
-      "accent": "#c084fc",
-      "demo": "demo/studio-portfolio-kit/index.html",
-      "shots": [
-        "assets/shots/studio-1.png",
-        "assets/shots/studio-2.png"
-      ],
-      "pages": 6
-    },
-    {
       "sku": "BUNDLE",
       "name": "The Complete Bundle",
       "price": 99,
@@ -85,7 +25,7 @@
       "sku": "LAW",
       "name": "Law Firm & Professional Services Kit",
       "price": 49,
-      "badge": null,
+      "badge": "Most billable",
       "desc": "Seven pages for a law firm or professional practice: practice areas, attorney profiles, a single-attorney template, insights and a consultation form with conflicts-check language.",
       "feat": [
         "7 pages",
@@ -102,24 +42,24 @@
       "pages": 7
     },
     {
-      "sku": "DIR",
-      "name": "Directory & Marketplace Kit",
+      "sku": "CLINIC",
+      "name": "Dental & Medical Clinic Kit",
       "price": 49,
       "badge": null,
-      "desc": "Six pages for a niche directory: working client-side filtering and search, listing detail, category landings, a submit flow and paid placement tiers.",
+      "desc": "Six pages for a clinic or practice: services by category, practitioner profiles, appointment booking, facility and contact.",
       "feat": [
         "6 pages",
-        "Live filtering",
-        "Submit flow",
-        "Paid tiers"
+        "Service catalogue",
+        "Appointments",
+        "Team"
       ],
-      "accent": "#2f7d6e",
-      "demo": "demo/directory-kit/index.html",
+      "accent": "#2b6ca3",
+      "demo": "demo/clinic-kit/index.html",
       "shots": [
-        "assets/shots/directory-kit--index.png",
-        "assets/shots/directory-kit--browse.png"
+        "assets/shots/clinic-kit--about.png",
+        "assets/shots/clinic-kit--appointments.png"
       ],
-      "pages": 7
+      "pages": 6
     },
     {
       "sku": "FOOD",
@@ -142,22 +82,82 @@
       "pages": 6
     },
     {
-      "sku": "CLINIC",
-      "name": "Dental & Medical Clinic Kit",
+      "sku": "DIR",
+      "name": "Directory & Marketplace Kit",
       "price": 49,
-      "badge": null,
-      "desc": "Six pages for a clinic or practice: services by category, practitioner profiles, appointment booking, facility and contact.",
+      "badge": "Least competition",
+      "desc": "Six pages for a niche directory: working client-side filtering and search, listing detail, category landings, a submit flow and paid placement tiers.",
       "feat": [
         "6 pages",
-        "Service catalogue",
-        "Appointments",
-        "Team"
+        "Live filtering",
+        "Submit flow",
+        "Paid tiers"
       ],
-      "accent": "#2b6ca3",
-      "demo": "demo/clinic-kit/index.html",
+      "accent": "#2f7d6e",
+      "demo": "demo/directory-kit/index.html",
       "shots": [
-        "assets/shots/clinic-kit--about.png",
-        "assets/shots/clinic-kit--appointments.png"
+        "assets/shots/directory-kit--index.png",
+        "assets/shots/directory-kit--browse.png"
+      ],
+      "pages": 7
+    },
+    {
+      "sku": "STUDIO",
+      "name": "Studio & Portfolio Kit",
+      "price": 49,
+      "badge": null,
+      "desc": "For agencies, freelancers and studios: a work grid, case-study layout, services page, about and a contact page that actually converts.",
+      "feat": [
+        "6 pages",
+        "Case studies",
+        "Work grid",
+        "Contact"
+      ],
+      "accent": "#c084fc",
+      "demo": "demo/studio-portfolio-kit/index.html",
+      "shots": [
+        "assets/shots/studio-1.png",
+        "assets/shots/studio-2.png"
+      ],
+      "pages": 6
+    },
+    {
+      "sku": "SAAS",
+      "name": "SaaS Launch Kit",
+      "price": 49,
+      "badge": null,
+      "desc": "Everything a SaaS needs on day one: landing, pricing with a monthly/annual toggle, features, changelog, docs shell and a legal page.",
+      "feat": [
+        "7 pages",
+        "Pricing toggle",
+        "Docs shell",
+        "Light + dark"
+      ],
+      "accent": "#5b8cff",
+      "demo": "demo/saas-launch-kit/index.html",
+      "shots": [
+        "assets/shots/saas-1.png",
+        "assets/shots/saas-2.png"
+      ],
+      "pages": 7
+    },
+    {
+      "sku": "AI",
+      "name": "AI Product Kit",
+      "price": 49,
+      "badge": null,
+      "desc": "Built for AI tools and agents: a demo-first hero, prompt showcase, model comparison table, API docs page and a waitlist flow.",
+      "feat": [
+        "6 pages",
+        "Demo hero",
+        "Compare table",
+        "Waitlist"
+      ],
+      "accent": "#22d3a7",
+      "demo": "demo/ai-product-kit/index.html",
+      "shots": [
+        "assets/shots/ai-1.png",
+        "assets/shots/ai-2.png"
       ],
       "pages": 6
     }
