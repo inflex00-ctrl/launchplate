@@ -108,9 +108,26 @@ window.SITE_CONFIG = {
     src:      "",
     token:    ""
   },
+  /* ------------------------------------------------------------------ *
+   * 4. CALL-TO-ACTION LINKS  (optional)
+   *
+   *    This template's buttons point at in-page placeholders, because a
+   *    template has no app to send anybody to. Put real URLs here and
+   *    every matching button across every page is repointed at once.
+   *
+   *    The key is the anchor in the markup: "trial" repoints every
+   *    <a href="#trial">. Leave one blank and those buttons are left
+   *    exactly as they are.
+   * ------------------------------------------------------------------ */
+  links: {
+    trial:    "",   /* https://app.example.com/signup */
+    signin:   "",   /* https://app.example.com/login */
+    demo:     "",   /* https://cal.com/you/demo */
+    contact:  ""   /* mailto:hello@example.com */
+  },
 
   /* ------------------------------------------------------------------ *
-   * 4. DEMO CONTENT  (leave this alone)
+   * 5. DEMO CONTENT  (leave this alone)
    *
    *    The placeholder details this template ships with. They are listed
    *    here so that filling in `business` above can find and replace them

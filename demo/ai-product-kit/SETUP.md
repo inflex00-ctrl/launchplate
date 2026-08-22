@@ -159,6 +159,17 @@ bottom, filling in `business` finds and replaces them across **every page** on
 load: the business name in the header, every phone number, every `tel:` link,
 every email address. One edit, six pages updated.
 
+Two things it deliberately does **not** touch:
+
+- **Code samples.** Anything inside `<code>`, `<pre>` or `<script>` is left
+  alone, because `import { Northwind }` and the `Lumen-Version` header are
+  identifiers, not branding — renaming them would produce broken snippets. The
+  SaaS, AI-product and directory kits all have code blocks; edit those by hand.
+- **`<title>` and `<meta>` tags** are rewritten where the value is an exact
+  match, but page titles usually read *"Documentation — Northwind"* rather than
+  the bare name. Go through the `<head>` of each page properly before launch;
+  it is also where the canonical URL and Open Graph image live.
+
 This is a convenience for getting a site in front of a client quickly. Before
 you hand it over, do a find-and-replace in the HTML for real, and delete the
 `demo` block. Text substitution at runtime is one more thing that can surprise
@@ -313,6 +324,27 @@ default.
 
 Switch it off again and the illustration comes straight back — nothing is
 deleted from the page.
+
+### Call-to-action links (SaaS kit)
+
+The SaaS kit's buttons — "Start free trial", "Sign in", "Book a demo" — point
+at in-page placeholders, because a template has no application to send anybody
+to. There are 25 "start free trial" buttons across the eight pages; you do not
+want to edit them by hand.
+
+```js
+links: {
+  trial:   "https://app.vandijk.nl/signup",
+  signin:  "https://app.vandijk.nl/login",
+  demo:    "https://cal.com/vandijk/demo",
+  contact: "mailto:hello@vandijk.nl"
+}
+```
+
+The key is the anchor in the markup: `trial` repoints every `<a href="#trial">`
+on every page. Off-site links get `rel="noopener"` automatically. Leave a key
+blank and those buttons are left exactly as authored, so an unconfigured kit
+still scrolls to its own anchors rather than 404ing.
 
 ### Booking (clinic and restaurant kits)
 

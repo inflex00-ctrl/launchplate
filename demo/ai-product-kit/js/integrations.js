@@ -476,7 +476,50 @@
   }
 
   /* ================================================================== *
-   * 5. Boot
+   * 5. CALL-TO-ACTION LINKS
+   *
+   *    The SaaS kit's buttons point at in-page placeholders — #trial,
+   *    #signin, #demo — because a template has no app to send anybody to.
+   *    Give them real destinations here and every button across every
+   *    page is repointed:
+   *
+   *      links: { trial: "https://app.example.com/signup",
+   *               signin: "https://app.example.com/login" }
+   *
+   *    Any key maps to every <a href="#key"> on the page. Leave a key out
+   *    and its buttons are left exactly as authored, so an unconfigured
+   *    kit still scrolls to its own anchors rather than 404ing.
+   * ================================================================== */
+
+  function initLinks() {
+    var links = cfg().links;
+    if (!isObj(links)) return;
+    var used = 0;
+
+    for (var key in links) {
+      if (!links.hasOwnProperty(key)) continue;
+      var href = trim(links[key]);
+      if (!href || PLACEHOLDER.test(href)) continue;
+
+      var nodes = document.querySelectorAll('a[href="#' + key + '"]');
+      for (var i = 0; i < nodes.length; i++) {
+        nodes[i].setAttribute("href", href);
+        /* Send off-site links out safely, and leave same-page ones alone.
+           Comparing hosts via the anchor itself avoids the file:// case,
+           where location.host is the empty string and a naive substring
+           test matches everything. */
+        if (/^https?:\/\//i.test(href) && nodes[i].host && nodes[i].host !== window.location.host) {
+          nodes[i].setAttribute("rel", "noopener");
+        }
+        used++;
+      }
+    }
+
+    if (used) enabled.push(used + " CTA link" + (used === 1 ? "" : "s"));
+  }
+
+  /* ================================================================== *
+   * 6. Boot
    * ================================================================== */
 
   function boot() {
@@ -486,6 +529,7 @@
     try { initAnalytics(); } catch (e) { warn("analytics", e); }
     try { initMaps(); } catch (e) { warn("maps", e); }
     try { initBooking(); } catch (e) { warn("booking", e); }
+    try { initLinks(); } catch (e) { warn("CTA links", e); }
   }
 
   function warn(what, e) {

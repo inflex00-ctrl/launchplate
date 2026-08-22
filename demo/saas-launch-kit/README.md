@@ -28,7 +28,9 @@ and behaves sensibly — forms validate, then fall back to the visitor's own mai
 app rather than pretending to have sent something.
 
 Optional and off by default: privacy-first analytics (Plausible, Umami or
-Cloudflare — no Google Analytics, no consent banner needed).
+Cloudflare — no Google Analytics, no consent banner needed), and a `links`
+block that repoints all 25 "Start free trial", 16 "Sign in" and 6 "Book a
+demo" buttons at your real application in one edit.
 
 **[SETUP.md](SETUP.md) is the full walkthrough**: choosing a form provider
 (with real free-tier limits and prices for Web3Forms, Forminit, Formspree,

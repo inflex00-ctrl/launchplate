@@ -517,10 +517,43 @@
     return isNaN(n) || n < 0 ? 3 : n;
   }
 
-  /* Names already used as honeypots in the kits' own markup, plus every
-     provider's convention — checked on submit whether we injected them
-     or the template shipped with them. */
-  var HP_NAMES = ["_gotcha", "botcheck", "_honey", "bot-field", "website", "_hp", "url_field"];
+  /* Every provider's honeypot convention. These names are unambiguous —
+     no real form asks a visitor for "_gotcha".
+
+     NOTE: a honeypot is NOT identified by name alone. The studio kit asks
+     for a genuine "Current website" URL, and some kits use name="website"
+     for their own trap. Guessing by name would silently bin a real
+     enquiry from anyone who filled their website in — so a field is also
+     treated as a trap when the markup itself hides it (see hiddenTraps).
+     Get this wrong in the buyer's favour, never the bot's. */
+  var HP_NAMES = ["_gotcha", "botcheck", "_honey", "bot-field", "_hp", "url_field"];
+
+  /* Markup that deliberately conceals a honeypot from people.
+
+     Deliberately NOT included: the plain [hidden] attribute. Multi-step
+     forms — the directory kit's four-panel submission is one — hide the
+     steps the visitor is not on with [hidden], and treating those fields
+     as traps would drop a completed submission on the floor. Concealment
+     has to be explicit to count. */
+  var HP_WRAPPERS = ".hp, [data-form-trap], [aria-hidden='true']";
+
+  /* Inputs concealed by their surrounding markup. Anything in here is a
+     trap whatever it is called. */
+  function hiddenTraps(form) {
+    var out = [];
+    var wraps = form.querySelectorAll(HP_WRAPPERS);
+    for (var i = 0; i < wraps.length; i++) {
+      var node = wraps[i];
+      var tag = node.nodeName;
+      if (tag === "INPUT" || tag === "TEXTAREA") {
+        out.push(node);
+        continue;
+      }
+      var inputs = node.querySelectorAll("input, textarea");
+      for (var j = 0; j < inputs.length; j++) out.push(inputs[j]);
+    }
+    return out;
+  }
 
   function prepare(form) {
     if (!form || form.getAttribute("data-form-prepared") === "1") return form;
@@ -555,12 +588,20 @@
 
   /* Returns true when this submission looks automated. */
   function looksLikeSpam(form) {
-    for (var i = 0; i < HP_NAMES.length; i++) {
+    var i, j;
+
+    for (i = 0; i < HP_NAMES.length; i++) {
       var nodes = form.querySelectorAll('[name="' + HP_NAMES[i] + '"]');
-      for (var j = 0; j < nodes.length; j++) {
+      for (j = 0; j < nodes.length; j++) {
         if (trim(nodes[j].value)) return true;
       }
     }
+
+    var traps = hiddenTraps(form);
+    for (i = 0; i < traps.length; i++) {
+      if (trim(traps[i].value)) return true;
+    }
+
     var started = parseInt(form.getAttribute(TS_ATTR), 10);
     if (started && (Date.now() - started) / 1000 < minSeconds()) return true;
     return false;
@@ -600,11 +641,20 @@
     var out = {};
     var order = [];
     var els = form.elements;
+    var traps = hiddenTraps(form);
+
+    function isTrap(el) {
+      for (var t = 0; t < traps.length; t++) if (traps[t] === el) return true;
+      return false;
+    }
 
     for (var i = 0; i < els.length; i++) {
       var el = els[i];
       var name = el.name;
       if (!name || el.disabled || SKIP.test(name)) continue;
+      /* A concealed field is a trap, never content — but a visible field
+         called "website" is somebody's actual website. */
+      if (isTrap(el)) continue;
       if (el.type === "file" || el.type === "submit" || el.type === "button" || el.type === "reset") continue;
       if ((el.type === "checkbox" || el.type === "radio") && !el.checked) continue;
 
