@@ -1,0 +1,91 @@
+BRIGHTWATER — DENTAL & MEDICAL CLINIC KIT
+Commercial template licence
+
+Version 1.0
+
+
+1. GRANT OF LICENCE
+
+On purchase you are granted a worldwide, perpetual, non-exclusive,
+non-transferable licence to use this template kit ("the Kit") subject to the
+terms below. One licence covers one individual, or one team within a single
+organisation.
+
+
+2. PERMITTED USE
+
+You may:
+
+  a. Use the Kit to build an unlimited number of websites, for yourself or
+     for clients.
+  b. Use those websites commercially, without restriction and without any
+     revenue limit.
+  c. Charge clients for design, development and hosting work that incorporates
+     the Kit.
+  d. Modify, extend, restyle and recombine the Kit's HTML, CSS and JavaScript
+     however you wish.
+  e. Remove any attribution or credit from the Kit's source.
+  f. Continue using anything you have already built if this licence is later
+     superseded.
+
+
+3. PROHIBITED USE
+
+You may not:
+
+  a. Resell, redistribute, sublicense, rent, lease, lend or give away the Kit
+     itself, whether modified or unmodified, and whether for payment or free.
+  b. Include the Kit, or a derivative of it, in another template, theme,
+     starter kit, UI kit, component library or design system that is itself
+     distributed or offered for sale.
+  c. Upload the Kit to a template marketplace, website builder, theme store,
+     code-sharing site or "free templates" website.
+  d. Offer the Kit, or a substantially unmodified derivative, as a download or
+     as part of a subscription, membership or bundle.
+  e. Use the Kit in any product whose primary value is the Kit's own design or
+     source code.
+
+The distinction is simple: you may sell the websites you build with the Kit.
+You may not sell, share or redistribute the Kit.
+
+
+4. CONTENT AND MEDICAL DISCLAIMER
+
+The Kit ships with placeholder content for "Brightwater Dental", a fictional
+practice. All practitioner names, qualifications, registration numbers,
+treatment descriptions, prices, accreditations, statistics and patient
+testimonials are invented for demonstration purposes.
+
+NOTHING IN THE KIT IS MEDICAL, DENTAL OR CLINICAL ADVICE.
+
+You are solely responsible for every claim published on any website you build
+with the Kit, and for compliance with all laws and professional regulations
+applying to you, including but not limited to those governing healthcare
+advertising, patient testimonials, before-and-after imagery, price
+transparency, professional registration, accessibility and data protection.
+
+You must replace all placeholder content before publishing, and must not
+publish any qualification, registration, accreditation or clinical claim that
+you do not hold or cannot substantiate.
+
+
+5. NO WARRANTY
+
+THE KIT IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT.
+
+
+6. LIMITATION OF LIABILITY
+
+IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE KIT OR THE USE OF OR OTHER DEALINGS IN THE
+KIT. Total liability shall not exceed the amount paid for the licence.
+
+
+7. TERMINATION
+
+This licence terminates automatically if you breach section 3. On termination
+you must cease distributing the Kit; websites already delivered to clients in
+good faith under section 2 are unaffected.

@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>API reference — runs, streaming, retrieval and errors | Lumen</title>
+<meta name="description" content="The Lumen REST API: authenticate with a bearer key, create a run, stream tokens and tool events over SSE, query collections, and handle every error code.">
+<meta name="theme-color" content="#fcfbf9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0b0f" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://lumen.example.com/api.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Lumen">
+<meta property="og:url" content="https://lumen.example.com/api.html">
+<meta property="og:title" content="API reference — runs, streaming, retrieval and errors | Lumen">
+<meta property="og:description" content="Authenticate, create a run, stream tokens and tool events, query collections, handle errors.">
+<meta property="og:image" content="assets/og-api.png">
+<meta property="og:image:alt" content="The Lumen API reference.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="API reference | Lumen">
+<meta name="twitter:description" content="Authenticate, create a run, stream tokens and tool events, query collections, handle errors.">
+<meta name="twitter:image" content="assets/og-api.png">
+
+<link rel="stylesheet" href="css/style.css">
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("lumen-theme");
+      if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Lumen API reference",
+  "url": "https://lumen.example.com/api.html",
+  "description": "REST reference for the Lumen agent runtime: authentication, runs, streaming, retrieval, tools and error codes.",
+  "inLanguage": "en",
+  "dateModified": "2026-08-01",
+  "author": { "@type": "Organization", "name": "Lumen" },
+  "publisher": { "@type": "Organization", "name": "Lumen" },
+  "about": {
+    "@type": "SoftwareApplication",
+    "name": "Lumen",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web"
+  }
+}
+</script>
+  <noscript><style>/* JS off: entrance animations never run, so show final state */
+.afx__aurora,.afx__beam,.afx__bloom,.afx__meteor,.reveal{opacity:1!important;transform:none!important;clip-path:none!important;filter:none!important}</style></noscript>
+</head>
+
+<body class="full-height">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" data-header>
+  <div class="container container--wide">
+    <a class="brand" href="index.html" aria-label="Lumen — home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l1.9 4.9 4.9 1.9-4.9 1.9L10 15.2 8.1 10.3 3.2 8.4l4.9-1.9L10 1.6z"/><path d="M15.6 13.2l.8 2.1 2.1.8-2.1.8-.8 2.1-.8-2.1-2.1-.8 2.1-.8.8-2.1z" opacity=".55"/></svg>
+      </span>
+      Lumen
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Product</a>
+      <a href="playground.html">Playground</a>
+      <a href="models.html">Models</a>
+      <a href="api.html" aria-current="page">API</a>
+      <a href="pricing.html">Pricing</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="icon-moon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.5 11.8A6.8 6.8 0 018.2 3.5a6.8 6.8 0 108.3 8.3z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 1.8v1.8M10 16.4v1.8M18.2 10h-1.8M3.6 10H1.8M15.8 4.2l-1.3 1.3M5.5 14.5l-1.3 1.3M15.8 15.8l-1.3-1.3M5.5 5.5L4.2 4.2"/></svg>
+      </button>
+      <a class="btn btn--secondary btn--sm header-cta" href="models.html">Models</a>
+      <a class="btn btn--primary btn--sm header-cta" href="waitlist.html">Get an API key</a>
+      <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav" data-mobile-nav>
+  <ul>
+    <li><a href="index.html">Product</a></li>
+    <li><a href="playground.html">Playground</a></li>
+    <li><a href="models.html">Models</a></li>
+    <li><a href="api.html" aria-current="page">API reference</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+  </ul>
+  <a class="btn btn--primary btn--block" href="waitlist.html">Get an API key</a>
+</div>
+
+<main id="main">
+
+  <section class="page-head">
+    <div class="container container--wide">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5L10.5 8 6 12.5"/></svg>
+        <span aria-current="page">API reference</span>
+      </nav>
+      <p class="eyebrow">Version 2026-08-01</p>
+      <h1>API reference</h1>
+      <p class="lead">
+        One REST API, four official SDKs and no surprises. Every endpoint is idempotent
+        where it can be, every error is machine-readable, and every response tells you
+        exactly what it cost.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--wide">
+      <div class="docs-layout">
+
+        <!-- ============================== SIDEBAR ============================== -->
+        <nav class="docs-nav" aria-label="API reference sections" data-spy>
+          <h2>On this page</h2>
+          <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#authentication">Authentication</a></li>
+            <li><a href="#quickstart">Quickstart</a></li>
+            <li><a href="#runs">Create a run</a></li>
+            <li><a href="#streaming">Streaming</a></li>
+            <li><a href="#tools">Tool calling</a></li>
+            <li><a href="#retrieval">Retrieval</a></li>
+            <li><a href="#errors">Errors</a></li>
+            <li><a href="#versioning">Versioning</a></li>
+          </ul>
+          <p class="hint mt-5">
+            Missing something?<br>
+            <a href="waitlist.html">Ask us directly.</a>
+          </p>
+        </nav>
+
+        <!-- ============================== CONTENT ============================== -->
+        <div class="docs-main">
+
+          <!-- INTRODUCTION -->
+          <section id="introduction" aria-labelledby="introduction-h">
+            <h2 id="introduction-h">Introduction</h2>
+            <p>
+              The Lumen API is organised around three resources: <strong>runs</strong> (a model
+              call, with optional tools and retrieval), <strong>collections</strong> (indexed
+              documents) and <strong>keys</strong>. Requests and responses are JSON. All
+              timestamps are RFC 3339 in UTC.
+            </p>
+
+            <div class="endpoint">
+              <span class="badge">Base URL</span>
+              <span class="path">https://api.lumen.example.com/v1</span>
+            </div>
+
+            <div class="callout mt-5">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M10 9v4.5M10 6.4h.01"/></svg>
+              <div>
+                <strong>Every response carries usage</strong>
+                <code>usage.input_tokens</code>, <code>usage.output_tokens</code> and
+                <code>usage.cached_tokens</code> appear on every successful call, so you can
+                attribute cost per request without a separate billing query.
+              </div>
+            </div>
+          </section>
+
+          <!-- AUTHENTICATION -->
+          <section id="authentication" aria-labelledby="authentication-h">
+            <h2 id="authentication-h">Authentication</h2>
+            <p>
+              Authenticate with a bearer token in the <code>Authorization</code> header. Keys are
+              scoped to a single workspace and carry one of three roles: <code>read</code>,
+              <code>run</code> or <code>admin</code>.
+            </p>
+
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-file">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 4.5h11v8h-11z"/><path d="M5 8h6"/></svg>
+                  Request header
+                </span>
+                <button class="copy-btn" type="button" data-copy="#code-auth" aria-label="Copy header">
+                  <svg class="icon-copy" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="9" rx="1.6"/><path d="M10.5 5.5v-1A1.5 1.5 0 009 3H4a1.5 1.5 0 00-1.5 1.5v6A1.5 1.5 0 004 12h1"/></svg>
+                  <svg class="icon-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>
+                  <span data-copy-label>Copy</span>
+                </button>
+              </div>
+              <pre><code id="code-auth"><span class="tok-prop">Authorization</span><span class="tok-punc">:</span> <span class="tok-kw">Bearer</span> <span class="tok-str">lum_live_7f4c9a2e8b1d6035</span>
+<span class="tok-prop">Content-Type</span><span class="tok-punc">:</span> <span class="tok-str">application/json</span>
+<span class="tok-prop">Lumen-Version</span><span class="tok-punc">:</span> <span class="tok-str">2026-08-01</span></code></pre>
+            </div>
+
+            <div class="callout callout--warn mt-5">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3.2l7 12.3H3l7-12.3z"/><path d="M10 8.2v3.4M10 13.9h.01"/></svg>
+              <div>
+                <strong>Never ship a key to the browser</strong>
+                Keys prefixed <code>lum_live_</code> carry full workspace permissions. For
+                client-side apps, mint a short-lived session token from your backend with
+                <code>POST /v1/sessions</code> instead.
+              </div>
+            </div>
+
+            <h3 id="key-roles">Key roles</h3>
+            <div class="table-wrap">
+              <div class="table-scroll">
+                <table class="table--hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">Role</th>
+                      <th scope="col">Can do</th>
+                      <th scope="col">Cannot do</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row" class="mono">read</th>
+                      <td>Query collections, read runs and usage</td>
+                      <td>Create runs, mutate collections</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="mono">run</th>
+                      <td>Everything <code>read</code> can, plus create runs and call tools</td>
+                      <td>Rotate keys, change billing, delete collections</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="mono">admin</th>
+                      <td>Full workspace access including key rotation and budgets</td>
+                      <td>Cross-workspace access — keys never span workspaces</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <!-- QUICKSTART -->
+          <section id="quickstart" aria-labelledby="quickstart-h">
+            <h2 id="quickstart-h">Quickstart</h2>
+            <p>
+              The shortest useful call: one prompt, one model, one answer. Pick your language.
+            </p>
+
+            <div class="code-block" data-tabs>
+              <div class="code-head">
+                <div class="tabs tabs--code" role="tablist" aria-label="Quickstart language">
+                  <button class="tab" role="tab" id="qs-tab-curl" aria-controls="qs-panel-curl" aria-selected="true" type="button">cURL</button>
+                  <button class="tab" role="tab" id="qs-tab-py" aria-controls="qs-panel-py" aria-selected="false" type="button">Python</button>
+                  <button class="tab" role="tab" id="qs-tab-ts" aria-controls="qs-panel-ts" aria-selected="false" type="button">TypeScript</button>
+                  <button class="tab" role="tab" id="qs-tab-go" aria-controls="qs-panel-go" aria-selected="false" type="button">Go</button>
+                </div>
+                <button class="copy-btn" type="button" aria-label="Copy the visible code sample">
+                  <svg class="icon-copy" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="9" rx="1.6"/><path d="M10.5 5.5v-1A1.5 1.5 0 009 3H4a1.5 1.5 0 00-1.5 1.5v6A1.5 1.5 0 004 12h1"/></svg>
+                  <svg class="icon-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>
+                  <span data-copy-label>Copy</span>
+                </button>
+              </div>
+
+              <div role="tabpanel" id="qs-panel-curl" aria-labelledby="qs-tab-curl" data-tabpanel tabindex="0">
+                <pre><code><span class="tok-fn">curl</span> <span class="tok-str">https://api.lumen.example.com/v1/runs</span> <span class="tok-op">\</span>
+  <span class="tok-kw">-H</span> <span class="tok-str">"Authorization: Bearer $LUMEN_KEY"</span> <span class="tok-op">\</span>
+  <span class="tok-kw">-H</span> <span class="tok-str">"Content-Type: application/json"</span> <span class="tok-op">\</span>
+  <span class="tok-kw">-d</span> <span class="tok-str">'{
+    "model": "lumen-pro",
+    "input": "Summarise our refund policy in two sentences.",
+    "collections": ["handbook"],
+    "max_output_tokens": 300
+  }'</span></code></pre>
+              </div>
+
+              <div role="tabpanel" id="qs-panel-py" aria-labelledby="qs-tab-py" data-tabpanel hidden tabindex="0">
+                <pre><code><span class="tok-kw">from</span> <span class="tok-var">lumen</span> <span class="tok-kw">import</span> <span class="tok-fn">Lumen</span>
+
+<span class="tok-var">client</span> <span class="tok-op">=</span> <span class="tok-fn">Lumen</span><span class="tok-punc">()</span>  <span class="tok-com"># reads LUMEN_API_KEY</span>
+
+<span class="tok-var">run</span> <span class="tok-op">=</span> <span class="tok-var">client</span><span class="tok-punc">.</span><span class="tok-meth">runs</span><span class="tok-punc">.</span><span class="tok-meth">create</span><span class="tok-punc">(</span>
+    <span class="tok-prop">model</span><span class="tok-op">=</span><span class="tok-str">"lumen-pro"</span><span class="tok-punc">,</span>
+    <span class="tok-prop">input</span><span class="tok-op">=</span><span class="tok-str">"Summarise our refund policy."</span><span class="tok-punc">,</span>
+    <span class="tok-prop">collections</span><span class="tok-op">=</span><span class="tok-punc">[</span><span class="tok-str">"handbook"</span><span class="tok-punc">],</span>
+<span class="tok-punc">)</span>
+
+<span class="tok-fn">print</span><span class="tok-punc">(</span><span class="tok-var">run</span><span class="tok-punc">.</span><span class="tok-var">output_text</span><span class="tok-punc">)</span>
+<span class="tok-fn">print</span><span class="tok-punc">(</span><span class="tok-var">run</span><span class="tok-punc">.</span><span class="tok-var">usage</span><span class="tok-punc">.</span><span class="tok-var">output_tokens</span><span class="tok-punc">,</span> <span class="tok-str">"tokens"</span><span class="tok-punc">)</span></code></pre>
+              </div>
+
+              <div role="tabpanel" id="qs-panel-ts" aria-labelledby="qs-tab-ts" data-tabpanel hidden tabindex="0">
+                <pre><code><span class="tok-kw">import</span> <span class="tok-punc">{</span> <span class="tok-var">Lumen</span> <span class="tok-punc">}</span> <span class="tok-kw">from</span> <span class="tok-str">"@lumen/sdk"</span><span class="tok-punc">;</span>
+
+<span class="tok-kw">const</span> <span class="tok-var">lumen</span> <span class="tok-op">=</span> <span class="tok-kw">new</span> <span class="tok-fn">Lumen</span><span class="tok-punc">();</span>
+
+<span class="tok-kw">const</span> <span class="tok-var">run</span> <span class="tok-op">=</span> <span class="tok-kw">await</span> <span class="tok-var">lumen</span><span class="tok-punc">.</span><span class="tok-var">runs</span><span class="tok-punc">.</span><span class="tok-meth">create</span><span class="tok-punc">({</span>
+  <span class="tok-prop">model</span><span class="tok-punc">:</span> <span class="tok-str">"lumen-pro"</span><span class="tok-punc">,</span>
+  <span class="tok-prop">input</span><span class="tok-punc">:</span> <span class="tok-str">"Summarise our refund policy."</span><span class="tok-punc">,</span>
+  <span class="tok-prop">collections</span><span class="tok-punc">:</span> <span class="tok-punc">[</span><span class="tok-str">"handbook"</span><span class="tok-punc">],</span>
+<span class="tok-punc">});</span>
+
+<span class="tok-var">console</span><span class="tok-punc">.</span><span class="tok-meth">log</span><span class="tok-punc">(</span><span class="tok-var">run</span><span class="tok-punc">.</span><span class="tok-var">outputText</span><span class="tok-punc">);</span>
+<span class="tok-var">console</span><span class="tok-punc">.</span><span class="tok-meth">log</span><span class="tok-punc">(</span><span class="tok-var">run</span><span class="tok-punc">.</span><span class="tok-var">usage</span><span class="tok-punc">.</span><span class="tok-var">outputTokens</span><span class="tok-punc">);</span></code></pre>
+              </div>
+
+              <div role="tabpanel" id="qs-panel-go" aria-labelledby="qs-tab-go" data-tabpanel hidden tabindex="0">
+                <pre><code><span class="tok-kw">package</span> <span class="tok-var">main</span>
+
+<span class="tok-kw">import</span> <span class="tok-punc">(</span>
+	<span class="tok-str">"context"</span>
+	<span class="tok-str">"fmt"</span>
+
+	<span class="tok-str">"github.com/lumen/lumen-go"</span>
+<span class="tok-punc">)</span>
+
+<span class="tok-kw">func</span> <span class="tok-fn">main</span><span class="tok-punc">()</span> <span class="tok-punc">{</span>
+	<span class="tok-var">c</span> <span class="tok-op">:=</span> <span class="tok-var">lumen</span><span class="tok-punc">.</span><span class="tok-fn">New</span><span class="tok-punc">()</span>
+
+	<span class="tok-var">run</span><span class="tok-punc">,</span> <span class="tok-var">err</span> <span class="tok-op">:=</span> <span class="tok-var">c</span><span class="tok-punc">.</span><span class="tok-var">Runs</span><span class="tok-punc">.</span><span class="tok-fn">Create</span><span class="tok-punc">(</span><span class="tok-var">context</span><span class="tok-punc">.</span><span class="tok-fn">Background</span><span class="tok-punc">(),</span> <span class="tok-var">lumen</span><span class="tok-punc">.</span><span class="tok-var">RunParams</span><span class="tok-punc">{</span>
+		<span class="tok-prop">Model</span><span class="tok-punc">:</span> <span class="tok-str">"lumen-pro"</span><span class="tok-punc">,</span>
+		<span class="tok-prop">Input</span><span class="tok-punc">:</span> <span class="tok-str">"Summarise our refund policy."</span><span class="tok-punc">,</span>
+	<span class="tok-punc">})</span>
+	<span class="tok-kw">if</span> <span class="tok-var">err</span> <span class="tok-op">!=</span> <span class="tok-const">nil</span> <span class="tok-punc">{</span>
+		<span class="tok-var">panic</span><span class="tok-punc">(</span><span class="tok-var">err</span><span class="tok-punc">)</span>
+	<span class="tok-punc">}</span>
+	<span class="tok-var">fmt</span><span class="tok-punc">.</span><span class="tok-fn">Println</span><span class="tok-punc">(</span><span class="tok-var">run</span><span class="tok-punc">.</span><span class="tok-var">OutputText</span><span class="tok-punc">)</span>
+<span class="tok-punc">}</span></code></pre>
+              </div>
+            </div>
+          </section>
+
+          <!-- RUNS -->
+          <section id="runs" aria-labelledby="runs-h">
+            <h2 id="runs-h">Create a run</h2>
+            <p>
+              A run is one turn of an agent: optional retrieval, zero or more tool calls, and a
+              final answer. Runs are durable — fetch one again by id for 30 days.
+            </p>
+
+            <div class="endpoint">
+              <span class="method method--post">POST</span>
+              <span class="path">/v1/runs</span>
+            </div>
+
+            <h3 id="runs-params">Body parameters</h3>
+            <div class="table-wrap">
+              <div class="table-scroll">
+                <table class="table--hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">Parameter</th>
+                      <th scope="col">Required</th>
+                      <th scope="col">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row"><span class="param-name">model</span><span class="param-type">string</span></th>
+                      <td><span class="req-flag">Required</span></td>
+                      <td>One of <code>lumen-flash</code>, <code>lumen-pro</code>, <code>lumen-max</code>. See <a href="models.html">models</a>.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span class="param-name">input</span><span class="param-type">string | array</span></th>
+                      <td><span class="req-flag">Required</span></td>
+                      <td>A prompt string, or an array of message objects for multi-turn conversations.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span class="param-name">collections</span><span class="param-type">string[]</span></th>
+                      <td><span class="opt-flag">Optional</span></td>
+                      <td>Collection ids to retrieve from before answering. Retrieval is skipped when omitted.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span class="param-name">tools</span><span class="param-type">object[]</span></th>
+                      <td><span class="opt-flag">Optional</span></td>
+                      <td>Tool definitions the model may call. Up to 128 per run.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span class="param-name">stream</span><span class="param-type">boolean</span></th>
+                      <td><span class="opt-flag">Optional</span></td>
+                      <td>When <code>true</code>, responds with <code>text/event-stream</code>. Defaults to <code>false</code>.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span class="param-name">max_output_tokens</span><span class="param-type">integer</span></th>
+                      <td><span class="opt-flag">Optional</span></td>
+                      <td>Hard ceiling on generated tokens. Defaults to the model maximum.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span class="param-name">temperature</span><span class="param-type">number</span></th>
+                      <td><span class="opt-flag">Optional</span></td>
+                      <td>Between <code>0</code> and <code>2</code>. Defaults to <code>0.7</code>. Use <code>0</code> for extraction.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span class="param-name">response_format</span><span class="param-type">object</span></th>
+                      <td><span class="opt-flag">Optional</span></td>
+                      <td>Pass <code>{"type":"json_schema","schema":{…}}</code> to force schema-valid JSON.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span class="param-name">idempotency_key</span><span class="param-type">string</span></th>
+                      <td><span class="opt-flag">Optional</span></td>
+                      <td>Replays return the original run instead of billing twice. Retained 24 hours.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="table-note">Unknown fields are rejected with <code>400 invalid_request</code> rather than ignored — typos fail loudly.</p>
+            </div>
+
+            <h3 id="runs-response">Response</h3>
+            <div class="code-block code-block--numbered">
+              <div class="code-head">
+                <span class="code-file">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M9 1.5H4.5A1.5 1.5 0 003 3v10a1.5 1.5 0 001.5 1.5h7A1.5 1.5 0 0013 13V5.5L9 1.5z"/><path d="M9 1.5V5.5H13"/></svg>
+                  200 OK · application/json
+                </span>
+                <button class="copy-btn" type="button" data-copy="#code-run-res" aria-label="Copy response">
+                  <svg class="icon-copy" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="9" rx="1.6"/><path d="M10.5 5.5v-1A1.5 1.5 0 009 3H4a1.5 1.5 0 00-1.5 1.5v6A1.5 1.5 0 004 12h1"/></svg>
+                  <svg class="icon-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>
+                  <span data-copy-label>Copy</span>
+                </button>
+              </div>
+              <pre><code id="code-run-res"><span class="ln"><span class="tok-punc">{</span></span><span class="ln">  <span class="tok-prop">"id"</span><span class="tok-punc">:</span> <span class="tok-str">"run_9f2ab41c"</span><span class="tok-punc">,</span></span><span class="ln">  <span class="tok-prop">"object"</span><span class="tok-punc">:</span> <span class="tok-str">"run"</span><span class="tok-punc">,</span></span><span class="ln">  <span class="tok-prop">"model"</span><span class="tok-punc">:</span> <span class="tok-str">"lumen-pro"</span><span class="tok-punc">,</span></span><span class="ln">  <span class="tok-prop">"created_at"</span><span class="tok-punc">:</span> <span class="tok-str">"2026-08-01T09:14:22Z"</span><span class="tok-punc">,</span></span><span class="ln">  <span class="tok-prop">"status"</span><span class="tok-punc">:</span> <span class="tok-str">"completed"</span><span class="tok-punc">,</span></span><span class="ln">  <span class="tok-prop">"output_text"</span><span class="tok-punc">:</span> <span class="tok-str">"Refunds are available for 30 days…"</span><span class="tok-punc">,</span></span><span class="ln">  <span class="tok-prop">"citations"</span><span class="tok-punc">:</span> <span class="tok-punc">[</span></span><span class="ln">    <span class="tok-punc">{</span> <span class="tok-prop">"source"</span><span class="tok-punc">:</span> <span class="tok-str">"handbook.pdf"</span><span class="tok-punc">,</span> <span class="tok-prop">"page"</span><span class="tok-punc">:</span> <span class="tok-num">14</span><span class="tok-punc">,</span> <span class="tok-prop">"score"</span><span class="tok-punc">:</span> <span class="tok-num">0.912</span> <span class="tok-punc">}</span></span><span class="ln">  <span class="tok-punc">],</span></span><span class="ln">  <span class="tok-prop">"usage"</span><span class="tok-punc">:</span> <span class="tok-punc">{</span></span><span class="ln">    <span class="tok-prop">"input_tokens"</span><span class="tok-punc">:</span> <span class="tok-num">1842</span><span class="tok-punc">,</span></span><span class="ln">    <span class="tok-prop">"cached_tokens"</span><span class="tok-punc">:</span> <span class="tok-num">1408</span><span class="tok-punc">,</span></span><span class="ln">    <span class="tok-prop">"output_tokens"</span><span class="tok-punc">:</span> <span class="tok-num">96</span><span class="tok-punc">,</span></span><span class="ln">    <span class="tok-prop">"cost_eur"</span><span class="tok-punc">:</span> <span class="tok-num">0.00213</span></span><span class="ln">  <span class="tok-punc">}</span></span><span class="ln"><span class="tok-punc">}</span></span></code></pre>
+            </div>
+          </section>
+
+          <!-- STREAMING -->
+          <section id="streaming" aria-labelledby="streaming-h">
+            <h2 id="streaming-h">Streaming</h2>
+            <p>
+              Set <code>stream: true</code> to receive Server-Sent Events. Tokens, tool calls and
+              citations arrive on the same channel, each as a typed event.
+            </p>
+
+            <div class="table-wrap">
+              <div class="table-scroll">
+                <table class="table--hover">
+                  <caption>Event types emitted during a streamed run.</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Event</th>
+                      <th scope="col">Payload</th>
+                      <th scope="col">Meaning</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row" class="mono">run.started</th>
+                      <td><code>{ id, model }</code></td>
+                      <td>The run is accepted. Emitted once.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="mono">token</th>
+                      <td><code>{ text }</code></td>
+                      <td>A fragment of the answer. Concatenate in order received.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="mono">tool.call</th>
+                      <td><code>{ name, arguments }</code></td>
+                      <td>The model wants a tool run. Arguments are already schema-validated.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="mono">tool.result</th>
+                      <td><code>{ name, output, ms }</code></td>
+                      <td>Your handler returned. Emitted for hosted tools only.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="mono">citation</th>
+                      <td><code>{ source, page, score }</code></td>
+                      <td>A source that grounded the sentence just streamed.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="mono">run.completed</th>
+                      <td><code>{ usage, finish_reason }</code></td>
+                      <td>Terminal event. Always emitted, including after an error.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="code-block mt-5" data-tabs>
+              <div class="code-head">
+                <div class="tabs tabs--code" role="tablist" aria-label="Streaming example language">
+                  <button class="tab" role="tab" id="st-tab-sse" aria-controls="st-panel-sse" aria-selected="true" type="button">SSE wire</button>
+                  <button class="tab" role="tab" id="st-tab-py" aria-controls="st-panel-py" aria-selected="false" type="button">Python</button>
+                  <button class="tab" role="tab" id="st-tab-ts" aria-controls="st-panel-ts" aria-selected="false" type="button">TypeScript</button>
+                </div>
+                <button class="copy-btn" type="button" aria-label="Copy the visible code sample">
+                  <svg class="icon-copy" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="9" rx="1.6"/><path d="M10.5 5.5v-1A1.5 1.5 0 009 3H4a1.5 1.5 0 00-1.5 1.5v6A1.5 1.5 0 004 12h1"/></svg>
+                  <svg class="icon-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>
+                  <span data-copy-label>Copy</span>
+                </button>
+              </div>
+
+              <div role="tabpanel" id="st-panel-sse" aria-labelledby="st-tab-sse" data-tabpanel tabindex="0">
+                <pre><code><span class="tok-com">event:</span> <span class="tok-tag">run.started</span>
+<span class="tok-com">data:</span> <span class="tok-punc">{</span><span class="tok-prop">"id"</span><span class="tok-punc">:</span><span class="tok-str">"run_9f2ab41c"</span><span class="tok-punc">,</span><span class="tok-prop">"model"</span><span class="tok-punc">:</span><span class="tok-str">"lumen-pro"</span><span class="tok-punc">}</span>
+
+<span class="tok-com">event:</span> <span class="tok-tag">token</span>
+<span class="tok-com">data:</span> <span class="tok-punc">{</span><span class="tok-prop">"text"</span><span class="tok-punc">:</span><span class="tok-str">"Refunds "</span><span class="tok-punc">}</span>
+
+<span class="tok-com">event:</span> <span class="tok-tag">tool.call</span>
+<span class="tok-com">data:</span> <span class="tok-punc">{</span><span class="tok-prop">"name"</span><span class="tok-punc">:</span><span class="tok-str">"lookup_order"</span><span class="tok-punc">,</span><span class="tok-prop">"arguments"</span><span class="tok-punc">:</span><span class="tok-punc">{</span><span class="tok-prop">"id"</span><span class="tok-punc">:</span><span class="tok-str">"A-8812"</span><span class="tok-punc">}}</span>
+
+<span class="tok-com">event:</span> <span class="tok-tag">citation</span>
+<span class="tok-com">data:</span> <span class="tok-punc">{</span><span class="tok-prop">"source"</span><span class="tok-punc">:</span><span class="tok-str">"handbook.pdf"</span><span class="tok-punc">,</span><span class="tok-prop">"page"</span><span class="tok-punc">:</span><span class="tok-num">14</span><span class="tok-punc">}</span>
+
+<span class="tok-com">event:</span> <span class="tok-tag">run.completed</span>
+<span class="tok-com">data:</span> <span class="tok-punc">{</span><span class="tok-prop">"finish_reason"</span><span class="tok-punc">:</span><span class="tok-str">"stop"</span><span class="tok-punc">,</span><span class="tok-prop">"usage"</span><span class="tok-punc">:</span><span class="tok-punc">{</span><span class="tok-prop">"output_tokens"</span><span class="tok-punc">:</span><span class="tok-num">96</span><span class="tok-punc">}}</span></code></pre>
+              </div>
+
+              <div role="tabpanel" id="st-panel-py" aria-labelledby="st-tab-py" data-tabpanel hidden tabindex="0">
+                <pre><code><span class="tok-kw">with</span> <span class="tok-var">client</span><span class="tok-punc">.</span><span class="tok-meth">runs</span><span class="tok-punc">.</span><span class="tok-meth">stream</span><span class="tok-punc">(</span>
+    <span class="tok-prop">model</span><span class="tok-op">=</span><span class="tok-str">"lumen-pro"</span><span class="tok-punc">,</span>
+    <span class="tok-prop">input</span><span class="tok-op">=</span><span class="tok-var">question</span><span class="tok-punc">,</span>
+    <span class="tok-prop">tools</span><span class="tok-op">=</span><span class="tok-punc">[</span><span class="tok-var">lookup_order</span><span class="tok-punc">],</span>
+<span class="tok-punc">)</span> <span class="tok-kw">as</span> <span class="tok-var">stream</span><span class="tok-punc">:</span>
+    <span class="tok-kw">for</span> <span class="tok-var">event</span> <span class="tok-kw">in</span> <span class="tok-var">stream</span><span class="tok-punc">:</span>
+        <span class="tok-kw">if</span> <span class="tok-var">event</span><span class="tok-punc">.</span><span class="tok-var">type</span> <span class="tok-op">==</span> <span class="tok-str">"token"</span><span class="tok-punc">:</span>
+            <span class="tok-fn">print</span><span class="tok-punc">(</span><span class="tok-var">event</span><span class="tok-punc">.</span><span class="tok-var">text</span><span class="tok-punc">,</span> <span class="tok-prop">end</span><span class="tok-op">=</span><span class="tok-str">""</span><span class="tok-punc">)</span>
+        <span class="tok-kw">elif</span> <span class="tok-var">event</span><span class="tok-punc">.</span><span class="tok-var">type</span> <span class="tok-op">==</span> <span class="tok-str">"citation"</span><span class="tok-punc">:</span>
+            <span class="tok-var">sources</span><span class="tok-punc">.</span><span class="tok-meth">append</span><span class="tok-punc">(</span><span class="tok-var">event</span><span class="tok-punc">.</span><span class="tok-var">source</span><span class="tok-punc">)</span>
+
+    <span class="tok-var">final</span> <span class="tok-op">=</span> <span class="tok-var">stream</span><span class="tok-punc">.</span><span class="tok-meth">get_final_run</span><span class="tok-punc">()</span>
+    <span class="tok-fn">print</span><span class="tok-punc">(</span><span class="tok-var">final</span><span class="tok-punc">.</span><span class="tok-var">usage</span><span class="tok-punc">.</span><span class="tok-var">cost_eur</span><span class="tok-punc">)</span></code></pre>
+              </div>
+
+              <div role="tabpanel" id="st-panel-ts" aria-labelledby="st-tab-ts" data-tabpanel hidden tabindex="0">
+                <pre><code><span class="tok-kw">const</span> <span class="tok-var">stream</span> <span class="tok-op">=</span> <span class="tok-kw">await</span> <span class="tok-var">lumen</span><span class="tok-punc">.</span><span class="tok-var">runs</span><span class="tok-punc">.</span><span class="tok-meth">stream</span><span class="tok-punc">({</span>
+  <span class="tok-prop">model</span><span class="tok-punc">:</span> <span class="tok-str">"lumen-pro"</span><span class="tok-punc">,</span>
+  <span class="tok-prop">input</span><span class="tok-punc">:</span> <span class="tok-var">question</span><span class="tok-punc">,</span>
+  <span class="tok-prop">tools</span><span class="tok-punc">:</span> <span class="tok-punc">[</span><span class="tok-var">lookupOrder</span><span class="tok-punc">],</span>
+<span class="tok-punc">});</span>
+
+<span class="tok-kw">for</span> <span class="tok-kw">await</span> <span class="tok-punc">(</span><span class="tok-kw">const</span> <span class="tok-var">event</span> <span class="tok-kw">of</span> <span class="tok-var">stream</span><span class="tok-punc">)</span> <span class="tok-punc">{</span>
+  <span class="tok-kw">switch</span> <span class="tok-punc">(</span><span class="tok-var">event</span><span class="tok-punc">.</span><span class="tok-var">type</span><span class="tok-punc">)</span> <span class="tok-punc">{</span>
+    <span class="tok-kw">case</span> <span class="tok-str">"token"</span><span class="tok-punc">:</span>
+      <span class="tok-fn">write</span><span class="tok-punc">(</span><span class="tok-var">event</span><span class="tok-punc">.</span><span class="tok-var">text</span><span class="tok-punc">);</span>
+      <span class="tok-kw">break</span><span class="tok-punc">;</span>
+    <span class="tok-kw">case</span> <span class="tok-str">"tool.call"</span><span class="tok-punc">:</span>
+      <span class="tok-var">ui</span><span class="tok-punc">.</span><span class="tok-meth">showToolChip</span><span class="tok-punc">(</span><span class="tok-var">event</span><span class="tok-punc">.</span><span class="tok-var">name</span><span class="tok-punc">);</span>
+      <span class="tok-kw">break</span><span class="tok-punc">;</span>
+  <span class="tok-punc">}</span>
+<span class="tok-punc">}</span></code></pre>
+              </div>
+            </div>
+          </section>
+
+          <!-- TOOLS -->
+          <section id="tools" aria-labelledby="tools-h">
+            <h2 id="tools-h">Tool calling</h2>
+            <p>
+              Declare tools as JSON Schema. Lumen validates arguments before they reach your
+              handler, so a malformed call never becomes a runtime exception in your code.
+              Independent calls run in parallel automatically.
+            </p>
+
+            <div class="code-block">
+              <div class="code-head">
+                <span class="code-file">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M9 1.5H4.5A1.5 1.5 0 003 3v10a1.5 1.5 0 001.5 1.5h7A1.5 1.5 0 0013 13V5.5L9 1.5z"/><path d="M9 1.5V5.5H13"/></svg>
+                  tool definition
+                </span>
+                <button class="copy-btn" type="button" data-copy="#code-tool" aria-label="Copy tool definition">
+                  <svg class="icon-copy" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="9" rx="1.6"/><path d="M10.5 5.5v-1A1.5 1.5 0 009 3H4a1.5 1.5 0 00-1.5 1.5v6A1.5 1.5 0 004 12h1"/></svg>
+                  <svg class="icon-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>
+                  <span data-copy-label>Copy</span>
+                </button>
+              </div>
+              <pre><code id="code-tool"><span class="tok-punc">{</span>
+  <span class="tok-prop">"name"</span><span class="tok-punc">:</span> <span class="tok-str">"lookup_order"</span><span class="tok-punc">,</span>
+  <span class="tok-prop">"description"</span><span class="tok-punc">:</span> <span class="tok-str">"Fetch an order by its reference."</span><span class="tok-punc">,</span>
+  <span class="tok-prop">"parameters"</span><span class="tok-punc">:</span> <span class="tok-punc">{</span>
+    <span class="tok-prop">"type"</span><span class="tok-punc">:</span> <span class="tok-str">"object"</span><span class="tok-punc">,</span>
+    <span class="tok-prop">"properties"</span><span class="tok-punc">:</span> <span class="tok-punc">{</span>
+      <span class="tok-prop">"id"</span><span class="tok-punc">:</span> <span class="tok-punc">{</span> <span class="tok-prop">"type"</span><span class="tok-punc">:</span> <span class="tok-str">"string"</span><span class="tok-punc">,</span> <span class="tok-prop">"pattern"</span><span class="tok-punc">:</span> <span class="tok-str">"^A-[0-9]{4}$"</span> <span class="tok-punc">}</span>
+    <span class="tok-punc">},</span>
+    <span class="tok-prop">"required"</span><span class="tok-punc">:</span> <span class="tok-punc">[</span><span class="tok-str">"id"</span><span class="tok-punc">],</span>
+    <span class="tok-prop">"additionalProperties"</span><span class="tok-punc">:</span> <span class="tok-const">false</span>
+  <span class="tok-punc">},</span>
+  <span class="tok-prop">"timeout_ms"</span><span class="tok-punc">:</span> <span class="tok-num">4000</span><span class="tok-punc">,</span>
+  <span class="tok-prop">"retries"</span><span class="tok-punc">:</span> <span class="tok-num">2</span>
+<span class="tok-punc">}</span></code></pre>
+            </div>
+
+            <div class="callout mt-5">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.5"/><path d="M10 9v4.5M10 6.4h.01"/></svg>
+              <div>
+                <strong>Keep descriptions behavioural</strong>
+                “Fetch an order by its reference” beats “order tool”. The description is the
+                only thing the model reads when deciding whether to call it.
+              </div>
+            </div>
+          </section>
+
+          <!-- RETRIEVAL -->
+          <section id="retrieval" aria-labelledby="retrieval-h">
+            <h2 id="retrieval-h">Retrieval</h2>
+            <p>
+              Query a collection directly when you want the passages without an answer — for
+              a search UI, an evaluation harness, or your own prompt assembly.
+            </p>
+
+            <div class="endpoint">
+              <span class="method method--post">POST</span>
+              <span class="path">/v1/collections/<span class="param">{collection_id}</span>/query</span>
+            </div>
+
+            <div class="endpoint">
+              <span class="method method--get">GET</span>
+              <span class="path">/v1/collections/<span class="param">{collection_id}</span>/documents</span>
+            </div>
+
+            <div class="endpoint">
+              <span class="method method--delete">DELETE</span>
+              <span class="path">/v1/collections/<span class="param">{collection_id}</span>/documents/<span class="param">{document_id}</span></span>
+            </div>
+
+            <div class="code-block mt-5">
+              <div class="code-head">
+                <span class="code-file">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M9 1.5H4.5A1.5 1.5 0 003 3v10a1.5 1.5 0 001.5 1.5h7A1.5 1.5 0 0013 13V5.5L9 1.5z"/><path d="M9 1.5V5.5H13"/></svg>
+                  query.sh
+                </span>
+                <button class="copy-btn" type="button" data-copy="#code-query" aria-label="Copy query example">
+                  <svg class="icon-copy" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="9" rx="1.6"/><path d="M10.5 5.5v-1A1.5 1.5 0 009 3H4a1.5 1.5 0 00-1.5 1.5v6A1.5 1.5 0 004 12h1"/></svg>
+                  <svg class="icon-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>
+                  <span data-copy-label>Copy</span>
+                </button>
+              </div>
+              <pre><code id="code-query"><span class="tok-fn">curl</span> <span class="tok-str">".../v1/collections/handbook/query"</span> <span class="tok-op">\</span>
+  <span class="tok-kw">-H</span> <span class="tok-str">"Authorization: Bearer $LUMEN_KEY"</span> <span class="tok-op">\</span>
+  <span class="tok-kw">-d</span> <span class="tok-str">'{
+    "query": "parental leave",
+    "top_k": 5,
+    "rerank": true,
+    "filter": { "region": "eu", "updated_after": "2026-01-01" }
+  }'</span>
+
+<span class="tok-com"># → { "matches": [ { "text": "…", "score": 0.91, "page": 14 } ] }</span></code></pre>
+            </div>
+          </section>
+
+          <!-- ERRORS -->
+          <section id="errors" aria-labelledby="errors-h">
+            <h2 id="errors-h">Errors</h2>
+            <p>
+              Errors use standard HTTP status codes with a stable machine-readable
+              <code>code</code>. Match on <code>code</code>, never on <code>message</code> — the
+              prose changes, the code does not.
+            </p>
+
+            <div class="table-wrap table-wrap--cards">
+              <div class="table-scroll">
+                <table class="table--hover table--cards">
+                  <caption>Every error the API can return.</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Status</th>
+                      <th scope="col">Code</th>
+                      <th scope="col">What happened</th>
+                      <th scope="col">What to do</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row"><span class="badge badge--warning">400</span></th>
+                      <td data-label="Code"><code>invalid_request</code></td>
+                      <td data-label="What happened">A field is missing, malformed or unknown.</td>
+                      <td data-label="What to do">Fix the payload. The <code>param</code> field names the offender.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span class="badge badge--danger">401</span></th>
+                      <td data-label="Code"><code>invalid_api_key</code></td>
+                      <td data-label="What happened">The key is missing, revoked or from another workspace.</td>
+                      <td data-label="What to do">Check the header. Do not retry — it will not start working.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span class="badge badge--danger">403</span></th>
+                      <td data-label="Code"><code>insufficient_scope</code></td>
+                      <td data-label="What happened">A <code>read</code> key tried to create a run.</td>
+                      <td data-label="What to do">Mint a key with the <code>run</code> role.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span class="badge badge--warning">404</span></th>
+                      <td data-label="Code"><code>not_found</code></td>
+                      <td data-label="What happened">No such run, collection or document.</td>
+                      <td data-label="What to do">Verify the id. Runs are retained for 30 days.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span class="badge badge--warning">409</span></th>
+                      <td data-label="Code"><code>idempotency_conflict</code></td>
+                      <td data-label="What happened">The same key was reused with a different body.</td>
+                      <td data-label="What to do">Use a fresh key, or resend the identical payload.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span class="badge badge--warning">413</span></th>
+                      <td data-label="Code"><code>context_length_exceeded</code></td>
+                      <td data-label="What happened">Input plus retrieved context exceeds the window.</td>
+                      <td data-label="What to do">Lower <code>top_k</code>, or move to a longer-context model.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span class="badge badge--warning">429</span></th>
+                      <td data-label="Code"><code>rate_limited</code></td>
+                      <td data-label="What happened">Requests or tokens per minute exceeded.</td>
+                      <td data-label="What to do">Back off using <code>Retry-After</code>. See <a href="models.html#limits">limits</a>.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span class="badge badge--warning">429</span></th>
+                      <td data-label="Code"><code>budget_exceeded</code></td>
+                      <td data-label="What happened">The workspace hit its monthly spend cap.</td>
+                      <td data-label="What to do">Raise the cap in settings. Retrying will not help.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span class="badge badge--danger">500</span></th>
+                      <td data-label="Code"><code>internal_error</code></td>
+                      <td data-label="What happened">Our fault. Already paged.</td>
+                      <td data-label="What to do">Retry with jittered backoff, up to three attempts.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><span class="badge badge--danger">503</span></th>
+                      <td data-label="Code"><code>upstream_unavailable</code></td>
+                      <td data-label="What happened">Every provider for that model is degraded.</td>
+                      <td data-label="What to do">Retry, or fall back to a different model family.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="code-block mt-5">
+              <div class="code-head">
+                <span class="code-file">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M9 1.5H4.5A1.5 1.5 0 003 3v10a1.5 1.5 0 001.5 1.5h7A1.5 1.5 0 0013 13V5.5L9 1.5z"/><path d="M9 1.5V5.5H13"/></svg>
+                  400 Bad Request
+                </span>
+                <button class="copy-btn" type="button" data-copy="#code-err" aria-label="Copy error body">
+                  <svg class="icon-copy" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="9" rx="1.6"/><path d="M10.5 5.5v-1A1.5 1.5 0 009 3H4a1.5 1.5 0 00-1.5 1.5v6A1.5 1.5 0 004 12h1"/></svg>
+                  <svg class="icon-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>
+                  <span data-copy-label>Copy</span>
+                </button>
+              </div>
+              <pre><code id="code-err"><span class="tok-punc">{</span>
+  <span class="tok-prop">"error"</span><span class="tok-punc">:</span> <span class="tok-punc">{</span>
+    <span class="tok-prop">"code"</span><span class="tok-punc">:</span> <span class="tok-str">"invalid_request"</span><span class="tok-punc">,</span>
+    <span class="tok-prop">"message"</span><span class="tok-punc">:</span> <span class="tok-str">"temperature must be between 0 and 2"</span><span class="tok-punc">,</span>
+    <span class="tok-prop">"param"</span><span class="tok-punc">:</span> <span class="tok-str">"temperature"</span><span class="tok-punc">,</span>
+    <span class="tok-prop">"request_id"</span><span class="tok-punc">:</span> <span class="tok-str">"req_c81f0a44"</span>
+  <span class="tok-punc">}</span>
+<span class="tok-punc">}</span></code></pre>
+            </div>
+
+            <p class="hint mt-4">
+              Always log <code>request_id</code>. It is the fastest way for us to find your call
+              in support.
+            </p>
+          </section>
+
+          <!-- VERSIONING -->
+          <section id="versioning" aria-labelledby="versioning-h">
+            <h2 id="versioning-h">Versioning</h2>
+            <p>
+              The API is dated, not numbered. Pin a version with the <code>Lumen-Version</code>
+              header; without it you get the version your workspace was created on, frozen.
+              Breaking changes ship under a new date and old dates stay live for 18 months.
+            </p>
+
+            <div class="table-wrap">
+              <div class="table-scroll">
+                <table class="table--hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">Version</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Notes</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row" class="mono">2026-08-01</th>
+                      <td><span class="badge badge--success">Current</span></td>
+                      <td>Parallel tool calls, <code>cached_tokens</code> in usage, 1M context on max.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="mono">2026-02-14</th>
+                      <td><span class="badge">Supported</span></td>
+                      <td>Adds citations to streamed runs. Sunsets 14 August 2027.</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="mono">2025-09-30</th>
+                      <td><span class="badge badge--warning">Deprecated</span></td>
+                      <td>Sunsets 30 March 2027. Migrate off <code>completions</code>.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Get a key and make your first call</h2>
+        <p>Free tier, no card. The quickstart above works verbatim once you paste your key.</p>
+        <div class="cluster cluster--center">
+          <a class="btn btn--primary btn--lg" href="waitlist.html">Get an API key</a>
+          <a class="btn btn--secondary btn--lg" href="playground.html">Browse prompts</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container container--wide">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a class="brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l1.9 4.9 4.9 1.9-4.9 1.9L10 15.2 8.1 10.3 3.2 8.4l4.9-1.9L10 1.6z"/><path d="M15.6 13.2l.8 2.1 2.1.8-2.1.8-.8 2.1-.8-2.1-2.1-.8 2.1-.8.8-2.1z" opacity=".55"/></svg>
+          </span>
+          Lumen
+        </a>
+        <p>The agent runtime for teams that have to ship, explain and defend their AI features.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Product</h3>
+        <ul>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="playground.html">Playground</a></li>
+          <li><a href="models.html">Models</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="waitlist.html">Get access</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Developers</h3>
+        <ul>
+          <li><a href="api.html">API reference</a></li>
+          <li><a href="api.html#authentication">Authentication</a></li>
+          <li><a href="api.html#errors">Error codes</a></li>
+          <li><a href="api.html#streaming">Streaming</a></li>
+          <li><a href="models.html#limits">Rate limits</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="index.html#why-heading">About</a></li>
+          <li><a href="index.html#proof-heading">Customers</a></li>
+          <li><a href="pricing.html#faq">FAQ</a></li>
+          <li><a href="waitlist.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span data-year>2026</span> Lumen Systems. A fictional product used for this template.</p>
+      <div class="footer-social">
+        <a class="icon-btn" href="#" aria-label="Lumen on X"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M12.6 3h2.4l-5.2 6 6.2 8h-4.9l-3.8-5-4.4 5H.5l5.6-6.4L.2 3h5l3.5 4.6L12.6 3zm-.9 12.6h1.4L5.4 4.3H3.9l7.8 11.3z"/></svg></a>
+        <a class="icon-btn" href="#" aria-label="Lumen on GitHub"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.3a8.7 8.7 0 00-2.8 17c.4.1.6-.2.6-.5v-1.7c-2.4.5-3-1.2-3-1.2-.4-1-1-1.3-1-1.3-.8-.5.1-.5.1-.5.9.1 1.3.9 1.3.9.8 1.3 2.1.9 2.6.7.1-.6.3-1 .6-1.2-1.9-.2-3.9-1-3.9-4.2 0-.9.3-1.7.9-2.3-.1-.2-.4-1.1.1-2.3 0 0 .7-.2 2.3.9a8 8 0 014.2 0c1.6-1.1 2.3-.9 2.3-.9.5 1.2.2 2.1.1 2.3.6.6.9 1.4.9 2.3 0 3.2-2 4-3.9 4.2.3.3.6.8.6 1.7v2.5c0 .3.2.6.6.5A8.7 8.7 0 0010 1.3z"/></svg></a>
+        <a class="icon-btn" href="#" aria-label="Lumen on LinkedIn"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5.4 17H2.6V7.4h2.8V17zM4 6.2A1.6 1.6 0 114 3a1.6 1.6 0 010 3.2zM17.4 17h-2.8v-4.7c0-1.1 0-2.6-1.6-2.6s-1.8 1.2-1.8 2.5V17H8.4V7.4h2.7v1.3h.1a3 3 0 012.7-1.5c2.9 0 3.5 1.9 3.5 4.4V17z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="config.js" defer></script>
+<script src="js/forms.js" defer></script>
+<script src="js/integrations.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+/* ambient.css — continuous motion so the hero never reads as a static image.
+   Values are deliberately strong enough to PERCEIVE; the first pass used 10%
+   alpha with a 0.55 opacity floor and was literally invisible. */
+.hero{position:relative;isolation:isolate}
+.hero::after{
+  content:"";position:absolute;inset:-14% -8%;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(44% 40% at 68% 30%, rgba(201,162,39,0.3), transparent 68%),
+    radial-gradient(38% 34% at 24% 68%, rgba(201,162,39,0.1), transparent 70%);
+  animation:amb-breathe 9s ease-in-out infinite;
+  will-change:opacity,transform;
+}
+.hero::before{
+  content:"";position:absolute;top:0;bottom:0;width:44%;left:-44%;pointer-events:none;z-index:1;
+  background:linear-gradient(100deg,transparent,rgba(201,162,39,0.1),transparent);
+  animation:amb-sweep 9s cubic-bezier(.5,0,.5,1) 1.5s infinite;
+  will-change:left;
+}
+@keyframes amb-breathe{
+  0%,100%{opacity:.30;transform:translate3d(0,0,0) scale(1)}
+  50%    {opacity:1;  transform:translate3d(1.5%,-1.5%,0) scale(1.13)}
+}
+@keyframes amb-sweep{0%{left:-44%}62%,100%{left:122%}}
+@media (prefers-reduced-motion: reduce){
+  .hero::after,.hero::before{animation:none!important;opacity:.5}
+}

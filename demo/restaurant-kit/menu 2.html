@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menu — Ember &amp; Oak, wood-fired kitchen in Dublin 7</title>
+<meta name="description" content="This week's carte at Ember &amp; Oak: starters, mains, sides, desserts and the wine list. Everything cooked over Irish oak. Six-course &lsquo;At the Hearth&rsquo; menu €72 with optional wine pairing.">
+<meta name="author" content="Ember &amp; Oak">
+<meta name="theme-color" content="#fbf6ee" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14110e" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://emberandoak.example.com/menu.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="restaurant.menu">
+<meta property="og:site_name" content="Ember &amp; Oak">
+<meta property="og:url" content="https://emberandoak.example.com/menu.html">
+<meta property="og:title" content="Menu — Ember &amp; Oak, wood-fired kitchen in Dublin 7">
+<meta property="og:description" content="Starters, mains, sides, desserts and 140 bottles. Ember-roasted Ballyknocken lamb, hearth-charred octopus, burnt honey tart.">
+<meta property="og:image" content="assets/og-menu.png">
+<meta property="og:image:alt" content="The Ember &amp; Oak carte, written up fresh each Tuesday.">
+<meta property="og:locale" content="en_IE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Menu — Ember &amp; Oak">
+<meta name="twitter:description" content="What we're cooking this week. Live fire, Wicklow produce, low-intervention wine.">
+<meta name="twitter:image" content="assets/og-menu.png">
+
+<link rel="stylesheet" href="css/style.css">
+
+<!-- Set the theme before first paint so there is no flash of the wrong palette. -->
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("emberoak-theme");
+      if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Menu",
+  "@id": "https://emberandoak.example.com/menu.html#menu",
+  "name": "Ember & Oak — the carte",
+  "url": "https://emberandoak.example.com/menu.html",
+  "description": "The weekly carte at Ember & Oak. Everything is cooked over Irish oak and beech in a single open hearth; the list is rewritten each Tuesday around what the growers send.",
+  "inLanguage": "en-IE",
+  "hasMenuSection": [
+    {
+      "@type": "MenuSection",
+      "name": "Starters",
+      "description": "Small plates from the ember bed and the top of the fire.",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "Hearth-charred octopus",
+          "description": "Slow-braised for four hours, then finished directly on the embers. Romesco made with Wicklow hazelnuts, burnt lemon, a lot of good oil.",
+          "suitableForDiet": "https://schema.org/GlutenFreeDiet",
+          "offers": { "@type": "Offer", "price": "19.00", "priceCurrency": "EUR" }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Oak-smoked beetroot",
+          "description": "Beetroot buried in the ash overnight, dressed like a tartare with capers, shallot and a horseradish cream that will wake you up.",
+          "suitableForDiet": ["https://schema.org/VeganDiet", "https://schema.org/GlutenFreeDiet"],
+          "offers": { "@type": "Offer", "price": "16.00", "priceCurrency": "EUR" }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Broderick's oysters, four",
+          "description": "Carlingford rock oysters, two raw with cider mignonette and two warmed over the coals with beech-smoked butter.",
+          "suitableForDiet": "https://schema.org/GlutenFreeDiet",
+          "offers": { "@type": "Offer", "price": "16.00", "priceCurrency": "EUR" }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Hearth bread & smoked butter",
+          "description": "Ballybrado flour milled in Cahir, baked at six in the morning in the falling heat of the fire. Cultured butter smoked over beech.",
+          "suitableForDiet": "https://schema.org/VegetarianDiet",
+          "offers": { "@type": "Offer", "price": "12.00", "priceCurrency": "EUR" }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Goatsbridge trout, cured & kissed by smoke",
+          "description": "Kilkenny trout cured in salt and juniper for a day, then hung twenty minutes over cooling oak. Buttermilk, cucumber, dill oil.",
+          "suitableForDiet": "https://schema.org/GlutenFreeDiet",
+          "offers": { "@type": "Offer", "price": "17.00", "priceCurrency": "EUR" }
+        }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Mains",
+      "description": "Cooked over Irish oak and beech. No gas line in the building.",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "Ember-roasted lamb",
+          "description": "Shoulder from Ballyknocken, cooked eight hours beside the fire until it gives way to a spoon. Wild garlic when it's in, salsa verde when it's not.",
+          "suitableForDiet": "https://schema.org/GlutenFreeDiet",
+          "offers": { "@type": "Offer", "price": "34.00", "priceCurrency": "EUR" }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Whole turbot over the coals, for two",
+          "description": "Whatever the Kish Fish day boats land on Thursday, cooked whole in the fish clamp and finished with a hot vinaigrette of its own juices. Priced per person, minimum two.",
+          "suitableForDiet": "https://schema.org/GlutenFreeDiet",
+          "offers": { "@type": "Offer", "price": "38.00", "priceCurrency": "EUR" }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Dry-aged sirloin over oak",
+          "description": "Forty-day aged Hereford from a single Meath herd, grilled hard over oak and rested on the stone. Bone-marrow butter, watercress.",
+          "suitableForDiet": "https://schema.org/GlutenFreeDiet",
+          "offers": { "@type": "Offer", "price": "36.00", "priceCurrency": "EUR" }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Fire-roasted celeriac",
+          "description": "A whole celeriac from Cloughjordan, salt-crusted and buried in embers for three hours, carved at the pass. Hazelnut picada, charred apple.",
+          "suitableForDiet": ["https://schema.org/VeganDiet", "https://schema.org/GlutenFreeDiet"],
+          "offers": { "@type": "Offer", "price": "24.00", "priceCurrency": "EUR" }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Pici, Cloughjordan tomatoes & smoked ricotta",
+          "description": "Ballybrado flour rolled by hand every afternoon. Tomatoes roasted in the mouth of the fire until they collapse.",
+          "suitableForDiet": "https://schema.org/VegetarianDiet",
+          "offers": { "@type": "Offer", "price": "26.00", "priceCurrency": "EUR" }
+        }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Sides",
+      "description": "Everything here has been near the fire at some point.",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "Hearth potatoes in beef fat",
+          "description": "Boiled, crushed, then dropped into the dripping tray under the grill until the edges shatter.",
+          "suitableForDiet": "https://schema.org/GlutenFreeDiet",
+          "offers": { "@type": "Offer", "price": "7.00", "priceCurrency": "EUR" }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Charred hispi cabbage, Velvet Cloud",
+          "description": "Halved, grilled cut-side down until black, spooned with Mayo sheep's milk yoghurt and toasted caraway.",
+          "suitableForDiet": ["https://schema.org/VegetarianDiet", "https://schema.org/GlutenFreeDiet"],
+          "offers": { "@type": "Offer", "price": "8.00", "priceCurrency": "EUR" }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Cloughjordan leaves, mustard dressing",
+          "description": "Whatever is standing in the market garden this week, dressed sharp. A palate cleanser disguised as a side.",
+          "suitableForDiet": ["https://schema.org/VeganDiet", "https://schema.org/GlutenFreeDiet"],
+          "offers": { "@type": "Offer", "price": "6.00", "priceCurrency": "EUR" }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Ember onions, thyme honey",
+          "description": "Whole onions cooked in their skins in the ash until jammy, split and glazed with honey from the Cabra allotments.",
+          "suitableForDiet": ["https://schema.org/VegetarianDiet", "https://schema.org/GlutenFreeDiet"],
+          "offers": { "@type": "Offer", "price": "7.00", "priceCurrency": "EUR" }
+        }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Desserts",
+      "description": "Tomás Delgado's section. He is Galician and he does not rush.",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "Burnt honey tart",
+          "description": "Brown butter pastry, honey from the hives on the Cabra allotments, caramelised until it is very nearly too far. Crème fraîche to cut it.",
+          "suitableForDiet": "https://schema.org/VegetarianDiet",
+          "offers": { "@type": "Offer", "price": "11.00", "priceCurrency": "EUR" }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Oak-smoked chocolate, sea salt",
+          "description": "Cream infused with cooled oak embers before it ever meets the chocolate. Dense, savoury, faintly of bonfire.",
+          "suitableForDiet": ["https://schema.org/VegetarianDiet", "https://schema.org/GlutenFreeDiet"],
+          "offers": { "@type": "Offer", "price": "12.00", "priceCurrency": "EUR" }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Tarta de Santiago",
+          "description": "Tomás's grandmother's recipe, almond and lemon, dusted with the cross of Saint James. He will tell you it is better in Galicia.",
+          "suitableForDiet": ["https://schema.org/VegetarianDiet", "https://schema.org/GlutenFreeDiet"],
+          "offers": { "@type": "Offer", "price": "10.00", "priceCurrency": "EUR" }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Velvet Cloud ice cream, Ballybrado crumb",
+          "description": "Sheep's milk ice cream churned each morning, toasted brown-flour crumb, a spoon of last summer's blackcurrants.",
+          "suitableForDiet": "https://schema.org/VegetarianDiet",
+          "offers": { "@type": "Offer", "price": "9.00", "priceCurrency": "EUR" }
+        }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Drinks",
+      "description": "Fourteen wines by the glass from a list of about 140 bottles, plus cocktails built around the fire.",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "Domaine Landron 'Amphibolite', Muscadet, Loire",
+          "description": "Chalky, saline, faintly of the sea. The glass we pour when someone says they don't like white wine.",
+          "offers": { "@type": "Offer", "price": "11.00", "priceCurrency": "EUR" }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Kumpf et Meyer 'Grande Ourse', Alsace",
+          "description": "Six days on skins. Apricot skin, bitter orange, a grippy finish that stands up to anything off the coals.",
+          "offers": { "@type": "Offer", "price": "13.00", "priceCurrency": "EUR" }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Oak old fashioned",
+          "description": "Irish single pot still, demerara, a glass smoked with a splint of oak from the log store. Stirred, never hurried.",
+          "offers": { "@type": "Offer", "price": "15.00", "priceCurrency": "EUR" }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Filter coffee",
+          "description": "A single Irish-roasted lot, changed every few weeks, brewed by the jug and poured freely.",
+          "offers": { "@type": "Offer", "price": "3.50", "priceCurrency": "EUR" }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "@id": "https://emberandoak.example.com/#restaurant",
+  "name": "Ember & Oak",
+  "description": "A wood-fired kitchen and wine room in a converted 1890s coach house in Stoneybatter, Dublin 7.",
+  "url": "https://emberandoak.example.com/",
+  "telephone": "+353-1-555-0184",
+  "email": "hello@emberandoak.example.com",
+  "servesCuisine": ["Modern Irish", "European", "Wood-fired"],
+  "priceRange": "€€€",
+  "acceptsReservations": "https://emberandoak.example.com/reservations.html",
+  "currenciesAccepted": "EUR",
+  "image": "https://emberandoak.example.com/assets/og-menu.png",
+  "hasMenu": { "@id": "https://emberandoak.example.com/menu.html#menu" },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "14 Marlowe Street",
+    "addressLocality": "Stoneybatter, Dublin 7",
+    "addressRegion": "Leinster",
+    "postalCode": "D07 XK92",
+    "addressCountry": "IE"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"], "opens": "17:30", "closes": "22:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday", "Saturday"], "opens": "12:00", "closes": "15:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday", "Saturday"], "opens": "17:30", "closes": "23:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "12:00", "closes": "17:00" }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "486",
+    "bestRating": "5"
+  }
+}
+</script>
+  <noscript><style>/* JS off: entrance animations never run, so show final state */
+.reveal{opacity:1!important;transform:none!important;clip-path:none!important;filter:none!important}</style></noscript>
+</head>
+
+<body class="full-height">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================== HEADER ============================== -->
+<header class="site-header" data-header>
+  <div class="container container--wide">
+    <a class="brand" href="index.html" aria-label="Ember and Oak — home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10 1.5c1.9 2.6 1.1 4.2.2 5.6-.9 1.4-1.6 2.6-.6 4.3.3-1.4 1.1-2.3 2-3-.3 2 .6 2.8 1.4 3.8.9 1.1 1.4 2.3 1.4 3.4 0 2.5-2 4.4-4.4 4.4S5.6 18.1 5.6 15.6c0-2.4 1.4-3.7 2.6-5.2 1.3-1.6 2.4-3.4 1.8-8.9z"/>
+        </svg>
+      </span>
+      <span class="brand-text">Ember &amp; Oak<small>Dublin 7</small></span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="menu.html" aria-current="page">Menu</a>
+      <a href="about.html">Our story</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Visit</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-phone" href="tel:+35315550184">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4.5 3h3l1.2 3-1.7 1.3a10 10 0 004.7 4.7L13 10.3l3 1.2v3a1.5 1.5 0 01-1.6 1.5A12.6 12.6 0 013 4.6 1.5 1.5 0 014.5 3z"/>
+        </svg>
+        01 555 0184
+      </a>
+
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="icon-moon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M16.5 11.8A6.8 6.8 0 018.2 3.5a6.8 6.8 0 108.3 8.3z"/>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="10" cy="10" r="3.6"/>
+          <path d="M10 1.8v1.8M10 16.4v1.8M18.2 10h-1.8M3.6 10H1.8M15.8 4.2l-1.3 1.3M5.5 14.5l-1.3 1.3M15.8 15.8l-1.3-1.3M5.5 5.5L4.2 4.2"/>
+        </svg>
+      </button>
+
+      <a class="btn btn--primary btn--sm header-cta--desktop" href="reservations.html">Book a table</a>
+
+      <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h14M3 10h14M3 14h14"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav" data-mobile-nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="menu.html" aria-current="page">Menu</a></li>
+    <li><a href="reservations.html">Reservations</a></li>
+    <li><a href="about.html">Our story</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Visit us</a></li>
+  </ul>
+  <div class="mobile-nav-foot">
+    <a class="btn btn--primary btn--block" href="reservations.html">Book a table</a>
+    <a class="btn btn--secondary btn--block" href="tel:+35315550184">Call 01 555 0184</a>
+  </div>
+  <div class="mobile-nav-meta">
+    <span>14 Marlowe Street, Stoneybatter, Dublin 7</span>
+    <span class="badge-dot" data-hours-status data-open-from="17:30" data-open-to="22:30" data-closed-days="1">Open now</span>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ============================== PAGE HEAD ============================== -->
+  <section class="page-head">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-grain" aria-hidden="true"></div>
+    <div class="container container--narrow">
+      <p class="eyebrow eyebrow--center" style="justify-content:center;">The carte</p>
+      <h1>What we're cooking this week</h1>
+      <p>
+        The menu is rewritten every Tuesday, an hour after the Cloughjordan van
+        pulls away and we can see what we actually have. Some of it will still be
+        here on Saturday. Some of it goes by Wednesday and does not come back
+        until next year.
+      </p>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Menu</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ============================== THE CARTE ============================== -->
+  <section class="section" id="carte" aria-labelledby="carte-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Tuesday to Sunday</p>
+        <h2 id="carte-title">The full list</h2>
+        <p>
+          Prices include VAT and there is no service charge — what you see is what
+          lands on the bill. If something has just gone, we will tell you before
+          you get attached to it.
+        </p>
+      </div>
+
+      <div class="dietary-key reveal" aria-label="Dietary key">
+        <div><span class="tag tag--v" title="Vegetarian">V</span> Vegetarian</div>
+        <div><span class="tag tag--v" title="Vegan">VE</span> Vegan</div>
+        <div><span class="tag tag--gf" title="Gluten free">GF</span> Made without gluten</div>
+        <div><span class="tag" title="Contains nuts">N</span> Contains nuts</div>
+        <div><span class="tag tag--spicy" title="Carries some heat">HOT</span> Carries some heat</div>
+      </div>
+
+      <div class="cluster mt-5">
+        <button class="btn btn--secondary" type="button" onclick="window.print()">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 8V3h8v5M6 15H4.5A1.5 1.5 0 013 13.5v-4A1.5 1.5 0 014.5 8h11A1.5 1.5 0 0117 9.5v4a1.5 1.5 0 01-1.5 1.5H14M6 12h8v5H6z"/>
+          </svg>
+          Print this menu
+        </button>
+        <span class="text-xs text-subtle">Prints clean on A4 — every section, no photographs, no navigation.</span>
+      </div>
+    </div>
+
+    <div data-tabs>
+      <div class="menu-tabs">
+        <div class="container">
+          <div class="tablist" role="tablist" aria-label="Menu sections">
+            <button class="tab" role="tab" type="button" id="t-starters" aria-controls="p-starters" aria-selected="true">Starters</button>
+            <button class="tab" role="tab" type="button" id="t-mains" aria-controls="p-mains" aria-selected="false">Mains</button>
+            <button class="tab" role="tab" type="button" id="t-sides" aria-controls="p-sides" aria-selected="false">Sides</button>
+            <button class="tab" role="tab" type="button" id="t-desserts" aria-controls="p-desserts" aria-selected="false">Desserts</button>
+            <button class="tab" role="tab" type="button" id="t-drinks" aria-controls="p-drinks" aria-selected="false">Drinks</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+
+        <!-- ---------- STARTERS ---------- -->
+        <div class="tabpanel" role="tabpanel" id="p-starters" aria-labelledby="t-starters" tabindex="0">
+          <div class="menu-section">
+            <div class="menu-section-head">
+              <h3>Starters</h3>
+              <p>Order two or three between you and keep going.</p>
+            </div>
+            <div class="menu-list">
+
+              <div class="menu-item">
+                <span class="menu-item-name">
+                  Hearth-charred octopus
+                  <span class="tag tag--gf" title="Made without gluten">GF</span>
+                  <span class="tag" title="Contains nuts">N</span>
+                </span>
+                <span class="menu-item-price">€19</span>
+                <p class="menu-item-desc">
+                  Slow-braised for four hours, then finished directly on the embers
+                  until the edges go crisp. Romesco made with Wicklow hazelnuts,
+                  burnt lemon, a lot of good oil.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">
+                  Oak-smoked beetroot
+                  <span class="tag tag--v" title="Vegan">VE</span>
+                  <span class="tag tag--gf" title="Made without gluten">GF</span>
+                </span>
+                <span class="menu-item-price">€16</span>
+                <p class="menu-item-desc">
+                  Cloughjordan beetroot buried in the ash overnight, dressed like a
+                  tartare with capers, shallot and a horseradish cream that will
+                  wake you up.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">
+                  Broderick's oysters, four
+                  <span class="tag tag--gf" title="Made without gluten">GF</span>
+                </span>
+                <span class="menu-item-price">€16</span>
+                <p class="menu-item-desc">
+                  Carlingford rocks, opened to order. Two raw with a cider
+                  mignonette, two laid straight on the coals for ninety seconds with
+                  beech-smoked butter. Six for €23 if you are serious.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">
+                  Hearth bread &amp; smoked butter
+                  <span class="tag tag--v" title="Vegetarian">V</span>
+                </span>
+                <span class="menu-item-price">€12</span>
+                <p class="menu-item-desc">
+                  Ballybrado flour, milled in Cahir, baked at six in the morning in
+                  the falling heat of the fire. Cultured butter smoked over beech
+                  and whipped with sea salt. Refills are free; ask.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">
+                  Goatsbridge trout, cured &amp; lightly smoked
+                  <span class="tag tag--gf" title="Made without gluten">GF</span>
+                </span>
+                <span class="menu-item-price">€17</span>
+                <p class="menu-item-desc">
+                  Kilkenny trout cured a full day in salt and juniper, then hung
+                  twenty minutes over cooling oak — enough to perfume it, not enough
+                  to cook it. Buttermilk, cucumber, dill oil.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">
+                  Velvet Cloud curd &amp; ember leeks
+                  <span class="tag tag--v" title="Vegetarian">V</span>
+                  <span class="tag tag--gf" title="Made without gluten">GF</span>
+                </span>
+                <span class="menu-item-price">€15</span>
+                <p class="menu-item-desc">
+                  Mayo sheep's milk curd under leeks charred whole in the ash and
+                  peeled back to the sweet middle. Toasted seeds, a spoon of green
+                  oil, black pepper.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">
+                  Grilled mussels, 'nduja butter
+                  <span class="tag tag--spicy" title="Carries some heat">HOT</span>
+                </span>
+                <span class="menu-item-price">€14</span>
+                <p class="menu-item-desc">
+                  Kish Fish mussels opened on the grill bars, each one spooned with
+                  a hot, red, faintly reckless butter. Bread comes with it because
+                  you will want it.
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- ---------- MAINS ---------- -->
+        <div class="tabpanel" role="tabpanel" id="p-mains" aria-labelledby="t-mains" tabindex="0" hidden>
+          <div class="menu-section">
+            <div class="menu-section-head">
+              <h3>Mains</h3>
+              <p>All of it over Irish oak and beech. There is no gas in the building.</p>
+            </div>
+            <div class="menu-list">
+
+              <div class="menu-item">
+                <span class="menu-item-name">
+                  Ember-roasted lamb
+                  <span class="tag tag--gf" title="Made without gluten">GF</span>
+                </span>
+                <span class="menu-item-price">€34</span>
+                <p class="menu-item-desc">
+                  Shoulder from Ballyknocken in Co. Wicklow, cooked eight hours
+                  beside the fire until it gives way to a spoon. Wild garlic when
+                  it's in, salsa verde when it's not.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">
+                  Whole turbot over the coals, for two
+                  <span class="tag tag--gf" title="Made without gluten">GF</span>
+                </span>
+                <span class="menu-item-price">€38</span>
+                <p class="menu-item-desc">
+                  Whatever the Kish Fish day boats land on Thursday — turbot most
+                  weeks, brill when it isn't — cooked whole in the fish clamp and
+                  finished with a hot vinaigrette of its own juices. Priced per
+                  person, minimum two, about twenty-five minutes.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">
+                  Dry-aged sirloin over oak
+                  <span class="tag tag--gf" title="Made without gluten">GF</span>
+                </span>
+                <span class="menu-item-price">€36</span>
+                <p class="menu-item-desc">
+                  Forty days on the bone from a single Meath herd, grilled hard and
+                  rested on the warm stone beside the hearth. Bone-marrow butter,
+                  watercress, a wedge of charred lemon. Served pink unless told
+                  otherwise.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">
+                  Ember-grilled duck, blackcurrant
+                  <span class="tag tag--gf" title="Made without gluten">GF</span>
+                </span>
+                <span class="menu-item-price">€32</span>
+                <p class="menu-item-desc">
+                  Crown hung a week, skin rendered slowly over low embers, sauce
+                  made from the bones and last summer's blackcurrants. Sharp enough
+                  to keep the fat honest.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">
+                  Hake in the fish clamp
+                  <span class="tag tag--gf" title="Made without gluten">GF</span>
+                </span>
+                <span class="menu-item-price">€29</span>
+                <p class="menu-item-desc">
+                  A thick cut of Kish Fish hake grilled skin-down over white ash,
+                  with mussels, sea beet and a broth built on the trimmings. Clean,
+                  hot and gone in ten minutes.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">
+                  Pici, Cloughjordan tomatoes &amp; smoked ricotta
+                  <span class="tag tag--v" title="Vegetarian">V</span>
+                </span>
+                <span class="menu-item-price">€26</span>
+                <p class="menu-item-desc">
+                  Ballybrado flour rolled by hand every afternoon — badly at first,
+                  then well. Tomatoes roasted in the mouth of the fire until they
+                  collapse, basil, ricotta smoked in-house.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">
+                  Fire-roasted celeriac
+                  <span class="tag tag--v" title="Vegan">VE</span>
+                  <span class="tag tag--gf" title="Made without gluten">GF</span>
+                  <span class="tag" title="Contains nuts">N</span>
+                </span>
+                <span class="menu-item-price">€24</span>
+                <p class="menu-item-desc">
+                  A whole celeriac from Cloughjordan, salt-crusted and buried in
+                  embers for three hours, then carved at the pass like a small
+                  joint. Hazelnut picada, charred apple, its own roasting juices.
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- ---------- SIDES ---------- -->
+        <div class="tabpanel" role="tabpanel" id="p-sides" aria-labelledby="t-sides" tabindex="0" hidden>
+          <div class="menu-section">
+            <div class="menu-section-head">
+              <h3>Sides</h3>
+              <p>Two between two is plenty. Three is a decision you make together.</p>
+            </div>
+            <div class="menu-columns">
+              <div class="menu-list">
+
+                <div class="menu-item">
+                  <span class="menu-item-name">
+                    Hearth potatoes in beef fat
+                    <span class="tag tag--gf" title="Made without gluten">GF</span>
+                  </span>
+                  <span class="menu-item-price">€7</span>
+                  <p class="menu-item-desc">
+                    Boiled, crushed, then dropped into the dripping tray under the
+                    grill until the edges shatter.
+                  </p>
+                </div>
+
+                <div class="menu-item">
+                  <span class="menu-item-name">
+                    Charred hispi cabbage, Velvet Cloud
+                    <span class="tag tag--v" title="Vegetarian">V</span>
+                    <span class="tag tag--gf" title="Made without gluten">GF</span>
+                  </span>
+                  <span class="menu-item-price">€8</span>
+                  <p class="menu-item-desc">
+                    Halved, laid cut-side down until properly black, spooned with
+                    Mayo sheep's yoghurt and toasted caraway.
+                  </p>
+                </div>
+
+                <div class="menu-item">
+                  <span class="menu-item-name">
+                    Cloughjordan leaves, mustard dressing
+                    <span class="tag tag--v" title="Vegan">VE</span>
+                    <span class="tag tag--gf" title="Made without gluten">GF</span>
+                  </span>
+                  <span class="menu-item-price">€6</span>
+                  <p class="menu-item-desc">
+                    Whatever is standing in the market garden this week, dressed
+                    sharp. A palate cleanser wearing a side dish's clothes.
+                  </p>
+                </div>
+
+              </div>
+              <div class="menu-list">
+
+                <div class="menu-item">
+                  <span class="menu-item-name">
+                    Ember onions, thyme honey
+                    <span class="tag tag--v" title="Vegetarian">V</span>
+                    <span class="tag tag--gf" title="Made without gluten">GF</span>
+                  </span>
+                  <span class="menu-item-price">€7</span>
+                  <p class="menu-item-desc">
+                    Whole onions cooked in their skins in the ash until jammy,
+                    split and glazed with honey from the Cabra allotments.
+                  </p>
+                </div>
+
+                <div class="menu-item">
+                  <span class="menu-item-name">
+                    Fire-roasted carrots, hazelnut dukkah
+                    <span class="tag tag--v" title="Vegan">VE</span>
+                    <span class="tag tag--gf" title="Made without gluten">GF</span>
+                    <span class="tag" title="Contains nuts">N</span>
+                  </span>
+                  <span class="menu-item-price">€8</span>
+                  <p class="menu-item-desc">
+                    Roasted whole with their tops on, dressed in dukkah we grind
+                    on Tuesdays and a squeeze of blood orange.
+                  </p>
+                </div>
+
+                <div class="menu-item">
+                  <span class="menu-item-name">
+                    Grilled greens, anchovy &amp; lemon
+                    <span class="tag tag--gf" title="Made without gluten">GF</span>
+                  </span>
+                  <span class="menu-item-price">€9</span>
+                  <p class="menu-item-desc">
+                    Whatever is bitter and in season — cavolo, chard, sprouting
+                    broccoli — hit hard by the flame, then anchovy butter.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---------- DESSERTS ---------- -->
+        <div class="tabpanel" role="tabpanel" id="p-desserts" aria-labelledby="t-desserts" tabindex="0" hidden>
+          <div class="menu-section">
+            <div class="menu-section-head">
+              <h3>Desserts</h3>
+              <p>Tomás Delgado's section. He is Galician and he does not rush.</p>
+            </div>
+            <div class="menu-list">
+
+              <div class="menu-item">
+                <span class="menu-item-name">
+                  Burnt honey tart
+                  <span class="tag tag--v" title="Vegetarian">V</span>
+                </span>
+                <span class="menu-item-price">€11</span>
+                <p class="menu-item-desc">
+                  Brown butter pastry, honey from the hives on the Cabra
+                  allotments, caramelised until it is very nearly too far. Crème
+                  fraîche to cut it. It has not left the menu since 2019 and there
+                  would be letters if it did.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">
+                  Oak-smoked chocolate, sea salt
+                  <span class="tag tag--v" title="Vegetarian">V</span>
+                  <span class="tag tag--gf" title="Made without gluten">GF</span>
+                </span>
+                <span class="menu-item-price">€12</span>
+                <p class="menu-item-desc">
+                  Cream infused with cooled oak embers before it ever meets the
+                  chocolate. Dense, savoury, faintly of bonfire — the one dessert
+                  that argues with the wine.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">
+                  Tarta de Santiago
+                  <span class="tag tag--v" title="Vegetarian">V</span>
+                  <span class="tag tag--gf" title="Made without gluten">GF</span>
+                  <span class="tag" title="Contains nuts">N</span>
+                </span>
+                <span class="menu-item-price">€10</span>
+                <p class="menu-item-desc">
+                  Tomás's grandmother's recipe — almond, lemon zest, the cross of
+                  Saint James dusted on top. He will tell you it is better in
+                  Galicia. He is probably right.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">
+                  Roast pear, buttermilk &amp; honeycomb
+                  <span class="tag tag--v" title="Vegetarian">V</span>
+                  <span class="tag tag--gf" title="Made without gluten">GF</span>
+                </span>
+                <span class="menu-item-price">€10</span>
+                <p class="menu-item-desc">
+                  Pears roasted in the dying heat overnight so they go amber the
+                  whole way through, buttermilk ice cream, a shard of honeycomb.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">
+                  Velvet Cloud ice cream, Ballybrado crumb
+                  <span class="tag tag--v" title="Vegetarian">V</span>
+                </span>
+                <span class="menu-item-price">€9</span>
+                <p class="menu-item-desc">
+                  Sheep's milk ice cream churned each morning, toasted brown-flour
+                  crumb, a spoon of last summer's blackcurrants. The quiet one.
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- ---------- DRINKS ---------- -->
+        <div class="tabpanel" role="tabpanel" id="p-drinks" aria-labelledby="t-drinks" tabindex="0" hidden>
+
+          <div class="menu-section">
+            <div class="menu-section-head">
+              <h3>By the glass</h3>
+              <p>Fourteen open at any time; these six are pouring this week.</p>
+            </div>
+            <div class="menu-list">
+
+              <div class="menu-item">
+                <span class="menu-item-name">Domaine Landron ‘Amphibolite’ · Muscadet, Loire</span>
+                <span class="menu-item-price">€11</span>
+                <p class="menu-item-desc">
+                  Chalky, saline, faintly of the sea. The glass Aoife pours when
+                  someone announces they don't like white wine.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Sepp Moser Grüner Veltliner · Kremstal, Austria</span>
+                <span class="menu-item-price">€10</span>
+                <p class="menu-item-desc">
+                  Biodynamic, white pepper and green apple. Cuts through anything
+                  that has spent time in smoke.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Kumpf et Meyer ‘Grande Ourse’ · Alsace</span>
+                <span class="menu-item-price">€13</span>
+                <p class="menu-item-desc">
+                  Six days on skins. Apricot skin, bitter orange and a grippy
+                  finish that stands up to anything off the coals.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Cantina Giardino ‘Sophia’ Fiano · Campania</span>
+                <span class="menu-item-price">€14</span>
+                <p class="menu-item-desc">
+                  Amphora-aged, waxy and wild. Our most-argued-about glass, which
+                  is exactly why we keep it open.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Domaine de la Sénéchalière Gamay · Loire</span>
+                <span class="menu-item-price">€12</span>
+                <p class="menu-item-desc">
+                  Served cool from the cellar. Crushed raspberry and wet stone —
+                  the red we drink with fish and refuse to apologise for.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Bodegas Gratias Bobal Rosado · Manchuela, Spain</span>
+                <span class="menu-item-price">€9</span>
+                <p class="menu-item-desc">
+                  Dry, high-altitude rosado from old bush vines. Starts the evening
+                  better than almost anything else on the list.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="menu-section">
+            <div class="menu-section-head">
+              <h3>Cocktails &amp; aperitivo</h3>
+              <p>Five only, all built at the bar, none of them blue.</p>
+            </div>
+            <div class="menu-list">
+
+              <div class="menu-item">
+                <span class="menu-item-name">Oak old fashioned</span>
+                <span class="menu-item-price">€15</span>
+                <p class="menu-item-desc">
+                  Irish single pot still, demerara, and a glass smoked with a splint
+                  from the same log store that feeds the hearth. Stirred, never
+                  hurried.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Burnt orange negroni</span>
+                <span class="menu-item-price">€14</span>
+                <p class="menu-item-desc">
+                  Oranges halved and blackened on the grill, then steeped in the
+                  campari for a fortnight. Bitter, smoky, dangerous at 5.30pm.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Smoked rosemary gimlet</span>
+                <span class="menu-item-price">€13</span>
+                <p class="menu-item-desc">
+                  Gin, lime cordial made in-house on Mondays, a rosemary sprig lit
+                  and put out under the glass.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Sloe &amp; sherry highball</span>
+                <span class="menu-item-price">€13</span>
+                <p class="menu-item-desc">
+                  Manzanilla, sloe gin from hedgerows near Ballyknocken, soda and a
+                  long strip of lemon. Salty and low-proof.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">House amaro spritz</span>
+                <span class="menu-item-price">€12</span>
+                <p class="menu-item-desc">
+                  Our own amaro — gentian, birch, spent coffee — lengthened with a
+                  dry pét-nat. The drink to have while you wait for the table.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="menu-section">
+            <div class="menu-section-head">
+              <h3>Soft, coffee &amp; tea</h3>
+              <p>Nobody at this table has to be drinking wine.</p>
+            </div>
+            <div class="menu-list">
+
+              <div class="menu-item">
+                <span class="menu-item-name">Zero-proof aperitivo</span>
+                <span class="menu-item-price">€6</span>
+                <p class="menu-item-desc">
+                  Bitter, orange-peel and gentian, built like the negroni and just
+                  as slow to drink.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Cabra honey lemonade</span>
+                <span class="menu-item-price">€5.50</span>
+                <p class="menu-item-desc">
+                  Made each morning with allotment honey and far more lemon than is
+                  sensible.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Hedgerow cordial &amp; soda</span>
+                <span class="menu-item-price">€5</span>
+                <p class="menu-item-desc">
+                  Elderflower in early summer, blackberry and apple by October.
+                  Whatever Ruth picked on her day off.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Loose-leaf tea</span>
+                <span class="menu-item-price">€4.50</span>
+                <p class="menu-item-desc">
+                  Assam, jasmine green, or a lemon verbena tisane from the
+                  courtyard pots. In a pot, not a bag.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Espresso, macchiato, flat white</span>
+                <span class="menu-item-price">€4</span>
+                <p class="menu-item-desc">
+                  A single Irish-roasted lot, changed every few weeks. We will
+                  happily make it decaf and we will not raise an eyebrow.
+                </p>
+              </div>
+
+              <div class="menu-item">
+                <span class="menu-item-name">Filter coffee</span>
+                <span class="menu-item-price">€3.50</span>
+                <p class="menu-item-desc">
+                  Brewed by the jug after eight o'clock and poured freely until we
+                  put the chairs up.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== SET MENU ============================== -->
+  <section class="section section--alt" aria-labelledby="set-title">
+    <div class="container container--narrow">
+      <div class="set-menu reveal reveal--scale">
+        <p class="eyebrow eyebrow--center" style="justify-content:center;">The tasting menu</p>
+        <h2 id="set-title">At the Hearth</h2>
+        <p class="price-large">€72</p>
+        <p>
+          Six courses, written the same morning, for the whole table only. It runs
+          about two and a half hours and every course has been on or beside the
+          fire. Wine pairing €48 — six glasses, poured by Aoife, weighted towards
+          growers you will not have heard of.
+        </p>
+        <ol>
+          <li>Hearth bread, beech-smoked butter &amp; a Broderick's oyster</li>
+          <li>Goatsbridge trout cured in juniper, buttermilk, cucumber</li>
+          <li>Ember-roasted Cloughjordan roots, Velvet Cloud curd</li>
+          <li>Charred octopus, hazelnut romesco, burnt lemon</li>
+          <li>Ballyknocken lamb from the ash, wild garlic, hearth potatoes</li>
+          <li>Burnt honey tart, crème fraîche</li>
+        </ol>
+        <div class="cluster cluster--center mt-5" style="justify-content:center;">
+          <a class="btn btn--primary" href="reservations.html">Book the tasting menu</a>
+          <a class="btn btn--secondary" href="tel:+35315550184">Ask us a question</a>
+        </div>
+        <p class="text-xs text-subtle">
+          Whole table only · Vegetarian version always available · Vegan version
+          with 48 hours' notice · Not served after 21:00
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== ALLERGENS & FAQ ============================== -->
+  <section class="section" aria-labelledby="faq-title">
+    <div class="container container--narrow">
+
+      <div class="callout reveal">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="10" cy="10" r="7.6"/>
+          <path d="M10 6.4v4.4M10 13.6h.01"/>
+        </svg>
+        <div>
+          <strong>Before you order</strong>
+          The full allergen list is on the wall by the door and every server carries
+          a copy — tell us at the table and it takes one sentence, not a
+          negotiation. We keep a separate coeliac-safe prep area and a set of boards
+          and pans that never meet flour. The vegan tasting menu needs 48 hours'
+          notice, because Maren wants to buy for it properly rather than improvise
+          on the night. If a dish here can be changed for you, it usually can be;
+          if it genuinely can't, we will say so.
+        </div>
+      </div>
+
+      <h2 id="faq-title" class="mt-8">Questions we get at the pass</h2>
+
+      <div class="accordion mt-5 reveal" data-accordion="single">
+        <div class="acc-item">
+          <button class="acc-trigger" type="button" aria-expanded="false">
+            How often does the menu actually change?
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+          <div class="acc-panel">
+            <div>
+              <p>
+                Properly, once a week. The Cloughjordan van arrives Tuesday morning
+                and the board gets rewritten by lunchtime, so the list you are
+                reading on a Monday is last week's. Four or five dishes — the
+                octopus, the lamb, the beetroot, the honey tart — have earned
+                tenure and rarely move. Everything else is fair game, and a dish
+                can vanish mid-service if the fish runs out.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-trigger" type="button" aria-expanded="false">
+            Can we bring our own wine?
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+          <div class="acc-panel">
+            <div>
+              <p>
+                Tuesdays and Wednesdays only, €25 corkage per bottle, two bottles
+                maximum per table. We would rather you brought something you have
+                been saving than something we already have on the list — and if it
+                is genuinely special, pour Aoife a taste and the corkage tends to
+                be forgotten.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-trigger" type="button" aria-expanded="false">
+            Is the menu suitable for children?
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+          <div class="acc-panel">
+            <div>
+              <p>
+                Children are very welcome at the weekend lunch sittings and at the
+                Sunday long lunch, less so at half nine on a Saturday night. There
+                is no separate children's menu — instead the kitchen will do a
+                smaller plate of the pasta, the potatoes or a piece of plain
+                grilled fish for around €12. Two high chairs, and the changing
+                table is in the accessible WC on the ground floor.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-trigger" type="button" aria-expanded="false">
+            Can we see the wine list before we come in?
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+          <div class="acc-panel">
+            <div>
+              <p>
+                Yes — email <a href="mailto:hello@emberandoak.example.com">hello@emberandoak.example.com</a>
+                and Aoife will send the current list as a PDF, usually the same day.
+                About 140 bottles, roughly two thirds from small European growers,
+                organic-leaning and mostly low-intervention. If you are planning a
+                dinner around a particular bottle, say so and we will hold it back
+                for you.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================== CTA ============================== -->
+  <section class="cta-band" aria-labelledby="cta-title">
+    <div class="container container--narrow">
+      <p class="eyebrow eyebrow--center" style="justify-content:center;">Reservations</p>
+      <h2 id="cta-title">Read it, then come and eat it</h2>
+      <p>
+        Tables are released thirty days ahead and the weekends go about ten days
+        out. Midweek you can usually walk in before seven if you don't mind the
+        zinc bar — and the bar is where the octopus tastes best anyway.
+      </p>
+      <div class="cta-actions">
+        <a class="btn btn--primary btn--lg" href="reservations.html">Book a table</a>
+        <a class="btn btn--outline-light btn--lg" href="tel:+35315550184">Call 01 555 0184</a>
+      </div>
+      <p class="cta-fineprint">Walk-ins welcome at the bar · Last kitchen order 21:45 (21:00 Sunday)</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="site-footer">
+  <div class="container container--wide">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" aria-label="Ember and Oak — home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor">
+              <path d="M10 1.5c1.9 2.6 1.1 4.2.2 5.6-.9 1.4-1.6 2.6-.6 4.3.3-1.4 1.1-2.3 2-3-.3 2 .6 2.8 1.4 3.8.9 1.1 1.4 2.3 1.4 3.4 0 2.5-2 4.4-4.4 4.4S5.6 18.1 5.6 15.6c0-2.4 1.4-3.7 2.6-5.2 1.3-1.6 2.4-3.4 1.8-8.9z"/>
+            </svg>
+          </span>
+          <span class="brand-text">Ember &amp; Oak<small>Dublin 7</small></span>
+        </a>
+        <p>
+          A wood-fired kitchen and wine room in a converted coach house.
+          Twelve tables, one hearth, no gas line.
+        </p>
+        <div class="social">
+          <a href="https://www.instagram.com/emberandoak" aria-label="Ember and Oak on Instagram" rel="noopener">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="3" y="3" width="14" height="14" rx="4.2"/>
+              <circle cx="10" cy="10" r="3.4"/>
+              <circle cx="14.3" cy="5.7" r="0.9" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/emberandoak" aria-label="Ember and Oak on Facebook" rel="noopener">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path d="M11.6 18v-6.6h2.2l.33-2.6h-2.53V7.1c0-.75.21-1.26 1.28-1.26h1.37V3.52A18.4 18.4 0 0012.26 3.4c-1.98 0-3.33 1.21-3.33 3.43V8.8H6.7v2.6h2.23V18z"/>
+            </svg>
+          </a>
+          <a href="mailto:hello@emberandoak.example.com" aria-label="Email Ember and Oak">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2.6" y="4.5" width="14.8" height="11" rx="2"/>
+              <path d="M3 6l7 4.6L17 6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3>Visit</h3>
+        <address>
+          14 Marlowe Street<br>
+          Stoneybatter<br>
+          Dublin 7, D07 XK92<br>
+          Ireland
+        </address>
+        <ul style="margin-top: 1rem;">
+          <li><a href="tel:+35315550184">01 555 0184</a></li>
+          <li><a href="mailto:hello@emberandoak.example.com">hello@emberandoak.example.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Hours</h3>
+        <ul>
+          <li>Mon — Closed</li>
+          <li>Tue–Thu — 17:30–22:30</li>
+          <li>Fri–Sat — 12:00–15:00</li>
+          <li>Fri–Sat — 17:30–23:30</li>
+          <li>Sun — 12:00–17:00</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="reservations.html">Reservations</a></li>
+          <li><a href="about.html">Our story</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Visit &amp; contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span data-year>2026</span> Ember &amp; Oak. Template demo content.</p>
+      <p class="template-notice">
+        Ember &amp; Oak is a fictional business used to demonstrate this template.
+        Menus, prices, people and reviews are illustrative only.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="config.js" defer></script>
+<script src="js/forms.js" defer></script>
+<script src="js/integrations.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+# Ember & Oak — replace the host below with your own domain before publishing.
+User-agent: *
+Allow: /
+
+Sitemap: https://emberandoak.example.com/sitemap.xml

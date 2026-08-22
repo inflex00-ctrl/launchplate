@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brightwater Dental — Gentle, modern dentistry in Dublin 2 &amp; Sandyford</title>
+<meta name="description" content="Brightwater Dental is a two-practice dental clinic in Dublin 2 and Sandyford. Forty-minute check-ups, fixed written treatment plans, single-visit crowns, clear aligners and same-week emergency appointments.">
+<meta name="author" content="Brightwater Dental">
+<meta name="theme-color" content="#f7fbfc" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#08151a" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://brightwaterdental.example.com/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Brightwater Dental">
+<meta property="og:locale" content="en_IE">
+<meta property="og:url" content="https://brightwaterdental.example.com/">
+<meta property="og:title" content="Brightwater Dental — Gentle, modern dentistry in Dublin 2 &amp; Sandyford">
+<meta property="og:description" content="Two Dublin practices, one unhurried standard of care. Fixed written plans, single-visit crowns and same-week emergency slots.">
+<meta property="og:image" content="assets/og-home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Brightwater Dental — gentle, modern dentistry in Dublin.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Brightwater Dental — Gentle, modern dentistry in Dublin 2 &amp; Sandyford">
+<meta name="twitter:description" content="Two Dublin practices, one unhurried standard of care. Fixed written plans, single-visit crowns and same-week emergency slots.">
+<meta name="twitter:image" content="assets/og-home.png">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/hero.css">
+
+<!-- The scroll-reveal classes in style.css start at opacity 0 and are lit by
+     main.js. Without JavaScript that would leave the page below the hero
+     blank, so put everything in its final state instead. -->
+
+<!-- Hero staging. This script — never the stylesheet — is what hides the hero
+     for its entrance, and the same script cancels the hiding again after 3.6s
+     whether or not js/hero.js ever ran. With JavaScript disabled, or if the
+     visitor asks for reduced motion, the hero paints in its final state. -->
+<script>
+  (function () {
+    var d = document.documentElement;
+    try {
+      if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    } catch (e) {}
+    d.classList.add("bw-stage");
+    setTimeout(function () { d.classList.add("bw-stage-off"); }, 3600);
+  })();
+</script>
+
+<!-- Apply the saved theme before first paint so there is no flash of the
+     wrong palette. Kept inline and tiny on purpose. -->
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("brightwater-theme");
+      if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dentist",
+  "@id": "https://brightwaterdental.example.com/#practice",
+  "name": "Brightwater Dental",
+  "description": "Gentle, modern general and cosmetic dentistry with two practices in Dublin. Check-ups, hygiene, whitening, crowns, implants, clear aligners and same-week emergency care.",
+  "url": "https://brightwaterdental.example.com/",
+  "logo": "https://brightwaterdental.example.com/assets/favicon.svg",
+  "image": "https://brightwaterdental.example.com/assets/og-home.png",
+  "telephone": "+353-1-555-0142",
+  "email": "hello@brightwaterdental.ie",
+  "priceRange": "$$",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Cash, Credit Card, Debit Card, Bank Transfer, 0% Finance",
+  "foundingDate": "2009",
+  "medicalSpecialty": "Dentistry",
+  "isAcceptingNewPatients": true,
+  "availableLanguage": ["English", "Irish", "Polish", "Portuguese"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "14 Marlowe Quay",
+    "addressLocality": "Dublin",
+    "addressRegion": "Leinster",
+    "postalCode": "D02 X431",
+    "addressCountry": "IE"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 53.3462,
+    "longitude": -6.2436
+  },
+  "hasMap": "https://www.openstreetmap.org/#map=17/53.3462/-6.2436",
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"], "opens": "08:00", "closes": "18:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "08:00", "closes": "16:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "14:00" }
+  ],
+  "areaServed": [
+    { "@type": "City", "name": "Dublin" },
+    { "@type": "AdministrativeArea", "name": "County Dublin" }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "384",
+    "bestRating": "5"
+  },
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Dental examination and hygiene" }, "price": "65", "priceCurrency": "EUR" },
+    { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Teeth whitening" }, "price": "295", "priceCurrency": "EUR" },
+    { "@type": "Offer", "itemOffered": { "@type": "MedicalProcedure", "name": "Dental implant" }, "price": "1850", "priceCurrency": "EUR" }
+  ],
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://brightwaterdental.example.com/appointments.html",
+      "actionPlatform": ["http://schema.org/DesktopWebPlatform", "http://schema.org/MobileWebPlatform"]
+    },
+    "result": { "@type": "Reservation", "name": "Dental appointment" }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Brightwater Dental",
+  "url": "https://brightwaterdental.example.com/",
+  "publisher": { "@id": "https://brightwaterdental.example.com/#practice" }
+}
+</script>
+  <noscript><style>/* JS off: entrance animations never run, so show final state */
+.chip-anchor,.hero-art,.hero-rings,.is-visible,.reveal,.scene-part{opacity:1!important;transform:none!important;clip-path:none!important;filter:none!important}</style></noscript>
+</head>
+
+<body class="full-height">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================== TOP BAR ============================== -->
+<div class="topbar">
+  <div class="container container--wide">
+    <span><span class="topbar-dot" aria-hidden="true"></span> Accepting new patients at both practices</span>
+    <span class="topbar-hide-sm" aria-hidden="true">·</span>
+    <span class="topbar-hide-sm">Dental emergency? Call <a href="tel:+35315550199">+353 1 555 0199</a></span>
+  </div>
+</div>
+
+<!-- ============================== HEADER =============================== -->
+<header class="site-header" data-header>
+  <div class="container container--wide">
+    <a class="brand" href="index.html" aria-label="Brightwater Dental — home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10 2.6c-3 0-5.2 1.6-5.2 4.3 0 2.1.8 3.5 1.3 5.4.4 1.6.5 3.9 1 4.6.6.8 1.7.5 1.8-.6.3-1.4.4-3 1.1-3s.9 1.6 1.1 3c.2 1.1 1.3 1.4 1.8.6.5-.7.6-3 1-4.6.5-1.9 1.3-3.3 1.3-5.4 0-2.7-2.2-4.3-5.2-4.3z"/>
+          <path d="M7.1 6.2c1-.8 2.3-1.2 3.6-1.1a.7.7 0 010 1.4c-1 0-1.9.2-2.6.8a.7.7 0 11-1-1.1z" opacity=".55"/>
+        </svg>
+      </span>
+      <span class="brand-text">Brightwater<small>Dental</small></span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="services.html">Services</a>
+      <a href="team.html">Our team</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-phone" href="tel:+35315550142">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 14.1v2.3a1.5 1.5 0 01-1.7 1.5 14.6 14.6 0 01-6.4-2.3 14.4 14.4 0 01-4.4-4.4A14.6 14.6 0 012.7 4.8 1.5 1.5 0 014.2 3h2.3a1.5 1.5 0 011.5 1.3c.1.8.3 1.5.6 2.2a1.5 1.5 0 01-.3 1.6l-1 1a11.7 11.7 0 004.4 4.4l1-1a1.5 1.5 0 011.6-.3c.7.3 1.4.5 2.2.6a1.5 1.5 0 011.3 1.5z"/></svg>
+        01 555 0142
+      </a>
+
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="icon-moon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M16.5 11.8A6.8 6.8 0 018.2 3.5a6.8 6.8 0 108.3 8.3z"/>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="10" cy="10" r="3.6"/>
+          <path d="M10 1.8v1.8M10 16.4v1.8M18.2 10h-1.8M3.6 10H1.8M15.8 4.2l-1.3 1.3M5.5 14.5l-1.3 1.3M15.8 15.8l-1.3-1.3M5.5 5.5L4.2 4.2"/>
+        </svg>
+      </button>
+
+      <a class="btn btn--primary btn--sm header-cta" href="appointments.html">Book appointment</a>
+
+      <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h14M3 10h14M3 14h14"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav" data-mobile-nav>
+  <ul>
+    <li><a href="index.html" aria-current="page">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="team.html">Our team</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="mobile-nav-actions">
+    <a class="btn btn--primary btn--block" href="appointments.html">Book an appointment</a>
+    <a class="btn btn--secondary btn--block" href="tel:+35315550142">Call 01 555 0142</a>
+  </div>
+  <div class="mobile-nav-meta">
+    <span>Marlowe Quay, Dublin 2 &amp; Sandyford, Dublin 18</span>
+    <span>Mon&ndash;Thu 8:00&ndash;18:00 · Fri 8:00&ndash;16:00</span>
+    <span>Emergencies: <a href="tel:+35315550199">+353 1 555 0199</a></span>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ================================ HERO ================================ -->
+<section class="hero">
+  <span class="hero-wash" aria-hidden="true"></span>
+  <span class="hero-dots" aria-hidden="true"></span>
+  <div class="hero-orbs" aria-hidden="true">
+    <span class="orb orb--1"></span>
+    <span class="orb orb--2"></span>
+    <span class="orb orb--3"></span>
+  </div>
+  <div class="hero-rings" aria-hidden="true"></div>
+
+  <div class="container container--wide">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow" data-hero-stage style="--bw-d:70ms">Dublin 2 &amp; Sandyford</p>
+        <h1 class="display">Dentistry that<br>takes its time.</h1>
+        <p class="lede" data-hero-stage style="--bw-d:520ms">Two Dublin practices, one unhurried standard of care. We explain every option in plain English, quote a fixed price before anything starts, and never recommend treatment you do not need.</p>
+
+        <div class="hero-actions" data-hero-stage style="--bw-d:680ms">
+          <a class="btn btn--primary btn--lg btn--arrow" href="appointments.html">
+            Book an appointment<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4"/></svg>
+          </a>
+          <a class="btn btn--secondary btn--lg" href="services.html">Treatments &amp; fees</a>
+        </div>
+
+        <div class="hero-note" data-hero-stage style="--bw-d:840ms">
+          <span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.6"/><path d="M6.6 10.2l2.3 2.3 4.5-4.8"/></svg> Same-week emergency slots</span>
+          <span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.6"/><path d="M6.6 10.2l2.3 2.3 4.5-4.8"/></svg> 0% finance over 12 months</span>
+          <span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.6"/><path d="M6.6 10.2l2.3 2.3 4.5-4.8"/></svg> Free parking in Sandyford</span>
+        </div>
+      </div>
+
+      <div class="hero-art" data-parallax="0.05">
+        <div class="ph-frame">
+          <div class="ph ph--reception ph--wide" role="img" aria-label="The Brightwater Dental reception at Marlowe Quay: pale timber, soft daylight and low seating."><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><g class="scene-part scene-part--room" style="--bw-d:360ms"><rect x="0" y="198" width="400" height="102" fill="rgba(196,150,102,.30)"/><rect x="0" y="198" width="400" height="4" fill="rgba(10,48,60,.14)"/><path d="M236 104a56 56 0 0 1 112 0v94H236z" fill="rgba(255,255,255,.58)"/><path d="M292 48v150" stroke="rgba(255,255,255,.55)" stroke-width="3"/><path d="M236 128h112" stroke="rgba(255,255,255,.45)" stroke-width="3"/></g><g class="scene-part scene-part--furniture" style="--bw-d:700ms"><rect x="38" y="152" width="152" height="46" rx="4" fill="rgba(10,48,60,.34)"/><rect x="30" y="142" width="168" height="12" rx="6" fill="rgba(255,255,255,.62)"/><rect x="58" y="166" width="52" height="20" rx="3" fill="rgba(255,255,255,.18)"/><rect x="212" y="170" width="62" height="28" rx="8" fill="rgba(10,48,60,.22)"/><rect x="216" y="162" width="54" height="12" rx="6" fill="rgba(255,255,255,.34)"/><path d="M132 30v34" stroke="rgba(10,48,60,.30)" stroke-width="2.5"/><path d="M110 82a22 18 0 0 1 44 0z" fill="rgba(255,255,255,.72)"/></g><g class="scene-part scene-part--plant" style="--bw-d:1040ms"><path d="M352 198v-30" stroke="rgba(46,110,88,.55)" stroke-width="3"/><ellipse cx="340" cy="158" rx="17" ry="9" fill="rgba(46,110,88,.45)" transform="rotate(-24 340 158)"/><ellipse cx="366" cy="152" rx="17" ry="9" fill="rgba(46,110,88,.38)" transform="rotate(22 366 152)"/><ellipse cx="352" cy="136" rx="13" ry="8" fill="rgba(46,110,88,.50)" transform="rotate(-6 352 136)"/><path d="M340 198h26l-4 22h-18z" fill="rgba(196,150,102,.62)"/></g></svg></div>
+        </div>
+
+        <span class="chip-anchor" style="top: -14px; left: -10px; --bw-d:1180ms">
+          <span class="badge-float float-slow">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.8l2.5 5.1 5.6.8-4 3.9 1 5.6L10 14.6l-5 2.6 1-5.6-4-3.9 5.6-.8L10 1.8z"/></svg> 4.9 average from 384 reviews
+          </span>
+        </span>
+        <span class="chip-anchor" style="bottom: -18px; right: -6px; --bw-d:1360ms">
+          <span class="badge-float float-slower">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.6"/><path d="M10 5.6V10l2.9 1.8"/></svg> Next check-up: Thursday 09:20
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== TRUST BAR ============================= -->
+<section class="section--alt" aria-label="Practice credentials">
+  <div class="container container--wide">
+    <div class="trust-bar reveal">
+      <span class="trust-item"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2.4l6.2 2.3v5c0 4-2.6 7-6.2 8.2C6.4 16.7 3.8 13.7 3.8 9.7v-5L10 2.4z"/><path d="M7.2 9.9l2 2 3.6-3.8"/></svg> Irish Dental Association</span>
+      <span class="trust-item"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V4.6A1.6 1.6 0 014.6 3H7M13 3h2.4A1.6 1.6 0 0117 4.6V7M17 13v2.4a1.6 1.6 0 01-1.6 1.6H13M7 17H4.6A1.6 1.6 0 013 15.4V13"/><path d="M3.6 10h12.8"/></svg> Low-dose digital imaging</span>
+      <span class="trust-item"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.8" cy="7.2" r="2.8"/><path d="M2.6 16.4a5.2 5.2 0 0110.4 0"/><path d="M13.4 4.7a2.8 2.8 0 010 5.3M14.6 16.4a5 5 0 00-1.2-3.2"/></svg> 2,400 patients</span>
+      <span class="trust-item"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8.4" cy="3.4" r="1.6"/><path d="M8.4 6.4v4.2h4l2.4 4.6"/><circle cx="9.2" cy="14" r="4"/></svg> Step-free access</span>
+      <span class="trust-item"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.2" y="4.6" width="15.6" height="10.8" rx="2"/><path d="M2.4 8.4h15.2M5.4 12.4h2.8"/></svg> Insurance claims handled</span>
+    </div>
+  </div>
+</section>
+
+<!-- =============================== SERVICES ============================= -->
+<section class="section" id="services">
+  <div class="container container--wide">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow eyebrow--center">What we do</p>
+      <h2>Everything your family needs, under one roof</h2>
+      <p>From a six-month check-up to a full implant case. If something is outside our scope we will tell you plainly and refer you to someone we trust.</p>
+    </div>
+
+    <div class="grid grid--auto-lg grid--gap-lg reveal-group">
+      <article class="service-card reveal">
+        <span class="icon-tile" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2.6c-3 0-5.2 1.6-5.2 4.3 0 2.1.8 3.5 1.3 5.4.4 1.6.5 3.9 1 4.6.6.8 1.7.5 1.8-.6.3-1.4.4-3 1.1-3s.9 1.6 1.1 3c.2 1.1 1.3 1.4 1.8.6.5-.7.6-3 1-4.6.5-1.9 1.3-3.3 1.3-5.4 0-2.7-2.2-4.3-5.2-4.3z"/></svg></span>
+        <h3>Check-ups &amp; hygiene</h3>
+        <p>A thorough 40-minute examination, digital X-rays where they are justified, and a hygiene appointment that leaves your gums calmer, not raw.</p>
+        <p class="price-note"><span>from</span> <strong>&euro;65</strong></p>
+        <a class="link-arrow" href="services.html#preventive">Read more<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4"/></svg><span class="visually-hidden"> about check-ups &amp; hygiene</span></a>
+      </article>
+      <article class="service-card reveal">
+        <span class="icon-tile" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2.4l1.5 4L13.6 8l-4.1 1.6L8 13.6l-1.5-4L2.4 8l4.1-1.6L8 2.4z"/><path d="M15 12l.8 2.1 2.2.8-2.2.8-.8 2.1-.8-2.1-2.2-.8 2.2-.8.8-2.1z"/></svg></span>
+        <h3>Whitening &amp; veneers</h3>
+        <p>Supervised at-home whitening with custom trays, plus minimal-preparation porcelain veneers when you want a change that lasts.</p>
+        <p class="price-note"><span>from</span> <strong>&euro;295</strong></p>
+        <a class="link-arrow" href="services.html#cosmetic">Read more<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4"/></svg><span class="visually-hidden"> about whitening &amp; veneers</span></a>
+      </article>
+      <article class="service-card reveal">
+        <span class="icon-tile" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14.5l-.9-8L6 9.4 10 3.4l4 6 3.9-2.9-.9 8z"/><path d="M3.6 17h12.8"/></svg></span>
+        <h3>Crowns &amp; bridges</h3>
+        <p>Scanned, milled and fitted in a single visit with our in-house CEREC unit &mdash; no temporary crown, no second appointment, no impression goo.</p>
+        <p class="price-note"><span>from</span> <strong>&euro;695</strong></p>
+        <a class="link-arrow" href="services.html#restorative">Read more<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4"/></svg><span class="visually-hidden"> about crowns &amp; bridges</span></a>
+      </article>
+      <article class="service-card reveal">
+        <span class="icon-tile" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 16.6S3.4 12.9 3.4 8.4a3.6 3.6 0 016.6-2 3.6 3.6 0 016.6 2c0 4.5-6.6 8.2-6.6 8.2z"/></svg></span>
+        <h3>Dental implants</h3>
+        <p>A permanent replacement for a missing tooth, planned on a 3D scan and placed by Dr Brennan. Includes the crown and two years of reviews.</p>
+        <p class="price-note"><span>from</span> <strong>&euro;1,850</strong></p>
+        <a class="link-arrow" href="services.html#restorative">Read more<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4"/></svg><span class="visually-hidden"> about dental implants</span></a>
+      </article>
+      <article class="service-card reveal">
+        <span class="icon-tile" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V4.6A1.6 1.6 0 014.6 3H7M13 3h2.4A1.6 1.6 0 0117 4.6V7M17 13v2.4a1.6 1.6 0 01-1.6 1.6H13M7 17H4.6A1.6 1.6 0 013 15.4V13"/><path d="M3.6 10h12.8"/></svg></span>
+        <h3>Clear aligners</h3>
+        <p>Discreet orthodontics for adults and teenagers, planned by our orthodontist Dr Marchetti with a digital preview before you commit.</p>
+        <p class="price-note"><span>from</span> <strong>&euro;2,400</strong></p>
+        <a class="link-arrow" href="services.html#orthodontics">Read more<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4"/></svg><span class="visually-hidden"> about clear aligners</span></a>
+      </article>
+      <article class="service-card reveal">
+        <span class="icon-tile" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.2 2.2L4.4 11.4h5L8.8 17.8l6.8-9.2h-5l.6-6.4z"/></svg></span>
+        <h3>Emergency care</h3>
+        <p>Pain, swelling, a broken tooth or a lost crown. Ring before 10:00 and we will almost always see you the same day at one of the two practices.</p>
+        <p class="price-note"><span>from</span> <strong>&euro;85</strong></p>
+        <a class="link-arrow" href="services.html#emergency">Read more<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4"/></svg><span class="visually-hidden"> about emergency care</span></a>
+      </article>
+    </div>
+
+    <div class="cluster cluster--center mt-8 reveal">
+      <a class="btn btn--outline-brand btn--arrow" href="services.html">See the full fee guide<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ WHY CHOOSE US =========================== -->
+<section class="section section--alt" id="why">
+  <div class="container container--wide">
+    <div class="split split--wide-right">
+      <div class="reveal reveal--left order-media-first">
+        <div class="ph-stack">
+          <div class="ph ph--consult ph--tall" role="img" aria-label="A dentist and patient reviewing a treatment plan together at a desk."><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><rect x="0" y="212" width="400" height="88" fill="rgba(196,150,102,.28)"/><rect x="238" y="30" width="128" height="96" rx="8" fill="rgba(255,255,255,.5)"/><path d="M302 30v96" stroke="rgba(255,255,255,.5)" stroke-width="3"/><rect x="60" y="200" width="280" height="12" rx="6" fill="rgba(255,255,255,.62)"/><rect x="86" y="212" width="10" height="44" fill="rgba(10,48,60,.24)"/><rect x="304" y="212" width="10" height="44" fill="rgba(10,48,60,.24)"/><circle cx="132" cy="118" r="26" fill="rgba(10,48,60,.44)"/><path d="M92 200c0-26 18-44 40-44s40 18 40 44z" fill="rgba(10,48,60,.44)"/><circle cx="264" cy="128" r="23" fill="rgba(10,48,60,.32)"/><path d="M228 200c0-24 16-40 36-40s36 16 36 40z" fill="rgba(10,48,60,.32)"/><rect x="182" y="150" width="52" height="38" rx="4" fill="rgba(255,255,255,.72)"/><rect x="204" y="188" width="8" height="12" fill="rgba(10,48,60,.28)"/><path d="M192 172h32M192 164h22" stroke="rgba(10,48,60,.26)" stroke-width="3" stroke-linecap="round"/></svg></div>
+          <div class="ph ph--hygiene ph--back ph--square" role="img" aria-label="A sterilised instrument tray in the treatment room."><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><rect x="70" y="176" width="260" height="16" rx="8" fill="rgba(255,255,255,.7)"/><rect x="86" y="192" width="228" height="10" rx="5" fill="rgba(10,48,60,.16)"/><path d="M120 176V78" stroke="rgba(255,255,255,.82)" stroke-width="9" stroke-linecap="round"/><path d="M120 78l-7-18h14z" fill="rgba(10,48,60,.34)"/><path d="M164 176V96" stroke="rgba(255,255,255,.72)" stroke-width="9" stroke-linecap="round"/><circle cx="164" cy="90" r="9" fill="none" stroke="rgba(10,48,60,.34)" stroke-width="4"/><path d="M208 176v-64" stroke="rgba(255,255,255,.82)" stroke-width="9" stroke-linecap="round"/><path d="M208 112c0-14 12-14 12-26" stroke="rgba(10,48,60,.32)" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M256 118h84a42 42 0 0 1-84 0z" fill="rgba(255,255,255,.66)"/><circle cx="286" cy="88" r="7" fill="rgba(255,255,255,.5)"/><circle cx="310" cy="70" r="10" fill="rgba(255,255,255,.4)"/><circle cx="332" cy="94" r="6" fill="rgba(255,255,255,.44)"/></svg></div>
+        </div>
+      </div>
+
+      <div class="reveal reveal--right">
+        <p class="eyebrow">Why patients stay</p>
+        <h2>The bit most practices rush, we slow down</h2>
+        <p class="lede mt-5">Nearly every new patient tells us the same thing: nobody has ever properly explained what is happening in their mouth. We start there.</p>
+
+        <ul class="tick-list mt-7">
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><span><strong>A consultation that is a conversation.</strong> Forty minutes, an intra-oral camera on the screen beside you, and time to ask the question you were embarrassed to ask.</span></li>
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><span><strong>Fixed written plans.</strong> You leave with a printed plan, staged by priority, with a price against every line. It does not change unless you ask us to change it.</span></li>
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><span><strong>Single-visit crowns.</strong> Our CEREC scanner and mill turn a two-appointment crown into one two-hour visit.</span></li>
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><span><strong>Anxious patients genuinely welcome.</strong> Longer slots, stop signals agreed in advance, numbing gel before every injection, and oral or IV sedation if you need it.</span></li>
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><span><strong>One record across both practices.</strong> Book wherever suits your week &mdash; your notes, scans and plan follow you.</span></li>
+        </ul>
+
+        <div class="cluster mt-7">
+          <a class="btn btn--primary btn--arrow" href="appointments.html">Book a first visit<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4"/></svg></a>
+          <a class="btn btn--ghost" href="about.html">More about the practice</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================ STATS =============================== -->
+<section class="section section--tight">
+  <div class="container container--wide">
+    <div class="stats reveal-group">
+      <div class="stat reveal">
+        <span class="stat-num"><span data-count="17" data-count-suffix="">17</span></span>
+        <span class="stat-label">Years caring for Dublin families</span>
+      </div>
+      <div class="stat reveal">
+        <span class="stat-num"><span data-count="2400" data-count-suffix="+">2,400+</span></span>
+        <span class="stat-label">Patients registered with us</span>
+      </div>
+      <div class="stat reveal">
+        <span class="stat-num"><span data-count="4.9" data-count-decimals="1">4.9</span><span aria-hidden="true">/5</span></span>
+        <span class="stat-label">Average rating from 384 reviews</span>
+      </div>
+      <div class="stat reveal">
+        <span class="stat-num"><span data-count="96" data-count-suffix="%">96%</span></span>
+        <span class="stat-label">Emergencies seen within 24 hours</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================== THE TEAM ============================= -->
+<section class="section section--alt" id="team">
+  <div class="container container--wide">
+    <div class="section-head reveal">
+      <p class="eyebrow">Who you will meet</p>
+      <h2>A small team, and you will know all of them</h2>
+      <p>No rotating locums. The clinician who plans your treatment is the clinician who carries it out.</p>
+    </div>
+
+    <div class="team-grid reveal-group">
+      <article class="team-card reveal">
+        <div class="team-card-media">
+          <div class="portrait portrait--a portrait--tall" role="img" aria-label="Portrait of Dr Aoife Brennan"></div>
+        </div>
+        <div class="team-card-body">
+          <div>
+            <h3>Dr Aoife Brennan</h3>
+            <p class="team-role">Principal Dentist &amp; Clinical Director</p>
+          </div>
+          <p class="team-creds">BDS (TCD) &middot; MFDS RCSI &middot; Dental Council 04182</p>
+          <p>Founded Brightwater in 2009. Restorative and implant dentistry, and the person most likely to talk you calmly through a plan you were dreading.</p>
+          <div class="team-tags">
+            <span class="pill">Implants</span>
+            <span class="pill">Restorative</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="team-card reveal">
+        <div class="team-card-media">
+          <div class="portrait portrait--b portrait--tall" role="img" aria-label="Portrait of Dr Niall Okonkwo"></div>
+        </div>
+        <div class="team-card-body">
+          <div>
+            <h3>Dr Niall Okonkwo</h3>
+            <p class="team-role">Specialist Endodontist</p>
+          </div>
+          <p class="team-creds">BDS (Manchester) &middot; MSc Endo (UCL Eastman) &middot; Dental Council 07734</p>
+          <p>Root canal treatment under the microscope, including retreatment of cases other practices have given up on. Sees emergencies most afternoons.</p>
+          <div class="team-tags">
+            <span class="pill">Root canal</span>
+            <span class="pill">Microscopy</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="team-card reveal">
+        <div class="team-card-media">
+          <div class="portrait portrait--c portrait--tall" role="img" aria-label="Portrait of Dr Sofia Marchetti"></div>
+        </div>
+        <div class="team-card-body">
+          <div>
+            <h3>Dr Sofia Marchetti</h3>
+            <p class="team-role">Orthodontist</p>
+          </div>
+          <p class="team-creds">DDS (Bologna) &middot; MClinDent Ortho (KCL) &middot; Dental Council 09011</p>
+          <p>Clear aligners and fixed braces for adults and teenagers. Runs a Saturday clinic once a month for patients who cannot take time off.</p>
+          <div class="team-tags">
+            <span class="pill">Aligners</span>
+            <span class="pill">Teen ortho</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="cluster cluster--center mt-8 reveal">
+      <a class="btn btn--secondary btn--arrow" href="team.html">Meet the whole team<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= INSURANCE & PAYMENT ======================== -->
+<section class="section" id="payment">
+  <div class="container container--wide">
+    <div class="split split--wide-left">
+      <div class="reveal reveal--left">
+        <p class="eyebrow">Insurance &amp; payment</p>
+        <h2>No surprises on the way out</h2>
+        <p class="lede mt-5">You get the price before we pick up an instrument. We handle the insurance paperwork ourselves, and we will always tell you what the state schemes actually cover.</p>
+
+        <div class="table-wrap mt-7">
+          <table class="table table--stack">
+            <caption>Insurers we submit claims to directly. Cover varies by plan &mdash; we check yours before treatment.</caption>
+            <thead>
+              <tr><th scope="col">Provider</th><th scope="col">Direct claims</th><th scope="col">Typical check-up cover</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Irish Life Health</td><td data-label="Direct claims"><span class="pill pill--success"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg> Yes</span></td><td data-label="Cover">Up to &euro;60</td></tr>
+              <tr><td>VHI Dental</td><td data-label="Direct claims"><span class="pill pill--success"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg> Yes</span></td><td data-label="Cover">Up to &euro;55</td></tr>
+              <tr><td>Laya Healthcare</td><td data-label="Direct claims"><span class="pill pill--success"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg> Yes</span></td><td data-label="Cover">Up to &euro;50</td></tr>
+              <tr><td>Aviva Health</td><td data-label="Direct claims"><span class="pill">Receipt claim</span></td><td data-label="Cover">Varies by plan</td></tr>
+              <tr><td>PRSI Dental Benefit</td><td data-label="Direct claims"><span class="pill pill--success"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg> Yes</span></td><td data-label="Cover">Free scale &amp; polish, once a year</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="reveal reveal--right">
+        <div class="card card--brand card--pad-lg">
+          <span class="icon-tile icon-tile--lg icon-tile--solid" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.2" y="4.6" width="15.6" height="10.8" rx="2"/><path d="M2.4 8.4h15.2M5.4 12.4h2.8"/></svg></span>
+          <h3 class="mt-5">Spreading the cost</h3>
+          <ul class="tick-list mt-5">
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><span><strong>0% finance over 12 months</strong> on any plan above &euro;500, subject to approval. No deposit on treatment under &euro;3,000.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><span><strong>Med 2 forms issued automatically.</strong> Most non-routine dental work qualifies for 20% tax relief &mdash; we complete the form for you.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><span><strong>Staged treatment.</strong> Where it is clinically safe, we phase larger plans across two tax years.</span></li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg><span><strong>Card, transfer or cash</strong> &mdash; and no charge for the plan itself. Written quotes are free and last 90 days.</span></li>
+          </ul>
+          <a class="btn btn--primary btn--block mt-7" href="appointments.html">Request a written quote</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ TESTIMONIALS ============================ -->
+<section class="section section--alt" id="reviews">
+  <div class="container container--wide">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow eyebrow--center">In our patients&rsquo; words</p>
+      <h2>384 reviews, and the same word keeps coming up</h2>
+    </div>
+
+    <div class="grid grid--3 grid--gap-lg reveal-group">
+      <figure class="quote reveal">
+        <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+        <blockquote><p>I had not seen a dentist in eleven years because I was ashamed. Dr Brennan did not raise an eyebrow. We did it in four visits over six months and I have stopped covering my mouth when I laugh.</p></blockquote>
+        <figcaption class="quote-author">
+          <span class="avatar avatar--d" aria-hidden="true"></span>
+          <span>
+            <span class="name">Marie K.</span>
+            <span class="meta">Patient since 2022 &middot; Marlowe Quay</span>
+          </span>
+        </figcaption>
+      </figure>
+
+      <figure class="quote reveal">
+        <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+        <blockquote><p>Cracked a molar on a Sunday in Sandyford. Rang the emergency line at 8:40 on Monday, was in the chair by 11:15, walked out with a crown milled on site. I still cannot quite believe it was one appointment.</p></blockquote>
+        <figcaption class="quote-author">
+          <span class="avatar avatar--e" aria-hidden="true"></span>
+          <span>
+            <span class="name">Declan O&rsquo;R.</span>
+            <span class="meta">Emergency patient &middot; Sandyford</span>
+          </span>
+        </figcaption>
+      </figure>
+
+      <figure class="quote reveal">
+        <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+        <blockquote><p>They see all four of our children, including one who used to scream in the car park. Dr Whelan lets him hold the mirror and count his own teeth. Last visit he asked if we could go again.</p></blockquote>
+        <figcaption class="quote-author">
+          <span class="avatar avatar--b" aria-hidden="true"></span>
+          <span>
+            <span class="name">Priya S.</span>
+            <span class="meta">Family patient since 2019</span>
+          </span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="cluster cluster--center mt-8 reveal">
+      <span class="stars" role="img" aria-label="Rated 4.9 out of 5"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.8l2.5 5.1 5.6.8-4 3.9 1 5.6L10 14.6l-5 2.6 1-5.6-4-3.9 5.6-.8L10 1.8z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.8l2.5 5.1 5.6.8-4 3.9 1 5.6L10 14.6l-5 2.6 1-5.6-4-3.9 5.6-.8L10 1.8z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.8l2.5 5.1 5.6.8-4 3.9 1 5.6L10 14.6l-5 2.6 1-5.6-4-3.9 5.6-.8L10 1.8z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.8l2.5 5.1 5.6.8-4 3.9 1 5.6L10 14.6l-5 2.6 1-5.6-4-3.9 5.6-.8L10 1.8z"/></svg><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.8l2.5 5.1 5.6.8-4 3.9 1 5.6L10 14.6l-5 2.6 1-5.6-4-3.9 5.6-.8L10 1.8z"/></svg></span>
+      <span class="text-sm text-muted">4.9 out of 5 &middot; 384 verified reviews</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CTA BAND ============================== -->
+<section class="section">
+  <div class="container container--wide">
+    <div class="cta-band reveal">
+      <div class="cta-split">
+        <div>
+          <h2>Ready when you are</h2>
+          <p>New patient examinations are &euro;65 and take a full forty minutes. Book online in under a minute, or ring us and speak to Marta &mdash; she has been on the front desk since 2014.</p>
+          <div class="cta-band-actions">
+            <a class="btn btn--primary btn--lg btn--arrow" href="appointments.html">Book an appointment<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4"/></svg></a>
+            <a class="btn btn--secondary btn--lg" href="tel:+35315550142"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 14.1v2.3a1.5 1.5 0 01-1.7 1.5 14.6 14.6 0 01-6.4-2.3 14.4 14.4 0 01-4.4-4.4A14.6 14.6 0 012.7 4.8 1.5 1.5 0 014.2 3h2.3a1.5 1.5 0 011.5 1.3c.1.8.3 1.5.6 2.2a1.5 1.5 0 01-.3 1.6l-1 1a11.7 11.7 0 004.4 4.4l1-1a1.5 1.5 0 011.6-.3c.7.3 1.4.5 2.2.6a1.5 1.5 0 011.3 1.5z"/></svg> 01 555 0142</a>
+          </div>
+          <p class="cta-band-note">Mon&ndash;Thu 8:00&ndash;18:00 &middot; Fri 8:00&ndash;16:00 &middot; Sat 9:00&ndash;14:00 (first of the month)</p>
+        </div>
+        <div class="hide-sm">
+          <div class="ph ph--wash ph--square ph--pill" role="img" aria-label="A soft wash of aqua and warm light."><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><circle cx="118" cy="96" r="72" fill="rgba(255,255,255,.30)"/><circle cx="286" cy="196" r="92" fill="rgba(255,255,255,.20)"/><path d="M-10 226c70-40 130-40 200 0s130 40 220 0" fill="none" stroke="rgba(255,255,255,.36)" stroke-width="3"/><path d="M-10 258c70-40 130-40 200 0s130 40 220 0" fill="none" stroke="rgba(255,255,255,.24)" stroke-width="3"/></svg></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============================== FOOTER =============================== -->
+<footer class="site-footer">
+  <div class="container container--wide">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a class="brand" href="index.html" aria-label="Brightwater Dental — home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor">
+              <path d="M10 2.6c-3 0-5.2 1.6-5.2 4.3 0 2.1.8 3.5 1.3 5.4.4 1.6.5 3.9 1 4.6.6.8 1.7.5 1.8-.6.3-1.4.4-3 1.1-3s.9 1.6 1.1 3c.2 1.1 1.3 1.4 1.8.6.5-.7.6-3 1-4.6.5-1.9 1.3-3.3 1.3-5.4 0-2.7-2.2-4.3-5.2-4.3z"/>
+            </svg>
+          </span>
+          <span class="brand-text">Brightwater<small>Dental</small></span>
+        </a>
+        <p>Gentle, unhurried dentistry for Dublin families since 2009. Two practices, one standard of care &mdash; and a treatment plan you will actually understand.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Brightwater Dental on Instagram">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="14" height="14" rx="4.2"/><circle cx="10" cy="10" r="3.4"/><circle cx="14.3" cy="5.8" r=".9" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="Brightwater Dental on Facebook">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M11.6 18v-6.6h2.2l.4-2.6h-2.6V7.1c0-.8.2-1.3 1.3-1.3h1.4V3.5A18 18 0 0012.3 3c-2 0-3.4 1.2-3.4 3.5v2.3H6.6v2.6h2.3V18z"/></svg>
+          </a>
+          <a href="#" aria-label="Brightwater Dental on LinkedIn">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5.6 7.4H3v9.2h2.6zM4.3 3a1.5 1.5 0 100 3 1.5 1.5 0 000-3zM17 11.5c0-2.6-1.4-3.8-3.2-3.8a2.8 2.8 0 00-2.5 1.4V7.4H8.7v9.2h2.6v-4.9c0-1.3.6-2 1.6-2s1.5.7 1.5 2v4.9H17z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3>Practice</h3>
+        <ul>
+          <li><a href="services.html">Treatments &amp; fees</a></li>
+          <li><a href="team.html">Meet the team</a></li>
+          <li><a href="about.html">About the practice</a></li>
+          <li><a href="appointments.html">Book an appointment</a></li>
+          <li><a href="contact.html">Contact &amp; directions</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Treatments</h3>
+        <ul>
+          <li><a href="services.html#preventive">Check-ups &amp; hygiene</a></li>
+          <li><a href="services.html#cosmetic">Whitening &amp; veneers</a></li>
+          <li><a href="services.html#restorative">Crowns &amp; implants</a></li>
+          <li><a href="services.html#orthodontics">Clear aligners</a></li>
+          <li><a href="services.html#emergency">Emergency care</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Marlowe Quay</h3>
+        <address>
+          14 Marlowe Quay<br>
+          Dublin 2, D02 X431<br>
+          Ireland<br><br>
+          <a href="tel:+35315550142">+353 1 555 0142</a><br>
+          <a href="mailto:hello@brightwaterdental.ie">hello@brightwaterdental.ie</a>
+        </address>
+      </div>
+    </div>
+
+    <div class="disclaimer footer-disclaimer">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.6"/><path d="M10 9.2v4.2M10 6.4h.01"/></svg>
+      <p><strong>Template notice.</strong> Brightwater Dental is a fictional practice and every word, price, credential and review on this website is placeholder content supplied with a commercial HTML template. Nothing here is medical or dental advice. Replace all content with your own before publishing, and always consult a qualified clinician about your own health.</p>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; <span data-year>2026</span> Brightwater Dental. Template demo content.</span>
+      <nav aria-label="Footer">
+        <a href="#">Privacy</a>
+        <a href="#">Cookies</a>
+        <a href="#">Patient charter</a>
+        <a href="#">Complaints</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="config.js" defer></script>
+<script src="js/forms.js" defer></script>
+<script src="js/integrations.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="js/hero.js" defer></script>
+</body>
+</html>

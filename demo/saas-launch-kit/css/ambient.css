@@ -1,0 +1,28 @@
+/* ambient.css — continuous motion so the hero never reads as a static image.
+   Positioned inside the first viewport: the hero is ~1200px tall but the fold
+   is ~800px, so gradients placed at 68%/30% of the hero were below the fold. */
+.hero{position:relative;isolation:isolate}
+.hero::after{
+  content:"";position:absolute;left:0;right:0;top:0;height:820px;
+  pointer-events:none;z-index:0;
+  background:
+    radial-gradient(50% 46% at 72% 26%, rgba(46,196,166,.40), transparent 66%),
+    radial-gradient(40% 38% at 22% 44%, rgba(46,196,166,.20), transparent 70%);
+  animation:amb-breathe 8s ease-in-out infinite;
+  will-change:opacity,transform;
+}
+.hero::before{
+  content:"";position:absolute;left:-46%;top:0;height:820px;width:46%;
+  pointer-events:none;z-index:1;
+  background:linear-gradient(100deg,transparent,rgba(46,196,166,.18),transparent);
+  animation:amb-sweep 8.5s cubic-bezier(.5,0,.5,1) 1.2s infinite;
+  will-change:left;
+}
+@keyframes amb-breathe{
+  0%,100%{opacity:.28;transform:translate3d(0,0,0) scale(1)}
+  50%    {opacity:1;  transform:translate3d(2%,-2%,0) scale(1.15)}
+}
+@keyframes amb-sweep{0%{left:-46%}64%,100%{left:124%}}
+@media (prefers-reduced-motion: reduce){
+  .hero::after,.hero::before{animation:none!important;opacity:.5}
+}

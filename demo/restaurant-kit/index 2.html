@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ember &amp; Oak — Wood-fired kitchen &amp; wine room in Dublin 7</title>
+<meta name="description" content="A wood-fired kitchen in a converted Stoneybatter coach house. Irish oak, Wicklow produce, low-intervention wine. Dinner Tuesday to Saturday, lunch at weekends — book a table at Ember &amp; Oak.">
+<meta name="author" content="Ember &amp; Oak">
+<meta name="theme-color" content="#fbf6ee" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14110e" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://emberandoak.example.com/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="restaurant.restaurant">
+<meta property="og:site_name" content="Ember &amp; Oak">
+<meta property="og:url" content="https://emberandoak.example.com/">
+<meta property="og:title" content="Ember &amp; Oak — Wood-fired kitchen &amp; wine room in Dublin 7">
+<meta property="og:description" content="Irish oak, Wicklow produce, low-intervention wine. Dinner Tuesday to Saturday, lunch at weekends.">
+<meta property="og:image" content="assets/og-home.png">
+<meta property="og:image:alt" content="Ember &amp; Oak — wood-fired kitchen and wine room.">
+<meta property="og:locale" content="en_IE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ember &amp; Oak — Wood-fired kitchen &amp; wine room">
+<meta name="twitter:description" content="Irish oak, Wicklow produce, low-intervention wine. Book a table in Stoneybatter, Dublin 7.">
+<meta name="twitter:image" content="assets/og-home.png">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/hero.css">
+
+<!-- Motion opt-in. css/hero.css only hides hero content when this class is
+     present, so with JavaScript off the hero renders complete and static. -->
+<script>document.documentElement.classList.add("eo-js");</script>
+
+<!-- Set the theme before first paint so there is no flash of the wrong palette. -->
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("emberoak-theme");
+      if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "@id": "https://emberandoak.example.com/#restaurant",
+  "name": "Ember & Oak",
+  "description": "A wood-fired kitchen and wine room in a converted 1890s coach house in Stoneybatter, Dublin 7. Live-fire cooking over Irish oak and beech, produce from Wicklow growers, and a low-intervention wine list.",
+  "url": "https://emberandoak.example.com/",
+  "telephone": "+353-1-555-0184",
+  "email": "hello@emberandoak.example.com",
+  "servesCuisine": ["Modern Irish", "European", "Wood-fired"],
+  "priceRange": "€€€",
+  "acceptsReservations": "https://emberandoak.example.com/reservations.html",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Cash, Credit Card, Debit Card",
+  "image": "https://emberandoak.example.com/assets/og-home.png",
+  "hasMenu": "https://emberandoak.example.com/menu.html",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "14 Marlowe Street",
+    "addressLocality": "Stoneybatter, Dublin 7",
+    "addressRegion": "Leinster",
+    "postalCode": "D07 XK92",
+    "addressCountry": "IE"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 53.3536,
+    "longitude": -6.2871
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"], "opens": "17:30", "closes": "22:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday", "Saturday"], "opens": "12:00", "closes": "15:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday", "Saturday"], "opens": "17:30", "closes": "23:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "12:00", "closes": "17:00" }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "486",
+    "bestRating": "5"
+  },
+  "sameAs": [
+    "https://www.instagram.com/emberandoak",
+    "https://www.facebook.com/emberandoak"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Ember & Oak",
+  "url": "https://emberandoak.example.com/"
+}
+</script>
+  <noscript><style>/* JS off: entrance animations never run, so show final state */
+.reveal{opacity:1!important;transform:none!important;clip-path:none!important;filter:none!important}</style></noscript>
+</head>
+
+<body class="full-height">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================== HEADER ============================== -->
+<header class="site-header" data-header>
+  <div class="container container--wide">
+    <a class="brand" href="index.html" aria-label="Ember and Oak — home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10 1.5c1.9 2.6 1.1 4.2.2 5.6-.9 1.4-1.6 2.6-.6 4.3.3-1.4 1.1-2.3 2-3-.3 2 .6 2.8 1.4 3.8.9 1.1 1.4 2.3 1.4 3.4 0 2.5-2 4.4-4.4 4.4S5.6 18.1 5.6 15.6c0-2.4 1.4-3.7 2.6-5.2 1.3-1.6 2.4-3.4 1.8-8.9z"/>
+        </svg>
+      </span>
+      <span class="brand-text">Ember &amp; Oak<small>Dublin 7</small></span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="about.html">Our story</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Visit</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-phone" href="tel:+35315550184">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4.5 3h3l1.2 3-1.7 1.3a10 10 0 004.7 4.7L13 10.3l3 1.2v3a1.5 1.5 0 01-1.6 1.5A12.6 12.6 0 013 4.6 1.5 1.5 0 014.5 3z"/>
+        </svg>
+        01 555 0184
+      </a>
+
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="icon-moon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M16.5 11.8A6.8 6.8 0 018.2 3.5a6.8 6.8 0 108.3 8.3z"/>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="10" cy="10" r="3.6"/>
+          <path d="M10 1.8v1.8M10 16.4v1.8M18.2 10h-1.8M3.6 10H1.8M15.8 4.2l-1.3 1.3M5.5 14.5l-1.3 1.3M15.8 15.8l-1.3-1.3M5.5 5.5L4.2 4.2"/>
+        </svg>
+      </button>
+
+      <a class="btn btn--primary btn--sm header-cta--desktop" href="reservations.html">Book a table</a>
+
+      <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h14M3 10h14M3 14h14"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav" data-mobile-nav>
+  <ul>
+    <li><a href="index.html" aria-current="page">Home</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="reservations.html">Reservations</a></li>
+    <li><a href="about.html">Our story</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Visit us</a></li>
+  </ul>
+  <div class="mobile-nav-foot">
+    <a class="btn btn--primary btn--block" href="reservations.html">Book a table</a>
+    <a class="btn btn--secondary btn--block" href="tel:+35315550184">Call 01 555 0184</a>
+  </div>
+  <div class="mobile-nav-meta">
+    <span>14 Marlowe Street, Stoneybatter, Dublin 7</span>
+    <span class="badge-dot" data-hours-status data-open-from="17:30" data-open-to="22:30" data-closed-days="1">Open now</span>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ============================== HERO ============================== -->
+  <section class="hero hero--ember" aria-labelledby="hero-title">
+    <!-- Decorative atmosphere. Every layer here is inert: aria-hidden, no
+         pointer events, and animating transform/opacity only. -->
+    <div class="hero-glow" aria-hidden="true" data-parallax="0.06"></div>
+    <div class="hero-bloom" aria-hidden="true"></div>
+    <div class="hero-haze" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="hero-embers" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="hero-vignette" aria-hidden="true"></div>
+    <div class="hero-grain" aria-hidden="true"></div>
+
+    <div class="container container--wide">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow" data-hero="1">Stoneybatter · Dublin 7</p>
+          <h1 id="hero-title" data-hero-split>Cooked over <em>Irish oak</em>, eaten by candlelight.</h1>
+          <p class="hero-lede" data-hero="2">
+            One hearth, twelve tables and a wine list with more natural bottles than
+            we can reasonably justify. Dinner Tuesday to Saturday, long lunches at
+            the weekend.
+          </p>
+
+          <div class="hero-actions" data-hero="3">
+            <a class="btn btn--primary btn--lg hero-cta" href="reservations.html">
+              Reserve a table
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M8 4l6 6-6 6"/>
+              </svg>
+            </a>
+            <a class="btn btn--outline-light btn--lg" href="menu.html">See the menu</a>
+          </div>
+
+          <dl class="hero-meta" data-hero="4">
+            <div>
+              <dt>Dinner</dt>
+              <dd>Tue–Sat, from 17:30</dd>
+            </div>
+            <div>
+              <dt>Weekend lunch</dt>
+              <dd>Fri–Sun, from 12:00</dd>
+            </div>
+            <div>
+              <dt>Find us</dt>
+              <dd>14 Marlowe St, D07 XK92</dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- The composition assembles on load: room, then plate, then the
+             food, then the garnish. See css/hero.css §05. -->
+        <div class="hero-art" aria-hidden="true">
+          <div class="hero-layer hero-layer--scene" data-hero-parallax="0.05">
+            <div class="ph ph-scene ph-scene--dining"></div>
+          </div>
+
+          <div class="hero-layer hero-layer--dish" data-hero-parallax="-0.09">
+            <span class="hero-halo"></span>
+            <div class="ph ph--square ph-dish ph-dish--ember hero-dish">
+              <span class="hero-dish__sauce"></span>
+              <span class="hero-dish__main"><i></i><i></i><i></i></span>
+              <span class="hero-dish__veg"></span>
+              <span class="hero-dish__garnish"></span>
+              <span class="hero-dish__gloss"></span>
+            </div>
+            <span class="hero-steam"><i></i><i></i><i></i></span>
+          </div>
+
+          <div class="hero-badge">
+            <span>Est.</span>
+            <strong>2016</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a class="scroll-cue" href="#story">
+      Scroll
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M10 4v11M5 11l5 5 5-5"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- ============================== RIBBON ============================== -->
+  <div class="section--ink" aria-hidden="true">
+    <div class="marquee">
+      <div class="marquee-track">
+        <span>Live fire</span>
+        <span>Wicklow growers</span>
+        <span>Low-intervention wine</span>
+        <span>Bread baked at 6am</span>
+        <span>Twelve tables</span>
+        <span>Live fire</span>
+        <span>Wicklow growers</span>
+        <span>Low-intervention wine</span>
+        <span>Bread baked at 6am</span>
+        <span>Twelve tables</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================== STORY TEASER ============================== -->
+  <section class="section" id="story" aria-labelledby="story-title">
+    <div class="container">
+      <div class="split split--media-right">
+        <div class="split-copy reveal reveal--left">
+          <p class="eyebrow">Our story</p>
+          <h2 id="story-title">A coach house, a hearth, and a stubborn idea about fire.</h2>
+          <p>
+            In 2016 we took on a damp 1890s coach house off Marlowe Street with a
+            collapsed roof and a chimney big enough to stand in. We kept the chimney.
+            Everything else — the oak floor, the zinc bar, the twelve tables — was
+            built around it.
+          </p>
+          <p>
+            There is no gas line in our kitchen. Every plate that leaves the pass has
+            met the fire in some way: charred, smoked, ember-roasted, or warmed on the
+            stone beside it. It makes us slower than most restaurants and considerably
+            more particular about wood.
+          </p>
+          <div class="cluster mt-6">
+            <a class="btn btn--secondary" href="about.html">Read our story</a>
+            <a class="link-arrow" href="menu.html">
+              <span>See what's cooking tonight</span>
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 10h12M11 5l5 5-5 5"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="split-media reveal reveal--right reveal-delay-2">
+          <div class="media-stack">
+            <div class="ph ph--wide ph-scene ph-scene--kitchen" role="img" aria-label="The open hearth at the back of the kitchen, glowing after service."></div>
+            <div class="ph ph--square ph-dish ph-dish--bread" role="img" aria-label="Sourdough baked in the residual heat of the hearth."></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats mt-8 reveal stagger" style="margin-top: clamp(3rem, 6vw, 5rem);">
+        <div class="stat reveal">
+          <span class="stat-num" data-count="9" data-count-suffix=" yrs">9 yrs</span>
+          <span class="stat-label">On Marlowe Street</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat-num" data-count="34" data-count-suffix="">34</span>
+          <span class="stat-label">Growers &amp; makers</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat-num" data-count="140" data-count-suffix="">140</span>
+          <span class="stat-label">Bottles on the list</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat-num" data-count="4.8" data-count-decimals="1">4.8</span>
+          <span class="stat-label">Average guest rating</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== SIGNATURE DISHES ============================== -->
+  <section class="section section--alt" aria-labelledby="dishes-title">
+    <div class="container">
+      <div class="section-head section--split section-head--split reveal">
+        <div>
+          <p class="eyebrow">From the hearth</p>
+          <h2 id="dishes-title">Five things we would order</h2>
+          <p>
+            The menu changes with what arrives on Tuesday morning, but these have
+            earned their place and rarely leave.
+          </p>
+        </div>
+        <a class="btn btn--secondary" href="menu.html">Full menu</a>
+      </div>
+
+      <div class="grid grid--auto-lg">
+        <article class="dish-card reveal reveal--scale">
+          <span class="ribbon">Chef's pick</span>
+          <div class="ph ph--wide ph-dish ph-dish--octopus" role="img" aria-label="Charred octopus with romesco and burnt lemon."></div>
+          <div class="dish-card-body">
+            <div class="dish-card-head">
+              <h3>Hearth-charred octopus</h3>
+              <span class="dish-price">€19</span>
+            </div>
+            <p>
+              Slow-braised for four hours, then finished directly on the embers.
+              Romesco made with Wicklow hazelnuts, burnt lemon, a lot of good oil.
+            </p>
+            <div class="cluster">
+              <span class="tag tag--gf" title="Gluten free">GF</span>
+              <span class="text-xs text-subtle">Starter · serves one</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="dish-card reveal reveal--scale reveal-delay-1">
+          <div class="ph ph--wide ph-dish ph-dish--beet" role="img" aria-label="Oak-smoked beetroot tartare with horseradish cream."></div>
+          <div class="dish-card-body">
+            <div class="dish-card-head">
+              <h3>Oak-smoked beetroot</h3>
+              <span class="dish-price">€16</span>
+            </div>
+            <p>
+              Beetroot buried in the ash overnight, dressed like a tartare with
+              capers, shallot and a horseradish cream that will wake you up.
+            </p>
+            <div class="cluster">
+              <span class="tag tag--v" title="Vegan">VE</span>
+              <span class="tag tag--gf" title="Gluten free">GF</span>
+              <span class="text-xs text-subtle">Starter</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="dish-card reveal reveal--scale reveal-delay-2">
+          <div class="ph ph--wide ph-dish ph-dish--lamb" role="img" aria-label="Ember-roasted Wicklow lamb with wild garlic."></div>
+          <div class="dish-card-body">
+            <div class="dish-card-head">
+              <h3>Ember-roasted lamb</h3>
+              <span class="dish-price">€34</span>
+            </div>
+            <p>
+              Shoulder from Ballyknocken, cooked eight hours beside the fire until it
+              gives way to a spoon. Wild garlic when it's in, salsa verde when it's not.
+            </p>
+            <div class="cluster">
+              <span class="tag tag--gf" title="Gluten free">GF</span>
+              <span class="text-xs text-subtle">Main · to share</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="dish-card reveal reveal--scale reveal-delay-3">
+          <div class="ph ph--wide ph-dish ph-dish--dessert" role="img" aria-label="Burnt honey and brown butter tart with crème fraîche."></div>
+          <div class="dish-card-body">
+            <div class="dish-card-head">
+              <h3>Burnt honey tart</h3>
+              <span class="dish-price">€11</span>
+            </div>
+            <p>
+              Brown butter pastry, honey from the hives on the Cabra allotments,
+              caramelised until it is very nearly too far. Crème fraîche to cut it.
+            </p>
+            <div class="cluster">
+              <span class="tag tag--v" title="Vegetarian">V</span>
+              <span class="text-xs text-subtle">Dessert</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== HOURS & LOCATION ============================== -->
+  <section class="section" aria-labelledby="visit-title">
+    <div class="container">
+      <div class="split">
+        <div class="split-copy reveal reveal--left">
+          <p class="eyebrow">Opening hours</p>
+          <h2 id="visit-title">When to find us</h2>
+          <p>
+            We are a small room and we fill up. Weekends book out roughly ten days
+            ahead; midweek you can usually walk in before seven if you don't mind
+            the bar.
+          </p>
+
+          <ul class="hours-list mt-6">
+            <li data-day="1"><span>Monday</span><span>Closed</span></li>
+            <li data-day="2"><span>Tuesday</span><span>17:30 – 22:30</span></li>
+            <li data-day="3"><span>Wednesday</span><span>17:30 – 22:30</span></li>
+            <li data-day="4"><span>Thursday</span><span>17:30 – 22:30</span></li>
+            <li data-day="5"><span>Friday</span><span>12:00 – 15:00 · 17:30 – 23:30</span></li>
+            <li data-day="6"><span>Saturday</span><span>12:00 – 15:00 · 17:30 – 23:30</span></li>
+            <li data-day="0"><span>Sunday</span><span>12:00 – 17:00</span></li>
+          </ul>
+
+          <div class="cluster mt-6">
+            <span class="badge-dot" data-hours-status data-open-from="17:30" data-open-to="22:30" data-closed-days="1">Open now</span>
+            <a class="link-arrow" href="contact.html">
+              <span>Directions, parking &amp; transport</span>
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 10h12M11 5l5 5-5 5"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="split-media reveal reveal--right reveal-delay-1">
+          <div class="map" data-map data-map-lat="53.3536" data-map-lon="-6.2871" data-map-zoom="17" data-map-label="Ember &amp; Oak, 14 Marlowe Street">
+            <span class="map-pin" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path d="M10 2a5.5 5.5 0 00-5.5 5.5c0 4 5.5 10.5 5.5 10.5s5.5-6.5 5.5-10.5A5.5 5.5 0 0010 2zm0 7.6a2.1 2.1 0 110-4.2 2.1 2.1 0 010 4.2z"/>
+              </svg>
+            </span>
+            <div class="map-card">
+              <strong>14 Marlowe Street</strong>
+              Stoneybatter, Dublin 7, D07 XK92<br>
+              Four minutes from Museum Luas stop
+            </div>
+          </div>
+          <p class="ph-caption">
+            Illustrative map. Swap this block for your Google&nbsp;Maps or OpenStreetMap
+            embed — see the README.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== GALLERY STRIP ============================== -->
+  <section class="section section--alt" aria-labelledby="gallery-title">
+    <div class="container container--wide">
+      <div class="section-head section-head--split reveal">
+        <div>
+          <p class="eyebrow">The room</p>
+          <h2 id="gallery-title">Twelve tables, one fire</h2>
+          <p>Low light, loud enough to talk, quiet enough to hear the answer.</p>
+        </div>
+        <a class="btn btn--secondary" href="gallery.html">Open the gallery</a>
+      </div>
+
+      <div class="strip reveal">
+        <a href="gallery.html" aria-label="Gallery: the dining room at dusk">
+          <span class="ph ph--portrait ph-scene ph-scene--dining"></span>
+        </a>
+        <a href="gallery.html" aria-label="Gallery: the zinc bar">
+          <span class="ph ph--portrait ph-scene ph-scene--bar"></span>
+        </a>
+        <a href="gallery.html" aria-label="Gallery: pasta course plated at the pass">
+          <span class="ph ph--portrait ph-dish ph-dish--pasta"></span>
+        </a>
+        <a href="gallery.html" aria-label="Gallery: the courtyard terrace in summer">
+          <span class="ph ph--portrait ph-scene ph-scene--terrace"></span>
+        </a>
+        <a href="gallery.html" aria-label="Gallery: a glass of skin-contact white">
+          <span class="ph ph--portrait ph-drink ph-drink--amber"></span>
+        </a>
+        <a href="gallery.html" aria-label="Gallery: a private dinner in the loft">
+          <span class="ph ph--portrait ph-scene ph-scene--event"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== TESTIMONIAL ============================== -->
+  <section class="section section--ink" aria-labelledby="quote-title">
+    <div class="container">
+      <h2 id="quote-title" class="visually-hidden">What guests say</h2>
+
+      <div class="quote-feature reveal">
+        <svg class="quote-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M9.2 5.4C6 6.9 4 9.7 4 13.2c0 3.1 1.9 5.4 4.6 5.4 2.4 0 4.1-1.8 4.1-4.1 0-2.2-1.5-3.9-3.6-3.9-.4 0-.9.1-1 .1.3-1.6 1.9-3.4 3.7-4.4l-2.6-.9zm10 0C16 6.9 14 9.7 14 13.2c0 3.1 1.9 5.4 4.6 5.4 2.4 0 4.1-1.8 4.1-4.1 0-2.2-1.5-3.9-3.6-3.9-.4 0-.9.1-1 .1.3-1.6 1.9-3.4 3.7-4.4l-2.6-.9z"/>
+        </svg>
+        <blockquote>
+          “We came for one glass and stayed four hours. The octopus is the best thing
+          I have eaten in this city, and I say that as someone who eats out for a living.”
+        </blockquote>
+        <div class="quote-author">
+          <span class="avatar avatar--3" aria-hidden="true"></span>
+          <div>
+            <strong>Niamh Costigan</strong>
+            <span>Food writer, The Liberties Review</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid--3" style="margin-top: clamp(3rem, 6vw, 4.5rem);">
+        <figure class="quote reveal">
+          <div class="stars" role="img" aria-label="Rated 5 out of 5">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.5 5.2 5.7.8-4.1 4 1 5.7-5.1-2.7-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.5 5.2 5.7.8-4.1 4 1 5.7-5.1-2.7-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.5 5.2 5.7.8-4.1 4 1 5.7-5.1-2.7-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.5 5.2 5.7.8-4.1 4 1 5.7-5.1-2.7-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.5 5.2 5.7.8-4.1 4 1 5.7-5.1-2.7-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg>
+          </div>
+          <blockquote>“Booked for our anniversary. They remembered, and left a little card on the table. Small thing, made the night.”</blockquote>
+          <figcaption class="quote-author">
+            <span class="avatar" aria-hidden="true"></span>
+            <div><strong>Declan &amp; Marta</strong><span>Regulars since 2019</span></div>
+          </figcaption>
+        </figure>
+
+        <figure class="quote reveal reveal-delay-1">
+          <div class="stars" role="img" aria-label="Rated 5 out of 5">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.5 5.2 5.7.8-4.1 4 1 5.7-5.1-2.7-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.5 5.2 5.7.8-4.1 4 1 5.7-5.1-2.7-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.5 5.2 5.7.8-4.1 4 1 5.7-5.1-2.7-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.5 5.2 5.7.8-4.1 4 1 5.7-5.1-2.7-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.5 5.2 5.7.8-4.1 4 1 5.7-5.1-2.7-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg>
+          </div>
+          <blockquote>“I'm coeliac and normally braced for a negotiation. Here it took one sentence and the whole menu opened up.”</blockquote>
+          <figcaption class="quote-author">
+            <span class="avatar avatar--2" aria-hidden="true"></span>
+            <div><strong>Sorcha Lynam</strong><span>Rathmines</span></div>
+          </figcaption>
+        </figure>
+
+        <figure class="quote reveal reveal-delay-2">
+          <div class="stars" role="img" aria-label="Rated 5 out of 5">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.5 5.2 5.7.8-4.1 4 1 5.7-5.1-2.7-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.5 5.2 5.7.8-4.1 4 1 5.7-5.1-2.7-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.5 5.2 5.7.8-4.1 4 1 5.7-5.1-2.7-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.5 5.2 5.7.8-4.1 4 1 5.7-5.1-2.7-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.5 5.2 5.7.8-4.1 4 1 5.7-5.1-2.7-5.1 2.7 1-5.7-4.1-4 5.7-.8z"/></svg>
+          </div>
+          <blockquote>“Took a table of eight for a work dinner. Aoife matched every course without once making it feel like an upsell.”</blockquote>
+          <figcaption class="quote-author">
+            <span class="avatar avatar--4" aria-hidden="true"></span>
+            <div><strong>Peter Ó Ríordáin</strong><span>Smithfield</span></div>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== RESERVATION CTA ============================== -->
+  <section class="cta-band" aria-labelledby="cta-title">
+    <div class="container container--narrow">
+      <p class="eyebrow eyebrow--center" style="justify-content:center;">Reservations</p>
+      <h2 id="cta-title">The fire is lit from four o'clock</h2>
+      <p>
+        Tables are released thirty days ahead. Parties of seven or more, and anything
+        involving a cake, are best arranged by phone.
+      </p>
+      <div class="cta-actions">
+        <a class="btn btn--primary btn--lg" href="reservations.html">Book a table</a>
+        <a class="btn btn--outline-light btn--lg" href="tel:+35315550184">Call 01 555 0184</a>
+      </div>
+      <p class="cta-fineprint">Walk-ins welcome at the bar · Last kitchen order 21:45</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="site-footer">
+  <div class="container container--wide">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" aria-label="Ember and Oak — home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor">
+              <path d="M10 1.5c1.9 2.6 1.1 4.2.2 5.6-.9 1.4-1.6 2.6-.6 4.3.3-1.4 1.1-2.3 2-3-.3 2 .6 2.8 1.4 3.8.9 1.1 1.4 2.3 1.4 3.4 0 2.5-2 4.4-4.4 4.4S5.6 18.1 5.6 15.6c0-2.4 1.4-3.7 2.6-5.2 1.3-1.6 2.4-3.4 1.8-8.9z"/>
+            </svg>
+          </span>
+          <span class="brand-text">Ember &amp; Oak<small>Dublin 7</small></span>
+        </a>
+        <p>
+          A wood-fired kitchen and wine room in a converted coach house.
+          Twelve tables, one hearth, no gas line.
+        </p>
+        <div class="social">
+          <a href="https://www.instagram.com/emberandoak" aria-label="Ember and Oak on Instagram" rel="noopener">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="3" y="3" width="14" height="14" rx="4.2"/>
+              <circle cx="10" cy="10" r="3.4"/>
+              <circle cx="14.3" cy="5.7" r="0.9" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/emberandoak" aria-label="Ember and Oak on Facebook" rel="noopener">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path d="M11.6 18v-6.6h2.2l.33-2.6h-2.53V7.1c0-.75.21-1.26 1.28-1.26h1.37V3.52A18.4 18.4 0 0012.26 3.4c-1.98 0-3.33 1.21-3.33 3.43V8.8H6.7v2.6h2.23V18z"/>
+            </svg>
+          </a>
+          <a href="mailto:hello@emberandoak.example.com" aria-label="Email Ember and Oak">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2.6" y="4.5" width="14.8" height="11" rx="2"/>
+              <path d="M3 6l7 4.6L17 6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3>Visit</h3>
+        <address>
+          14 Marlowe Street<br>
+          Stoneybatter<br>
+          Dublin 7, D07 XK92<br>
+          Ireland
+        </address>
+        <ul style="margin-top: 1rem;">
+          <li><a href="tel:+35315550184">01 555 0184</a></li>
+          <li><a href="mailto:hello@emberandoak.example.com">hello@emberandoak.example.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Hours</h3>
+        <ul>
+          <li>Mon — Closed</li>
+          <li>Tue–Thu — 17:30–22:30</li>
+          <li>Fri–Sat — 12:00–15:00</li>
+          <li>Fri–Sat — 17:30–23:30</li>
+          <li>Sun — 12:00–17:00</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="reservations.html">Reservations</a></li>
+          <li><a href="about.html">Our story</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Visit &amp; contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span data-year>2026</span> Ember &amp; Oak. Template demo content.</p>
+      <p class="template-notice">
+        Ember &amp; Oak is a fictional business used to demonstrate this template.
+        Menus, prices, people and reviews are illustrative only.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="config.js" defer></script>
+<script src="js/forms.js" defer></script>
+<script src="js/integrations.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="js/hero.js" defer></script>
+</body>
+</html>

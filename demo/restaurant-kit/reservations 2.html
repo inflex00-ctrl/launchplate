@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reservations — Book a table at Ember &amp; Oak, Dublin 7</title>
+<meta name="description" content="Book a table at Ember &amp; Oak, a wood-fired kitchen in Stoneybatter, Dublin 7. Tables released 30 days ahead, walk-ins always welcome at the zinc bar. Dinner Tuesday to Saturday, lunch Friday to Sunday.">
+<meta name="author" content="Ember &amp; Oak">
+<meta name="theme-color" content="#fbf6ee" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14110e" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://emberandoak.example.com/reservations.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="restaurant.restaurant">
+<meta property="og:site_name" content="Ember &amp; Oak">
+<meta property="og:url" content="https://emberandoak.example.com/reservations.html">
+<meta property="og:title" content="Reservations — Book a table at Ember &amp; Oak">
+<meta property="og:description" content="Tables are released thirty days ahead. Dinner Tuesday to Saturday, long lunches Friday to Sunday, and eight seats at the bar kept back for walk-ins.">
+<meta property="og:image" content="assets/og-reservations.png">
+<meta property="og:image:alt" content="A candlelit table set for two at Ember &amp; Oak.">
+<meta property="og:locale" content="en_IE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Reservations — Ember &amp; Oak, Dublin 7">
+<meta name="twitter:description" content="Book a table by the hearth. Thirty days ahead, twelve tables, walk-ins welcome at the bar.">
+<meta name="twitter:image" content="assets/og-reservations.png">
+
+<link rel="stylesheet" href="css/style.css">
+
+<!-- Set the theme before first paint so there is no flash of the wrong palette. -->
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("emberoak-theme");
+      if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "@id": "https://emberandoak.example.com/#restaurant",
+  "name": "Ember & Oak",
+  "description": "A wood-fired kitchen and wine room in a converted 1890s coach house in Stoneybatter, Dublin 7. Twelve tables, eight bar seats and the Loft upstairs for private hire.",
+  "url": "https://emberandoak.example.com/reservations.html",
+  "telephone": "+353-1-555-0184",
+  "email": "bookings@emberandoak.example.com",
+  "servesCuisine": ["Modern Irish", "European", "Wood-fired"],
+  "priceRange": "€€€",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Cash, Credit Card, Debit Card",
+  "image": "https://emberandoak.example.com/assets/og-reservations.png",
+  "hasMenu": "https://emberandoak.example.com/menu.html",
+  "acceptsReservations": "https://emberandoak.example.com/reservations.html",
+  "maximumAttendeeCapacity": 42,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "14 Marlowe Street",
+    "addressLocality": "Stoneybatter, Dublin 7",
+    "addressRegion": "Leinster",
+    "postalCode": "D07 XK92",
+    "addressCountry": "IE"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 53.3536,
+    "longitude": -6.2871
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"], "opens": "17:30", "closes": "22:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday", "Saturday"], "opens": "12:00", "closes": "15:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday", "Saturday"], "opens": "17:30", "closes": "23:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "12:00", "closes": "17:00" }
+  ],
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "name": "Book a table at Ember & Oak",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://emberandoak.example.com/reservations.html#booking",
+      "inLanguage": "en-IE",
+      "actionPlatform": [
+        "http://schema.org/DesktopWebPlatform",
+        "http://schema.org/MobileWebPlatform"
+      ]
+    },
+    "result": {
+      "@type": "FoodEstablishmentReservation",
+      "name": "Table reservation request"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://emberandoak.example.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Reservations", "item": "https://emberandoak.example.com/reservations.html" }
+  ]
+}
+</script>
+  <noscript><style>/* JS off: entrance animations never run, so show final state */
+.reveal{opacity:1!important;transform:none!important;clip-path:none!important;filter:none!important}</style></noscript>
+</head>
+
+<body class="full-height">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================== HEADER ============================== -->
+<header class="site-header" data-header>
+  <div class="container container--wide">
+    <a class="brand" href="index.html" aria-label="Ember and Oak — home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10 1.5c1.9 2.6 1.1 4.2.2 5.6-.9 1.4-1.6 2.6-.6 4.3.3-1.4 1.1-2.3 2-3-.3 2 .6 2.8 1.4 3.8.9 1.1 1.4 2.3 1.4 3.4 0 2.5-2 4.4-4.4 4.4S5.6 18.1 5.6 15.6c0-2.4 1.4-3.7 2.6-5.2 1.3-1.6 2.4-3.4 1.8-8.9z"/>
+        </svg>
+      </span>
+      <span class="brand-text">Ember &amp; Oak<small>Dublin 7</small></span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="about.html">Our story</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Visit</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-phone" href="tel:+35315550184">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4.5 3h3l1.2 3-1.7 1.3a10 10 0 004.7 4.7L13 10.3l3 1.2v3a1.5 1.5 0 01-1.6 1.5A12.6 12.6 0 013 4.6 1.5 1.5 0 014.5 3z"/>
+        </svg>
+        01 555 0184
+      </a>
+
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="icon-moon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M16.5 11.8A6.8 6.8 0 018.2 3.5a6.8 6.8 0 108.3 8.3z"/>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="10" cy="10" r="3.6"/>
+          <path d="M10 1.8v1.8M10 16.4v1.8M18.2 10h-1.8M3.6 10H1.8M15.8 4.2l-1.3 1.3M5.5 14.5l-1.3 1.3M15.8 15.8l-1.3-1.3M5.5 5.5L4.2 4.2"/>
+        </svg>
+      </button>
+
+      <a class="btn btn--primary btn--sm header-cta--desktop" href="reservations.html" aria-current="page">Book a table</a>
+
+      <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h14M3 10h14M3 14h14"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav" data-mobile-nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="reservations.html" aria-current="page">Reservations</a></li>
+    <li><a href="about.html">Our story</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Visit us</a></li>
+  </ul>
+  <div class="mobile-nav-foot">
+    <a class="btn btn--primary btn--block" href="#booking">Start a booking</a>
+    <a class="btn btn--secondary btn--block" href="tel:+35315550184">Call 01 555 0184</a>
+  </div>
+  <div class="mobile-nav-meta">
+    <span>14 Marlowe Street, Stoneybatter, Dublin 7</span>
+    <span class="badge-dot" data-hours-status data-open-from="17:30" data-open-to="22:30" data-closed-days="1">Open now</span>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ============================== PAGE HEAD ============================== -->
+  <section class="page-head">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-grain" aria-hidden="true"></div>
+    <div class="container container--narrow">
+      <p class="eyebrow eyebrow--center" style="justify-content:center;">Reservations</p>
+      <h1>Book a table</h1>
+      <p>
+        Tables are released thirty days ahead, and the seven o'clock ones tend to go
+        the morning they appear. If we are full, the eight seats at the zinc bar are
+        held back for walk-ins — no list, no deposit, just come in and see.
+      </p>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Reservations</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ============================== BOOKING FORM + SIDEBAR ============================== -->
+  <section class="section" aria-labelledby="booking-title">
+    <div class="container">
+      <div class="form-layout">
+
+        <!-- ---------- Form column ---------- -->
+        <div class="form-main">
+          <div class="reveal">
+            <p class="eyebrow">Request a table</p>
+            <h2 id="booking-title">Tell us when, and we'll do the rest</h2>
+            <p class="text-muted measure mt-4">
+              Every request is read by a person — usually Aoife, usually between
+              services. You'll get a proper confirmation by email, not an automated
+              holding message.
+            </p>
+          </div>
+
+          <!-- Optional Cal.com / Calendly embed. Stays empty and invisible unless
+               booking.url is set in config.js; the booking form below is the
+               fallback and stays put unless booking.replaceForm is true. -->
+          <div class="booking-embed mt-8" data-booking-embed data-booking-replace="#booking" hidden></div>
+
+          <form class="mt-8 reveal reveal-delay-1" data-demo-form id="booking" data-success-toast="Booking request sent" novalidate>
+
+            <!-- ===== 1. Your table ===== -->
+            <div class="form-section">
+              <h3>Your table</h3>
+
+              <div class="form-grid">
+                <div class="field">
+                  <label class="field-label" for="res-date">
+                    Date <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input class="input" type="date" id="res-date" name="date" required data-min-today
+                         data-error="Pick a date — we take bookings up to thirty days ahead.">
+                  <span class="field-error">Pick a date — we take bookings up to thirty days ahead.</span>
+                  <span class="field-hint">We're closed on Mondays, and Sunday is lunch only.</span>
+                </div>
+
+                <div class="field">
+                  <label class="field-label" for="res-time">
+                    Time <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <select class="select" id="res-time" name="time" required
+                          data-error="Choose a service time so we know which sitting to look at.">
+                    <option value="" selected disabled>Choose a time</option>
+                    <optgroup label="Lunch — Friday to Sunday">
+                      <option value="12:00">12:00</option>
+                      <option value="12:15">12:15</option>
+                      <option value="12:30">12:30</option>
+                      <option value="12:45">12:45</option>
+                      <option value="13:00">13:00</option>
+                      <option value="13:15">13:15</option>
+                      <option value="13:30">13:30</option>
+                      <option value="13:45">13:45</option>
+                      <option value="14:00">14:00</option>
+                      <option value="14:15">14:15</option>
+                      <option value="14:30">14:30</option>
+                    </optgroup>
+                    <optgroup label="Dinner — Tuesday to Saturday">
+                      <option value="17:30">17:30</option>
+                      <option value="17:45">17:45</option>
+                      <option value="18:00">18:00</option>
+                      <option value="18:15">18:15</option>
+                      <option value="18:30">18:30</option>
+                      <option value="18:45">18:45</option>
+                      <option value="19:00">19:00</option>
+                      <option value="19:15">19:15</option>
+                      <option value="19:30">19:30</option>
+                      <option value="19:45">19:45</option>
+                      <option value="20:00">20:00</option>
+                      <option value="20:15">20:15</option>
+                      <option value="20:30">20:30</option>
+                      <option value="20:45">20:45</option>
+                      <option value="21:00">21:00</option>
+                      <option value="21:15">21:15</option>
+                      <option value="21:30">21:30</option>
+                    </optgroup>
+                  </select>
+                  <span class="field-error">Choose a service time so we know which sitting to look at.</span>
+                  <span class="field-hint">Last kitchen order is 21:45 — 21:00 on Sundays.</span>
+                </div>
+              </div>
+
+              <fieldset class="field mt-6">
+                <legend>How many of you? <span class="req" aria-hidden="true">*</span></legend>
+                <div class="choice-row">
+                  <label class="choice">
+                    <input type="radio" name="party" value="1" required>
+                    <span>1</span>
+                  </label>
+                  <label class="choice">
+                    <input type="radio" name="party" value="2" checked required>
+                    <span>2</span>
+                  </label>
+                  <label class="choice">
+                    <input type="radio" name="party" value="3" required>
+                    <span>3</span>
+                  </label>
+                  <label class="choice">
+                    <input type="radio" name="party" value="4" required>
+                    <span>4</span>
+                  </label>
+                  <label class="choice">
+                    <input type="radio" name="party" value="5" required>
+                    <span>5</span>
+                  </label>
+                  <label class="choice">
+                    <input type="radio" name="party" value="6" required>
+                    <span>6</span>
+                  </label>
+                  <label class="choice">
+                    <input type="radio" name="party" value="7" required>
+                    <span>7</span>
+                  </label>
+                  <label class="choice">
+                    <input type="radio" name="party" value="8-plus" required>
+                    <span>8+</span>
+                  </label>
+                </div>
+                <p class="field-hint mt-3">
+                  Six or more takes a €20 per person card hold. For eight or more,
+                  ring us — that conversation is quicker than any form.
+                </p>
+              </fieldset>
+
+              <fieldset class="field mt-6">
+                <legend>Where would you like to sit?</legend>
+                <div class="choice-row">
+                  <label class="choice">
+                    <input type="radio" name="seating" value="dining-room">
+                    <span>Dining room</span>
+                  </label>
+                  <label class="choice">
+                    <input type="radio" name="seating" value="bar">
+                    <span>Bar</span>
+                  </label>
+                  <label class="choice">
+                    <input type="radio" name="seating" value="loft">
+                    <span>The Loft</span>
+                  </label>
+                  <label class="choice">
+                    <input type="radio" name="seating" value="none" checked>
+                    <span>No preference</span>
+                  </label>
+                </div>
+                <p class="field-hint mt-3">
+                  We'll do our best, but on a full Saturday the room decides. The Loft
+                  is up one flight of stairs and there is no lift.
+                </p>
+              </fieldset>
+            </div>
+
+            <!-- ===== 2. The occasion ===== -->
+            <div class="form-section">
+              <h3>The occasion</h3>
+
+              <fieldset class="field">
+                <legend>Are we celebrating anything?</legend>
+                <div class="grid grid--auto mt-4">
+                  <label class="radio-card">
+                    <input type="radio" name="occasion" value="dinner" checked>
+                    <span>
+                      <strong>Just dinner</strong>
+                      <small>The best kind. No candles, no fuss, no singing.</small>
+                    </span>
+                  </label>
+                  <label class="radio-card">
+                    <input type="radio" name="occasion" value="birthday">
+                    <span>
+                      <strong>Birthday</strong>
+                      <small>Tell us the name and we'll write it on the tart.</small>
+                    </span>
+                  </label>
+                  <label class="radio-card">
+                    <input type="radio" name="occasion" value="anniversary">
+                    <span>
+                      <strong>Anniversary</strong>
+                      <small>We'll find you the corner table by the window if it's free.</small>
+                    </span>
+                  </label>
+                  <label class="radio-card">
+                    <input type="radio" name="occasion" value="business">
+                    <span>
+                      <strong>Business</strong>
+                      <small>Early sitting, one bill, and we'll keep the music down.</small>
+                    </span>
+                  </label>
+                  <label class="radio-card">
+                    <input type="radio" name="occasion" value="celebration">
+                    <span>
+                      <strong>Celebration</strong>
+                      <small>Engagement, new job, survived the week — all count.</small>
+                    </span>
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+
+            <!-- ===== 3. Your details ===== -->
+            <div class="form-section">
+              <h3>Your details</h3>
+
+              <div class="form-grid">
+                <div class="field">
+                  <label class="field-label" for="res-first">
+                    First name <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input class="input" type="text" id="res-first" name="first_name" autocomplete="given-name" required
+                         placeholder="Aoife" data-error="We need a first name for the table card.">
+                  <span class="field-error">We need a first name for the table card.</span>
+                </div>
+
+                <div class="field">
+                  <label class="field-label" for="res-last">
+                    Last name <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input class="input" type="text" id="res-last" name="last_name" autocomplete="family-name" required
+                         placeholder="Brennan" data-error="A surname helps us find you in the book.">
+                  <span class="field-error">A surname helps us find you in the book.</span>
+                </div>
+
+                <div class="field">
+                  <label class="field-label" for="res-email">
+                    Email <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input class="input" type="email" id="res-email" name="email" autocomplete="email" required
+                         placeholder="you@example.com" data-error="Please give us a working email — the confirmation goes there.">
+                  <span class="field-error">Please give us a working email — the confirmation goes there.</span>
+                </div>
+
+                <div class="field">
+                  <label class="field-label" for="res-phone">
+                    Phone <span class="req" aria-hidden="true">*</span>
+                  </label>
+                  <input class="input" type="tel" id="res-phone" name="phone" autocomplete="tel" required
+                         placeholder="087 123 4567" data-error="A phone number, in case the fire has other plans.">
+                  <span class="field-error">A phone number, in case the fire has other plans.</span>
+                  <span class="field-hint">Only used if something changes on the night.</span>
+                </div>
+
+                <div class="field field--full">
+                  <label class="field-label" for="res-notes">
+                    Allergies, access needs or anything else <span class="opt">optional</span>
+                  </label>
+                  <textarea class="textarea" id="res-notes" name="notes" rows="4"
+                            placeholder="Coeliac, one high chair, wheelchair user, please seat us away from the hearth…"></textarea>
+                  <span class="field-hint">
+                    Tell us now rather than on the night and we can actually plan for it.
+                    We keep a coeliac-safe prep area, the full allergen list is at the door,
+                    and the vegan tasting menu needs 48 hours' notice. Step-free entrance
+                    from Marlowe Street, accessible WC on the ground floor.
+                  </span>
+                </div>
+
+                <div class="field field--full">
+                  <label class="checkbox">
+                    <input type="checkbox" name="policy" required
+                           data-error="Please confirm you've read the booking policy.">
+                    <span>
+                      I've read the booking policy: 24 hours' notice to cancel, a €20 per
+                      person card hold on parties of six or more, and fifteen minutes'
+                      grace on the night. <span class="req" aria-hidden="true">*</span>
+                    </span>
+                  </label>
+                  <span class="field-error">Please confirm you've read the booking policy.</span>
+                </div>
+
+                <div class="field field--full">
+                  <label class="checkbox">
+                    <input type="checkbox" name="newsletter">
+                    <span>
+                      Send me the occasional note — new menu, wine dinners, the week the
+                      hearth is off for its annual sweep. About once a month, never more.
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Honeypot — invisible to people, catches naive bots. -->
+            <div class="hp">
+              <label>Leave blank<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+            </div>
+
+            <div class="form-status mt-6" data-form-status role="status" aria-live="polite">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 10.5l4 4 8-9"/>
+              </svg>
+              <div>
+                <strong>Request received — thank you.</strong>
+                Nothing is confirmed just yet. We check the book by hand and come back
+                to you by email within a few hours, and always the same day during
+                service. If you don't hear from us by the next morning, ring
+                <a href="tel:+35315550184">01 555 0184</a> and we'll sort it on the spot.
+              </div>
+            </div>
+
+            <div class="form-foot">
+              <button class="btn btn--primary btn--lg" type="submit" data-sending="Sending…">Request this table</button>
+              <p class="form-note" data-demo-notice>
+                <strong>Not connected yet.</strong> Booking requests are ready to send, but no
+                form provider has been configured. Add yours to the <code>forms</code> block in
+                <code>config.js</code> — see <code>SETUP.md</code>. Until then the form falls back
+                to the visitor's own mail app. This note disappears once a key is in place.
+              </p>
+            </div>
+          </form>
+        </div>
+
+        <!-- ---------- Sidebar ---------- -->
+        <aside class="form-aside" aria-labelledby="hours-title">
+          <div class="sticky-col">
+
+            <div class="panel reveal reveal-delay-1">
+              <h2 id="hours-title" class="title-sm">When we're open</h2>
+              <ul class="hours-list mt-4">
+                <li data-day="1"><span>Monday</span><span>Closed</span></li>
+                <li data-day="2"><span>Tuesday</span><span>17:30 – 22:30</span></li>
+                <li data-day="3"><span>Wednesday</span><span>17:30 – 22:30</span></li>
+                <li data-day="4"><span>Thursday</span><span>17:30 – 22:30</span></li>
+                <li data-day="5"><span>Friday</span><span>12:00 – 15:00 · 17:30 – 23:30</span></li>
+                <li data-day="6"><span>Saturday</span><span>12:00 – 15:00 · 17:30 – 23:30</span></li>
+                <li data-day="0"><span>Sunday</span><span>12:00 – 17:00</span></li>
+              </ul>
+
+              <p class="mt-5">
+                <span class="badge-dot" data-hours-status data-open-from="17:30" data-open-to="22:30" data-closed-days="1">Open now</span>
+              </p>
+
+              <dl class="info-list mt-6">
+                <div>
+                  <span class="info-icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4.5 3h3l1.2 3-1.7 1.3a10 10 0 004.7 4.7L13 10.3l3 1.2v3a1.5 1.5 0 01-1.6 1.5A12.6 12.6 0 013 4.6 1.5 1.5 0 014.5 3z"/>
+                    </svg>
+                  </span>
+                  <div>
+                    <dt>Same-day tables</dt>
+                    <dd><a href="tel:+35315550184">01 555 0184</a> — the phone is answered from 16:00.</dd>
+                  </div>
+                </div>
+                <div>
+                  <span class="info-icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
+                      <rect x="2.6" y="4.5" width="14.8" height="11" rx="2"/>
+                      <path d="M3 6l7 4.6L17 6"/>
+                    </svg>
+                  </span>
+                  <div>
+                    <dt>Bookings inbox</dt>
+                    <dd><a href="mailto:bookings@emberandoak.example.com">bookings@emberandoak.example.com</a></dd>
+                  </div>
+                </div>
+                <div>
+                  <span class="info-icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M10 2a5.5 5.5 0 00-5.5 5.5c0 4 5.5 10.5 5.5 10.5s5.5-6.5 5.5-10.5A5.5 5.5 0 0010 2z"/>
+                      <circle cx="10" cy="7.5" r="2.1"/>
+                    </svg>
+                  </span>
+                  <div>
+                    <dt>Where we are</dt>
+                    <dd>
+                      14 Marlowe Street, Stoneybatter, Dublin 7, D07 XK92.<br>
+                      <a href="contact.html">Directions and transport</a>
+                    </dd>
+                  </div>
+                </div>
+              </dl>
+            </div>
+
+            <div class="panel panel--inset reveal reveal-delay-2">
+              <h2 class="title-sm">Good to know</h2>
+              <div class="prose text-sm mt-4">
+                <ul>
+                  <li>Tables are released <strong>thirty days ahead</strong>, at nine in the morning.</li>
+                  <li>Your table is held for <strong>fifteen minutes</strong>. Ring us if the Luas betrays you.</li>
+                  <li><strong>Walk-ins</strong> are always welcome at the eight zinc bar seats — first come, first fed.</li>
+                  <li>The set menu, <strong>“At the Hearth”</strong>, is six courses at €72 a head, whole table only. Wine pairing €48.</li>
+                  <li><strong>Corkage €25</strong>, Tuesdays and Wednesdays only. One bottle per two guests, nothing already on our list.</li>
+                  <li>Last kitchen order <strong>21:45</strong>, or 21:00 on a Sunday.</li>
+                  <li>Step-free entrance and an accessible WC on the ground floor. The Loft is up one flight with no lift — we'd rather tell you now.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="callout reveal reveal-delay-3">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7.4 8.2a2.6 2.6 0 10-2.6-2.6M4 16.2v-1.1a3.4 3.4 0 013.4-3.4h.6M14.4 9.4a2.8 2.8 0 10-2.8-2.8M9 17v-1.4a3.6 3.6 0 013.6-3.6h1.6A3.6 3.6 0 0117.8 15v2"/>
+              </svg>
+              <div>
+                <strong>Eight or more?</strong>
+                That's a Loft booking — 18 seated, 30 standing, the whole room to
+                yourselves. Ring <a href="tel:+35315550184">01 555 0184</a> or email
+                <a href="mailto:events@emberandoak.example.com">events@emberandoak.example.com</a>
+                and Aoife will build the night around you, wine included.
+              </div>
+            </div>
+
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== POLICIES & FAQ ============================== -->
+  <section class="section section--alt" aria-labelledby="policy-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">The fine print</p>
+        <h2 id="policy-title">Four rules, and none of them are new</h2>
+        <p>
+          We are twelve tables. An empty one on a Saturday is the difference between
+          a good week and an awkward one, so these are the rules we hold to — politely,
+          but we do hold to them.
+        </p>
+      </div>
+
+      <ul class="value-list reveal">
+        <li>
+          <span class="value-num" aria-hidden="true">01</span>
+          <div class="measure">
+            <h3>Deposit</h3>
+            <p>
+              <strong>Parties of six or more.</strong> A €20 per person card hold, taken
+              when we confirm. It is never charged if you turn up, or if you cancel in
+              time, and it comes off nothing on the night — it is a hold, not a payment.
+              One to five people: nothing at all.
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="value-num" aria-hidden="true">02</span>
+          <div class="measure">
+            <h3>Cancellation</h3>
+            <p>
+              <strong>Every booking.</strong> Twenty-four hours' notice, by phone or
+              email, and the hold is released the same day. Inside 24 hours we charge it,
+              because at that point the table cannot be refilled and the food is already
+              bought.
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="value-num" aria-hidden="true">03</span>
+          <div class="measure">
+            <h3>Late arrival</h3>
+            <p>
+              <strong>Every booking.</strong> Ring us. Genuinely — a two-minute call and
+              we will move the kitchen around you. Silence is the only thing we can't
+              work with.
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="value-num" aria-hidden="true">04</span>
+          <div class="measure">
+            <h3>Grace period</h3>
+            <p>
+              <strong>Every booking.</strong> Fifteen minutes. After that we may release
+              the table to whoever is waiting at the bar, and on a Friday we usually have
+              to. Policy last reviewed January 2026.
+            </p>
+          </div>
+        </li>
+      </ul>
+
+      <h3 class="mt-8 reveal">Questions we get asked</h3>
+      <div class="accordion mt-5 reveal" data-accordion="single">
+        <div class="acc-item">
+          <button class="acc-trigger" type="button" aria-expanded="false" id="faq-t1" aria-controls="faq-p1">
+            Do I have to leave a deposit?
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+          <div class="acc-panel" id="faq-p1" role="region" aria-labelledby="faq-t1">
+            <div>
+              <p>
+                Only for six or more, and only as a card hold of €20 a head. Nothing is
+                taken from the card unless you cancel inside 24 hours or don't arrive.
+                For one to five people we ask for nothing at all — we'd rather trust you
+                and be occasionally disappointed.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-trigger" type="button" aria-expanded="false" id="faq-t2" aria-controls="faq-p2">
+            How do I cancel or move a booking?
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+          <div class="acc-panel" id="faq-p2" role="region" aria-labelledby="faq-t2">
+            <div>
+              <p>
+                Reply to your confirmation email, or ring
+                <a href="tel:+35315550184">01 555 0184</a> after four o'clock. Twenty-four
+                hours' notice and there is no charge and no hard feelings. Moving to
+                another night is usually easier than cancelling outright, and we will
+                always try to find you something.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-trigger" type="button" aria-expanded="false" id="faq-t3" aria-controls="faq-p3">
+            What if we're running late?
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+          <div class="acc-panel" id="faq-p3" role="region" aria-labelledby="faq-t3">
+            <div>
+              <p>
+                We hold the table for fifteen minutes. Beyond that it depends entirely on
+                the night — midweek we can usually stretch, on a Saturday there are people
+                at the bar hoping you don't show. One phone call fixes almost all of it.
+                If you arrive very late we may have to shorten the menu, because the fire
+                keeps its own schedule.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-trigger" type="button" aria-expanded="false" id="faq-t4" aria-controls="faq-p4">
+            Can we bring the dog?
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+          <div class="acc-panel" id="faq-p4" role="region" aria-labelledby="faq-t4">
+            <div>
+              <p>
+                Assistance dogs anywhere in the building, always, no notice needed. Otherwise
+                the dining room is a no — it is a small room with an open hearth and a lot of
+                people carrying hot plates. Well-behaved dogs are welcome on the courtyard
+                terrace from May to September, where there is usually a bowl of water and a
+                sous chef who will make a fuss of them.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-trigger" type="button" aria-expanded="false" id="faq-t5" aria-controls="faq-p5">
+            Can I request a specific table?
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+          <div class="acc-panel" id="faq-p5" role="region" aria-labelledby="faq-t5">
+            <div>
+              <p>
+                Ask, and we will note it, and we will try. What we won't do is promise it —
+                with twelve tables, one late-running party is enough to undo the whole plan.
+                If you want table four by the window for an anniversary, tell us in the notes
+                and book the early sitting. That is the honest way to get it.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== WHAT HAPPENS NEXT ============================== -->
+  <section class="section" aria-labelledby="next-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">After you press send</p>
+        <h2 id="next-title">What happens next</h2>
+        <p>
+          No booking widget, no third-party platform, no confirmation code you'll need
+          a login to read. Just the four steps below.
+        </p>
+      </div>
+
+      <div class="steps">
+        <div class="step reveal">
+          <h3>You send the request</h3>
+          <p>
+            It lands in the bookings inbox with your date, time, party size and any
+            notes. Nothing is charged and nothing is confirmed at this point.
+          </p>
+        </div>
+        <div class="step reveal reveal-delay-1">
+          <h3>We reply by email</h3>
+          <p>
+            Usually within a few hours, always the same day if you write before
+            service. If the time you wanted is gone, we'll offer you the two nearest
+            slots rather than a form letter.
+          </p>
+        </div>
+        <div class="step reveal reveal-delay-2">
+          <h3>A reminder the day before</h3>
+          <p>
+            One short email with the time, the number of covers and a link to cancel
+            in a single click. If anything has changed, that's the moment to tell us.
+          </p>
+        </div>
+        <div class="step reveal reveal-delay-3">
+          <h3>The table is held 15 minutes</h3>
+          <p>
+            Arrive, give your name at the door, and someone will walk you to it. The
+            fire has been going since four; you're not waiting on anything but a menu.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== CLOSING CTA ============================== -->
+  <section class="cta-band" aria-labelledby="cta-title">
+    <div class="container container--narrow">
+      <p class="eyebrow eyebrow--center" style="justify-content:center;">Prefer to talk to a person?</p>
+      <h2 id="cta-title">Ring us — we're by the pass from four</h2>
+      <p>
+        Same-day tables, big groups, cakes, allergies, or a booking so specific it
+        needs a conversation. The phone is quicker than the form, and there is nobody
+        on the other end reading from a script.
+      </p>
+      <div class="cta-actions">
+        <a class="btn btn--primary btn--lg" href="tel:+35315550184">Call 01 555 0184</a>
+        <a class="btn btn--outline-light btn--lg" href="mailto:bookings@emberandoak.example.com">Email bookings</a>
+      </div>
+      <p class="cta-fineprint">Walk-ins welcome at the bar · Tables released 30 days ahead · Last kitchen order 21:45</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="site-footer">
+  <div class="container container--wide">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" aria-label="Ember and Oak — home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor">
+              <path d="M10 1.5c1.9 2.6 1.1 4.2.2 5.6-.9 1.4-1.6 2.6-.6 4.3.3-1.4 1.1-2.3 2-3-.3 2 .6 2.8 1.4 3.8.9 1.1 1.4 2.3 1.4 3.4 0 2.5-2 4.4-4.4 4.4S5.6 18.1 5.6 15.6c0-2.4 1.4-3.7 2.6-5.2 1.3-1.6 2.4-3.4 1.8-8.9z"/>
+            </svg>
+          </span>
+          <span class="brand-text">Ember &amp; Oak<small>Dublin 7</small></span>
+        </a>
+        <p>
+          A wood-fired kitchen and wine room in a converted coach house.
+          Twelve tables, one hearth, no gas line.
+        </p>
+        <div class="social">
+          <a href="https://www.instagram.com/emberandoak" aria-label="Ember and Oak on Instagram" rel="noopener">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="3" y="3" width="14" height="14" rx="4.2"/>
+              <circle cx="10" cy="10" r="3.4"/>
+              <circle cx="14.3" cy="5.7" r="0.9" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/emberandoak" aria-label="Ember and Oak on Facebook" rel="noopener">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path d="M11.6 18v-6.6h2.2l.33-2.6h-2.53V7.1c0-.75.21-1.26 1.28-1.26h1.37V3.52A18.4 18.4 0 0012.26 3.4c-1.98 0-3.33 1.21-3.33 3.43V8.8H6.7v2.6h2.23V18z"/>
+            </svg>
+          </a>
+          <a href="mailto:hello@emberandoak.example.com" aria-label="Email Ember and Oak">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2.6" y="4.5" width="14.8" height="11" rx="2"/>
+              <path d="M3 6l7 4.6L17 6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3>Visit</h3>
+        <address>
+          14 Marlowe Street<br>
+          Stoneybatter<br>
+          Dublin 7, D07 XK92<br>
+          Ireland
+        </address>
+        <ul style="margin-top: 1rem;">
+          <li><a href="tel:+35315550184">01 555 0184</a></li>
+          <li><a href="mailto:hello@emberandoak.example.com">hello@emberandoak.example.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Hours</h3>
+        <ul>
+          <li>Mon — Closed</li>
+          <li>Tue–Thu — 17:30–22:30</li>
+          <li>Fri–Sat — 12:00–15:00</li>
+          <li>Fri–Sat — 17:30–23:30</li>
+          <li>Sun — 12:00–17:00</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="reservations.html">Reservations</a></li>
+          <li><a href="about.html">Our story</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Visit &amp; contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span data-year>2026</span> Ember &amp; Oak. Template demo content.</p>
+      <p class="template-notice">
+        Ember &amp; Oak is a fictional business used to demonstrate this template.
+        Menus, prices, people and reviews are illustrative only.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="config.js" defer></script>
+<script src="js/forms.js" defer></script>
+<script src="js/integrations.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>

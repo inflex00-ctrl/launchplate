@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prompt library — Lumen Playground</title>
+<meta name="description" content="Twelve production-tested prompts for Lumen agents, with the exact input and the output it returns. Filter by use case and copy any prompt in one click.">
+<meta name="theme-color" content="#fcfbf9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0b0f" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://lumen.example.com/playground.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumen">
+<meta property="og:url" content="https://lumen.example.com/playground.html">
+<meta property="og:title" content="Prompt library — Lumen Playground">
+<meta property="og:description" content="Production-tested prompts with real input/output pairs. Filter by use case and copy in one click.">
+<meta property="og:image" content="assets/og-playground.png">
+<meta property="og:image:alt" content="The Lumen prompt library.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Prompt library — Lumen Playground">
+<meta name="twitter:description" content="Production-tested prompts with real input/output pairs.">
+<meta name="twitter:image" content="assets/og-playground.png">
+
+<link rel="stylesheet" href="css/style.css">
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("lumen-theme");
+      if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Lumen prompt library",
+  "url": "https://lumen.example.com/playground.html",
+  "description": "Production-tested prompts for Lumen agents with paired input and output examples.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Lumen",
+    "url": "https://lumen.example.com/"
+  },
+  "about": {
+    "@type": "SoftwareApplication",
+    "name": "Lumen",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web"
+  }
+}
+</script>
+  <noscript><style>/* JS off: entrance animations never run, so show final state */
+.afx__aurora,.afx__beam,.afx__bloom,.afx__meteor,.reveal{opacity:1!important;transform:none!important;clip-path:none!important;filter:none!important}</style></noscript>
+</head>
+
+<body class="full-height">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" data-header>
+  <div class="container container--wide">
+    <a class="brand" href="index.html" aria-label="Lumen — home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l1.9 4.9 4.9 1.9-4.9 1.9L10 15.2 8.1 10.3 3.2 8.4l4.9-1.9L10 1.6z"/><path d="M15.6 13.2l.8 2.1 2.1.8-2.1.8-.8 2.1-.8-2.1-2.1-.8 2.1-.8.8-2.1z" opacity=".55"/></svg>
+      </span>
+      Lumen
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Product</a>
+      <a href="playground.html" aria-current="page">Playground</a>
+      <a href="models.html">Models</a>
+      <a href="api.html">API</a>
+      <a href="pricing.html">Pricing</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="icon-moon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.5 11.8A6.8 6.8 0 018.2 3.5a6.8 6.8 0 108.3 8.3z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 1.8v1.8M10 16.4v1.8M18.2 10h-1.8M3.6 10H1.8M15.8 4.2l-1.3 1.3M5.5 14.5l-1.3 1.3M15.8 15.8l-1.3-1.3M5.5 5.5L4.2 4.2"/></svg>
+      </button>
+      <a class="btn btn--secondary btn--sm header-cta" href="api.html">Docs</a>
+      <a class="btn btn--primary btn--sm header-cta" href="waitlist.html">Start free</a>
+      <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav" data-mobile-nav>
+  <ul>
+    <li><a href="index.html">Product</a></li>
+    <li><a href="playground.html" aria-current="page">Playground</a></li>
+    <li><a href="models.html">Models</a></li>
+    <li><a href="api.html">API reference</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+  </ul>
+  <a class="btn btn--primary btn--block" href="waitlist.html">Start free</a>
+</div>
+
+<main id="main">
+
+  <section class="page-head">
+    <div class="container container--wide">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5L10.5 8 6 12.5"/></svg>
+        <span aria-current="page">Playground</span>
+      </nav>
+      <p class="eyebrow">Prompt library</p>
+      <h1>Prompts that already survived production</h1>
+      <p class="lead">
+        Every prompt below runs in a real customer workspace. We have kept the exact
+        wording, the model it targets and the answer it returns — including the parts
+        where the agent pushes back. Copy one and adapt it to your data.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--wide">
+
+      <div class="filter-bar">
+        <div class="chips" role="group" aria-label="Filter prompts by category">
+          <button class="chip" type="button" data-filter="all" aria-pressed="true">All <span class="count">12</span></button>
+          <button class="chip" type="button" data-filter="support" aria-pressed="false">Support <span class="count">2</span></button>
+          <button class="chip" type="button" data-filter="research" aria-pressed="false">Research <span class="count">2</span></button>
+          <button class="chip" type="button" data-filter="engineering" aria-pressed="false">Engineering <span class="count">3</span></button>
+          <button class="chip" type="button" data-filter="data" aria-pressed="false">Data <span class="count">2</span></button>
+          <button class="chip" type="button" data-filter="legal" aria-pressed="false">Legal <span class="count">2</span></button>
+          <button class="chip" type="button" data-filter="content" aria-pressed="false">Content <span class="count">1</span></button>
+        </div>
+
+        <div class="field" style="max-width:260px;width:100%">
+          <label class="sr-only" for="prompt-search">Search prompts</label>
+          <input class="input" type="search" id="prompt-search" placeholder="Search prompts…" data-prompt-search autocomplete="off">
+        </div>
+      </div>
+
+      <p class="subtle mb-5" aria-live="polite" data-result-count>Showing all 12 prompts</p>
+
+      <div class="prompt-grid" data-prompt-grid>
+
+        <!-- 1 -->
+        <article class="prompt-card" data-category="support" data-keywords="ticket triage refund support macro">
+          <div class="prompt-head">
+            <div>
+              <h3>Ticket triage with macro grounding</h3>
+              <div class="prompt-tags">
+                <span class="badge badge--brand">Support</span>
+                <span class="badge">lumen-pro</span>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-io">
+            <div class="io-block">
+              <div class="io-label">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4"/></svg>
+                Prompt
+              </div>
+              <p class="io-text" id="pmt-1">You are a support agent for an e-commerce brand. Read the ticket, find the closest matching macro in the `support-macros` collection, and draft a reply in that macro's voice. If no macro scores above 0.7, say so and escalate instead of guessing.</p>
+            </div>
+            <div class="io-block io-block--output">
+              <div class="io-label">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 8h-11M6.5 12l-4-4 4-4"/></svg>
+                Output
+              </div>
+              <div class="io-text">
+                <p>Matched <strong>“Late delivery — courier delay”</strong> at 0.86.</p>
+                <p>Hi Amara — your parcel is sitting at the Rotterdam hub and the courier has it moving again tonight. I have refunded the €4.95 shipping fee and added a €10 credit for the trouble. New ETA is Thursday.</p>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-foot">
+            <div class="prompt-stats"><span>1,240 tok</span><span>€0.0041</span></div>
+            <button class="copy-inline" type="button" data-copy="#pmt-1" data-copy-message="Prompt copied">
+              <svg class="icon-copy" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="9" rx="1.6"/><path d="M10.5 5.5v-1A1.5 1.5 0 009 3H4a1.5 1.5 0 00-1.5 1.5v6A1.5 1.5 0 004 12h1"/></svg>
+              <svg class="icon-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>
+              <span data-copy-label>Copy prompt</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="prompt-card" data-category="engineering" data-keywords="code review pull request diff convention">
+          <div class="prompt-head">
+            <div>
+              <h3>Pull request reviewer</h3>
+              <div class="prompt-tags">
+                <span class="badge badge--brand">Engineering</span>
+                <span class="badge">lumen-pro</span>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-io">
+            <div class="io-block">
+              <div class="io-label">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4"/></svg>
+                Prompt
+              </div>
+              <p class="io-text" id="pmt-2">Review this diff against the conventions in `eng-handbook`. Report only issues that would block a merge — correctness, security, and public API changes. Skip style. For each finding give the file, the line, and a one-sentence fix.</p>
+            </div>
+            <div class="io-block io-block--output">
+              <div class="io-label">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 8h-11M6.5 12l-4-4 4-4"/></svg>
+                Output
+              </div>
+              <div class="io-text">
+                <p>Two blocking findings:</p>
+                <ul>
+                  <li><code>auth/session.go:88</code> — token compared with <code>==</code>; use a constant-time compare.</li>
+                  <li><code>api/v2/users.py:214</code> — removes <code>email</code> from the response; that is a breaking change to a public field.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-foot">
+            <div class="prompt-stats"><span>3,910 tok</span><span>€0.0129</span></div>
+            <button class="copy-inline" type="button" data-copy="#pmt-2" data-copy-message="Prompt copied">
+              <svg class="icon-copy" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="9" rx="1.6"/><path d="M10.5 5.5v-1A1.5 1.5 0 009 3H4a1.5 1.5 0 00-1.5 1.5v6A1.5 1.5 0 004 12h1"/></svg>
+              <svg class="icon-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>
+              <span data-copy-label>Copy prompt</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="prompt-card" data-category="legal" data-keywords="contract clause redline msa legal">
+          <div class="prompt-head">
+            <div>
+              <h3>Contract deviation check</h3>
+              <div class="prompt-tags">
+                <span class="badge badge--brand">Legal</span>
+                <span class="badge">lumen-pro</span>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-io">
+            <div class="io-block">
+              <div class="io-label">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4"/></svg>
+                Prompt
+              </div>
+              <p class="io-text" id="pmt-3">Compare the attached agreement to `MSA-standard-v4`. List every clause that differs materially, cite the section number of both documents, and rate the commercial risk as low, medium or high. Do not summarise clauses that match.</p>
+            </div>
+            <div class="io-block io-block--output">
+              <div class="io-label">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 8h-11M6.5 12l-4-4 4-4"/></svg>
+                Output
+              </div>
+              <div class="io-text">
+                <p>Three material deviations.</p>
+                <ul>
+                  <li><strong>High</strong> — §9.1 caps liability at 1× fees (standard §8.1: 2×).</li>
+                  <li><strong>Medium</strong> — §4.2 Net-60 payment terms (standard: Net-30).</li>
+                  <li><strong>Low</strong> — §12.4 auto-renews with 90 days' notice (standard: 60).</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-foot">
+            <div class="prompt-stats"><span>28,400 tok</span><span>€0.0937</span></div>
+            <button class="copy-inline" type="button" data-copy="#pmt-3" data-copy-message="Prompt copied">
+              <svg class="icon-copy" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="9" rx="1.6"/><path d="M10.5 5.5v-1A1.5 1.5 0 009 3H4a1.5 1.5 0 00-1.5 1.5v6A1.5 1.5 0 004 12h1"/></svg>
+              <svg class="icon-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>
+              <span data-copy-label>Copy prompt</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- 4 -->
+        <article class="prompt-card" data-category="data" data-keywords="sql warehouse analytics query text-to-sql">
+          <div class="prompt-head">
+            <div>
+              <h3>Text to SQL, read-only</h3>
+              <div class="prompt-tags">
+                <span class="badge badge--brand">Data</span>
+                <span class="badge">lumen-pro</span>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-io">
+            <div class="io-block">
+              <div class="io-label">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4"/></svg>
+                Prompt
+              </div>
+              <p class="io-text" id="pmt-4">Using the schema in `warehouse-ddl`, answer the question with a single Postgres query. Read-only: no INSERT, UPDATE, DELETE or DDL. Always add a LIMIT. Return the SQL first, then one sentence explaining what it counts.</p>
+            </div>
+            <div class="io-block io-block--output">
+              <div class="io-label">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 8h-11M6.5 12l-4-4 4-4"/></svg>
+                Output
+              </div>
+              <div class="io-text">
+                <p class="mono" style="font-size:var(--step--2);line-height:1.6">SELECT plan, count(*) AS churned<br>FROM subscriptions<br>WHERE cancelled_at &gt;= now() - interval '30 days'<br>GROUP BY plan ORDER BY churned DESC LIMIT 50;</p>
+                <p class="mt-3">Counts subscriptions cancelled in the last 30 days, grouped by plan.</p>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-foot">
+            <div class="prompt-stats"><span>2,180 tok</span><span>€0.0072</span></div>
+            <button class="copy-inline" type="button" data-copy="#pmt-4" data-copy-message="Prompt copied">
+              <svg class="icon-copy" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="9" rx="1.6"/><path d="M10.5 5.5v-1A1.5 1.5 0 009 3H4a1.5 1.5 0 00-1.5 1.5v6A1.5 1.5 0 004 12h1"/></svg>
+              <svg class="icon-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>
+              <span data-copy-label>Copy prompt</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- 5 -->
+        <article class="prompt-card" data-category="research" data-keywords="competitor research sales account brief">
+          <div class="prompt-head">
+            <div>
+              <h3>Pre-call account brief</h3>
+              <div class="prompt-tags">
+                <span class="badge badge--brand">Research</span>
+                <span class="badge">lumen-flash</span>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-io">
+            <div class="io-block">
+              <div class="io-label">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4"/></svg>
+                Prompt
+              </div>
+              <p class="io-text" id="pmt-5">Build a one-page brief for tomorrow's call. Pull the last four touchpoints from CRM, any open support tickets, and their public product changes in the last quarter. End with three questions worth asking. Mark anything you could not verify.</p>
+            </div>
+            <div class="io-block io-block--output">
+              <div class="io-label">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 8h-11M6.5 12l-4-4 4-4"/></svg>
+                Output
+              </div>
+              <div class="io-text">
+                <p><strong>Halcyon · renewal in 41 days</strong></p>
+                <ul>
+                  <li>Usage up 3.2× since March; two seats short of the Scale tier.</li>
+                  <li>Open ticket #4471 on SSO group sync — 9 days, unresolved.</li>
+                  <li>Unverified: rumoured Series B, single blog source only.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-foot">
+            <div class="prompt-stats"><span>5,600 tok</span><span>€0.0056</span></div>
+            <button class="copy-inline" type="button" data-copy="#pmt-5" data-copy-message="Prompt copied">
+              <svg class="icon-copy" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="9" rx="1.6"/><path d="M10.5 5.5v-1A1.5 1.5 0 009 3H4a1.5 1.5 0 00-1.5 1.5v6A1.5 1.5 0 004 12h1"/></svg>
+              <svg class="icon-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>
+              <span data-copy-label>Copy prompt</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- 6 -->
+        <article class="prompt-card" data-category="engineering" data-keywords="incident postmortem logs debugging on-call">
+          <div class="prompt-head">
+            <div>
+              <h3>Incident timeline from logs</h3>
+              <div class="prompt-tags">
+                <span class="badge badge--brand">Engineering</span>
+                <span class="badge">lumen-pro</span>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-io">
+            <div class="io-block">
+              <div class="io-label">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4"/></svg>
+                Prompt
+              </div>
+              <p class="io-text" id="pmt-6">From these logs and the on-call Slack thread, reconstruct the incident timeline in UTC. Separate what we observed from what we inferred. Do not name a root cause unless a log line supports it — otherwise list the top two hypotheses.</p>
+            </div>
+            <div class="io-block io-block--output">
+              <div class="io-label">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 8h-11M6.5 12l-4-4 4-4"/></svg>
+                Output
+              </div>
+              <div class="io-text">
+                <ul>
+                  <li><strong>14:02</strong> — p99 latency crosses 4s on <code>checkout-api</code>. Observed.</li>
+                  <li><strong>14:06</strong> — connection pool saturated at 200/200. Observed.</li>
+                  <li><strong>14:19</strong> — rollback of <code>v2.31.0</code> restores latency. Observed.</li>
+                </ul>
+                <p class="mt-3">No log line proves causation. Hypotheses: the new N+1 query in <code>v2.31.0</code>, or the replica failover at 13:58.</p>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-foot">
+            <div class="prompt-stats"><span>18,700 tok</span><span>€0.0617</span></div>
+            <button class="copy-inline" type="button" data-copy="#pmt-6" data-copy-message="Prompt copied">
+              <svg class="icon-copy" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="9" rx="1.6"/><path d="M10.5 5.5v-1A1.5 1.5 0 009 3H4a1.5 1.5 0 00-1.5 1.5v6A1.5 1.5 0 004 12h1"/></svg>
+              <svg class="icon-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>
+              <span data-copy-label>Copy prompt</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- 7 -->
+        <article class="prompt-card" data-category="support" data-keywords="churn feedback sentiment themes voice of customer">
+          <div class="prompt-head">
+            <div>
+              <h3>Churn reason clustering</h3>
+              <div class="prompt-tags">
+                <span class="badge badge--brand">Support</span>
+                <span class="badge">lumen-flash</span>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-io">
+            <div class="io-block">
+              <div class="io-label">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4"/></svg>
+                Prompt
+              </div>
+              <p class="io-text" id="pmt-7">Group these 340 cancellation notes into at most six themes. Name each theme in the customer's own language, not ours. Give a count and one verbatim quote per theme. Put anything that fits nowhere into "Other" rather than forcing it.</p>
+            </div>
+            <div class="io-block io-block--output">
+              <div class="io-label">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 8h-11M6.5 12l-4-4 4-4"/></svg>
+                Output
+              </div>
+              <div class="io-text">
+                <ul>
+                  <li><strong>“Never got it set up” (94)</strong> — “We bought it in March and never finished onboarding.”</li>
+                  <li><strong>“Too expensive for what we use” (77)</strong></li>
+                  <li><strong>“Switched to a bundled tool” (61)</strong></li>
+                  <li><strong>Other (23)</strong> — no shared theme.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-foot">
+            <div class="prompt-stats"><span>41,200 tok</span><span>€0.0412</span></div>
+            <button class="copy-inline" type="button" data-copy="#pmt-7" data-copy-message="Prompt copied">
+              <svg class="icon-copy" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="9" rx="1.6"/><path d="M10.5 5.5v-1A1.5 1.5 0 009 3H4a1.5 1.5 0 00-1.5 1.5v6A1.5 1.5 0 004 12h1"/></svg>
+              <svg class="icon-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>
+              <span data-copy-label>Copy prompt</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- 8 -->
+        <article class="prompt-card" data-category="research" data-keywords="literature review papers citations science">
+          <div class="prompt-head">
+            <div>
+              <h3>Evidence check with citations</h3>
+              <div class="prompt-tags">
+                <span class="badge badge--brand">Research</span>
+                <span class="badge">lumen-pro</span>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-io">
+            <div class="io-block">
+              <div class="io-label">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4"/></svg>
+                Prompt
+              </div>
+              <p class="io-text" id="pmt-8">For each claim in the draft, find supporting evidence in the `papers` collection. Label each claim Supported, Contradicted, or Unsupported, and quote the sentence you relied on. Never mark a claim Supported from the abstract alone.</p>
+            </div>
+            <div class="io-block io-block--output">
+              <div class="io-label">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 8h-11M6.5 12l-4-4 4-4"/></svg>
+                Output
+              </div>
+              <div class="io-text">
+                <ul>
+                  <li><strong>Supported</strong> — claim 1. Okafor 2024, §4.2: “retrieval reduced hallucination rate from 11.4% to 3.1%.”</li>
+                  <li><strong>Unsupported</strong> — claim 4. Nothing in the corpus addresses multilingual recall.</li>
+                  <li><strong>Contradicted</strong> — claim 6. Lindqvist 2023 reports the opposite effect at scale.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-foot">
+            <div class="prompt-stats"><span>62,900 tok</span><span>€0.2076</span></div>
+            <button class="copy-inline" type="button" data-copy="#pmt-8" data-copy-message="Prompt copied">
+              <svg class="icon-copy" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="9" rx="1.6"/><path d="M10.5 5.5v-1A1.5 1.5 0 009 3H4a1.5 1.5 0 00-1.5 1.5v6A1.5 1.5 0 004 12h1"/></svg>
+              <svg class="icon-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>
+              <span data-copy-label>Copy prompt</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- 9 -->
+        <article class="prompt-card" data-category="content" data-keywords="release notes changelog writing marketing">
+          <div class="prompt-head">
+            <div>
+              <h3>Release notes from commits</h3>
+              <div class="prompt-tags">
+                <span class="badge badge--brand">Content</span>
+                <span class="badge">lumen-flash</span>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-io">
+            <div class="io-block">
+              <div class="io-label">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4"/></svg>
+                Prompt
+              </div>
+              <p class="io-text" id="pmt-9">Turn these 84 merged commits into release notes for customers, not engineers. Three sections: New, Improved, Fixed. Lead each line with the benefit. Drop refactors and dependency bumps unless they change behaviour.</p>
+            </div>
+            <div class="io-block io-block--output">
+              <div class="io-label">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 8h-11M6.5 12l-4-4 4-4"/></svg>
+                Output
+              </div>
+              <div class="io-text">
+                <p><strong>New</strong></p>
+                <ul>
+                  <li>Share a saved view with your whole workspace in one click.</li>
+                </ul>
+                <p class="mt-3"><strong>Fixed</strong></p>
+                <ul>
+                  <li>CSV exports keep leading zeros in postcodes.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-foot">
+            <div class="prompt-stats"><span>7,400 tok</span><span>€0.0074</span></div>
+            <button class="copy-inline" type="button" data-copy="#pmt-9" data-copy-message="Prompt copied">
+              <svg class="icon-copy" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="9" rx="1.6"/><path d="M10.5 5.5v-1A1.5 1.5 0 009 3H4a1.5 1.5 0 00-1.5 1.5v6A1.5 1.5 0 004 12h1"/></svg>
+              <svg class="icon-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>
+              <span data-copy-label>Copy prompt</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- 10 -->
+        <article class="prompt-card" data-category="data" data-keywords="anomaly metrics dashboard alert explain">
+          <div class="prompt-head">
+            <div>
+              <h3>Metric anomaly explainer</h3>
+              <div class="prompt-tags">
+                <span class="badge badge--brand">Data</span>
+                <span class="badge">lumen-pro</span>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-io">
+            <div class="io-block">
+              <div class="io-label">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4"/></svg>
+                Prompt
+              </div>
+              <p class="io-text" id="pmt-10">Signups fell 18% week over week. Break the drop down by channel, country and device, and tell me which segment explains most of it. Check whether tracking changed before blaming demand.</p>
+            </div>
+            <div class="io-block io-block--output">
+              <div class="io-label">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 8h-11M6.5 12l-4-4 4-4"/></svg>
+                Output
+              </div>
+              <div class="io-text">
+                <p>82% of the drop sits in one segment: paid search, Germany, mobile.</p>
+                <p class="mt-3">Before you treat it as demand — the consent banner shipped on the 14th and mobile events fell 71% the same hour. Likely measurement, not signups.</p>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-foot">
+            <div class="prompt-stats"><span>9,300 tok</span><span>€0.0307</span></div>
+            <button class="copy-inline" type="button" data-copy="#pmt-10" data-copy-message="Prompt copied">
+              <svg class="icon-copy" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="9" rx="1.6"/><path d="M10.5 5.5v-1A1.5 1.5 0 009 3H4a1.5 1.5 0 00-1.5 1.5v6A1.5 1.5 0 004 12h1"/></svg>
+              <svg class="icon-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>
+              <span data-copy-label>Copy prompt</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- 11 -->
+        <article class="prompt-card" data-category="legal" data-keywords="dpa privacy gdpr vendor security questionnaire">
+          <div class="prompt-head">
+            <div>
+              <h3>Security questionnaire draft</h3>
+              <div class="prompt-tags">
+                <span class="badge badge--brand">Legal</span>
+                <span class="badge">lumen-pro</span>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-io">
+            <div class="io-block">
+              <div class="io-label">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4"/></svg>
+                Prompt
+              </div>
+              <p class="io-text" id="pmt-11">Answer this vendor security questionnaire from `trust-center` and last year's completed questionnaires. Answer only what the sources support. For anything unsupported, write “Needs review” and name the person who owns that control.</p>
+            </div>
+            <div class="io-block io-block--output">
+              <div class="io-label">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 8h-11M6.5 12l-4-4 4-4"/></svg>
+                Output
+              </div>
+              <div class="io-text">
+                <p>47 of 61 answered from source. 14 flagged.</p>
+                <ul>
+                  <li>Q22 encryption at rest — AES-256, KMS-managed keys. <em>SOC 2 §4.1</em></li>
+                  <li>Q39 sub-processor list — <strong>Needs review</strong>, owner: R. Sandhu.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-foot">
+            <div class="prompt-stats"><span>15,800 tok</span><span>€0.0521</span></div>
+            <button class="copy-inline" type="button" data-copy="#pmt-11" data-copy-message="Prompt copied">
+              <svg class="icon-copy" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="9" rx="1.6"/><path d="M10.5 5.5v-1A1.5 1.5 0 009 3H4a1.5 1.5 0 00-1.5 1.5v6A1.5 1.5 0 004 12h1"/></svg>
+              <svg class="icon-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>
+              <span data-copy-label>Copy prompt</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- 12 -->
+        <article class="prompt-card" data-category="engineering" data-keywords="migration codemod refactor typescript upgrade">
+          <div class="prompt-head">
+            <div>
+              <h3>Framework migration planner</h3>
+              <div class="prompt-tags">
+                <span class="badge badge--brand">Engineering</span>
+                <span class="badge">lumen-pro</span>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-io">
+            <div class="io-block">
+              <div class="io-label">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8h11M9.5 4l4 4-4 4"/></svg>
+                Prompt
+              </div>
+              <p class="io-text" id="pmt-12">Scan the repository and plan the upgrade in stages that each ship independently. For every stage give the files touched, the rollback, and an honest estimate. Flag anything that cannot be done incrementally.</p>
+            </div>
+            <div class="io-block io-block--output">
+              <div class="io-label">
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 8h-11M6.5 12l-4-4 4-4"/></svg>
+                Output
+              </div>
+              <div class="io-text">
+                <p>Four stages, 11 days of work.</p>
+                <ul>
+                  <li>Stage 1 — codemod 214 imports. Fully automatic, revert with one commit.</li>
+                  <li>Stage 3 — <strong>not incremental.</strong> The router rewrite touches every route at once; budget a freeze.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="prompt-foot">
+            <div class="prompt-stats"><span>88,400 tok</span><span>€0.2917</span></div>
+            <button class="copy-inline" type="button" data-copy="#pmt-12" data-copy-message="Prompt copied">
+              <svg class="icon-copy" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="9" rx="1.6"/><path d="M10.5 5.5v-1A1.5 1.5 0 009 3H4a1.5 1.5 0 00-1.5 1.5v6A1.5 1.5 0 004 12h1"/></svg>
+              <svg class="icon-check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8"/></svg>
+              <span data-copy-label>Copy prompt</span>
+            </button>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="empty-state" data-empty hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/>
+        </svg>
+        <p><strong>No prompts match that filter.</strong></p>
+        <p class="mt-3"><button class="btn btn--secondary btn--sm" type="button" data-reset-filters>Clear filters</button></p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Run any of these against your own data</h2>
+        <p>Create a workspace, connect a source, paste a prompt. The free tier covers roughly 40,000 support replies a month.</p>
+        <div class="cluster cluster--center">
+          <a class="btn btn--primary btn--lg" href="waitlist.html">Start free</a>
+          <a class="btn btn--secondary btn--lg" href="api.html">Read the API docs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container container--wide">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a class="brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.6l1.9 4.9 4.9 1.9-4.9 1.9L10 15.2 8.1 10.3 3.2 8.4l4.9-1.9L10 1.6z"/><path d="M15.6 13.2l.8 2.1 2.1.8-2.1.8-.8 2.1-.8-2.1-2.1-.8 2.1-.8.8-2.1z" opacity=".55"/></svg>
+          </span>
+          Lumen
+        </a>
+        <p>The agent runtime for teams that have to ship, explain and defend their AI features.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Product</h3>
+        <ul>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="playground.html">Playground</a></li>
+          <li><a href="models.html">Models</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="waitlist.html">Get access</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Developers</h3>
+        <ul>
+          <li><a href="api.html">API reference</a></li>
+          <li><a href="api.html#authentication">Authentication</a></li>
+          <li><a href="api.html#errors">Error codes</a></li>
+          <li><a href="api.html#streaming">Streaming</a></li>
+          <li><a href="models.html#limits">Rate limits</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="index.html#why-heading">About</a></li>
+          <li><a href="index.html#proof-heading">Customers</a></li>
+          <li><a href="pricing.html#faq">FAQ</a></li>
+          <li><a href="waitlist.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span data-year>2026</span> Lumen Systems. A fictional product used for this template.</p>
+      <div class="footer-social">
+        <a class="icon-btn" href="#" aria-label="Lumen on X"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M12.6 3h2.4l-5.2 6 6.2 8h-4.9l-3.8-5-4.4 5H.5l5.6-6.4L.2 3h5l3.5 4.6L12.6 3zm-.9 12.6h1.4L5.4 4.3H3.9l7.8 11.3z"/></svg></a>
+        <a class="icon-btn" href="#" aria-label="Lumen on GitHub"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.3a8.7 8.7 0 00-2.8 17c.4.1.6-.2.6-.5v-1.7c-2.4.5-3-1.2-3-1.2-.4-1-1-1.3-1-1.3-.8-.5.1-.5.1-.5.9.1 1.3.9 1.3.9.8 1.3 2.1.9 2.6.7.1-.6.3-1 .6-1.2-1.9-.2-3.9-1-3.9-4.2 0-.9.3-1.7.9-2.3-.1-.2-.4-1.1.1-2.3 0 0 .7-.2 2.3.9a8 8 0 014.2 0c1.6-1.1 2.3-.9 2.3-.9.5 1.2.2 2.1.1 2.3.6.6.9 1.4.9 2.3 0 3.2-2 4-3.9 4.2.3.3.6.8.6 1.7v2.5c0 .3.2.6.6.5A8.7 8.7 0 0010 1.3z"/></svg></a>
+        <a class="icon-btn" href="#" aria-label="Lumen on LinkedIn"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5.4 17H2.6V7.4h2.8V17zM4 6.2A1.6 1.6 0 114 3a1.6 1.6 0 010 3.2zM17.4 17h-2.8v-4.7c0-1.1 0-2.6-1.6-2.6s-1.8 1.2-1.8 2.5V17H8.4V7.4h2.7v1.3h.1a3 3 0 012.7-1.5c2.9 0 3.5 1.9 3.5 4.4V17z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="config.js" defer></script>
+<script src="js/forms.js" defer></script>
+<script src="js/integrations.js" defer></script>
+<script src="js/main.js" defer></script>
+<script src="js/playground.js" defer></script>
+</body>
+</html>
