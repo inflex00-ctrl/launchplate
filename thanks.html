@@ -33,16 +33,16 @@
 <script>
 // Which kit(s) to show is driven by ?kit= on the redirect Stripe sends the buyer to.
 var CATALOG={
-  SAAS:{n:'SaaS Launch Kit',f:'saas-launch-kit.zip'},
-  AI:{n:'AI Product Kit',f:'ai-product-kit.zip'},
-  STUDIO:{n:'Studio & Portfolio Kit',f:'studio-portfolio-kit.zip'},
+  SAAS:{n:'SaaS Launch Kit',f:'dl/Qg174mPITh9y7RhReKX2JZF32emRJx8p.zip'},
+  AI:{n:'AI Product Kit',f:'dl/BhdN4s7_2xuaQQetOMrSCr1I65iVfcqq.zip'},
+  STUDIO:{n:'Studio & Portfolio Kit',f:'dl/9Oa0xko31qYhDmX_jDDIIGnu0euQDaI8.zip'},
   BUNDLE:{n:'Complete Bundle',f:null}
 };
 var kit=(new URLSearchParams(location.search).get('kit')||'BUNDLE').toUpperCase();
 var show = kit==='BUNDLE' ? ['SAAS','AI','STUDIO'] : [kit];
 document.getElementById('files').innerHTML = show.map(function(k){
   var c=CATALOG[k]; if(!c||!c.f) return '';
-  return '<a class="f" href="downloads/'+c.f+'" download>'+
+  return '<a class="f" href="'+c.f+'" download>'+
     '<svg viewBox="0 0 24 24" style="width:22px;height:22px;stroke:var(--acc2);fill:none;stroke-width:2.2">'+
     '<path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>'+
     '<b>'+c.n+'</b><span>ZIP · download</span></a>';

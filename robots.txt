@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /dl/
+Sitemap: https://inflex00-ctrl.github.io/launchplate/sitemap.xml
