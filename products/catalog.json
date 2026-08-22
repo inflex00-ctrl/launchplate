@@ -4,8 +4,7 @@
     {
       "sku": "SAAS",
       "name": "SaaS Launch Kit",
-      "price": 89,
-      "was": 129,
+      "price": 49,
       "badge": "Most popular",
       "desc": "Everything a SaaS needs on day one: landing, pricing with a monthly/annual toggle, features, changelog, docs shell and a legal page.",
       "feat": [
@@ -25,8 +24,7 @@
     {
       "sku": "AI",
       "name": "AI Product Kit",
-      "price": 89,
-      "was": 129,
+      "price": 49,
       "badge": "New",
       "desc": "Built for AI tools and agents: a demo-first hero, prompt showcase, model comparison table, API docs page and a waitlist flow.",
       "feat": [
@@ -46,8 +44,7 @@
     {
       "sku": "STUDIO",
       "name": "Studio & Portfolio Kit",
-      "price": 79,
-      "was": 109,
+      "price": 49,
       "badge": null,
       "desc": "For agencies, freelancers and studios: a work grid, case-study layout, services page, about and a contact page that actually converts.",
       "feat": [
@@ -67,8 +64,7 @@
     {
       "sku": "BUNDLE",
       "name": "The Complete Bundle",
-      "price": 149,
-      "was": 327,
+      "price": 99,
       "badge": "Best value",
       "desc": "All three kits plus every future kit, free, forever. One payment, the entire library, unlimited projects.",
       "feat": [
@@ -85,5 +81,6 @@
       ],
       "pages": 19
     }
-  ]
+  ],
+  "launch_note": "Launch pricing. No reference-price claims \u2014 this store has never sold at a higher price."
 }

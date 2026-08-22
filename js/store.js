@@ -1,40 +1,97 @@
-// Renders the catalogue and wires checkout. Payment links are injected at build
-// time by ops/sync_stripe.py once the Stripe key is available; until then the
-// button degrades to a clearly-labelled disabled state rather than a dead link.
-(async function () {
-  const res = await fetch('products/catalog.json');
-  const { items, currency } = await res.json();
-  const sym = currency === 'EUR' ? '€' : '$';
+/* ==========================================================================
+   Launchplate storefront wiring
+   --------------------------------------------------------------------------
+   The catalogue (products/catalog.json) is the source of truth for pricing and
+   the payment links (products/links.json) are the source of truth for checkout.
+   Every price and every buy button is also rendered statically in the HTML, so
+   the shop is fully functional (and sellable) with JavaScript disabled or when
+   the page is opened straight off the filesystem. This script's job is simply
+   to reconcile the markup with the JSON whenever it can be fetched.
+   ========================================================================== */
+(function () {
+  'use strict';
 
-  document.getElementById('grid').innerHTML = items.map(p => `
-    <article class="card" id="${p.sku.toLowerCase()}">
-      <a class="shot" href="${p.demo}" target="_blank" rel="noopener">
-        <img src="${p.shots[0]}" alt="${p.name} preview" loading="lazy">
-        <span class="shot-cta">Open live demo &nearr;</span>
-        ${p.badge ? `<span class="badge" style="color:${p.accent}">${p.badge}</span>` : ''}
-      </a>
-      <div class="card-b">
-        <h3>${p.name}</h3>
-        <p>${p.desc}</p>
-        <div class="feat">${p.feat.map(f => `<span>${f}</span>`).join('')}</div>
-        <div class="meta">
-          <div class="price"><s>${sym}${p.was}</s>${sym}${p.price}</div>
-          <div class="acts">
-            <a class="btn btn-g" href="${p.demo}" target="_blank" rel="noopener">Live demo</a>
-            <a class="btn btn-p buy" data-sku="${p.sku}" href="#">Get the kit</a>
-          </div>
-        </div>
-      </div>
-    </article>`).join('');
+  var SYM = { EUR: '€', USD: '$', GBP: '£' };
 
-  // Checkout wiring — real Stripe payment links get injected into products/links.json
-  let links = {};
-  try { links = await (await fetch('products/links.json')).json(); } catch (e) {}
-  document.querySelectorAll('.buy').forEach(a => {
-    const url = links[a.dataset.sku];
-    if (url) { a.href = url; return; }
-    a.textContent = 'Checkout opening soon';
-    a.style.opacity = '.55';
-    a.style.pointerEvents = 'none';
-  });
+  function getJSON(path) {
+    return fetch(path, { cache: 'no-cache' }).then(function (r) {
+      if (!r.ok) throw new Error(path + ' -> ' + r.status);
+      return r.json();
+    });
+  }
+
+  /* ---- 1. Checkout: point every a.buy[data-sku] at its Stripe payment link -- */
+  function wireCheckout() {
+    var buttons = Array.prototype.slice.call(document.querySelectorAll('a.buy[data-sku]'));
+    if (!buttons.length) return Promise.resolve();
+
+    return getJSON('products/links.json').then(function (links) {
+      buttons.forEach(function (a) {
+        var url = links[a.dataset.sku];
+        if (url) {
+          a.href = url;
+          a.rel = 'noopener';
+          a.removeAttribute('aria-disabled');
+          a.classList.remove('is-off');
+        } else if (!/^https?:/i.test(a.getAttribute('href') || '')) {
+          // No link in JSON and no usable static fallback — fail loudly, not silently.
+          a.setAttribute('aria-disabled', 'true');
+          a.classList.add('is-off');
+          a.textContent = 'Checkout unavailable';
+        }
+      });
+    }).catch(function () {
+      /* Offline / file:// — the static hrefs baked into the HTML already work. */
+    });
+  }
+
+  /* ---- 2. Catalogue: keep prices, names and page counts in sync ------------ */
+  function syncCatalogue() {
+    var needed = document.querySelector('[data-price],[data-name],[data-pages]');
+    if (!needed) return Promise.resolve();
+
+    return getJSON('products/catalog.json').then(function (cat) {
+      var sym = SYM[cat.currency] || '€';
+      var bySku = {};
+      (cat.items || []).forEach(function (item) { bySku[item.sku] = item; });
+
+      function fill(attr, format) {
+        document.querySelectorAll('[data-' + attr + ']').forEach(function (el) {
+          var item = bySku[el.getAttribute('data-' + attr)];
+          if (item) el.textContent = format(item, sym);
+        });
+      }
+      fill('price', function (i, s) { return s + i.price; });
+      fill('name', function (i) { return i.name; });
+      fill('pages', function (i) { return String(i.pages); });
+    }).catch(function () { /* static markup already shows the right numbers */ });
+  }
+
+  /* ---- 3. Mobile navigation ------------------------------------------------ */
+  function wireNav() {
+    var toggle = document.getElementById('nav-toggle');
+    if (!toggle) return;
+    var panel = document.querySelector('.nav-panel');
+    if (panel) {
+      panel.addEventListener('click', function (e) {
+        if (e.target.closest('a')) toggle.checked = false;
+      });
+    }
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') toggle.checked = false;
+    });
+  }
+
+  /* ---- 4. Go ---------------------------------------------------------------- */
+  function init() {
+    wireNav();
+    wireCheckout();
+    syncCatalogue();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();

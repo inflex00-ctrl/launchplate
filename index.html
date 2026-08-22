@@ -3,89 +3,476 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Launchplate — Premium landing page templates for founders</title>
-<meta name="description" content="Production-ready landing page kits for SaaS and AI products. Clean code, no build step, deploy in minutes. Instant download, lifetime license.">
-<meta property="og:title" content="Launchplate — Premium landing page templates">
-<meta property="og:description" content="Production-ready landing page kits. Instant download, lifetime license.">
+<title>Launchplate — Premium HTML landing page kits for SaaS, AI and studios</title>
+<meta name="description" content="Four complete landing page kits in plain HTML and CSS. 19 finished pages, light and dark themes, no build step. Try every page live before you buy. Instant download, lifetime licence, 14-day refund.">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="canonical" href="https://launchplate.store/">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Launchplate">
+<meta property="og:title" content="Launchplate — Premium HTML landing page kits">
+<meta property="og:description" content="Four complete kits. 19 finished pages. Plain HTML and CSS, no build step. Full live demos before you buy.">
+<meta property="og:image" content="assets/shots/saas-launch-kit--index.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Launchplate — Premium HTML landing page kits">
+<meta name="twitter:description" content="Four complete kits. 19 finished pages. Try every page live before you buy.">
+<meta name="twitter:image" content="assets/shots/saas-launch-kit--index.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23f6b73c'/%3E%3Cpath d='M17 6 9 18h6l-1 8 8-12h-6z' fill='%231a1204'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="css/site.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Store","name":"Launchplate",
-"description":"Premium landing page templates for founders and indie hackers.",
-"offers":{"@type":"AggregateOffer","lowPrice":"79","highPrice":"149","priceCurrency":"EUR","offerCount":"4"}}
+{"@context":"https://schema.org","@type":"OnlineStore","name":"Launchplate",
+"description":"Premium hand-written HTML and CSS landing page kits for SaaS products, AI tools and design studios.",
+"url":"https://launchplate.store/",
+"makesOffer":[
+ {"@type":"Offer","name":"SaaS Launch Kit","price":"49","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":"https://launchplate.store/kit-saas.html"},
+ {"@type":"Offer","name":"AI Product Kit","price":"49","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":"https://launchplate.store/kit-ai.html"},
+ {"@type":"Offer","name":"Studio & Portfolio Kit","price":"49","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":"https://launchplate.store/kit-studio.html"},
+ {"@type":"Offer","name":"The Complete Bundle","price":"99","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":"https://launchplate.store/#bundle"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"What exactly do I get?","acceptedAnswer":{"@type":"Answer","text":"A ZIP file containing every HTML page in the kit, one stylesheet, the images and icons used, a README and the licence. Everything is plain text you can open and edit in any editor."}},
+ {"@type":"Question","name":"Can I use these for client work?","acceptedAnswer":{"@type":"Answer","text":"Yes. The licence covers unlimited personal and commercial projects, including sites you build and charge clients for. The only restriction is that you may not resell or redistribute the kit itself as a template."}},
+ {"@type":"Question","name":"Do I need React, Tailwind or a build step?","acceptedAnswer":{"@type":"Answer","text":"No. Every kit is hand-written HTML and CSS with a small amount of vanilla JavaScript. There is no bundler, no package.json and no dependency to install. Open index.html in a browser and it works."}},
+ {"@type":"Question","name":"What is the refund policy?","acceptedAnswer":{"@type":"Answer","text":"Reply to your Stripe receipt within 14 days and you get a full refund. No form, no justification and no questions asked."}}]}
 </script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<nav><div class="wrap">
-  <a href="#" class="logo"><i></i>Launchplate</a>
-  <div class="nav-links">
-    <a href="#kits">Kits</a><a href="#why">Why</a><a href="#faq">FAQ</a>
+<nav class="nav">
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Open menu">
+  <div class="wrap">
+    <a href="index.html" class="logo" aria-label="Launchplate home">
+      <span class="logo-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
+      Launchplate
+    </a>
+    <div class="nav-links">
+      <a href="#kits">Kits</a>
+      <a href="#inside">What's inside</a>
+      <a href="#licence">Licence</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-g btn-sm btn-nav-desktop" href="demo/saas-launch-kit/index.html" target="_blank" rel="noopener">
+        Live demos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </a>
+      <a class="btn btn-p btn-sm nav-buy" href="#kits">Browse kits</a>
+      <label class="burger" for="nav-toggle" aria-hidden="true"><span></span><span></span><span></span></label>
+    </div>
   </div>
-  <a href="#kits" class="btn btn-p">Browse kits</a>
-</div></nav>
-
-<header class="hero"><div class="wrap">
-  <div class="tag"><b>●</b> Instant download &middot; lifetime license</div>
-  <h1>Landing pages that<br><span>ship today</span>, not next sprint</h1>
-  <p class="sub">Production-ready page kits for SaaS and AI products. Hand-written HTML and CSS — no build step, no framework lock-in, no 400&nbsp;MB of node_modules. Open the folder, change the text, deploy.</p>
-  <div class="cta-row">
-    <a href="#kits" class="btn btn-p btn-lg">Browse the kits &rarr;</a>
-    <a href="#why" class="btn btn-g btn-lg">See what's inside</a>
+  <div class="nav-panel">
+    <a href="#kits">Kits</a>
+    <a href="#inside">What's inside</a>
+    <a href="#licence">Licence</a>
+    <a href="#faq">FAQ</a>
+    <a href="demo/saas-launch-kit/index.html" target="_blank" rel="noopener">Open a live demo &nearr;</a>
+    <a class="btn btn-p btn-lg" href="#kits">Browse the kits</a>
   </div>
-  <p class="micro"><b>Try every kit free before you buy</b> — full live demos, every page, no signup</p>
-</div></header>
+</nav>
 
-<div class="trust"><div class="wrap">
-  <div><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Instant delivery</div>
-  <div><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Lifetime updates</div>
-  <div><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Unlimited projects</div>
-  <div><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> 14-day refund</div>
-</div></div>
+<main id="main">
 
-<section id="kits"><div class="wrap">
-  <div class="head">
-    <h2>Four kits. Every page you need.</h2>
-    <p>Each kit is a complete, self-contained site — not a single hero section you still have to build around. <b>Click any preview to open the real thing.</b></p>
+<!-- ================= HERO ================= -->
+<header class="hero gridlines">
+  <div class="wrap">
+    <div class="hero__top">
+      <span class="chip rv"><span class="pulse"></span> <b>19 finished pages</b> across four kits — all previewable, free</span>
+      <h1 class="h-xl rv">Landing pages that ship<br><span class="em">today</span>, not next sprint.</h1>
+      <p class="lede rv rv-2">Complete, production-ready page kits for SaaS products, AI tools and studios. Hand-written HTML and CSS — no build step, no framework lock-in, no 400&nbsp;MB of <code class="mono">node_modules</code>. Open the folder, change the copy, deploy.</p>
+      <div class="cta-row rv rv-2">
+        <a class="btn btn-p btn-lg" href="#kits">Browse the kits <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-g btn-lg" href="demo/saas-launch-kit/index.html" target="_blank" rel="noopener">Open a live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      </div>
+      <ul class="hero__proof rv rv-2">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Every page is live before you pay</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Instant download, no account</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> 14-day refund, no questions</li>
+      </ul>
+    </div>
+
+    <div class="stack rv-scale">
+      <div class="stack__row">
+        <div class="stack__item stack__item--l" aria-hidden="true">
+          <div class="frame">
+            <div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">studio-portfolio-kit / work</span><span class="frame__spacer"></span></div>
+            <div class="frame__view"><img src="assets/shots/studio-portfolio-kit--work.png" alt="" width="1000" height="750" loading="lazy" decoding="async"></div>
+          </div>
+        </div>
+        <div class="stack__item stack__item--r" aria-hidden="true">
+          <div class="frame">
+            <div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">ai-product-kit / playground</span><span class="frame__spacer"></span></div>
+            <div class="frame__view"><img src="assets/shots/ai-product-kit--playground.png" alt="" width="1000" height="750" loading="lazy" decoding="async"></div>
+          </div>
+        </div>
+        <div class="stack__item stack__item--main">
+          <a class="frame" href="demo/saas-launch-kit/index.html" target="_blank" rel="noopener" aria-label="Open the SaaS Launch Kit live demo in a new tab">
+            <div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">saas-launch-kit / index.html</span><span class="frame__spacer"></span></div>
+            <div class="frame__view">
+              <img src="assets/shots/saas-launch-kit--index.png" alt="The SaaS Launch Kit home page: a dark hero with a product dashboard mockup below it." width="1000" height="750" fetchpriority="high" decoding="async">
+              <span class="frame__veil"><span>Open the live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span>
+            </div>
+            <span class="frame__glow" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+      <span class="stack__fade" aria-hidden="true"></span>
+    </div>
   </div>
-  <div class="grid" id="grid"></div>
-</div></section>
+</header>
 
-<section id="why" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-<div class="wrap">
-  <div class="head"><h2>Built the way you'd build it</h2>
-  <p>If you know HTML, you already know how to edit these.</p></div>
-  <div class="props">
-    <div class="prop"><i>⚡</i><h3>No build step</h3><p>Plain HTML and CSS. No bundler, no config, no dependency graph that breaks in six months. Double-click and it opens.</p></div>
-    <div class="prop"><i>📱</i><h3>Genuinely responsive</h3><p>Fluid type, real breakpoints, tested from 320&nbsp;px to ultrawide. Not a desktop layout that squashes.</p></div>
-    <div class="prop"><i>🌗</i><h3>Light and dark</h3><p>Both themes ship wired to CSS custom properties. Change six variables, rebrand the entire kit.</p></div>
-    <div class="prop"><i>🔍</i><h3>SEO wired in</h3><p>Semantic markup, Open Graph tags, JSON-LD structured data and sensible meta defaults on every page.</p></div>
-    <div class="prop"><i>🚀</i><h3>Fast by default</h3><p>Zero JavaScript frameworks, no web fonts blocking render, inlined critical CSS. Lighthouse green out of the box.</p></div>
-    <div class="prop"><i>📄</i><h3>Actually documented</h3><p>A README that explains the structure, the variables, and exactly which lines to change first.</p></div>
+<!-- ================= TRUST STRIP ================= -->
+<section class="strip" aria-label="What every purchase includes">
+  <div class="wrap">
+    <ul>
+      <li><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19h16"/></svg> Instant download</b><span>Files land the second Stripe confirms. No account to create.</span></li>
+      <li><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v6c0 4.5 3 7.7 7 9 4-1.3 7-4.5 7-9V6z"/></svg> 14-day refund</b><span>Reply to your receipt. Full refund, no questions asked.</span></li>
+      <li><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9a3 3 0 1 0 0 6c3 0 5-6 8-6a3 3 0 1 1 0 6c-3 0-5-6-8-6z"/></svg> Lifetime licence</b><span>One payment. No subscription, no renewal, no seats.</span></li>
+      <li><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Unlimited projects</b><span>Personal and commercial, including paid client sites.</span></li>
+      <li><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M21 3v5h-5M3 21v-5h5"/></svg> Free updates</b><span>Every future revision of the kit you bought, at no cost.</span></li>
+    </ul>
   </div>
-</div></section>
+</section>
 
-<section id="faq"><div class="wrap">
-  <div class="head"><h2>Questions</h2></div>
-  <div class="faq">
-    <details open><summary>What exactly do I get?</summary><p>A ZIP with the complete kit — every HTML page, one CSS file, any assets, and a README. Everything is yours to edit. There is no account to create and nothing phones home.</p></details>
-    <details><summary>Can I use this for client work?</summary><p>Yes. The licence covers unlimited personal and commercial projects, including sites you build and sell to clients. The only thing you cannot do is resell the kit itself as a template.</p></details>
-    <details><summary>Do I need to know React or a framework?</summary><p>No — that is the point. These are plain HTML and CSS files. If you can edit text in a code editor, you can ship one of these.</p></details>
-    <details><summary>How is it delivered?</summary><p>Instantly. You are taken straight to the download after payment and also receive a permanent download link by email.</p></details>
-    <details><summary>What if it is not right for me?</summary><p>Email within 14 days and you get a full refund. No form, no justification required.</p></details>
+<!-- ================= KITS ================= -->
+<section id="kits" class="sec">
+  <div class="wrap">
+    <div class="sec-head sec-head--split rv">
+      <div>
+        <span class="eyebrow">The catalogue</span>
+        <h2 class="h-l">Three kits, or <span class="em">all of it</span>.</h2>
+        <p class="lede">Each kit is a whole site — not one hero section you still have to build a site around. Open any preview and click through the real thing before you spend a cent.</p>
+      </div>
+      <a class="tlink" href="#bundle">Skip to the bundle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+    <div class="kits">
+
+      <!-- SaaS -->
+      <article class="kit rv" id="saas" style="--kit:var(--saas)">
+        <div class="kit__media lift">
+          <span class="kit__badge">Most popular</span>
+          <a class="frame frame--crop" href="demo/saas-launch-kit/index.html" target="_blank" rel="noopener" aria-label="Open the SaaS Launch Kit live demo">
+            <div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">saas-launch-kit / index.html</span><span class="frame__spacer"></span></div>
+            <div class="frame__view">
+              <img src="assets/shots/saas-launch-kit--index.png" alt="SaaS Launch Kit home page preview" width="1000" height="750" loading="lazy" decoding="async">
+              <span class="frame__veil"><span>Open the live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span>
+            </div>
+          </a>
+        </div>
+        <div class="kit__body">
+          <div class="kit__head">
+            <span class="eyebrow eyebrow-dot">Kit 01 &middot; 7 pages</span>
+            <h3 class="kit__title"><a href="kit-saas.html" data-name="SAAS">SaaS Launch Kit</a></h3>
+            <p class="kit__desc">Everything a SaaS needs on day one: a landing page, a pricing table with a working monthly/annual toggle, a features page, a changelog, a documentation shell and a legal page. Plus a 404 that does not look like an accident.</p>
+          </div>
+          <div class="kit__feat">
+            <span class="tag tag-kit">7 pages</span><span class="tag">Pricing toggle</span><span class="tag">Docs shell</span><span class="tag">Changelog</span><span class="tag">Light + dark</span>
+          </div>
+          <div class="kit__buy">
+            <div class="price"><b data-price="SAAS">€49</b><em>Launch price</em></div>
+            <a class="btn btn-g" href="kit-saas.html">See all 7 pages</a>
+            <a class="btn btn-p buy" data-sku="SAAS" href="https://buy.stripe.com/bJeaEW971aXYfLWgS37Re0s" rel="noopener">Get the kit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- AI -->
+      <article class="kit rv" id="ai" style="--kit:var(--ai)">
+        <div class="kit__media lift">
+          <span class="kit__badge">New</span>
+          <a class="frame frame--crop" href="demo/ai-product-kit/index.html" target="_blank" rel="noopener" aria-label="Open the AI Product Kit live demo">
+            <div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">ai-product-kit / index.html</span><span class="frame__spacer"></span></div>
+            <div class="frame__view">
+              <img src="assets/shots/ai-product-kit--index.png" alt="AI Product Kit home page preview" width="1000" height="750" loading="lazy" decoding="async">
+              <span class="frame__veil"><span>Open the live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span>
+            </div>
+          </a>
+        </div>
+        <div class="kit__body">
+          <div class="kit__head">
+            <span class="eyebrow eyebrow-dot">Kit 02 &middot; 6 pages</span>
+            <h3 class="kit__title"><a href="kit-ai.html" data-name="AI">AI Product Kit</a></h3>
+            <p class="kit__desc">Built for AI tools and agent products: a demo-first hero, a searchable prompt playground, a model comparison table, an API reference page, pricing with token maths and a waitlist flow that captures the email.</p>
+          </div>
+          <div class="kit__feat">
+            <span class="tag tag-kit">6 pages</span><span class="tag">Prompt library</span><span class="tag">Model compare</span><span class="tag">API docs</span><span class="tag">Waitlist</span>
+          </div>
+          <div class="kit__buy">
+            <div class="price"><b data-price="AI">€49</b><em>Launch price</em></div>
+            <a class="btn btn-g" href="kit-ai.html">See all 6 pages</a>
+            <a class="btn btn-p buy" data-sku="AI" href="https://buy.stripe.com/bJecN44QL5DE7fqdFR7Re0t" rel="noopener">Get the kit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Studio -->
+      <article class="kit rv" id="studio" style="--kit:var(--studio)">
+        <div class="kit__media lift">
+          <a class="frame frame--crop" href="demo/studio-portfolio-kit/index.html" target="_blank" rel="noopener" aria-label="Open the Studio and Portfolio Kit live demo">
+            <div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">studio-portfolio-kit / index.html</span><span class="frame__spacer"></span></div>
+            <div class="frame__view">
+              <img src="assets/shots/studio-portfolio-kit--index.png" alt="Studio and Portfolio Kit home page preview" width="1000" height="750" loading="lazy" decoding="async">
+              <span class="frame__veil"><span>Open the live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span>
+            </div>
+          </a>
+        </div>
+        <div class="kit__body">
+          <div class="kit__head">
+            <span class="eyebrow eyebrow-dot">Kit 03 &middot; 6 pages</span>
+            <h3 class="kit__title"><a href="kit-studio.html" data-name="STUDIO">Studio &amp; Portfolio Kit</a></h3>
+            <p class="kit__desc">For agencies, freelancers and studios: a filterable work grid, a long-form case-study layout, a services and pricing page, an about page with real structure, and a contact page written to actually get the enquiry.</p>
+          </div>
+          <div class="kit__feat">
+            <span class="tag tag-kit">6 pages</span><span class="tag">Case study</span><span class="tag">Work grid</span><span class="tag">Services</span><span class="tag">Contact</span>
+          </div>
+          <div class="kit__buy">
+            <div class="price"><b data-price="STUDIO">€49</b><em>Launch price</em></div>
+            <a class="btn btn-g" href="kit-studio.html">See all 6 pages</a>
+            <a class="btn btn-p buy" data-sku="STUDIO" href="https://buy.stripe.com/3cI5kCbf92rs0R231d7Re0u" rel="noopener">Get the kit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </article>
+
+    </div>
   </div>
-</div></section>
+</section>
 
-<section><div class="wrap"><div class="final">
-  <h2 style="margin-bottom:14px">Stop rebuilding the same page</h2>
-  <p class="sub" style="margin-bottom:30px">Pick a kit, change the copy, deploy before lunch.</p>
-  <a href="#kits" class="btn btn-p btn-lg">Browse the kits &rarr;</a>
-</div></div></section>
+<!-- ================= BUNDLE ================= -->
+<section id="bundle" class="sec-tight">
+  <div class="wrap">
+    <div class="bundle rv-scale">
+      <div class="bundle__in">
+        <div class="bundle__body">
+          <span class="eyebrow eyebrow-dot">Best value</span>
+          <h2 class="h-l">The Complete Bundle.<br><span class="em">Everything, forever.</span></h2>
+          <p class="lede">All three kits — every one of the <b data-pages="BUNDLE">19</b> pages — plus every kit released in the future, free. One payment, one licence, unlimited projects.</p>
+          <ul class="bundle__list">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> SaaS Launch Kit — 7 pages</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> AI Product Kit — 6 pages</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Studio &amp; Portfolio Kit — 6 pages</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Every future kit, free</li>
+          </ul>
+          <div class="kit__buy" style="border-top-color:rgba(245,158,11,.25)">
+            <div class="price"><b data-price="BUNDLE">€99</b><em>Launch price</em></div>
+            <a class="btn btn-a buy" data-sku="BUNDLE" href="https://buy.stripe.com/bJefZgerl5DEgQ059l7Re0v" rel="noopener">Get the bundle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+          <p class="micro">The three kits bought individually come to €147. The bundle is €99 and includes every kit released later.</p>
+        </div>
+        <div class="fan" aria-hidden="true">
+          <div class="frame frame--crop"><div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">studio-portfolio-kit</span><span class="frame__spacer"></span></div><div class="frame__view"><img src="assets/shots/studio-portfolio-kit--case-study.png" alt="" width="1000" height="750" loading="lazy" decoding="async"></div></div>
+          <div class="frame frame--crop"><div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">saas-launch-kit</span><span class="frame__spacer"></span></div><div class="frame__view"><img src="assets/shots/saas-launch-kit--pricing.png" alt="" width="1000" height="750" loading="lazy" decoding="async"></div></div>
+          <div class="frame frame--crop"><div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">ai-product-kit</span><span class="frame__spacer"></span></div><div class="frame__view"><img src="assets/shots/ai-product-kit--models.png" alt="" width="1000" height="750" loading="lazy" decoding="async"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<footer><div class="wrap">
-  <div>© 2026 Launchplate</div>
-  <div>Instant download · Lifetime licence · 14-day refund</div>
-</div></footer>
+<!-- ================= WHAT'S INSIDE ================= -->
+<section id="inside" class="sec rule">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">What's inside</span>
+      <h2 class="h-l">Built the way <span class="em">you'd build it</span>.</h2>
+      <p class="lede">If you know HTML, you already know how to edit these. Nothing is generated, nothing is minified, nothing is hidden behind a component API.</p>
+    </div>
 
-<script src="js/store.js"></script>
-</body></html>
+    <div class="stats rv" style="margin-bottom:clamp(28px,3.5vw,44px)">
+      <div class="stat"><b>19</b><span>Finished pages across the library</span></div>
+      <div class="stat"><b>0</b><span>Dependencies to install</span></div>
+      <div class="stat"><b>2</b><span>Themes per kit — light and dark</span></div>
+      <div class="stat"><b>100%</b><span>Editable, unminified source</span></div>
+    </div>
+
+    <div class="feats rv rv-2">
+      <div class="feat">
+        <span class="feat__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg></span>
+        <h3>Plain HTML and CSS</h3>
+        <p>No bundler, no config file, no dependency graph that rots in six months. Double-click <code class="mono">index.html</code> and it opens. Deploy by dragging the folder anywhere.</p>
+      </div>
+      <div class="feat">
+        <span class="feat__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z"/></svg></span>
+        <h3>Light and dark, both wired</h3>
+        <p>Both themes ship, driven by CSS custom properties with a working toggle. Change six variables at the top of the stylesheet and the whole kit is rebranded.</p>
+      </div>
+      <div class="feat">
+        <span class="feat__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+        <h3>Genuinely responsive</h3>
+        <p>Fluid type, real breakpoints, tested from 320&nbsp;px to ultrawide. Not a desktop layout that squashes and hopes — the mobile navigation actually works.</p>
+      </div>
+      <div class="feat">
+        <span class="feat__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg></span>
+        <h3>SEO wired in, not bolted on</h3>
+        <p>Semantic markup, one <code class="mono">h1</code> per page, unique titles and descriptions, Open Graph and Twitter cards, and JSON-LD structured data on every page.</p>
+      </div>
+      <div class="feat">
+        <span class="feat__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v.01M11 12h1v5h1"/></svg></span>
+        <h3>Accessible by construction</h3>
+        <p>Landmarks, focus-visible states, labelled controls, skip links and colour contrast that passes. Keyboard navigation works because it was tested, not assumed.</p>
+      </div>
+      <div class="feat">
+        <span class="feat__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></span>
+        <h3>Documented and licensed</h3>
+        <p>A README that explains the folder structure, the CSS variables and exactly which lines to change first — plus the full licence text in the ZIP, in writing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LICENCE ================= -->
+<section id="licence" class="sec rule">
+  <div class="wrap">
+    <div class="split">
+      <div class="rv">
+        <span class="eyebrow">The licence</span>
+        <h2 class="h-l" style="margin:16px 0 18px">Buy once. <span class="em">Use it forever.</span></h2>
+        <p class="lede">One flat payment per kit. No subscription, no renewal, no per-seat pricing, no expiry. The plain-English summary is on the right and the full text ships inside every ZIP.</p>
+        <div class="cta-row" style="margin-top:26px">
+          <a class="btn btn-g" href="#faq">Read the FAQ</a>
+          <a class="btn btn-g" href="#kits">Browse the kits</a>
+        </div>
+      </div>
+      <div class="rv rv-2">
+        <div class="lic">
+          <div class="lic__col lic--yes">
+            <h3><svg viewBox="0 0 24 24" aria-hidden="true" style="width:15px;height:15px"><path d="M20 6 9 17l-5-5"/></svg> You may</h3>
+            <ul>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Use a kit on unlimited personal projects</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Use it on unlimited commercial projects</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Build and charge for client sites with it</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Modify, restyle and rewrite anything</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Keep using it forever, including offline</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Ship it without any attribution or credit</li>
+            </ul>
+          </div>
+          <div class="lic__col lic--no">
+            <h3><svg viewBox="0 0 24 24" aria-hidden="true" style="width:15px;height:15px"><path d="M18 6 6 18M6 6l12 12"/></svg> You may not</h3>
+            <ul>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg> Resell or redistribute the kit as a template</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg> Publish it to a template marketplace</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg> Share the ZIP publicly or with non-buyers</li>
+              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg> Repackage it as a theme or a site builder</li>
+            </ul>
+            <p class="micro" style="margin-top:auto">In short: build whatever you like with it — just do not sell the kit itself.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq" class="sec rule">
+  <div class="wrap">
+    <div class="split">
+      <div class="rv">
+        <span class="eyebrow">Questions</span>
+        <h2 class="h-l" style="margin:16px 0 18px">Everything a buyer<br>reasonably asks.</h2>
+        <p class="lede">Nothing here is a marketing answer. If something is still unclear, the demos are free — click through them first.</p>
+      </div>
+      <div class="faq rv rv-2">
+        <details open>
+          <summary>What exactly do I get for my money?</summary>
+          <p>A ZIP file. Inside it: every HTML page of the kit, one stylesheet, the small amount of vanilla JavaScript that powers things like the pricing toggle, the icons and images used, a README, and the licence in full. All of it is unminified text you can open in any editor.</p>
+        </details>
+        <details>
+          <summary>Can I use this for paid client work?</summary>
+          <p>Yes, and this is the main reason people buy. The licence covers unlimited personal and commercial projects, including sites you build and invoice a client for. You do not need a separate licence per client or per site. The only thing you cannot do is resell the kit itself as a template.</p>
+        </details>
+        <details>
+          <summary>Do I need React, Tailwind, npm or a build step?</summary>
+          <p>No — that is the entire point. Every kit is hand-written HTML and CSS with a little vanilla JavaScript. There is no <code class="mono">package.json</code>, no bundler and nothing to install. Open the folder, edit the text, upload it to any host: Netlify, Vercel, GitHub Pages, Cloudflare Pages, or a plain old FTP server.</p>
+        </details>
+        <details>
+          <summary>Can I really see everything before I pay?</summary>
+          <p>Yes. Every page of every kit is published as a live demo on this site — not a video, not a slideshow, the actual pages. Click any preview, click through the navigation, resize the window, toggle the theme. Nothing is gated and there is no signup.</p>
+        </details>
+        <details>
+          <summary>How is it delivered, and do I need an account?</summary>
+          <p>Payment is handled by Stripe. As soon as it clears you land on a download page with your files, and the same permanent link is on your receipt. There is no account to create, no password, and no login to lose.</p>
+        </details>
+        <details>
+          <summary>What if it is not right for me?</summary>
+          <p>Reply to your Stripe receipt within 14 days and you get a full refund. No form, no justification, no questions. Digital goods are easy to refund and arguing about €49 is not worth anyone's afternoon.</p>
+        </details>
+        <details>
+          <summary>Do I get updates, and do they cost extra?</summary>
+          <p>Updates to a kit you bought are free, forever — bug fixes, browser fixes and improvements included. The Complete Bundle goes further: every entirely new kit released in the future is included at no extra cost.</p>
+        </details>
+        <details>
+          <summary>Can I change the colours and fonts?</summary>
+          <p>Easily. Each kit's stylesheet opens with a block of CSS custom properties — background, surface, text, accent, radius and font stack. Change those six or so values and the whole kit is rebranded. Everything downstream inherits from them.</p>
+        </details>
+        <details>
+          <summary>Are there hidden fees, upsells or a subscription?</summary>
+          <p>None. The price you see is the total. There is no pro tier, no license key to renew, no analytics beacon and nothing in the files that phones home. Once the ZIP is on your machine, this shop is irrelevant to you.</p>
+        </details>
+        <details>
+          <summary>Which kit should I buy?</summary>
+          <p>Selling software with plans and docs — the SaaS Launch Kit. Launching an AI tool or agent and need a playground, model comparison or waitlist — the AI Product Kit. Selling your own services or showing client work — the Studio &amp; Portfolio Kit. Torn between two of them, or expecting to build more than one site: the bundle is cheaper than any two kits bought separately.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="sec-tight">
+  <div class="wrap">
+    <div class="final rv-scale">
+      <span class="eyebrow eyebrow-dot" style="justify-content:center">Ready when you are</span>
+      <h2 class="h-l" style="margin-top:18px">Stop rebuilding<br>the <span class="em">same page</span>.</h2>
+      <p class="lede">Pick a kit, change the copy, deploy before lunch. And if it is not for you, the refund takes one email.</p>
+      <div class="cta-row">
+        <a class="btn btn-p btn-lg" href="#kits">Browse the kits <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-g btn-lg" href="demo/ai-product-kit/index.html" target="_blank" rel="noopener">Try a demo first <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div class="foot__brand">
+        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span> Launchplate</a>
+        <p>Hand-written landing page kits for people who would rather ship than configure a build pipeline.</p>
+      </div>
+      <div>
+        <h4>Kits</h4>
+        <ul>
+          <li><a href="kit-saas.html">SaaS Launch Kit</a></li>
+          <li><a href="kit-ai.html">AI Product Kit</a></li>
+          <li><a href="kit-studio.html">Studio &amp; Portfolio Kit</a></li>
+          <li><a href="#bundle">The Complete Bundle</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Live demos</h4>
+        <ul>
+          <li><a href="demo/saas-launch-kit/index.html" target="_blank" rel="noopener">SaaS demo &nearr;</a></li>
+          <li><a href="demo/ai-product-kit/index.html" target="_blank" rel="noopener">AI demo &nearr;</a></li>
+          <li><a href="demo/studio-portfolio-kit/index.html" target="_blank" rel="noopener">Studio demo &nearr;</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Buying</h4>
+        <ul>
+          <li><a href="#inside">What's inside</a></li>
+          <li><a href="#licence">Licence summary</a></li>
+          <li><a href="#faq">Refunds &amp; FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot__base">
+      <span>&copy; 2026 Launchplate. Payments handled by Stripe.</span>
+      <span>Instant download &middot; Lifetime licence &middot; 14-day refund</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/store.js" defer></script>
+</body>
+</html>
