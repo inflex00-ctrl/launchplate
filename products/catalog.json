@@ -66,11 +66,11 @@
       "name": "The Complete Bundle",
       "price": 99,
       "badge": "Best value",
-      "desc": "All three kits plus every future kit, free, forever. One payment, the entire library, unlimited projects.",
+      "desc": "All 7 kits \u2014 45 finished pages \u2014 plus every future kit, free, forever. One payment, the whole library, unlimited personal and client projects.",
       "feat": [
-        "All 3 kits",
+        "All 7 kits",
+        "45 pages",
         "Future kits free",
-        "19 pages",
         "Lifetime"
       ],
       "accent": "#f59e0b",
@@ -79,7 +79,87 @@
         "assets/shots/saas-1.png",
         "assets/shots/studio-1.png"
       ],
-      "pages": 19
+      "pages": 45
+    },
+    {
+      "sku": "LAW",
+      "name": "Law Firm & Professional Services Kit",
+      "price": 49,
+      "badge": null,
+      "desc": "Seven pages for a law firm or professional practice: practice areas, attorney profiles, a single-attorney template, insights and a consultation form with conflicts-check language.",
+      "feat": [
+        "7 pages",
+        "Attorney profiles",
+        "Consultation form",
+        "Light + dark"
+      ],
+      "accent": "#8c2f39",
+      "demo": "demo/lawfirm-kit/index.html",
+      "shots": [
+        "assets/shots/lawfirm-kit--about.png",
+        "assets/shots/lawfirm-kit--attorney-detail.png"
+      ],
+      "pages": 7
+    },
+    {
+      "sku": "DIR",
+      "name": "Directory & Marketplace Kit",
+      "price": 49,
+      "badge": null,
+      "desc": "Six pages for a niche directory: working client-side filtering and search, listing detail, category landings, a submit flow and paid placement tiers.",
+      "feat": [
+        "6 pages",
+        "Live filtering",
+        "Submit flow",
+        "Paid tiers"
+      ],
+      "accent": "#2f7d6e",
+      "demo": "demo/directory-kit/index.html",
+      "shots": [
+        "assets/shots/directory-kit--__check.png",
+        "assets/shots/directory-kit--browse.png"
+      ],
+      "pages": 7
+    },
+    {
+      "sku": "FOOD",
+      "name": "Restaurant & Caf\u00e9 Kit",
+      "price": 49,
+      "badge": null,
+      "desc": "Six pages for a restaurant or caf\u00e9: full menu with categories, reservations, gallery with lightbox, story and contact.",
+      "feat": [
+        "6 pages",
+        "Menu system",
+        "Reservations",
+        "Gallery"
+      ],
+      "accent": "#b5502a",
+      "demo": "demo/restaurant-kit/index.html",
+      "shots": [
+        "assets/shots/restaurant-kit--about.png",
+        "assets/shots/restaurant-kit--contact.png"
+      ],
+      "pages": 6
+    },
+    {
+      "sku": "CLINIC",
+      "name": "Dental & Medical Clinic Kit",
+      "price": 49,
+      "badge": null,
+      "desc": "Six pages for a clinic or practice: services by category, practitioner profiles, appointment booking, facility and contact.",
+      "feat": [
+        "6 pages",
+        "Service catalogue",
+        "Appointments",
+        "Team"
+      ],
+      "accent": "#2b6ca3",
+      "demo": "demo/clinic-kit/index.html",
+      "shots": [
+        "assets/shots/clinic-kit--about.png",
+        "assets/shots/clinic-kit--appointments.png"
+      ],
+      "pages": 6
     }
   ],
   "launch_note": "Launch pricing. No reference-price claims \u2014 this store has never sold at a higher price."

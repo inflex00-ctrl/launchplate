@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visit &amp; contact — Ember &amp; Oak, 14 Marlowe Street, Dublin 7</title>
+<meta name="description" content="Find Ember &amp; Oak at 14 Marlowe Street, Stoneybatter, Dublin 7 — four minutes from the Museum Luas stop. Opening hours, phone and email, directions by tram, bus and bike, parking, accessibility, and a contact form.">
+<meta name="author" content="Ember &amp; Oak">
+<meta name="theme-color" content="#fbf6ee" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14110e" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://emberandoak.example.com/contact.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ember &amp; Oak">
+<meta property="og:url" content="https://emberandoak.example.com/contact.html">
+<meta property="og:title" content="Visit &amp; contact — Ember &amp; Oak, Stoneybatter, Dublin 7">
+<meta property="og:description" content="14 Marlowe Street, Dublin 7. Hours, directions, parking, accessibility — and a form that reaches the right inbox.">
+<meta property="og:image" content="assets/og-contact.png">
+<meta property="og:image:alt" content="A street map pin on Marlowe Street, Stoneybatter, Dublin 7.">
+<meta property="og:locale" content="en_IE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Visit &amp; contact — Ember &amp; Oak">
+<meta name="twitter:description" content="Find us on Marlowe Street: hours, transport, parking, accessibility and how to reach us.">
+<meta name="twitter:image" content="assets/og-contact.png">
+
+<link rel="stylesheet" href="css/style.css">
+
+<!-- Set the theme before first paint so there is no flash of the wrong palette. -->
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("emberoak-theme");
+      if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "@id": "https://emberandoak.example.com/#restaurant",
+  "name": "Ember & Oak",
+  "legalName": "Ember & Oak Wine Room Ltd",
+  "alternateName": "Ember and Oak",
+  "description": "A wood-fired kitchen and wine room in a converted 1890s coach house in Stoneybatter, Dublin 7. Everything is cooked over Irish oak and beech in a single open hearth — there is no gas line in the kitchen.",
+  "slogan": "Cooked over Irish oak, eaten by candlelight.",
+  "url": "https://emberandoak.example.com/",
+  "mainEntityOfPage": "https://emberandoak.example.com/contact.html",
+  "telephone": "+353-1-555-0184",
+  "email": "hello@emberandoak.example.com",
+  "foundingDate": "2016",
+  "image": [
+    "https://emberandoak.example.com/assets/og-home.png",
+    "https://emberandoak.example.com/assets/og-contact.png"
+  ],
+  "logo": "https://emberandoak.example.com/assets/favicon.svg",
+  "servesCuisine": ["Modern Irish", "European", "Wood-fired"],
+  "priceRange": "€€€",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Cash, Credit Card, Debit Card",
+  "acceptsReservations": "https://emberandoak.example.com/reservations.html",
+  "hasMenu": "https://emberandoak.example.com/menu.html",
+  "hasMap": "https://www.openstreetmap.org/?mlat=53.3536&mlon=-6.2871#map=18/53.3536/-6.2871",
+  "publicAccess": true,
+  "smokingAllowed": false,
+  "maximumAttendeeCapacity": 42,
+  "areaServed": {
+    "@type": "City",
+    "name": "Dublin"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "14 Marlowe Street",
+    "addressLocality": "Stoneybatter, Dublin 7",
+    "addressRegion": "Leinster",
+    "postalCode": "D07 XK92",
+    "addressCountry": "IE"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 53.3536,
+    "longitude": -6.2871
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday",    "opens": "00:00", "closes": "00:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday",   "opens": "17:30", "closes": "22:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "17:30", "closes": "22:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday",  "opens": "17:30", "closes": "22:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday",    "opens": "12:00", "closes": "15:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday",    "opens": "17:30", "closes": "23:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday",  "opens": "12:00", "closes": "15:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday",  "opens": "17:30", "closes": "23:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday",    "opens": "12:00", "closes": "17:00" }
+  ],
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Step-free entrance", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Wheelchair accessible WC on the ground floor", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Lift to the first-floor Loft", "value": false },
+    { "@type": "LocationFeatureSpecification", "name": "Private dining room (the Loft)", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "On-site car park", "value": false },
+    { "@type": "LocationFeatureSpecification", "name": "Bicycle racks at the door", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Assistance dogs welcome", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Large-print menus on request", "value": true }
+  ],
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "telephone": "+353-1-555-0184",
+      "email": "hello@emberandoak.example.com",
+      "areaServed": "IE",
+      "availableLanguage": ["English", "Irish"]
+    },
+    {
+      "@type": "ContactPoint",
+      "contactType": "reservations",
+      "telephone": "+353-1-555-0184",
+      "email": "bookings@emberandoak.example.com",
+      "url": "https://emberandoak.example.com/reservations.html",
+      "areaServed": "IE",
+      "availableLanguage": "English"
+    },
+    {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "name": "Private hire & events",
+      "email": "events@emberandoak.example.com",
+      "areaServed": "IE",
+      "availableLanguage": "English"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "486",
+    "bestRating": "5"
+  },
+  "sameAs": [
+    "https://www.instagram.com/emberandoak",
+    "https://www.facebook.com/emberandoak"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ContactPage",
+      "@id": "https://emberandoak.example.com/contact.html#contactpage",
+      "url": "https://emberandoak.example.com/contact.html",
+      "name": "Visit & contact — Ember & Oak",
+      "description": "Address, opening hours, phone and email for Ember & Oak, plus directions by Luas, bus and bike, parking and accessibility information.",
+      "inLanguage": "en-IE",
+      "isPartOf": { "@id": "https://emberandoak.example.com/#website" },
+      "about": { "@id": "https://emberandoak.example.com/#restaurant" },
+      "mainEntity": { "@id": "https://emberandoak.example.com/#restaurant" },
+      "primaryImageOfPage": "https://emberandoak.example.com/assets/og-contact.png",
+      "breadcrumb": { "@id": "https://emberandoak.example.com/contact.html#breadcrumb" },
+      "significantLink": [
+        "https://emberandoak.example.com/reservations.html",
+        "https://emberandoak.example.com/menu.html"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://emberandoak.example.com/#website",
+      "name": "Ember & Oak",
+      "url": "https://emberandoak.example.com/",
+      "publisher": { "@id": "https://emberandoak.example.com/#restaurant" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://emberandoak.example.com/contact.html#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://emberandoak.example.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Visit & contact", "item": "https://emberandoak.example.com/contact.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://emberandoak.example.com/contact.html#faq",
+      "isPartOf": { "@id": "https://emberandoak.example.com/contact.html#contactpage" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "I left something behind — do you have it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Everything found in the room goes into a box behind the bar and stays there for six weeks. Email hello@emberandoak.example.com with the date you were in and roughly where you sat, and we will go through it. We can hold an item at the bar for collection or post it within Ireland at cost."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you take walk-ins?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Always at the zinc bar — eight seats, first come, and the full menu. Tables are usually booked out at weekends, but midweek before seven there is very often something. Call 01 555 0184 on the day and we will tell you honestly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you sell gift vouchers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, in any amount from €50, valid for five years. Email hello@emberandoak.example.com and we will post a card voucher within Ireland or send a PDF the same day. Vouchers can be used against food, wine and the At the Hearth set menu."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I film or photograph in the dining room?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Photographs of your own table are always fine. Anything with a tripod, a light or a crew needs to be arranged in advance — email events@emberandoak.example.com. We schedule shoots before 16:00 on Tuesdays and Wednesdays so that no guest ends up in the background of someone else's work."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body class="full-height">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================== HEADER ============================== -->
+<header class="site-header" data-header>
+  <div class="container container--wide">
+    <a class="brand" href="index.html" aria-label="Ember and Oak — home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10 1.5c1.9 2.6 1.1 4.2.2 5.6-.9 1.4-1.6 2.6-.6 4.3.3-1.4 1.1-2.3 2-3-.3 2 .6 2.8 1.4 3.8.9 1.1 1.4 2.3 1.4 3.4 0 2.5-2 4.4-4.4 4.4S5.6 18.1 5.6 15.6c0-2.4 1.4-3.7 2.6-5.2 1.3-1.6 2.4-3.4 1.8-8.9z"/>
+        </svg>
+      </span>
+      <span class="brand-text">Ember &amp; Oak<small>Dublin 7</small></span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="about.html">Our story</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html" aria-current="page">Visit</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-phone" href="tel:+35315550184">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4.5 3h3l1.2 3-1.7 1.3a10 10 0 004.7 4.7L13 10.3l3 1.2v3a1.5 1.5 0 01-1.6 1.5A12.6 12.6 0 013 4.6 1.5 1.5 0 014.5 3z"/>
+        </svg>
+        01 555 0184
+      </a>
+
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="icon-moon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M16.5 11.8A6.8 6.8 0 018.2 3.5a6.8 6.8 0 108.3 8.3z"/>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="10" cy="10" r="3.6"/>
+          <path d="M10 1.8v1.8M10 16.4v1.8M18.2 10h-1.8M3.6 10H1.8M15.8 4.2l-1.3 1.3M5.5 14.5l-1.3 1.3M15.8 15.8l-1.3-1.3M5.5 5.5L4.2 4.2"/>
+        </svg>
+      </button>
+
+      <a class="btn btn--primary btn--sm header-cta--desktop" href="reservations.html">Book a table</a>
+
+      <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h14M3 10h14M3 14h14"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav" data-mobile-nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="reservations.html">Reservations</a></li>
+    <li><a href="about.html">Our story</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html" aria-current="page">Visit us</a></li>
+  </ul>
+  <div class="mobile-nav-foot">
+    <a class="btn btn--primary btn--block" href="reservations.html">Book a table</a>
+    <a class="btn btn--secondary btn--block" href="tel:+35315550184">Call 01 555 0184</a>
+  </div>
+  <div class="mobile-nav-meta">
+    <span>14 Marlowe Street, Stoneybatter, Dublin 7</span>
+    <span class="badge-dot" data-hours-status data-open-from="17:30" data-open-to="22:30" data-closed-days="1">Open now</span>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ============================== PAGE HEAD ============================== -->
+  <section class="page-head">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-grain" aria-hidden="true"></div>
+    <div class="container container--narrow">
+      <p class="eyebrow eyebrow--center" style="justify-content:center;">Visit us</p>
+      <h1>Find us on Marlowe Street</h1>
+      <p>
+        A red door and a chimney you can smell from the corner. We are four minutes'
+        walk from the Museum Luas stop, five from the Smithfield square, and roughly
+        forty seconds from three very good pubs.
+      </p>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Visit &amp; contact</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ============================== DETAILS + MAP ============================== -->
+  <section class="section" aria-labelledby="details-title">
+    <div class="container">
+      <div class="split split--top">
+        <div class="split-copy reveal reveal--left">
+          <p class="eyebrow">The details</p>
+          <h2 id="details-title">Where we are, when we're lit</h2>
+          <p>
+            The kitchen answers the phone between 15:00 and 17:00 on service days —
+            before that we are elbow-deep in the fire, after that we are feeding people.
+            Email is read every morning, and answered within a working day.
+          </p>
+
+          <div class="info-list mt-6">
+            <div>
+              <span class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 2.4a5.4 5.4 0 00-5.4 5.4c0 3.9 5.4 9.8 5.4 9.8s5.4-5.9 5.4-9.8A5.4 5.4 0 0010 2.4z"/>
+                  <circle cx="10" cy="7.8" r="2.1"/>
+                </svg>
+              </span>
+              <div>
+                <h3>Address</h3>
+                <address class="text-sm text-muted">
+                  Ember &amp; Oak<br>
+                  14 Marlowe Street<br>
+                  Stoneybatter, Dublin 7<br>
+                  D07 XK92, Ireland
+                </address>
+                <p class="text-xs text-subtle mt-3">
+                  The entrance is the arched coach-house door, set back from the footpath
+                  between the bike shop and the launderette.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <span class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4.5 3h3l1.2 3-1.7 1.3a10 10 0 004.7 4.7L13 10.3l3 1.2v3a1.5 1.5 0 01-1.6 1.5A12.6 12.6 0 013 4.6 1.5 1.5 0 014.5 3z"/>
+                </svg>
+              </span>
+              <div>
+                <h3>Phone</h3>
+                <p class="text-sm text-muted">
+                  <a href="tel:+35315550184">01 555 0184</a> — answered from 15:00 Tuesday
+                  to Saturday, and from 10:30 on Sunday. Leave a message outside those
+                  hours and we will ring you back the same day.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <span class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+                  <rect x="2.6" y="4.5" width="14.8" height="11" rx="2"/>
+                  <path d="M3 6l7 4.6L17 6"/>
+                </svg>
+              </span>
+              <div>
+                <h3>Email</h3>
+                <p class="text-sm text-muted">
+                  <a href="mailto:hello@emberandoak.example.com">hello@emberandoak.example.com</a>
+                  — anything at all.<br>
+                  <a href="mailto:bookings@emberandoak.example.com">bookings@emberandoak.example.com</a>
+                  — tables, changes and cancellations.<br>
+                  <a href="mailto:events@emberandoak.example.com">events@emberandoak.example.com</a>
+                  — the Loft, private hire and press shoots.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <span class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="10" cy="10" r="7.6"/>
+                  <path d="M10 5.6V10l3 1.8"/>
+                </svg>
+              </span>
+              <div>
+                <h3>Opening hours</h3>
+                <ul class="hours-list">
+                  <li data-day="1"><span>Monday</span><span>Closed</span></li>
+                  <li data-day="2"><span>Tuesday</span><span>17:30 – 22:30</span></li>
+                  <li data-day="3"><span>Wednesday</span><span>17:30 – 22:30</span></li>
+                  <li data-day="4"><span>Thursday</span><span>17:30 – 22:30</span></li>
+                  <li data-day="5"><span>Friday</span><span>12:00 – 15:00 · 17:30 – 23:30</span></li>
+                  <li data-day="6"><span>Saturday</span><span>12:00 – 15:00 · 17:30 – 23:30</span></li>
+                  <li data-day="0"><span>Sunday</span><span>12:00 – 17:00</span></li>
+                </ul>
+                <div class="cluster mt-4">
+                  <span class="badge-dot" data-hours-status data-open-from="17:30" data-open-to="22:30" data-closed-days="1">Open now</span>
+                  <span class="text-xs text-subtle">Last kitchen order 21:45 · 21:00 on Sunday</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="split-media reveal reveal--right reveal-delay-1">
+          <div class="map">
+            <span class="map-pin" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="currentColor">
+                <path d="M10 2a5.5 5.5 0 00-5.5 5.5c0 4 5.5 10.5 5.5 10.5s5.5-6.5 5.5-10.5A5.5 5.5 0 0010 2z"/>
+              </svg>
+            </span>
+            <div class="map-card">
+              <strong>14 Marlowe Street</strong>
+              Stoneybatter, Dublin 7, D07 XK92<br>
+              Four minutes from Museum Luas stop
+            </div>
+          </div>
+          <p class="ph-caption">
+            Illustrative map. Replace this whole <code>.map</code> block with your
+            Google&nbsp;Maps or OpenStreetMap <code>&lt;iframe&gt;</code> embed — the
+            surrounding column is already the right shape for a 16:10 frame.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== GETTING HERE ============================== -->
+  <section class="section section--alt" aria-labelledby="transport-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Getting here</p>
+        <h2 id="transport-title">Tram, bus, bike — and the truth about parking</h2>
+        <p>
+          Stoneybatter is a fifteen-minute walk from the top of Grafton Street and a
+          great deal easier to reach without a car. Here is everything we would tell
+          you on the phone.
+        </p>
+      </div>
+
+      <div class="grid grid--auto">
+        <article class="feature reveal">
+          <span class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="2.6" width="10" height="11.4" rx="2.4"/>
+              <path d="M5.4 7.6h9.2"/>
+              <path d="M10 2.6V1.2M6.6 1.2h6.8"/>
+              <path d="M7.6 11.2h.01M12.4 11.2h.01"/>
+              <path d="M7.2 14l-1.6 3.2M12.8 14l1.6 3.2"/>
+            </svg>
+          </span>
+          <h3>Luas</h3>
+          <p>
+            Museum stop on the red line, then four minutes on foot: cross Benburb
+            Street, up Blackhall Place and right onto Marlowe Street. Trams run every
+            six to ten minutes until roughly half eleven, which comfortably covers a
+            21:45 last order.
+          </p>
+        </article>
+
+        <article class="feature reveal reveal-delay-1">
+          <span class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 18V8a2 2 0 012-2h12a2 2 0 012 2v10"/>
+              <path d="M4 12h16"/>
+              <path d="M9 6v6M15 6v6"/>
+              <path d="M4 18h1.5M18.5 18H20"/>
+              <circle cx="8" cy="18" r="1.9"/>
+              <circle cx="16" cy="18" r="1.9"/>
+              <path d="M9.9 18h4.2"/>
+            </svg>
+          </span>
+          <h3>Bus</h3>
+          <p>
+            The 37, 39 and 70 all stop on Manor Street, two minutes away — get off at
+            the church and walk down past the butcher. From the city centre it is about
+            twelve minutes off-peak. The 46a on the quays leaves you a ten-minute walk
+            along Blackhall Place.
+          </p>
+        </article>
+
+        <article class="feature reveal reveal-delay-2">
+          <span class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="5" cy="13.4" r="3.4"/>
+              <circle cx="15" cy="13.4" r="3.4"/>
+              <path d="M5 13.4l3.1-5.2h4.3l2.6 5.2"/>
+              <path d="M8.1 8.2h4.5"/>
+              <path d="M12.4 8.2L11 5.4h-1.6"/>
+            </svg>
+          </span>
+          <h3>Cycling</h3>
+          <p>
+            There is a Dublinbikes stand on Prussia Street, three minutes away, and it
+            is usually the emptiest one in the district at eight o'clock. We also put
+            two Sheffield racks outside the door — lock up under the light, it is
+            covered by the camera over the porch.
+          </p>
+        </article>
+
+        <article class="feature reveal reveal-delay-3">
+          <span class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2.6" y="2.6" width="14.8" height="14.8" rx="3.4"/>
+              <path d="M7.8 14.2V5.8h3a2.7 2.7 0 010 5.4h-3"/>
+            </svg>
+          </span>
+          <h3>Parking</h3>
+          <p>
+            We have no car park — the yard is where the wood is stacked. On-street
+            parking on Marlowe Street and Arbour Hill is paid until 19:00 and free
+            after, so an eight o'clock table usually parks for nothing. If you are
+            here for lunch, the Smithfield multi-storey is a seven-minute walk and
+            takes cards at the barrier.
+          </p>
+        </article>
+
+        <article class="feature reveal reveal-delay-4">
+          <span class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="16" cy="4" r="1.1"/>
+              <path d="M18 19l1-7-6 1"/>
+              <path d="M5 8l3-3 5.5 3-2.4 3.5"/>
+              <path d="M4.24 14.5a5 5 0 006.88 6"/>
+              <path d="M13.76 17.5a5 5 0 00-6.88-6"/>
+            </svg>
+          </span>
+          <h3>Accessibility</h3>
+          <p>
+            Step-free from the Marlowe Street footpath straight into the dining room,
+            with an accessible WC on the ground floor and space to turn between the
+            tables. The Loft, though, is up one flight of stairs and there is no lift —
+            a 130-year-old coach house will only give us so much. Large-print menus and
+            the full allergen folder are at the host stand, and assistance dogs are
+            always welcome. Tell us when you book and we will hold a table near the door.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== CONTACT FORM ============================== -->
+  <section class="section" aria-labelledby="form-title">
+    <div class="container container--narrow">
+      <div class="section-head section-head--center reveal">
+        <p class="eyebrow eyebrow--center" style="justify-content:center;">Say hello</p>
+        <h2 id="form-title">Send us a message</h2>
+        <p>
+          One inbox, three people watching it. We answer within a working day —
+          usually the same afternoon, unless it is a Monday, when we are all asleep.
+        </p>
+      </div>
+
+      <div class="callout mt-6 reveal">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="10" cy="10" r="7.6"/>
+          <path d="M10 6.4h.01M10 9v4.6"/>
+        </svg>
+        <div>
+          <strong>Booking a table? This isn't the fastest way.</strong>
+          Tables go through the live availability on the
+          <a href="reservations.html">reservations page</a>, or by phone on
+          <a href="tel:+35315550184">01 555 0184</a>. Use this form for everything else.
+        </div>
+      </div>
+
+      <form data-demo-form id="contact" data-success-toast="Message sent" class="mt-7 reveal" novalidate>
+
+        <fieldset class="form-section">
+          <legend>What's this about? <span class="req" aria-hidden="true">*</span></legend>
+          <div class="grid grid--auto">
+            <label class="radio-card">
+              <input type="radio" name="topic" value="general" checked required>
+              <span>
+                <strong>General question</strong>
+                <small>Menus, allergens, gift vouchers, lost property.</small>
+              </span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="topic" value="events" required>
+              <span>
+                <strong>Private hire &amp; events</strong>
+                <small>The Loft — 18 seated, 30 standing.</small>
+              </span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="topic" value="press" required>
+              <span>
+                <strong>Press &amp; photography</strong>
+                <small>Interviews, shoots, images of the room.</small>
+              </span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="topic" value="feedback" required>
+              <span>
+                <strong>Feedback</strong>
+                <small>Good or bad. Maren reads all of it.</small>
+              </span>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="topic" value="careers" required>
+              <span>
+                <strong>Careers</strong>
+                <small>Kitchen, floor and wine. CVs welcome.</small>
+              </span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="form-section">
+          <div class="form-grid">
+            <div class="field">
+              <label class="field-label" for="c-name">Your name <span class="req" aria-hidden="true">*</span></label>
+              <input class="input" type="text" id="c-name" name="name" autocomplete="name" placeholder="Aoife Brennan" required>
+              <p class="field-error" data-field-error>Please tell us who you are.</p>
+            </div>
+
+            <div class="field">
+              <label class="field-label" for="c-email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input class="input" type="email" id="c-email" name="email" autocomplete="email" placeholder="you@example.com" required>
+              <p class="field-error" data-field-error>We need a valid email to reply to.</p>
+            </div>
+
+            <div class="field">
+              <label class="field-label" for="c-phone">Phone <span class="opt">optional</span></label>
+              <input class="input" type="tel" id="c-phone" name="phone" autocomplete="tel" placeholder="087 000 0000">
+              <p class="field-hint">Handy for anything about a date or a large group.</p>
+            </div>
+
+            <div class="field">
+              <label class="field-label" for="c-reply">Preferred reply <span class="req" aria-hidden="true">*</span></label>
+              <select class="select" id="c-reply" name="reply_method" required>
+                <option value="email" selected>By email</option>
+                <option value="phone">By phone</option>
+                <option value="either">Either is fine</option>
+                <option value="none">No reply needed</option>
+              </select>
+              <p class="field-error" data-field-error>Pick how you'd like us to come back to you.</p>
+            </div>
+
+            <div class="field field--full">
+              <label class="field-label" for="c-message">Message <span class="req" aria-hidden="true">*</span></label>
+              <textarea class="textarea" id="c-message" name="message" rows="6" placeholder="Dates, numbers, dietary requirements — the more you tell us, the fewer emails it takes." required></textarea>
+              <p class="field-hint">If it's about a booking that already exists, include the name it's under.</p>
+              <p class="field-error" data-field-error>A line or two is plenty, but we need something.</p>
+            </div>
+
+            <div class="field field--full">
+              <label class="checkbox">
+                <input type="checkbox" name="consent" value="yes" required>
+                <span>
+                  I'm happy for Ember &amp; Oak to hold these details in order to answer
+                  me. We don't add anyone to a mailing list from this form, and we delete
+                  enquiries after twelve months. <span class="req" aria-hidden="true">*</span>
+                </span>
+              </label>
+              <p class="field-error" data-field-error>We need your consent before we can reply.</p>
+            </div>
+          </div>
+
+          <div class="hp">
+            <label>Leave blank<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+          </div>
+
+          <div class="form-status mt-6" data-form-status>
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="10" cy="10" r="7.8"/>
+              <path d="M6.4 10.3l2.5 2.5 4.7-5.2"/>
+            </svg>
+            <div>
+              <strong>Message sent — thank you.</strong>
+              It has landed with the right person. You'll hear back within one working
+              day; if it's urgent and today is a service day, ring us from three o'clock.
+            </div>
+          </div>
+
+          <div class="form-foot">
+            <button class="btn btn--primary btn--lg" type="submit" data-sending="Sending…">Send message</button>
+            <p class="form-note">
+              This is a demo form — it validates in the browser and shows the success
+              panel, but nothing is transmitted. To make it live, delete
+              <code>data-demo-form</code> from the <code>&lt;form&gt;</code> tag and add
+              your own <code>action</code> (Formspree, Netlify Forms, or your own
+              handler). The field <code>name</code> attributes are already sensible.
+            </p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================== FAQ ============================== -->
+  <section class="section section--alt" aria-labelledby="faq-title">
+    <div class="container container--narrow">
+      <div class="section-head section-head--center reveal">
+        <p class="eyebrow eyebrow--center" style="justify-content:center;">Before you write</p>
+        <h2 id="faq-title">Four things we're asked most</h2>
+      </div>
+
+      <div class="accordion mt-6 reveal" data-accordion="single">
+        <div class="acc-item">
+          <button class="acc-trigger" type="button" aria-expanded="true" aria-controls="faq-lost" id="faq-lost-t">
+            I left something behind — do you have it?
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+          <div class="acc-panel" id="faq-lost" role="region" aria-labelledby="faq-lost-t">
+            <div>
+              <p>
+                Almost certainly. Everything found in the room goes into a wooden box
+                behind the bar and stays there six weeks — scarves, single gloves, one
+                remarkably persistent umbrella. Email
+                <a href="mailto:hello@emberandoak.example.com">hello@emberandoak.example.com</a>
+                with the date you were in and roughly where you sat, and we'll go
+                through it. We can hold it at the bar for you or post it anywhere in
+                Ireland at cost.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-trigger" type="button" aria-expanded="false" aria-controls="faq-walkin" id="faq-walkin-t">
+            Do you take walk-ins?
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+          <div class="acc-panel" id="faq-walkin" role="region" aria-labelledby="faq-walkin-t">
+            <div>
+              <p>
+                Always at the zinc bar — eight seats, first come, full menu, and in our
+                opinion the best place to eat here on your own. Tables are a different
+                story: weekends are usually gone ten days ahead, but midweek before
+                seven there is very often something. Ring
+                <a href="tel:+35315550184">01 555 0184</a> on the day and we'll tell you
+                the honest answer rather than the hopeful one.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-trigger" type="button" aria-expanded="false" aria-controls="faq-vouchers" id="faq-vouchers-t">
+            Do you sell gift vouchers?
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+          <div class="acc-panel" id="faq-vouchers" role="region" aria-labelledby="faq-vouchers-t">
+            <div>
+              <p>
+                We do — any amount from €50, valid five years, and they can be spent on
+                anything: food, wine, or the whole “At the Hearth” set menu at €72 a
+                head. Email
+                <a href="mailto:hello@emberandoak.example.com">hello@emberandoak.example.com</a>
+                and we'll either post a letterpress card anywhere in Ireland or send a
+                PDF the same day if the birthday is, as it often is, tomorrow.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-trigger" type="button" aria-expanded="false" aria-controls="faq-filming" id="faq-filming-t">
+            Can I film or photograph in the room?
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+          <div class="acc-panel" id="faq-filming" role="region" aria-labelledby="faq-filming-t">
+            <div>
+              <p>
+                Photographs of your own table, your own dinner and your own companions:
+                always fine, and the light at the bar is better than it looks. Anything
+                with a tripod, a light stand or a crew needs arranging first — email
+                <a href="mailto:events@emberandoak.example.com">events@emberandoak.example.com</a>.
+                We schedule shoots before 16:00 on Tuesdays and Wednesdays so nobody
+                ends up in the background of someone else's work while trying to eat.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== CLOSING CTA ============================== -->
+  <section class="section section--tight" aria-labelledby="visit-cta-title">
+    <div class="container">
+      <div class="book-strip reveal">
+        <div>
+          <h2 id="visit-cta-title">Now you know where we are</h2>
+          <p>
+            The fire is lit from four o'clock. Tables are released thirty days ahead,
+            and the bar never needs a booking at all.
+          </p>
+        </div>
+        <div class="cluster">
+          <a class="btn btn--primary btn--lg" href="reservations.html">Book a table</a>
+          <a class="btn btn--secondary btn--lg" href="tel:+35315550184">Call 01 555 0184</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="site-footer">
+  <div class="container container--wide">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" aria-label="Ember and Oak — home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor">
+              <path d="M10 1.5c1.9 2.6 1.1 4.2.2 5.6-.9 1.4-1.6 2.6-.6 4.3.3-1.4 1.1-2.3 2-3-.3 2 .6 2.8 1.4 3.8.9 1.1 1.4 2.3 1.4 3.4 0 2.5-2 4.4-4.4 4.4S5.6 18.1 5.6 15.6c0-2.4 1.4-3.7 2.6-5.2 1.3-1.6 2.4-3.4 1.8-8.9z"/>
+            </svg>
+          </span>
+          <span class="brand-text">Ember &amp; Oak<small>Dublin 7</small></span>
+        </a>
+        <p>
+          A wood-fired kitchen and wine room in a converted coach house.
+          Twelve tables, one hearth, no gas line.
+        </p>
+        <div class="social">
+          <a href="https://www.instagram.com/emberandoak" aria-label="Ember and Oak on Instagram" rel="noopener">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="3" y="3" width="14" height="14" rx="4.2"/>
+              <circle cx="10" cy="10" r="3.4"/>
+              <circle cx="14.3" cy="5.7" r="0.9" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/emberandoak" aria-label="Ember and Oak on Facebook" rel="noopener">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path d="M11.6 18v-6.6h2.2l.33-2.6h-2.53V7.1c0-.75.21-1.26 1.28-1.26h1.37V3.52A18.4 18.4 0 0012.26 3.4c-1.98 0-3.33 1.21-3.33 3.43V8.8H6.7v2.6h2.23V18z"/>
+            </svg>
+          </a>
+          <a href="mailto:hello@emberandoak.example.com" aria-label="Email Ember and Oak">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2.6" y="4.5" width="14.8" height="11" rx="2"/>
+              <path d="M3 6l7 4.6L17 6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3>Visit</h3>
+        <address>
+          14 Marlowe Street<br>
+          Stoneybatter<br>
+          Dublin 7, D07 XK92<br>
+          Ireland
+        </address>
+        <ul style="margin-top: 1rem;">
+          <li><a href="tel:+35315550184">01 555 0184</a></li>
+          <li><a href="mailto:hello@emberandoak.example.com">hello@emberandoak.example.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Hours</h3>
+        <ul>
+          <li>Mon — Closed</li>
+          <li>Tue–Thu — 17:30–22:30</li>
+          <li>Fri–Sat — 12:00–15:00</li>
+          <li>Fri–Sat — 17:30–23:30</li>
+          <li>Sun — 12:00–17:00</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="reservations.html">Reservations</a></li>
+          <li><a href="about.html">Our story</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Visit &amp; contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span data-year>2026</span> Ember &amp; Oak. Template demo content.</p>
+      <p class="template-notice">
+        Ember &amp; Oak is a fictional business used to demonstrate this template.
+        Menus, prices, people and reviews are illustrative only.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

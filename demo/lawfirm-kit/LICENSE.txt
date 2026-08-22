@@ -1,0 +1,96 @@
+LAW FIRM & PROFESSIONAL SERVICES KIT
+Standard Licence
+
+Copyright (c) 2026. All rights reserved.
+
+By downloading or using this template kit ("the Kit") you agree to the terms below.
+"You" means the individual or the single company or agency that purchased the licence.
+
+
+1. WHAT YOU MAY DO
+
+1.1  Use the Kit to build an unlimited number of websites, for yourself or for
+     clients, commercially or otherwise.
+
+1.2  Charge your clients whatever you like for the work you do with it. No per-site
+     fee, no royalty, no revenue share.
+
+1.3  Modify the Kit freely: markup, stylesheet, script, artwork, copy, structure.
+
+1.4  Deploy the resulting websites on any number of domains, and hand the resulting
+     files to the client who commissioned them.
+
+1.5  Use it without crediting the author. Attribution is welcome but not required.
+
+
+2. WHAT YOU MAY NOT DO
+
+2.1  Resell, sublicense, redistribute, share or give away the Kit itself, in whole or
+     in substantial part, whether modified or unmodified, whether free or paid.
+
+2.2  Offer the Kit — or a derivative whose principal value is the template rather than
+     a finished site — as a template, theme, starter, boilerplate, page-builder block
+     library, or component pack, on a marketplace or anywhere else.
+
+2.3  Include the Kit in a bundle, subscription library, course download pack, or any
+     product where the customer's benefit is receiving the template files.
+
+2.4  Transfer this licence to another person or company, except as part of the sale of
+     the entire business that holds it.
+
+2.5  Claim authorship of the Kit as a design product.
+
+The distinction is simple: you may sell websites made with the Kit. You may not sell,
+or give away, the Kit.
+
+
+3. CLIENT WORK
+
+3.1  A website you build for a client may be delivered to that client, including its
+     source files, and they may maintain and modify it.
+
+3.2  Your client receives a finished website. They do not receive a licence to the Kit
+     and may not use it as a template for further projects. If they want that, they
+     need their own licence.
+
+
+4. SEAT
+
+4.1  One licence covers one individual, or one company or agency and its employees and
+     contractors working on that company's projects.
+
+4.2  A separate licence is required for each additional company or agency.
+
+
+5. DEMONSTRATION CONTENT
+
+5.1  "Halloway & Finch LLP" is fictional. All names, biographies, matters, outcomes,
+     awards, rankings and testimonials in the Kit are invented placeholder copy for
+     layout demonstration and are not statements of fact.
+
+5.2  Nothing in the Kit is legal advice, and it does not create any professional
+     relationship between you and the author.
+
+5.3  You are responsible for replacing all demonstration copy before publishing, and
+     for ensuring that everything you do publish complies with the advertising,
+     solicitation and professional-conduct rules of every jurisdiction in which your
+     client practises. Rules governing claims of results, testimonials, ratings and
+     specialisation vary widely and are your responsibility, not the author's.
+
+
+6. NO WARRANTY
+
+6.1  THE KIT IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+     INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+     PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+
+6.2  IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+     WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+     CONNECTION WITH THE KIT OR ITS USE.
+
+
+7. TERMINATION
+
+7.1  This licence terminates automatically if you breach clause 2. On termination you
+     must stop using the Kit and delete your copies. Websites already delivered to
+     clients in good faith before termination may remain in service.

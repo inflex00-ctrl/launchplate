@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Get listed on Stacklist — free listings and paid placement</title>
+<meta name="description" content="Submit a developer tool to Stacklist for free, or buy placement: €49 for 30 days featured, €149 a month sponsored. Same human review either way — placement is for sale, the write-up is not.">
+<link rel="canonical" href="https://stacklist.example.com/pricing.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Stacklist">
+<meta property="og:title" content="Get listed on Stacklist — free listings and paid placement">
+<meta property="og:description" content="A free listing is genuinely free. Featured is €49 for 30 days, Sponsored is €149 a month. Placement is for sale; the review never is.">
+<meta property="og:url" content="https://stacklist.example.com/pricing.html">
+<meta property="og:image" content="https://stacklist.example.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Get listed on Stacklist — free listings and paid placement">
+<meta name="twitter:description" content="Free listings, €49 featured placement, €149 a month sponsorship. Placement is for sale; the review never is.">
+<meta name="twitter:image" content="https://stacklist.example.com/assets/og-image.png">
+
+<meta name="theme-color" content="#fbfaf8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131211" media="(prefers-color-scheme: dark)">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+
+<!-- Three small corrections that only this page needs. No new design language,
+     no new class names — everything below patches a behaviour of the shared
+     rules that only shows up in this particular combination of components. -->
+
+<!-- No-flash theme: runs before first paint so the page never blinks white. -->
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("stacklist-theme");
+      if (t === "dark" || t === "light") {
+        document.documentElement.setAttribute("data-theme", t);
+      }
+    } catch (e) {
+      /* Storage blocked — fall back to the system preference. */
+    }
+  })();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://stacklist.example.com/pricing.html#webpage",
+      "url": "https://stacklist.example.com/pricing.html",
+      "name": "Get listed on Stacklist — free listings and paid placement",
+      "description": "Submit a developer tool to Stacklist for free, or buy placement: €49 for 30 days featured, €149 a month sponsored.",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://stacklist.example.com/#website" },
+      "breadcrumb": { "@id": "https://stacklist.example.com/pricing.html#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://stacklist.example.com/pricing.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://stacklist.example.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Get listed",
+          "item": "https://stacklist.example.com/pricing.html"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://stacklist.example.com/pricing.html#service",
+      "name": "Stacklist directory listing",
+      "serviceType": "Developer tool directory listing and placement",
+      "description": "A reviewed listing in the Stacklist developer tool directory, with optional paid placement at the top of a category or across the site.",
+      "provider": { "@id": "https://stacklist.example.com/#organization" },
+      "areaServed": "Worldwide",
+      "url": "https://stacklist.example.com/pricing.html",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Free listing",
+          "description": "Submitted, reviewed by a human and published in its category at the standard sort position.",
+          "price": "0",
+          "priceCurrency": "EUR",
+          "url": "https://stacklist.example.com/submit.html",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Featured listing",
+          "description": "A one-off placement: pinned to the top of its category for 30 days, a slot on the home page, a Featured badge and a dofollow link.",
+          "price": "49",
+          "priceCurrency": "EUR",
+          "url": "https://stacklist.example.com/submit.html?plan=featured",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Sponsored listing",
+          "description": "Top of every relevant search result, home-page hero placement, a Sponsored label, a monthly click report and a newsletter mention.",
+          "price": "149",
+          "priceCurrency": "EUR",
+          "url": "https://stacklist.example.com/submit.html?plan=sponsored",
+          "availability": "https://schema.org/InStock",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "149",
+            "priceCurrency": "EUR",
+            "unitCode": "MON",
+            "billingDuration": 1,
+            "billingIncrement": 1
+          }
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://stacklist.example.com/pricing.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is the review paid for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Placement is for sale; the write-up is not. An editor installs the tool, runs it against a real project and writes down what happened, and none of that changes because an invoice was paid. If a sponsored tool has a free tier that turns out to be a mirage, the listing says so — on the same page you paid to put at the top."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a review take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Free submissions are answered in two to five working days. Paid submissions jump the queue: two working days for Featured, one for Sponsored. Our average across everything last month was 1.6 working days. If we are going to be slower than that, you get an email with a date rather than silence."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you ever remove listings?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Three reasons only: the tool has shut down, the site has been unreachable for more than 60 days, or the maker asks us to take it down. We re-check every entry quarterly and mark anything that has gone quiet before it disappears. If we pull a paid placement for our own reasons, the unused portion is refunded without you having to ask."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the outbound link dofollow?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On Featured and Sponsored listings, yes — a normal dofollow link to whichever URL you give us. Free listings link out with a nofollow link. We do not sell links anywhere else on the site, we do not sell links on their own, and there is no way to buy one into an article."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens when my sponsorship ends?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The listing stays. You lose the top-of-search placement, the home-page hero and the Sponsored label, and the entry drops back to the standard sort position in its category with a nofollow link. The page itself, the review, the screenshots and the votes it collected all stay live for as long as the tool exists."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you take a cut of my revenue?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. There are no affiliate links, no referral codes and no revenue share anywhere on Stacklist. The three prices on this page are the only money that changes hands, and they are the same whether you are one person with a side project or a company with a sales team."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get a refund?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Featured is refundable in full until the moment it goes live, and not afterwards — it is a fixed 30-day run we schedule other placements around. Sponsored can be stopped at any time and we refund whole unused months. Nobody has to explain themselves to get either one."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I upgrade a free listing later?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Any time, and it keeps its URL, its review, its votes and its comments. Upgrading changes where the listing appears and nothing else — we do not rewrite the entry, and the review does not get friendlier on the way up."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many sponsors do you take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One sponsored slot per category at a time, and never more than three across the home page. When a category is full we tell you the date the current run ends and hold your place in the queue. We would rather turn money away than build a page where every second row is an advert."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 8l8-4 8 4-8 4z"/><path d="M4 13l8 4 8-4"/>
+        </svg>
+      </span>
+      Stacklist
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="index.html">Home</a></li>
+        <li><a class="nav__link" href="browse.html">Browse</a></li>
+        <li><a class="nav__link" href="category.html?id=deployment">Categories</a></li>
+        <li><a class="nav__link" href="pricing.html" aria-current="page">Get listed</a></li>
+        <li class="nav__cta"><a class="btn btn--primary btn--block" href="submit.html">Submit a tool</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a class="btn btn--primary btn--sm btn--header" href="submit.html">Submit a tool</a>
+      <button type="button" class="theme-toggle" aria-label="Switch to dark theme">
+        <span class="icon-sun" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </span>
+        <span class="icon-moon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 019.5 4a8.5 8.5 0 1010.5 10.5z"/></svg>
+        </span>
+      </button>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <span class="icon-menu" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
+        </span>
+        <span class="icon-close" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+        </span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ========================================================== PAGE HERO -->
+  <section class="page-hero">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><span aria-current="page">Get listed</span></li>
+        </ol>
+      </nav>
+
+      <p class="eyebrow">For makers</p>
+      <h1 class="page-hero__title">Get your tool in front of developers who are already looking</h1>
+      <p class="page-hero__lead">
+        A free listing is free. Not a trial, not a first month, not free until we grow —
+        submit the tool, a human reviews it, and it stays up for as long as it exists. The
+        two paid options on this page buy <em>position</em>, and that is all they buy.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================== PLANS -->
+  <section class="section section--tight">
+    <div class="wrap">
+
+      <div class="text-center mb-6" data-reveal>
+        <div class="billing-toggle" role="group" aria-label="Sponsored billing period">
+          <button type="button" data-billing="monthly" aria-pressed="true">Monthly</button>
+          <button type="button" data-billing="annual" aria-pressed="false">
+            Annual<span class="save">2 months free</span>
+          </button>
+        </div>
+        <p class="text-soft mt-3">Only Sponsored is billed on a cycle. Free is free and Featured is a single charge.</p>
+      </div>
+
+      <div class="pricing-grid">
+
+        <!-- Free ------------------------------------------------------------ -->
+        <div class="price-card" data-reveal>
+          <h2 class="price-card__name">Free</h2>
+          <p class="price-card__desc">
+            For anything that solves a real problem and has a URL that loads.
+          </p>
+          <p class="price-card__amount">
+            <span class="price-card__num">€0</span>
+            <span class="price-card__per">forever</span>
+          </p>
+          <p class="price-card__billing">No card, no trial, no expiry date.</p>
+
+          <ul class="price-card__list">
+            <li data-icon="check">Reviewed and published by a human</li>
+            <li data-icon="check">A full listing page with pricing, specs and honest caveats</li>
+            <li data-icon="check">Standard sort position in its category</li>
+            <li data-icon="check">Claim it, edit it or ask us to remove it, any time</li>
+            <li data-icon="x" data-off>Pinned or top-of-search placement</li>
+            <li data-icon="x" data-off>Home-page slot</li>
+            <li data-icon="x" data-off>Dofollow link</li>
+            <li data-icon="x" data-off>Click reporting</li>
+          </ul>
+
+          <p class="price-card__cta">
+            <a class="btn btn--ghost btn--block" href="submit.html">Submit a tool</a>
+          </p>
+        </div>
+
+        <!-- Featured -------------------------------------------------------- -->
+        <div class="price-card price-card--featured" data-reveal>
+          <span class="price-card__flag">Most makers pick this</span>
+          <h2 class="price-card__name">Featured</h2>
+          <p class="price-card__desc">
+            For a launch week, a 2.0, or a rewrite worth interrupting people about.
+          </p>
+          <p class="price-card__amount">
+            <span class="price-card__num">€49</span>
+            <span class="price-card__per">one-off</span>
+          </p>
+          <p class="price-card__billing">Charged once. Runs 30 days from the day it goes live.</p>
+
+          <ul class="price-card__list">
+            <li data-icon="check">Everything in Free, reviewed within two working days</li>
+            <li data-icon="check">Pinned to the top of its category for 30 days</li>
+            <li data-icon="check"><span>A slot in <em>Featured this week</em> on the home page</span></li>
+            <li data-icon="check">A Featured badge on every card the tool appears in</li>
+            <li data-icon="check">Dofollow link to the URL you choose</li>
+            <li data-icon="check">Click summary at the end of the run</li>
+            <li data-icon="x" data-off>Top of search results</li>
+            <li data-icon="x" data-off>Newsletter mention</li>
+          </ul>
+
+          <p class="price-card__cta">
+            <a class="btn btn--primary btn--block" href="submit.html?plan=featured">Get featured — €49</a>
+          </p>
+        </div>
+
+        <!-- Sponsored ------------------------------------------------------- -->
+        <div class="price-card" data-reveal>
+          <h2 class="price-card__name">Sponsored</h2>
+          <p class="price-card__desc">
+            For teams who want to be the first answer in a category, month after month.
+          </p>
+          <p class="price-card__amount" id="sponsored-amount" aria-live="polite">
+            <span class="price-card__num" id="sponsored-num">€149</span>
+            <span class="price-card__per" id="sponsored-per">per month</span>
+          </p>
+          <p class="price-card__billing" id="sponsored-billing">
+            Stop any month and we refund the rest. One slot per category.
+          </p>
+
+          <ul class="price-card__list">
+            <li data-icon="check">Everything in Featured, reviewed within one working day</li>
+            <li data-icon="check">Top of every relevant search result</li>
+            <li data-icon="check">Home-page hero placement</li>
+            <li data-icon="check">A Sponsored label, never hidden, never subtle</li>
+            <li data-icon="check">Monthly click report as CSV and PDF</li>
+            <li data-icon="check">One mention in the newsletter each month</li>
+            <li data-icon="check">A named editor who answers inside a day</li>
+          </ul>
+
+          <p class="price-card__cta">
+            <a class="btn btn--primary btn--block" href="submit.html?plan=sponsored">Enquire about sponsoring</a>
+          </p>
+        </div>
+
+      </div>
+
+      <p class="notice notice--brand mt-6" data-reveal>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 7.6v.6"/></svg>
+        <span>
+          Every plan gets the same review, written by the same people, with the same
+          willingness to say a tool is not ready. Paying moves a listing up the page. It has
+          never moved a sentence.
+        </span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ================================================== COMPARISON TABLE -->
+  <section class="section section--alt">
+    <div class="wrap">
+      <div class="section__head section__head--center" data-reveal>
+        <h2 class="section__title">Line by line</h2>
+        <p class="section__lead">
+          The whole difference between the three plans, with nothing rolled up into a
+          phrase like &ldquo;advanced placement&rdquo;.
+        </p>
+      </div>
+
+      <div class="table-scroll" data-reveal tabindex="0" role="region" aria-label="Plan comparison table, scrolls horizontally">
+        <table class="compare">
+          <caption>Stacklist listing plans compared. Prices in euros, excluding VAT where it applies.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Feature</th>
+              <th scope="col">Free</th>
+              <th scope="col">Featured — €49</th>
+              <th scope="col">Sponsored — €149/mo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="compare__group">
+              <th scope="colgroup" colspan="4">Placement</th>
+            </tr>
+            <tr>
+              <th scope="row">Position in its category</th>
+              <td>Standard sort</td>
+              <td>Pinned, 30 days</td>
+              <td>Pinned for the whole run</td>
+            </tr>
+            <tr>
+              <th scope="row">Top of relevant search results</th>
+              <td><span class="no" data-icon="x"></span><span class="visually-hidden">Not included</span></td>
+              <td><span class="no" data-icon="x"></span><span class="visually-hidden">Not included</span></td>
+              <td><span class="yes" data-icon="check"></span><span class="visually-hidden">Included</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Home-page placement</th>
+              <td><span class="no" data-icon="x"></span><span class="visually-hidden">Not included</span></td>
+              <td>Featured grid</td>
+              <td>Hero slot</td>
+            </tr>
+            <tr>
+              <th scope="row">Newsletter mention</th>
+              <td><span class="no" data-icon="x"></span><span class="visually-hidden">Not included</span></td>
+              <td><span class="no" data-icon="x"></span><span class="visually-hidden">Not included</span></td>
+              <td>Once a month</td>
+            </tr>
+            <tr>
+              <th scope="row">Slots available at once</th>
+              <td>Unlimited</td>
+              <td>6 per category</td>
+              <td>1 per category</td>
+            </tr>
+
+            <tr class="compare__group">
+              <th scope="colgroup" colspan="4">Presentation</th>
+            </tr>
+            <tr>
+              <th scope="row">Listing page written by an editor</th>
+              <td><span class="yes" data-icon="check"></span><span class="visually-hidden">Included</span></td>
+              <td><span class="yes" data-icon="check"></span><span class="visually-hidden">Included</span></td>
+              <td><span class="yes" data-icon="check"></span><span class="visually-hidden">Included</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Screenshots on the listing</th>
+              <td>1</td>
+              <td>4</td>
+              <td>6</td>
+            </tr>
+            <tr>
+              <th scope="row">Badge on the card</th>
+              <td>None</td>
+              <td>Featured</td>
+              <td>Sponsored</td>
+            </tr>
+            <tr>
+              <th scope="row">Dofollow link to your site</th>
+              <td><span class="no" data-icon="x"></span><span class="visually-hidden">Not included</span></td>
+              <td><span class="yes" data-icon="check"></span><span class="visually-hidden">Included</span></td>
+              <td><span class="yes" data-icon="check"></span><span class="visually-hidden">Included</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Your own call-to-action wording</th>
+              <td><span class="no" data-icon="x"></span><span class="visually-hidden">Not included</span></td>
+              <td><span class="no" data-icon="x"></span><span class="visually-hidden">Not included</span></td>
+              <td><span class="yes" data-icon="check"></span><span class="visually-hidden">Included</span></td>
+            </tr>
+
+            <tr class="compare__group">
+              <th scope="colgroup" colspan="4">Reporting</th>
+            </tr>
+            <tr>
+              <th scope="row">Outbound clicks reported</th>
+              <td><span class="no" data-icon="x"></span><span class="visually-hidden">Not included</span></td>
+              <td>End of run</td>
+              <td>Monthly, CSV and PDF</td>
+            </tr>
+            <tr>
+              <th scope="row">Impressions and category rank</th>
+              <td><span class="no" data-icon="x"></span><span class="visually-hidden">Not included</span></td>
+              <td><span class="no" data-icon="x"></span><span class="visually-hidden">Not included</span></td>
+              <td><span class="yes" data-icon="check"></span><span class="visually-hidden">Included</span></td>
+            </tr>
+            <tr>
+              <th scope="row">UTM tags on outbound links</th>
+              <td><span class="no" data-icon="x"></span><span class="visually-hidden">Not included</span></td>
+              <td><span class="yes" data-icon="check"></span><span class="visually-hidden">Included</span></td>
+              <td><span class="yes" data-icon="check"></span><span class="visually-hidden">Included</span></td>
+            </tr>
+
+            <tr class="compare__group">
+              <th scope="colgroup" colspan="4">Support</th>
+            </tr>
+            <tr>
+              <th scope="row">Review turnaround</th>
+              <td>2&ndash;5 working days</td>
+              <td>2 working days</td>
+              <td>1 working day</td>
+            </tr>
+            <tr>
+              <th scope="row">Edits after publishing</th>
+              <td>Any time</td>
+              <td>Any time</td>
+              <td>Any time, we make them for you</td>
+            </tr>
+            <tr>
+              <th scope="row">Named contact</th>
+              <td><span class="no" data-icon="x"></span><span class="visually-hidden">Not included</span></td>
+              <td><span class="no" data-icon="x"></span><span class="visually-hidden">Not included</span></td>
+              <td><span class="yes" data-icon="check"></span><span class="visually-hidden">Included</span></td>
+            </tr>
+            <tr>
+              <th scope="row">Refunds</th>
+              <td>Nothing to refund</td>
+              <td>Full, until it goes live</td>
+              <td>Unused whole months</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================== TRUST -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="section__head section__head--center" data-reveal>
+        <h2 class="section__title">Who you are actually paying to reach</h2>
+        <p class="section__lead">
+          Numbers from the last full month, measured in our own logs. We publish them here
+          so nobody has to email and ask.
+        </p>
+      </div>
+
+      <div class="stats" data-reveal>
+        <div class="stat">
+          <span class="stat__num" data-count="41200" data-compact="true">0</span>
+          <span class="stat__label">Monthly readers</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num" data-count="9400" data-compact="true">0</span>
+          <span class="stat__label">Newsletter subscribers</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num" data-count="312">0</span>
+          <span class="stat__label">Median clicks per featured run</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num" data-count="1.6" data-decimals="1" data-suffix=" days">0</span>
+          <span class="stat__label">Average review time</span>
+        </div>
+      </div>
+
+      <p class="notice mt-5" data-reveal>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.2-2.9 7.9-7 9.5-4.1-1.6-7-5.3-7-9.5V6z"/></svg>
+        <span>
+          Median, not mean, because one runaway launch should not flatter the rest. The
+          worst featured run we have had returned 71 clicks; the best returned 2,140. Ask
+          us what a category typically does before you buy — we will tell you.
+        </span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ================================================================ FAQ -->
+  <section class="section section--alt" id="faq">
+    <div class="wrap">
+      <div class="section__head section__head--center" data-reveal>
+        <h2 class="section__title">The questions makers actually ask</h2>
+        <p class="section__lead">
+          Mostly variations on &ldquo;what exactly am I buying, and what happens when I stop
+          paying for it&rdquo;. Both are fair.
+        </p>
+      </div>
+
+      <div class="faq" data-reveal>
+        <details class="faq__item">
+          <summary>
+            Is the review paid for?
+            <span class="faq__icon" data-icon="plus" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__answer">
+            <p>No. Placement is for sale; the write-up is not. An editor installs the tool, runs it against a real project and writes down what happened, and none of that changes because an invoice was paid. If a sponsored tool has a free tier that turns out to be a mirage, the listing says so — on the same page you paid to put at the top.</p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            How long does a review take?
+            <span class="faq__icon" data-icon="plus" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__answer">
+            <p>Free submissions are answered in two to five working days. Paid submissions jump the queue: two working days for Featured, one for Sponsored. Our average across everything last month was 1.6 working days. If we are going to be slower than that, you get an email with a date rather than silence.</p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            Do you ever remove listings?
+            <span class="faq__icon" data-icon="plus" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__answer">
+            <p>Three reasons only: the tool has shut down, the site has been unreachable for more than 60 days, or the maker asks us to take it down. We re-check every entry quarterly and mark anything that has gone quiet before it disappears. If we pull a paid placement for our own reasons, the unused portion is refunded without you having to ask.</p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            Is the outbound link dofollow?
+            <span class="faq__icon" data-icon="plus" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__answer">
+            <p>On Featured and Sponsored listings, yes — a normal dofollow link to whichever URL you give us. Free listings link out with a nofollow link. We do not sell links anywhere else on the site, we do not sell links on their own, and there is no way to buy one into an article.</p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            What happens when my sponsorship ends?
+            <span class="faq__icon" data-icon="plus" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__answer">
+            <p>The listing stays. You lose the top-of-search placement, the home-page hero and the Sponsored label, and the entry drops back to the standard sort position in its category with a nofollow link. The page itself, the review, the screenshots and the votes it collected all stay live for as long as the tool exists.</p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            Do you take a cut of my revenue?
+            <span class="faq__icon" data-icon="plus" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__answer">
+            <p>No. There are no affiliate links, no referral codes and no revenue share anywhere on Stacklist. The three prices on this page are the only money that changes hands, and they are the same whether you are one person with a side project or a company with a sales team.</p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            Can I get a refund?
+            <span class="faq__icon" data-icon="plus" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__answer">
+            <p>Featured is refundable in full until the moment it goes live, and not afterwards — it is a fixed 30-day run we schedule other placements around. Sponsored can be stopped at any time and we refund whole unused months. Nobody has to explain themselves to get either one.</p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            Can I upgrade a free listing later?
+            <span class="faq__icon" data-icon="plus" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__answer">
+            <p>Any time, and it keeps its URL, its review, its votes and its comments. Upgrading changes where the listing appears and nothing else — we do not rewrite the entry, and the review does not get friendlier on the way up.</p>
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary>
+            How many sponsors do you take?
+            <span class="faq__icon" data-icon="plus" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__answer">
+            <p>One sponsored slot per category at a time, and never more than three across the home page. When a category is full we tell you the date the current run ends and hold your place in the queue. We would rather turn money away than build a page where every second row is an advert.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================== CTA BAND -->
+  <section class="section">
+    <div class="wrap">
+      <div class="cta-band" data-reveal>
+        <h2>Start with the free one</h2>
+        <p>
+          Send us the tool, let an editor use it, and see what a listing does for you before
+          you spend anything. Upgrading later takes one email and keeps the same page.
+        </p>
+        <div class="cta-actions">
+          <a class="btn btn--primary btn--lg" href="submit.html">Submit your tool — free</a>
+          <a class="btn btn--ghost btn--lg" href="browse.html">See how listings look</a>
+        </div>
+        <p class="cta-band__note">Average review time this month: 1.6 working days.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a class="brand" href="index.html">
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 8l8-4 8 4-8 4z"/><path d="M4 13l8 4 8-4"/>
+            </svg>
+          </span>
+          Stacklist
+        </a>
+        <p>
+          An independent directory of developer tools, maintained by three engineers who
+          got tired of comparison articles written by people who never installed anything.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Directory</h3>
+        <ul>
+          <li><a href="browse.html">Browse all tools</a></li>
+          <li><a href="browse.html?sort=newest">Recently added</a></li>
+          <li><a href="browse.html?sort=rating">Highest rated</a></li>
+          <li><a href="browse.html?price=free">Free and open source</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Categories</h3>
+        <ul>
+          <li><a href="category.html?id=deployment">Deployment</a></li>
+          <li><a href="category.html?id=observability">Observability</a></li>
+          <li><a href="category.html?id=databases">Databases</a></li>
+          <li><a href="category.html?id=frontend">UI &amp; Frontend</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>For makers</h3>
+        <ul>
+          <li><a href="submit.html">Submit a tool</a></li>
+          <li><a href="pricing.html">Placement pricing</a></li>
+          <li><a href="pricing.html#faq">Questions</a></li>
+          <li><a href="submit.html">Claim a listing</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span data-year>2026</span> Stacklist. A demonstration template — every tool here is fictional.</p>
+      <div class="social">
+        <a href="#" aria-label="Stacklist on X">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 3h3l-6.6 7.5L21.7 21h-6l-4.7-6.1L5.6 21H2.5l7-8L2.6 3h6.2l4.3 5.6zm-1.1 16h1.7L7.7 4.8H5.9z" fill="currentColor"/></svg>
+        </a>
+        <a href="#" aria-label="Stacklist on GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a9.5 9.5 0 00-3 18.5c.5.1.65-.2.65-.45v-1.7c-2.4.5-3-1-3-1-.4-1-1-1.3-1-1.3-.85-.55.05-.55.05-.55.9.05 1.4.95 1.4.95.8 1.4 2.1 1 2.6.75.1-.6.35-1 .6-1.25-1.9-.2-3.9-.95-3.9-4.25 0-.95.35-1.7.9-2.3-.1-.2-.4-1.1.1-2.3 0 0 .7-.25 2.4.9a8.3 8.3 0 014.4 0c1.7-1.15 2.4-.9 2.4-.9.5 1.2.2 2.1.1 2.3.55.6.9 1.35.9 2.3 0 3.3-2 4.05-3.9 4.25.35.3.65.9.65 1.8v2.7c0 .25.15.55.65.45A9.5 9.5 0 0012 2.5z" fill="currentColor"/></svg>
+        </a>
+        <a href="#" aria-label="Stacklist RSS feed">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><circle cx="5" cy="18" r="1.3" fill="currentColor" stroke="none"/><path d="M4 11a9 9 0 019 9"/><path d="M4 5a15 15 0 0115 15"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  /* ----------------------------------------------------------------------
+     Pricing page glue. The only page-specific behaviour is the billing
+     toggle, which rewrites the Sponsored figures in place — annual is ten
+     months' money for twelve months of placement.
+     ---------------------------------------------------------------------- */
+  (function () {
+    "use strict";
+
+    var PRICES = {
+      monthly: {
+        num: "€149",
+        per: "per month",
+        billing: "Stop any month and we refund the rest. One slot per category."
+      },
+      annual: {
+        num: "€1,490",
+        per: "per year",
+        billing: "Twelve months for the price of ten. One slot per category."
+      }
+    };
+
+    var buttons = Array.prototype.slice.call(
+      document.querySelectorAll(".billing-toggle button")
+    );
+    var num = document.getElementById("sponsored-num");
+    var per = document.getElementById("sponsored-per");
+    var billing = document.getElementById("sponsored-billing");
+
+    function setBilling(mode) {
+      var price = PRICES[mode];
+      if (!price) return;
+      num.textContent = price.num;
+      per.textContent = price.per;
+      billing.textContent = price.billing;
+      buttons.forEach(function (btn) {
+        btn.setAttribute("aria-pressed", String(btn.dataset.billing === mode));
+      });
+    }
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        setBilling(btn.dataset.billing);
+      });
+    });
+
+    SL.paintIcons();
+    SL.reveal();
+    SL.initCounters();
+  })();
+</script>
+
+</body>
+</html>

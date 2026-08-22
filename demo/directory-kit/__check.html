@@ -1,0 +1,56 @@
+<!doctype html><html><head><meta charset="utf-8"></head><body style="margin:0">
+<pre id="OUT" style="font:11px monospace"></pre><div id="frames"></div>
+<script>
+var PAGES=["index.html","browse.html","listing.html?id=featherline","category.html?id=databases","pricing.html","submit.html"];
+var WIDTHS=[320,375,414,768];
+var out=[];
+function probe(page,w){
+  return new Promise(function(res){
+    var f=document.createElement("iframe");
+    f.style.cssText="width:"+w+"px;height:900px;border:0;position:absolute;left:-9999px";
+    f.src=page;
+    f.onload=function(){
+      setTimeout(function(){
+        try{
+          var d=f.contentDocument, el=d.documentElement;
+          var sw=Math.max(el.scrollWidth,d.body.scrollWidth), cw=el.clientWidth, over=sw-cw;
+          var msg=(over<=1?"PASS":"FAIL")+" | "+page+" @"+w+" | overflow="+over;
+          if(w===375){
+            // structural checks once per page
+            var h1=d.querySelectorAll("h1").length;
+            var main=d.querySelectorAll("main").length;
+            var hdr=d.querySelectorAll("header").length;
+            var ftr=d.querySelectorAll("footer").length;
+            var skip=d.querySelectorAll(".skip-link").length;
+            var lds=d.querySelectorAll('script[type="application/ld+json"]');
+            var ldok=0,ldbad=[];
+            for(var i=0;i<lds.length;i++){ try{JSON.parse(lds[i].textContent);ldok++;}catch(e){ldbad.push(e.message.slice(0,40));} }
+            // unlabelled controls
+            var bad=[];
+            var ctrls=d.querySelectorAll("input:not([type=hidden]),select,textarea");
+            for(var j=0;j<ctrls.length;j++){
+              var c=ctrls[j];
+              var lab = (c.id && d.querySelector('label[for="'+CSS.escape(c.id)+'"]')) || c.closest("label") || c.getAttribute("aria-label") || c.getAttribute("aria-labelledby");
+              if(!lab) bad.push(c.tagName+"#"+(c.id||c.name||"?"));
+            }
+            // duplicate ids
+            var ids={},dup=[];
+            d.querySelectorAll("[id]").forEach(function(e){ if(ids[e.id])dup.push(e.id); ids[e.id]=1; });
+            msg+=" | h1="+h1+" main="+main+" header="+hdr+" footer="+ftr+" skip="+skip
+               +" | ld="+ldok+"/"+lds.length+(ldbad.length?(" LDERR:"+ldbad.join(";")):"")
+               +(bad.length?(" | UNLABELLED:"+bad.join(",")):" | labels=ok")
+               +(dup.length?(" | DUPID:"+dup.join(",")):"");
+          }
+          out.push(msg);
+        }catch(e){ out.push("ERR | "+page+" @"+w+" | "+e.message); }
+        res();
+      },350);
+    };
+    document.getElementById("frames").appendChild(f);
+  });
+}
+(async function(){
+  for(var p=0;p<PAGES.length;p++) for(var i=0;i<WIDTHS.length;i++) await probe(PAGES[p],WIDTHS[i]);
+  document.getElementById("OUT").textContent=out.join("\n");
+})();
+</script></body></html>

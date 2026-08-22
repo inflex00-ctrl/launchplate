@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our story — Ember &amp; Oak, Stoneybatter, Dublin 7</title>
+<meta name="description" content="How Maren Kovač and Aoife Brennan turned a collapsed 1890s coach house into a wood-fired kitchen. Nine years, one hearth, no gas line — the people, the growers and the rules we cook by.">
+<meta name="author" content="Ember &amp; Oak">
+<meta name="theme-color" content="#fbf6ee" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14110e" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://emberandoak.example.com/about.html">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Ember &amp; Oak">
+<meta property="og:url" content="https://emberandoak.example.com/about.html">
+<meta property="og:title" content="Our story — Ember &amp; Oak">
+<meta property="og:description" content="A collapsed coach house, one chimney worth keeping, and eleven months of rebuilding. Nine years of cooking over Irish oak in Dublin 7.">
+<meta property="og:image" content="assets/og-about.png">
+<meta property="og:image:alt" content="The open hearth in the Ember &amp; Oak kitchen.">
+<meta property="og:locale" content="en_IE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Our story — Ember &amp; Oak">
+<meta name="twitter:description" content="Nine years, one hearth, no gas line. Meet the people behind the fire in Stoneybatter.">
+<meta name="twitter:image" content="assets/og-about.png">
+
+<link rel="stylesheet" href="css/style.css">
+
+<!-- Set the theme before first paint so there is no flash of the wrong palette. -->
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("emberoak-theme");
+      if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "@id": "https://emberandoak.example.com/#restaurant",
+  "name": "Ember & Oak",
+  "description": "A wood-fired kitchen and wine room in a converted 1890s coach house in Stoneybatter, Dublin 7. Live-fire cooking over Irish oak and beech, produce from Wicklow and Tipperary growers, and a low-intervention wine list.",
+  "url": "https://emberandoak.example.com/",
+  "telephone": "+353-1-555-0184",
+  "email": "hello@emberandoak.example.com",
+  "servesCuisine": ["Modern Irish", "European", "Wood-fired"],
+  "priceRange": "€€€",
+  "foundingDate": "2016",
+  "acceptsReservations": "https://emberandoak.example.com/reservations.html",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Cash, Credit Card, Debit Card",
+  "image": "https://emberandoak.example.com/assets/og-about.png",
+  "hasMenu": "https://emberandoak.example.com/menu.html",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "14 Marlowe Street",
+    "addressLocality": "Stoneybatter, Dublin 7",
+    "addressRegion": "Leinster",
+    "postalCode": "D07 XK92",
+    "addressCountry": "IE"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 53.3536,
+    "longitude": -6.2871
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"], "opens": "17:30", "closes": "22:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday", "Saturday"], "opens": "12:00", "closes": "15:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday", "Saturday"], "opens": "17:30", "closes": "23:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "12:00", "closes": "17:00" }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "486",
+    "bestRating": "5"
+  },
+  "founder": [
+    { "@id": "https://emberandoak.example.com/about.html#maren-kovac" },
+    { "@id": "https://emberandoak.example.com/about.html#aoife-brennan" }
+  ],
+  "employee": [
+    {
+      "@type": "Person",
+      "@id": "https://emberandoak.example.com/about.html#maren-kovac",
+      "name": "Maren Kovač",
+      "jobTitle": "Head Chef",
+      "nationality": "Croatian-Irish",
+      "description": "Head chef and co-founder of Ember & Oak. Grew up between Zagreb and Ranelagh, trained at Chapter One in Dublin and staged at Asador Etxebarri in the Basque Country, where the live-fire obsession started.",
+      "worksFor": { "@id": "https://emberandoak.example.com/#restaurant" },
+      "alumniOf": [
+        { "@type": "Organization", "name": "Chapter One", "address": { "@type": "PostalAddress", "addressLocality": "Dublin", "addressCountry": "IE" } },
+        { "@type": "Organization", "name": "Asador Etxebarri", "address": { "@type": "PostalAddress", "addressLocality": "Atxondo, Biscay", "addressCountry": "ES" } }
+      ],
+      "knowsAbout": ["Live-fire cooking", "Ember roasting", "Modern Irish cuisine"]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://emberandoak.example.com/about.html#aoife-brennan",
+      "name": "Aoife Brennan",
+      "jobTitle": "Co-founder, Wine and Front of House",
+      "description": "Co-founder of Ember & Oak, responsible for the wine list and the floor. WSET Diploma; ran the floor at a Merrion Row wine bar for six years before opening Ember & Oak in 2016.",
+      "worksFor": { "@id": "https://emberandoak.example.com/#restaurant" },
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "WSET Diploma in Wines"
+      },
+      "knowsAbout": ["Low-intervention wine", "Wine pairing", "Hospitality"]
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "https://emberandoak.example.com/about.html#aboutpage",
+  "name": "Our story — Ember & Oak",
+  "headline": "Nine years of one fire",
+  "description": "How Maren Kovač and Aoife Brennan turned a collapsed 1890s coach house in Stoneybatter into a wood-fired kitchen with no gas line.",
+  "url": "https://emberandoak.example.com/about.html",
+  "inLanguage": "en-IE",
+  "primaryImageOfPage": "https://emberandoak.example.com/assets/og-about.png",
+  "mainEntity": { "@id": "https://emberandoak.example.com/#restaurant" },
+  "about": { "@id": "https://emberandoak.example.com/#restaurant" },
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Ember & Oak",
+    "url": "https://emberandoak.example.com/"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://emberandoak.example.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Our story", "item": "https://emberandoak.example.com/about.html" }
+    ]
+  }
+}
+</script>
+</head>
+
+<body class="full-height">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================== HEADER ============================== -->
+<header class="site-header" data-header>
+  <div class="container container--wide">
+    <a class="brand" href="index.html" aria-label="Ember and Oak — home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10 1.5c1.9 2.6 1.1 4.2.2 5.6-.9 1.4-1.6 2.6-.6 4.3.3-1.4 1.1-2.3 2-3-.3 2 .6 2.8 1.4 3.8.9 1.1 1.4 2.3 1.4 3.4 0 2.5-2 4.4-4.4 4.4S5.6 18.1 5.6 15.6c0-2.4 1.4-3.7 2.6-5.2 1.3-1.6 2.4-3.4 1.8-8.9z"/>
+        </svg>
+      </span>
+      <span class="brand-text">Ember &amp; Oak<small>Dublin 7</small></span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="about.html" aria-current="page">Our story</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Visit</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-phone" href="tel:+35315550184">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4.5 3h3l1.2 3-1.7 1.3a10 10 0 004.7 4.7L13 10.3l3 1.2v3a1.5 1.5 0 01-1.6 1.5A12.6 12.6 0 013 4.6 1.5 1.5 0 014.5 3z"/>
+        </svg>
+        01 555 0184
+      </a>
+
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="icon-moon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M16.5 11.8A6.8 6.8 0 018.2 3.5a6.8 6.8 0 108.3 8.3z"/>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="10" cy="10" r="3.6"/>
+          <path d="M10 1.8v1.8M10 16.4v1.8M18.2 10h-1.8M3.6 10H1.8M15.8 4.2l-1.3 1.3M5.5 14.5l-1.3 1.3M15.8 15.8l-1.3-1.3M5.5 5.5L4.2 4.2"/>
+        </svg>
+      </button>
+
+      <a class="btn btn--primary btn--sm header-cta--desktop" href="reservations.html">Book a table</a>
+
+      <button class="icon-btn nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h14M3 10h14M3 14h14"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobile-nav" data-mobile-nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="reservations.html">Reservations</a></li>
+    <li><a href="about.html" aria-current="page">Our story</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Visit us</a></li>
+  </ul>
+  <div class="mobile-nav-foot">
+    <a class="btn btn--primary btn--block" href="reservations.html">Book a table</a>
+    <a class="btn btn--secondary btn--block" href="tel:+35315550184">Call 01 555 0184</a>
+  </div>
+  <div class="mobile-nav-meta">
+    <span>14 Marlowe Street, Stoneybatter, Dublin 7</span>
+    <span class="badge-dot" data-hours-status data-open-from="17:30" data-open-to="22:30" data-closed-days="1">Open now</span>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ============================== PAGE HEAD ============================== -->
+  <section class="page-head">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-grain" aria-hidden="true"></div>
+    <div class="container container--narrow">
+      <p class="eyebrow eyebrow--center" style="justify-content:center;">Since 2016</p>
+      <h1>Nine years of one fire</h1>
+      <p>
+        We bought a coach house nobody else wanted because it had a chimney you
+        could stand inside. Everything that has happened since — the menu, the
+        wine list, the twelve tables — happened around that chimney.
+      </p>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Our story</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ============================== THE STORY ============================== -->
+  <section class="section" aria-labelledby="story-title">
+    <div class="container container--narrow">
+      <p class="eyebrow reveal">How it started</p>
+      <h2 id="story-title" class="reveal">A wreck on Marlowe Street, and one thing worth keeping</h2>
+
+      <div class="prose prose--drop mt-6 reveal reveal--fade">
+        <p>
+          In February 2015 an auctioneer walked us around a derelict 1890s coach
+          house off Marlowe Street. There was a hole in the roof roughly the size
+          of a Fiat, forty years of undisturbed pigeon tenancy, and a survey that
+          managed to use the word <strong>unsound</strong> four separate times. He
+          apologised for the place twice on the walk from the gate. Maren had
+          stopped listening at the door — she was standing in the old chimney
+          breast, looking straight up at a square of Dublin sky.
+        </p>
+        <p>
+          We had been searching for eleven months by then, mostly at units in new
+          developments: three-phase power, a gas connection at the back wall, and
+          absolutely nothing to say for themselves. This one had no gas, no floor
+          worth saving and a roof that was more of a suggestion. It also had a
+          hearth two metres across, built by someone who assumed horses would
+          need warming for the next hundred years. We signed in April.
+        </p>
+        <p>
+          The rebuild took eleven months and very nearly everything we had. We
+          kept the chimney, the two brick walls that were still doing honest work,
+          and the cast-iron tie plates that hold them together. Everything else
+          was built around the fire, in that order: the oak floor, the zinc bar
+          Aoife dragged out of a salvage yard in Ballymount, and twelve tables
+          made by a joiner in Kilmainham from a single felled beech. The hearth
+          went in first and the plumbing went in last, a sequencing decision our
+          engineer still refers to, generously, as <em>“a choice”</em>.
+        </p>
+      </div>
+    </div>
+
+    <div class="container mt-8">
+      <div class="media-frame reveal reveal--scale">
+        <div class="ph ph--ultra ph-scene ph-scene--kitchen" role="img" aria-label="The open hearth at Ember and Oak, embers banked to one side and the stone shelf above it warm."></div>
+        <div class="media-note">
+          <strong>The hearth, 2016</strong>
+          Two metres wide, one flue, no gas line behind it. It has not been
+          properly cold since the March we opened.
+        </div>
+      </div>
+    </div>
+
+    <div class="container container--narrow mt-8">
+      <div class="prose reveal reveal--fade">
+        <p>
+          We opened on a Tuesday in March 2016 with nine dishes, sixty-one bottles
+          and a dining room that still smelled powerfully of varnish. Fourteen
+          people came. Nine of them were related to one of us, and one of them was
+          the joiner, checking on his tables. The ninth dish — a whole roast onion
+          buried in the ash — was the only thing anybody talked about afterwards,
+          which told us more than the takings did.
+        </p>
+        <p>
+          Then we learned about wood, which is a polite way of saying we got it
+          badly wrong. Our first winter we bought a trailer-load of oak from a man
+          in Meath who described it as seasoned, and it was: seasoned for about
+          four months. It hissed, it sulked, it threw a wet grey smoke that got
+          into everything, and one Friday in November it put a genuinely acrid
+          edge on nine plates of lamb that we could not in good conscience send
+          out. We sent the guests home with a bottle instead. We now buy eighteen
+          months ahead, stack it under cover on Marlowe Street's back lane, and
+          own a moisture meter that Ruth guards like a family heirloom. Nothing
+          goes on that fire above eighteen per cent.
+        </p>
+        <p>
+          Nine years on, the menu runs to more than nine dishes and the list runs
+          to about a hundred and forty bottles. We have added a pastry section, a
+          proper coeliac prep area, a room upstairs we call the Loft, and roughly
+          thirty growers, fishers and makers we would now describe as friends. We
+          have not added a gas line, a second sitting we didn't want, or a
+          thirteenth table.
+        </p>
+        <p>
+          The chimney is the same chimney. On a slow Tuesday, when the room has
+          gone quiet and the last order is in, you can still stand under it and
+          see a square of Dublin sky.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== HOW WE COOK ============================== -->
+  <section class="section section--alt" aria-labelledby="cook-title">
+    <div class="container">
+      <div class="split split--media-right">
+        <div class="split-copy reveal reveal--left">
+          <p class="eyebrow">How we cook</p>
+          <h2 id="cook-title">Everything meets the fire, or it doesn't leave the pass</h2>
+          <p>
+            There is no gas line into this building and we have never applied for
+            one. The whole kitchen is a single open hearth two metres wide, a grill
+            that racks up and down on a chain, a bed of embers we rake sideways
+            through service, and a stone shelf set into the brick above it that
+            holds a steady, gentle heat all night.
+          </p>
+          <p>
+            We burn Irish oak and beech, nothing else — no briquettes, no charcoal
+            bought in a bag, no aromatic woods pretending to be a seasoning. Oak
+            for the long, patient heat that gets a lamb shoulder to give way after
+            eight hours. Beech for the brighter, faster flame we want under fish
+            and over the plancha. Both are seasoned eighteen months and metered
+            before they go anywhere near the grate.
+          </p>
+          <p>
+            Ember-roasting is the slowest thing we do and the reason people book
+            three weeks out. Beetroot and onions go straight into the ash and stay
+            there overnight. Bread proves beside the fire and bakes at six in the
+            morning in the residual heat, because the oven never really goes out.
+            The stone shelf holds sauces, warms plates and finishes the burnt
+            honey tart. Nothing is held under a lamp. There is no lamp.
+          </p>
+          <p>
+            It makes us slower than a gas kitchen and much fussier about the
+            weather, since a wet westerly changes how the flue draws and therefore
+            how everything cooks. Ruth, who runs the fire on Fridays and
+            Saturdays, checks the forecast before she checks the bookings.
+          </p>
+          <div class="cluster mt-6">
+            <a class="btn btn--secondary" href="menu.html">See what the fire is doing tonight</a>
+            <a class="link-arrow" href="gallery.html">
+              <span>Look inside the room</span>
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 10h12M11 5l5 5-5 5"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="split-media reveal reveal--right reveal-delay-2">
+          <div class="media-stack">
+            <div class="ph ph-scene ph-scene--kitchen" role="img" aria-label="The grill racked down over a bed of embers during service."></div>
+            <div class="ph ph--square ph-dish ph-dish--bread" role="img" aria-label="Sourdough baked at six in the morning in the hearth's residual heat."></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== BY THE NUMBERS ============================== -->
+  <section class="section section--ink" aria-labelledby="numbers-title">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <p class="eyebrow eyebrow--center" style="justify-content:center;">Nine years in figures</p>
+        <h2 id="numbers-title">What that adds up to</h2>
+        <p>Counted honestly, including the years we would rather not repeat.</p>
+      </div>
+
+      <div class="stats reveal stagger">
+        <div class="stat reveal">
+          <span class="stat-num" data-count="9" data-count-suffix=" yrs">9 yrs</span>
+          <span class="stat-label">On Marlowe Street</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat-num" data-count="34">34</span>
+          <span class="stat-label">Growers &amp; makers</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat-num" data-count="140">140</span>
+          <span class="stat-label">Bottles on the list</span>
+        </div>
+        <div class="stat reveal">
+          <span class="stat-num" data-count="480">480</span>
+          <span class="stat-label">Covers a week</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== THE PEOPLE ============================== -->
+  <section class="section" aria-labelledby="people-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">The people</p>
+        <h2 id="people-title">Four people, one fire, an unreasonable amount of firewood</h2>
+        <p>
+          Small kitchen, small floor team, everybody knows what everybody else is
+          doing. On a good night you can hear all four of them laughing from table six.
+        </p>
+      </div>
+
+      <div class="split">
+        <div class="split-media reveal reveal--left">
+          <div class="ph ph--portrait ph-portrait-art ph-portrait-art--a" role="img" aria-label="Maren Kovač, head chef and co-founder, in her whites beside the hearth."></div>
+        </div>
+
+        <div class="split-copy reveal reveal--right reveal-delay-1">
+          <p class="eyebrow">Head chef &amp; co-founder</p>
+          <h3>Maren Kovač</h3>
+          <p>
+            Maren grew up between Zagreb and Ranelagh — a Croatian grandmother who
+            cooked everything over wood in a summer kitchen, and a Dublin
+            childhood spent mostly indoors resenting the weather. She trained at
+            Chapter One, where she learned precision and, in her own telling, how
+            to be shouted at productively. Then she staged at Asador Etxebarri in
+            the Basque hills, came home three weeks later, and announced that she
+            was never cooking on gas again.
+          </p>
+          <p>
+            What she cooks now is not Basque and it is not Croatian. It is Irish
+            produce treated the way her grandmother treated it: put it near fire,
+            leave it alone, salt it properly, don't fuss it on the plate. That
+            means Ballyknocken hogget on the embers for eight hours, Goatsbridge
+            trout over beech for four minutes, and a whole onion buried in ash
+            overnight that has been on every menu since the first Tuesday.
+          </p>
+          <p>
+            She writes the menu on a Tuesday morning after the Cloughjordan van
+            arrives, not before, which is the single most inconvenient thing about
+            working with her and the reason the food is good.
+          </p>
+
+          <figure class="quote mt-6">
+            <blockquote>
+              “Fire isn't a technique, it's a colleague. It has opinions, it has
+              bad days, and you cannot rush it — you can only decide what to put
+              near it and when to take that thing away.”
+            </blockquote>
+            <figcaption class="quote-author">
+              <span class="avatar avatar--5" aria-hidden="true"></span>
+              <div><strong>Maren Kovač</strong><span>Head chef &amp; co-founder</span></div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="grid grid--3" style="margin-top: clamp(3rem, 6vw, 4.5rem);">
+        <article class="card card--hover reveal">
+          <div class="card-media">
+            <div class="ph ph--square ph-portrait-art ph-portrait-art--b" role="img" aria-label="Aoife Brennan, co-founder, on the floor with a glass in hand."></div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Aoife Brennan</h3>
+            <p class="meta-label">Co-founder · Wine &amp; front of house</p>
+            <p>
+              Aoife ran the floor at a Merrion Row wine bar for six years before
+              this, and holds the WSET Diploma, which she will only mention if
+              you ask her twice. The list is hers end to end: around a hundred and
+              forty bottles, low-intervention and organic-leaning, two thirds of
+              them from small European growers she has met in person.
+            </p>
+            <p>
+              She is the reason nobody gets upsold here. Ask for something under
+              forty euro and she will find you the best thing under forty euro,
+              cheerfully, without a flicker.
+            </p>
+          </div>
+        </article>
+
+        <article class="card card--hover reveal reveal-delay-1">
+          <div class="card-media">
+            <div class="ph ph--square ph-portrait-art ph-portrait-art--c" role="img" aria-label="Tomás Delgado, pastry chef, at the marble bench."></div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Tomás Delgado</h3>
+            <p class="meta-label">Pastry chef</p>
+            <p>
+              Galician, joined us in 2019, and the only member of staff with a
+              genuine claim to a temperature-controlled corner of the building.
+              He arrived to do a two-week trial in a kitchen with one fire and no
+              pastry section, and stayed to build one.
+            </p>
+            <p>
+              The burnt honey tart is his — brown butter pastry, honey from the
+              Cabra allotment hives, caramelised to a point he describes as “one
+              second before regret”. He has tried to take it off the menu twice.
+              He has been overruled twice.
+            </p>
+          </div>
+        </article>
+
+        <article class="card card--hover reveal reveal-delay-2">
+          <div class="card-media">
+            <div class="ph ph--square ph-portrait-art ph-portrait-art--d" role="img" aria-label="Ruth Ní Mhaoldúin, sous chef, raking embers at the hearth."></div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Ruth Ní Mhaoldúin</h3>
+            <p class="meta-label">Sous chef</p>
+            <p>
+              Ruth runs the fire on Fridays and Saturdays, which are the two
+              hardest shifts of the week and the two she asked for. She came to us
+              from a hotel kitchen in Galway with four induction ranges and left it
+              because, in her words, nothing in there ever surprised her.
+            </p>
+            <p>
+              She keeps the wood log, meters every load that comes in, and can tell
+              you what the flue is going to do tonight from the wind on Manor
+              Street. She is usually right.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== VALUES ============================== -->
+  <section class="section section--inset" aria-labelledby="values-title">
+    <div class="container container--narrow">
+      <div class="section-head reveal">
+        <p class="eyebrow">What we are stubborn about</p>
+        <h2 id="values-title">Five decisions we keep making</h2>
+        <p>
+          None of them are complicated. All of them cost us something, which is
+          roughly how we know they are worth keeping.
+        </p>
+      </div>
+
+      <ol class="value-list reveal">
+        <li>
+          <span class="value-num" aria-hidden="true">01</span>
+          <div>
+            <h3>Fire, not gas</h3>
+            <p>
+              We could put a six-burner range in tomorrow and serve forty more
+              covers a week. We won't. Wood gives food a depth you cannot fake with
+              a blowtorch, and it forces a kind of attention on a kitchen that gas
+              lets you skip. The cost is real: a longer prep day, a full-time wood
+              habit, and dishes that simply cannot be made when the fire isn't
+              right. We think it tastes better. That's the whole argument.
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="value-num" aria-hidden="true">02</span>
+          <div>
+            <h3>One supplier per thing</h3>
+            <p>
+              One farm for lamb. One market garden for vegetables. One trout farm,
+              one oyster co-op, one mill. Not because it is cheaper — it isn't —
+              but because it means we get a phone call when the hogget is right,
+              rather than a price list. It also means when a crop fails we change
+              the menu instead of quietly buying Dutch.
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="value-num" aria-hidden="true">03</span>
+          <div>
+            <h3>Use the whole thing</h3>
+            <p>
+              Whole animals in, butchered here, which is why the menu has cuts you
+              won't recognise from a supermarket. Bones become stock overnight on
+              the stone shelf; fat becomes the thing your potatoes are cooked in;
+              trim becomes the bar snack. Vegetable ends and coffee grounds go back
+              to the Cloughjordan market garden on the same van that brought the
+              vegetables — they compost it, it grows next season's roots, we buy
+              those too. It took two years to arrange and we are unbearable about it.
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="value-num" aria-hidden="true">04</span>
+          <div>
+            <h3>Pay people properly</h3>
+            <p>
+              The optional twelve and a half per cent service charge goes to the
+              team in full — kitchen and floor, split by hours worked, paid through
+              payroll and visible on every payslip. We don't play tipping-culture
+              games, we don't take a house cut, and nobody here is asked to make up
+              a wage from the goodwill of strangers. Take the service charge off if
+              something went wrong; we would rather hear about it than be tipped
+              politely and never see you again.
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="value-num" aria-hidden="true">05</span>
+          <div>
+            <h3>Twelve tables, deliberately</h3>
+            <p>
+              Thirty-four covers and eight bar seats is the largest room one hearth
+              can feed without lying to somebody. We have been advised, more than
+              once, to squeeze in a thirteenth table and turn each one twice.
+              That's an extra sixty covers a week and a completely different
+              restaurant. You would be able to hear it from table six.
+            </p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============================== SOURCING ============================== -->
+  <section class="section section--alt" aria-labelledby="sourcing-title">
+    <div class="container">
+      <div class="section-head section-head--split reveal">
+        <div>
+          <p class="eyebrow">Where it comes from</p>
+          <h2 id="sourcing-title">Eight people we ring before we write a menu</h2>
+          <p>
+            Almost everything on the table comes from inside a ninety-minute drive
+            of Marlowe Street. The exceptions are the wine, the olive oil, the
+            salt and the coffee — and we will tell you exactly why, at the table,
+            if you ask.
+          </p>
+        </div>
+        <a class="btn btn--secondary" href="menu.html">See the menu</a>
+      </div>
+
+      <div class="table-wrap reveal">
+        <table class="data data--wide">
+          <caption>Our named suppliers, updated each season. Distances measured from the front door, in Dublin traffic, optimistically.</caption>
+          <thead>
+            <tr>
+              <th scope="col">Supplier</th>
+              <th scope="col">What they bring us</th>
+              <th scope="col">Where they are</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Ballyknocken</th>
+              <td>Lamb and hogget, whole carcass, butchered here. The eight-hour shoulder starts its life on their hill.</td>
+              <td>Co. Wicklow · 70 min</td>
+            </tr>
+            <tr>
+              <th scope="row">Cloughjordan Market Garden</th>
+              <td>Vegetables and leaves, picked to order. Tuesday's van decides Tuesday's menu, and takes our compost home with it.</td>
+              <td>Co. Tipperary · 90 min</td>
+            </tr>
+            <tr>
+              <th scope="row">Goatsbridge Trout Farm</th>
+              <td>Spring-water trout and trout roe. Over beech, four minutes a side, nothing else on the plate arguing with it.</td>
+              <td>Co. Kilkenny · 85 min</td>
+            </tr>
+            <tr>
+              <th scope="row">Velvet Cloud</th>
+              <td>Sheep's milk yoghurt and cheese. In the beetroot, on the tart, and on the cheese plate at the end of the set menu.</td>
+              <td>Co. Mayo · by courier</td>
+            </tr>
+            <tr>
+              <th scope="row">Broderick's Oyster Co.</th>
+              <td>Carlingford oysters, opened to order at the zinc bar. Six on ice, or three of them briefly over the embers.</td>
+              <td>Carlingford Lough · 80 min</td>
+            </tr>
+            <tr>
+              <th scope="row">Kish Fish</th>
+              <td>Whatever the Dublin Bay day boats landed that morning. If it isn't good, it isn't on — which is why the fish course has no name until 4pm.</td>
+              <td>Dublin Bay · 15 min</td>
+            </tr>
+            <tr>
+              <th scope="row">The Cabra allotment hives</th>
+              <td>Honey, about ninety jars a year. It runs out in February and we simply change the dessert.</td>
+              <td>Dublin 7 · 12 min</td>
+            </tr>
+            <tr>
+              <th scope="row">Ballybrado</th>
+              <td>Organic flour, milled in Cahir. The 6am sourdough, the pasta, and Tomás's brown butter pastry.</td>
+              <td>Milled in Cahir · 95 min</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout mt-6 reveal">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="10" cy="10" r="7.4"/>
+          <path d="M10 5.6V10l2.9 1.8"/>
+        </svg>
+        <div>
+          <strong>The ninety-minute rule</strong>
+          If we can't drive to it and back inside a working day, we think hard
+          before we put it on the menu. It isn't a purity test — the wine list
+          crosses a continent and the pepper crosses an ocean — but it does mean
+          we have stood in nearly every field, boat and mill on this list, and
+          that everyone on it can ring the kitchen directly. Ballybrado, at
+          ninety-five minutes, is a rounding error we have chosen to live with.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== PRESS ============================== -->
+  <section class="section section--ink" aria-labelledby="press-title">
+    <div class="container">
+      <h2 id="press-title" class="visually-hidden">What the press said</h2>
+
+      <div class="quote-feature reveal">
+        <svg class="quote-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M9.2 5.4C6 6.9 4 9.7 4 13.2c0 3.1 1.9 5.4 4.6 5.4 2.4 0 4.1-1.8 4.1-4.1 0-2.2-1.5-3.9-3.6-3.9-.4 0-.9.1-1 .1.3-1.6 1.9-3.4 3.7-4.4l-2.6-.9zm10 0C16 6.9 14 9.7 14 13.2c0 3.1 1.9 5.4 4.6 5.4 2.4 0 4.1-1.8 4.1-4.1 0-2.2-1.5-3.9-3.6-3.9-.4 0-.9.1-1 .1.3-1.6 1.9-3.4 3.7-4.4l-2.6-.9z"/>
+        </svg>
+        <blockquote>
+          “Nine years in, Ember &amp; Oak has not grown, franchised or softened.
+          It has simply got better at the one thing it decided to do in a
+          derelict coach house in 2016. Dublin has flashier rooms. It has very
+          few more convincing ones.”
+        </blockquote>
+        <div class="quote-author">
+          <span class="avatar avatar--3" aria-hidden="true"></span>
+          <div>
+            <strong>Niamh Costigan</strong>
+            <span>Food writer, The Liberties Review</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== CTA ============================== -->
+  <section class="cta-band" aria-labelledby="cta-title">
+    <div class="container container--narrow">
+      <p class="eyebrow eyebrow--center" style="justify-content:center;">Come and see</p>
+      <h2 id="cta-title">Best told with a glass in your hand</h2>
+      <p>
+        The fire is lit from four o'clock and the chimney is still doing its job.
+        Twelve tables, thirty days of availability, and eight seats at the bar
+        that never need booking at all.
+      </p>
+      <div class="cta-actions">
+        <a class="btn btn--primary btn--lg" href="reservations.html">Book a table</a>
+        <a class="btn btn--outline-light btn--lg" href="contact.html">Find us in Stoneybatter</a>
+      </div>
+      <p class="cta-fineprint">Walk-ins welcome at the bar · Last kitchen order 21:45 · Closed Mondays</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="site-footer">
+  <div class="container container--wide">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" aria-label="Ember and Oak — home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="currentColor">
+              <path d="M10 1.5c1.9 2.6 1.1 4.2.2 5.6-.9 1.4-1.6 2.6-.6 4.3.3-1.4 1.1-2.3 2-3-.3 2 .6 2.8 1.4 3.8.9 1.1 1.4 2.3 1.4 3.4 0 2.5-2 4.4-4.4 4.4S5.6 18.1 5.6 15.6c0-2.4 1.4-3.7 2.6-5.2 1.3-1.6 2.4-3.4 1.8-8.9z"/>
+            </svg>
+          </span>
+          <span class="brand-text">Ember &amp; Oak<small>Dublin 7</small></span>
+        </a>
+        <p>
+          A wood-fired kitchen and wine room in a converted coach house.
+          Twelve tables, one hearth, no gas line.
+        </p>
+        <div class="social">
+          <a href="https://www.instagram.com/emberandoak" aria-label="Ember and Oak on Instagram" rel="noopener">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="3" y="3" width="14" height="14" rx="4.2"/>
+              <circle cx="10" cy="10" r="3.4"/>
+              <circle cx="14.3" cy="5.7" r="0.9" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/emberandoak" aria-label="Ember and Oak on Facebook" rel="noopener">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path d="M11.6 18v-6.6h2.2l.33-2.6h-2.53V7.1c0-.75.21-1.26 1.28-1.26h1.37V3.52A18.4 18.4 0 0012.26 3.4c-1.98 0-3.33 1.21-3.33 3.43V8.8H6.7v2.6h2.23V18z"/>
+            </svg>
+          </a>
+          <a href="mailto:hello@emberandoak.example.com" aria-label="Email Ember and Oak">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2.6" y="4.5" width="14.8" height="11" rx="2"/>
+              <path d="M3 6l7 4.6L17 6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3>Visit</h3>
+        <address>
+          14 Marlowe Street<br>
+          Stoneybatter<br>
+          Dublin 7, D07 XK92<br>
+          Ireland
+        </address>
+        <ul style="margin-top: 1rem;">
+          <li><a href="tel:+35315550184">01 555 0184</a></li>
+          <li><a href="mailto:hello@emberandoak.example.com">hello@emberandoak.example.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Hours</h3>
+        <ul>
+          <li>Mon — Closed</li>
+          <li>Tue–Thu — 17:30–22:30</li>
+          <li>Fri–Sat — 12:00–15:00</li>
+          <li>Fri–Sat — 17:30–23:30</li>
+          <li>Sun — 12:00–17:00</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="reservations.html">Reservations</a></li>
+          <li><a href="about.html">Our story</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Visit &amp; contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span data-year>2026</span> Ember &amp; Oak. Template demo content.</p>
+      <p class="template-notice">
+        Ember &amp; Oak is a fictional business used to demonstrate this template.
+        Menus, prices, people and reviews are illustrative only.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Brightwater Dental — Open Graph card source</title>
+<!--
+  SOURCE FILE for assets/og-image.png (1200x630).
+  This file is not linked from the site. To regenerate the card after
+  rebranding, edit the text below and screenshot it at exactly 1200x630:
+
+  chrome --headless --disable-gpu --window-size=1200,630 \
+         --screenshot=og-image.png --virtual-time-budget=2000 \
+         file:///absolute/path/to/og-image-source.html
+-->
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    width: 1200px; height: 630px; overflow: hidden; position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(150deg, #0d2c37 0%, #0a4551 46%, #0e7c8b 100%);
+    color: #f2fafb; display: flex; flex-direction: column;
+    justify-content: space-between; padding: 72px 80px;
+  }
+  .orb { position: absolute; border-radius: 50%; filter: blur(70px); }
+  .o1 { width: 560px; height: 560px; top: -180px; right: -120px;
+        background: radial-gradient(circle, rgba(79,201,216,.75), transparent 68%); }
+  .o2 { width: 420px; height: 420px; bottom: -180px; left: -80px;
+        background: radial-gradient(circle, rgba(240,168,119,.5), transparent 66%); }
+  .row { display: flex; align-items: center; gap: 18px; position: relative; }
+  .mark { width: 62px; height: 62px; border-radius: 18px; display: grid; place-items: center;
+          background: #f2fafb; }
+  .mark svg { width: 36px; height: 36px; color: #0a5f6b; }
+  .name { font-size: 34px; font-weight: 700; letter-spacing: -.01em; }
+  .name small { display: block; font-size: 15px; font-weight: 650;
+                letter-spacing: .22em; text-transform: uppercase; opacity: .72; }
+  h1 { position: relative; font-family: Georgia, "Times New Roman", serif;
+       font-size: 92px; line-height: 1.02; letter-spacing: -.035em; max-width: 15ch; font-weight: 600; }
+  .foot { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+  .chips { display: flex; gap: 12px; flex-wrap: wrap; }
+  .chip { padding: 11px 22px; border-radius: 999px; font-size: 21px; font-weight: 600;
+          background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.26); }
+  .url { font-size: 23px; font-weight: 650; opacity: .82; white-space: nowrap; }
+</style>
+</head>
+<body>
+  <span class="orb o1"></span><span class="orb o2"></span>
+
+  <div class="row">
+    <span class="mark">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 2.6c-3 0-5.2 1.6-5.2 4.3 0 2.1.8 3.5 1.3 5.4.4 1.6.5 3.9 1 4.6.6.8 1.7.5 1.8-.6.3-1.4.4-3 1.1-3s.9 1.6 1.1 3c.2 1.1 1.3 1.4 1.8.6.5-.7.6-3 1-4.6.5-1.9 1.3-3.3 1.3-5.4 0-2.7-2.2-4.3-5.2-4.3z"/></svg>
+    </span>
+    <span class="name">Brightwater<small>Dental</small></span>
+  </div>
+
+  <h1>Dentistry that takes its time.</h1>
+
+  <div class="foot">
+    <div class="chips">
+      <span class="chip">Dublin 2 &amp; Sandyford</span>
+      <span class="chip">Fixed written plans</span>
+      <span class="chip">Same-week emergencies</span>
+    </div>
+    <span class="url">brightwaterdental.ie</span>
+  </div>
+</body>
+</html>

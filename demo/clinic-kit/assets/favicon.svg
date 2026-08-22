@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Brightwater Dental">
+  <defs>
+    <linearGradient id="bw" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#12909f"/>
+      <stop offset="1" stop-color="#0a5f6b"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#bw)"/>
+  <path fill="#fff" d="M32 13c-7.9 0-13.9 4.2-13.9 11.3 0 5.6 2 9.3 3.3 14.3 1.1 4.1 1.3 10.2 2.6 12.1 1.5 2.2 4.4 1.3 4.8-1.5.7-3.7.9-7.8 3.2-7.8s2.5 4.1 3.2 7.8c.4 2.8 3.3 3.7 4.8 1.5 1.3-1.9 1.5-8 2.6-12.1 1.3-5 3.3-8.7 3.3-14.3C45.9 17.2 39.9 13 32 13Z"/>
+  <path fill="#bff0f6" d="M25.6 21.4c1.9-1.6 4.6-2.4 7.4-2.3 1 0 1.8.7 1.8 1.6s-.9 1.6-1.9 1.5c-2.1-.1-4 .5-5.3 1.5-.8.6-1.9.5-2.4-.2-.5-.7-.4-1.6.4-2.1Z"/>
+</svg>

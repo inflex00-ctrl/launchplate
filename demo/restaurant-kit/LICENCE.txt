@@ -1,0 +1,111 @@
+EMBER & OAK — RESTAURANT & CAFÉ KIT
+STANDARD LICENCE
+
+Version 1.0
+
+
+1. WHAT YOU BOUGHT
+
+You have purchased a perpetual, worldwide, non-exclusive licence to use the
+HTML, CSS, JavaScript, SVG and image files in this kit (the "Kit") to build
+websites — for yourself, for your employer, or for your clients.
+
+The licence is granted to one person or one company. It does not expire.
+
+
+2. WHAT YOU MAY DO
+
+2.1  Build an unlimited number of websites with the Kit, personal or
+     commercial, for yourself or for paying clients.
+
+2.2  Charge whatever you like for the work you do with it. There is no
+     per-site fee and no revenue share.
+
+2.3  Hand a finished site over to a client, including the source files that
+     make up that site. The client may continue to use, host and modify that
+     site indefinitely.
+
+2.4  Modify the Kit however you wish: rewrite the stylesheet, restructure the
+     pages, change the JavaScript, merge it into a larger project, or use
+     parts of it in an unrelated build.
+
+2.5  Use the Kit in an internal library, boilerplate or starter that your team
+     builds client sites from.
+
+2.6  Keep using the Kit after any support or update period ends. The licence
+     is perpetual.
+
+2.7  Use it without crediting the author. Attribution is welcome but never
+     required.
+
+
+3. WHAT YOU MAY NOT DO
+
+3.1  Resell, sublicense, redistribute, share or give away the Kit itself —
+     as it ships or lightly modified — as a template, theme, starter kit,
+     boilerplate or UI library.
+
+3.2  Upload the Kit, or a derivative whose principal value is still the
+     template files, to any template marketplace, theme shop, asset library,
+     stock site or public repository offered for download.
+
+3.3  Include the Kit in a bundle, subscription, membership or product whose
+     main value to the buyer is access to template files — for example a
+     theme pack, a "1,000 templates" collection, or a site-builder template
+     gallery.
+
+3.4  Use the Kit to create a competing template product.
+
+3.5  Redistribute the Kit to another agency, freelancer or developer who is
+     not covered by your licence. They need their own copy.
+
+The simple version: sell the websites you build with the Kit; do not sell
+the Kit.
+
+
+4. DEMO CONTENT
+
+"Ember & Oak" is a fictional business. The business name, address, telephone
+number, email addresses, staff names and biographies, menu items, prices,
+supplier names, testimonials and ratings in this Kit are invented to
+demonstrate the design and carry no licence or warranty of any kind.
+
+You are responsible for replacing all of it before publishing. In particular:
+
+  - Do not publish the aggregateRating or review markup with invented figures.
+    In many jurisdictions publishing fabricated reviews or ratings is unlawful.
+  - Do not publish invented allergen, dietary or accessibility claims.
+  - Check that opening hours, prices and contact details are correct in both
+    the page copy and the JSON-LD structured data.
+
+The favicon, the social sharing cards and all CSS-generated imagery are
+original to this Kit and are covered by this licence.
+
+
+5. THIRD-PARTY MATERIAL
+
+The Kit contains no third-party code, fonts, icons or images. All typography
+uses system font stacks; all icons and imagery are original inline SVG or CSS.
+Nothing in the Kit makes a network request.
+
+
+6. NO WARRANTY
+
+THE KIT IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHOR BE LIABLE
+FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE KIT OR THE
+USE OR OTHER DEALINGS IN THE KIT.
+
+The Kit is a design template. It is not legal, accessibility, medical, dietary
+or food-safety advice. You are responsible for ensuring that any site you
+publish with it meets the legal, accessibility and consumer-information
+requirements that apply to you.
+
+
+7. TERMINATION
+
+This licence terminates automatically if you breach section 3. On termination
+you must stop distributing the Kit; websites already delivered to clients in
+good faith are unaffected.
