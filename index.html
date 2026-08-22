@@ -1,582 +1,1592 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Launchplate — Finished websites you can rebrand and bill for</title>
-<meta name="description" content="7 complete website template kits in plain HTML and CSS. 45 finished pages, light and dark themes, no build step. Try every page live before you buy. Instant download, lifetime licence, 30-day refund.">
-<meta name="theme-color" content="#0a0a0b">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Launchplate — Seven finished website kits. 45 pages. €49 each, €99 for all.</title>
+<meta name="description" content="Complete multi-page website templates for freelancers and agencies. Seven kits, 45 finished pages, ready to rename, recolour and hand to a client. €49 a kit or €99 for all seven. Instant download, lifetime licence, unlimited client projects, 30-day refund.">
+<meta name="theme-color" content="#0a0a09">
 <link rel="canonical" href="https://inflex00-ctrl.github.io/launchplate/">
+
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Launchplate">
-<meta property="og:title" content="Launchplate — Premium HTML landing page kits">
-<meta property="og:description" content="Four complete kits. 45 finished pages. Plain HTML and CSS, no build step. Full live demos before you buy.">
+<meta property="og:url" content="https://inflex00-ctrl.github.io/launchplate/">
+<meta property="og:title" content="Launchplate — Seven finished website kits. 45 pages.">
+<meta property="og:description" content="Complete multi-page website templates you can rename, recolour and hand over. €49 a kit, €99 for all seven. Instant download, lifetime licence, unlimited client projects.">
 <meta property="og:image" content="https://inflex00-ctrl.github.io/launchplate/assets/shots/saas-launch-kit--index.png">
+<meta property="og:image:width" content="1000">
+<meta property="og:image:height" content="694">
+<meta property="og:image:alt" content="The SaaS Launch Kit homepage, one of seven Launchplate website kits.">
+<meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Launchplate — Premium HTML landing page kits">
-<meta name="twitter:description" content="Four complete kits. 45 finished pages. Try every page live before you buy.">
+<meta name="twitter:title" content="Launchplate — Seven finished website kits. 45 pages.">
+<meta name="twitter:description" content="Complete multi-page website templates for client work. €49 a kit, €99 for all seven. Lifetime licence, unlimited client projects.">
 <meta name="twitter:image" content="https://inflex00-ctrl.github.io/launchplate/assets/shots/saas-launch-kit--index.png">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23f6b73c'/%3E%3Cpath d='M17 6 9 18h6l-1 8 8-12h-6z' fill='%231a1204'/%3E%3C/svg%3E">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0a09'/%3E%3Cpath d='M9 8h3.4v12.6H23V24H9z' fill='%23e0a33e'/%3E%3C/svg%3E">
+
 <link rel="stylesheet" href="vendor/premium.css">
 <link rel="stylesheet" href="css/site.css">
-<link rel="stylesheet" href="css/enhance.css">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"OnlineStore","name":"Launchplate",
-"description":"Premium hand-written HTML and CSS landing page kits for SaaS products, AI tools and design studios.",
-"url":"https://inflex00-ctrl.github.io/launchplate/",
-"makesOffer":[
- {"@type":"Offer","name":"SaaS Launch Kit","price":"49","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":"https://inflex00-ctrl.github.io/launchplate/kit-saas.html"},
- {"@type":"Offer","name":"AI Product Kit","price":"49","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":"https://inflex00-ctrl.github.io/launchplate/kit-ai.html"},
- {"@type":"Offer","name":"Studio & Portfolio Kit","price":"49","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":"https://inflex00-ctrl.github.io/launchplate/kit-studio.html"},
- {"@type":"Offer","name":"The Complete Bundle","price":"99","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":"https://inflex00-ctrl.github.io/launchplate/#bundle"}]}
-</script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
- {"@type":"Question","name":"What exactly do I get?","acceptedAnswer":{"@type":"Answer","text":"A ZIP file containing every HTML page in the kit, one stylesheet, the images and icons used, a README and the licence. Everything is plain text you can open and edit in any editor."}},
- {"@type":"Question","name":"Can I use these for client work?","acceptedAnswer":{"@type":"Answer","text":"Yes. The licence covers unlimited personal and commercial projects, including sites you build and charge clients for. The only restriction is that you may not resell or redistribute the kit itself as a template."}},
- {"@type":"Question","name":"Do I need React, Tailwind or a build step?","acceptedAnswer":{"@type":"Answer","text":"No. Every kit is hand-written HTML and CSS with a small amount of vanilla JavaScript. There is no bundler, no package.json and no dependency to install. Open index.html in a browser and it works."}},
- {"@type":"Question","name":"What is the refund policy?","acceptedAnswer":{"@type":"Answer","text":"Reply to your Stripe receipt within 30 days and you get a full refund. No form, no justification and no questions asked."}}]}
-</script>
+<script>document.documentElement.className += " js-on";</script>
 </head>
-<body class="pm">
-<a class="skip" href="#main">Skip to content</a>
 
-<nav class="nav">
-  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Open menu">
-  <div class="wrap">
-    <a href="index.html" class="logo" aria-label="Launchplate home">
-      <span class="logo-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
-      Launchplate
+<body class="pm pm-noise">
+
+<a class="ed-skip" href="#main">Skip to content</a>
+<div class="pm-progress" data-pm-progress aria-hidden="true"></div>
+
+<!-- ============================================================== NAV -->
+<header class="ed-nav">
+  <div class="ed-nav__in">
+    <a class="ed-wordmark" href="#top" aria-label="Launchplate — home">
+      Launchplate <small>The&nbsp;Catalogue</small>
     </a>
-    <div class="nav-links">
-      <a href="#kits">Kits</a>
+    <nav class="ed-nav__links" aria-label="Primary">
+      <a href="#maths">The maths</a>
+      <a href="#catalogue">The seven kits</a>
       <a href="#inside">What's inside</a>
+      <a href="#bundle">Bundle</a>
       <a href="#licence">Licence</a>
       <a href="#faq">FAQ</a>
-    </div>
-    <div class="nav-cta">
-      <a class="btn btn-g btn-sm btn-nav-desktop" href="demo/saas-launch-kit/index.html" target="_blank" rel="noopener">
-        Live demos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
-      </a>
-      <a class="btn btn-p btn-sm nav-buy" href="#kits">Browse kits</a>
-      <label class="burger" for="nav-toggle" aria-hidden="true"><span></span><span></span><span></span></label>
-    </div>
-  </div>
-  <div class="nav-panel">
-    <a href="#kits">Kits</a>
-    <a href="#inside">What's inside</a>
-    <a href="#licence">Licence</a>
-    <a href="#faq">FAQ</a>
-    <a href="demo/saas-launch-kit/index.html" target="_blank" rel="noopener">Open a live demo &nearr;</a>
-    <a class="btn btn-p btn-lg" href="#kits">Browse the kits</a>
-  </div>
-</nav>
-
-<main id="main">
-
-<!-- ================= HERO ================= -->
-<header class="hero gridlines">
-  <div class="wrap">
-    <div class="hero__top">
-      <span class="chip rv"><span class="pulse"></span> <b>45 finished pages</b> across 7 kits — every page browsable before you pay</span>
-      <h1 class="h-xl rv">Seven finished websites.<br>Rebrand one <span class="em">this afternoon</span>.</h1>
-      <p class="lede rv rv-2">Complete multi-page sites for law firms, clinics, restaurants, studios, directories, SaaS and AI products. Change six colours, swap the copy, hand it over. One licence covers every client project you will ever bill for.</p>
-      <div class="cta-row rv rv-2">
-        <a class="btn btn-p btn-lg" href="#kits">Browse the kits <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-g btn-lg" href="demo/saas-launch-kit/index.html" target="_blank" rel="noopener">Open a live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
-      </div>
-      <ul class="hero__proof rv rv-2">
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Every page is live before you pay</li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Instant download, no account</li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> 30-day refund, no questions</li>
-      </ul>
-    </div>
-
-    <div class="stack rv-scale">
-      <div class="stack__row">
-        <div class="stack__item stack__item--l" aria-hidden="true">
-          <div class="frame">
-            <div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">studio-portfolio-kit / work</span><span class="frame__spacer"></span></div>
-            <div class="frame__view"><img src="assets/shots/studio-portfolio-kit--work.png" alt="" width="1000" height="750" loading="lazy" decoding="async"></div>
-          </div>
-        </div>
-        <div class="stack__item stack__item--r" aria-hidden="true">
-          <div class="frame">
-            <div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">ai-product-kit / playground</span><span class="frame__spacer"></span></div>
-            <div class="frame__view"><img src="assets/shots/ai-product-kit--playground.png" alt="" width="1000" height="750" loading="lazy" decoding="async"></div>
-          </div>
-        </div>
-        <div class="stack__item stack__item--main">
-          <a class="frame" href="demo/saas-launch-kit/index.html" target="_blank" rel="noopener" aria-label="Open the SaaS Launch Kit live demo in a new tab">
-            <div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">saas-launch-kit / index.html</span><span class="frame__spacer"></span></div>
-            <div class="frame__view">
-              <img src="assets/shots/saas-launch-kit--index.png" alt="The SaaS Launch Kit home page: a dark hero with a product dashboard mockup below it." width="1000" height="750" fetchpriority="high" decoding="async">
-              <span class="frame__veil"><span>Open the live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span>
-            </div>
-            <span class="frame__glow" aria-hidden="true"></span>
-          </a>
-        </div>
-      </div>
-      <span class="stack__fade" aria-hidden="true"></span>
-    </div>
+    </nav>
+    <a class="ed-btn ed-btn--gold ed-btn--sm ed-nav__cta"
+       href="https://buy.stripe.com/bJefZgerl5DEgQ059l7Re0v"
+       aria-label="Buy the complete bundle of all seven kits for 99 euro">
+      Get all seven — €99
+    </a>
   </div>
 </header>
 
-<!-- ================= TRUST STRIP ================= -->
-<section class="strip" aria-label="What every purchase includes">
-  <div class="wrap">
-    <ul>
-      <li><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19h16"/></svg> Instant download</b><span>Files land the second Stripe confirms. No account to create.</span></li>
-      <li><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v6c0 4.5 3 7.7 7 9 4-1.3 7-4.5 7-9V6z"/></svg> 30-day refund</b><span>Reply to your receipt. Full refund, no questions asked.</span></li>
-      <li><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9a3 3 0 1 0 0 6c3 0 5-6 8-6a3 3 0 1 1 0 6c-3 0-5-6-8-6z"/></svg> Lifetime licence</b><span>One payment. No subscription, no renewal, no seats.</span></li>
-      <li><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Unlimited client projects</b><span>Use on every client site you build. No per-project fee, ever.</span></li>
-      <li><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M21 3v5h-5M3 21v-5h5"/></svg> Free updates</b><span>Every future revision of the kit you bought, at no cost.</span></li>
-    </ul>
-  </div>
-</section>
+<main id="main">
+<span id="top"></span>
 
-<!-- ================= KITS ================= -->
-<section id="kits" class="sec">
-  <div class="wrap">
-    <div class="sec-head sec-head--split rv">
+<!-- ============================================================== № 01 · HERO -->
+<section class="hero pm-isolate" aria-labelledby="hero-h">
+  <span class="pm-layer pm-bg-grid" aria-hidden="true" style="--pm-grid-size:56px"></span>
+  <span class="pm-layer pm-bg-halo" aria-hidden="true"></span>
+
+  <div class="wrap wrap--wide">
+    <p class="masthead ed-meta">
+      <span>№&nbsp;01</span>
+      <span class="masthead__sep" aria-hidden="true"></span>
+      <span class="masthead__hide">Website kits for freelancers &amp; studios</span>
+      <span class="masthead__sep masthead__hide" aria-hidden="true"></span>
+      <span>Seven kits · 45 pages</span>
+    </p>
+
+    <div class="hero__grid">
       <div>
-        <span class="eyebrow">The catalogue</span>
-        <h2 class="h-l">Seven kits, or <span class="em">all of it</span>.</h2>
-        <p class="lede">Each kit is a whole site — every page a client asks for, already written and designed. Open any preview and click through the real thing before you spend a cent.</p>
+        <h1 id="hero-h" class="ed-display" data-pm-reveal data-pm-delay="40">
+          Your next client site<br>is <em class="ed-italic">already built</em>.
+        </h1>
+
+        <p class="ed-deck mt-3" data-pm-reveal data-pm-delay="140">
+          Seven complete multi-page website templates — 45 finished pages — made to be
+          renamed, recoloured and handed over. Start the client project at 80%,
+          <span class="ink">not at a blank file.</span>
+        </p>
+
+        <p class="hero__terms ed-meta" data-pm-reveal data-pm-delay="200">
+          <span>€49 a kit</span>
+          <span aria-hidden="true">·</span>
+          <span class="gold">€99 for all seven</span>
+          <span aria-hidden="true">·</span>
+          <span>future kits free</span>
+        </p>
+
+        <div class="hero__cta" data-pm-reveal data-pm-delay="260">
+          <a class="ed-btn ed-btn--gold ed-btn--lg" data-pm-magnetic="0.22"
+             href="https://buy.stripe.com/bJefZgerl5DEgQ059l7Re0v">
+            Get all seven — €99
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="ed-btn ed-btn--quiet ed-btn--lg" href="#catalogue">Open the kit browser</a>
+        </div>
+
+        <p class="hero__assure" data-pm-reveal data-pm-delay="320">
+          <span><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.4l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg> Instant download</span>
+          <span><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.4l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg> 30-day refund, no questions</span>
+          <span><svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.4l3.2 3.2L13 5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg> Unlimited client projects</span>
+        </p>
       </div>
-      <a class="tlink" href="#bundle">Skip to the bundle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    </div>
 
-    <div class="kits">
+      <div data-pm-reveal="scale" data-pm-delay="180">
+        <div class="stack">
+          <span class="stack__glow" aria-hidden="true"></span>
 
-      <!-- SaaS -->
-      <article class="kit rv" id="saas" style="--kit:var(--saas)">
-        <div class="kit__media lift">
-          <span class="kit__badge">Most popular</span>
-          <a class="frame frame--crop" href="demo/saas-launch-kit/index.html" target="_blank" rel="noopener" aria-label="Open the SaaS Launch Kit live demo">
-            <div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">saas-launch-kit / index.html</span><span class="frame__spacer"></span></div>
-            <div class="frame__view">
-              <img src="assets/shots/saas-launch-kit--index.png" alt="SaaS Launch Kit home page preview" width="1000" height="750" loading="lazy" decoding="async">
-              <span class="frame__veil"><span>Open the live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span>
-            </div>
-          </a>
-        </div>
-        <div class="kit__body">
-          <div class="kit__head">
-            <span class="eyebrow eyebrow-dot">Kit 01 &middot; 7 pages</span>
-            <h3 class="kit__title"><a href="kit-saas.html" data-name="SAAS">SaaS Launch Kit</a></h3>
-            <p class="kit__desc">Everything a SaaS needs on day one: a landing page, a pricing table with a working monthly/annual toggle, a features page, a changelog, a documentation shell and a legal page. Plus a 404 that does not look like an accident.</p>
-          </div>
-          <div class="kit__feat">
-            <span class="tag tag-kit">7 pages</span><span class="tag">Pricing toggle</span><span class="tag">Docs shell</span><span class="tag">Changelog</span><span class="tag">Light + dark</span>
-          </div>
-          <div class="kit__buy">
-            <div class="price"><b data-price="SAAS">€49</b><em>Launch price</em></div>
-            <a class="btn btn-g" href="kit-saas.html">See all 7 pages</a>
-            <a class="btn btn-p buy" data-sku="SAAS" href="https://buy.stripe.com/bJeaEW971aXYfLWgS37Re0s" rel="noopener">Get the kit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-        </div>
-      </article>
+          <figure class="plate plate--3" aria-hidden="true">
+            <div class="plate__chrome"><i class="plate__dot"></i><i class="plate__dot"></i><i class="plate__dot"></i><span class="plate__url">lawfirm-kit</span></div>
+            <img src="assets/shots/lawfirm-kit--about.png" alt="" width="1000" height="750" loading="eager" decoding="async">
+          </figure>
 
-      <!-- AI -->
-      <article class="kit rv" id="ai" style="--kit:var(--ai)">
-        <div class="kit__media lift">
-          <span class="kit__badge">New</span>
-          <a class="frame frame--crop" href="demo/ai-product-kit/index.html" target="_blank" rel="noopener" aria-label="Open the AI Product Kit live demo">
-            <div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">ai-product-kit / index.html</span><span class="frame__spacer"></span></div>
-            <div class="frame__view">
-              <img src="assets/shots/ai-product-kit--index.png" alt="AI Product Kit home page preview" width="1000" height="750" loading="lazy" decoding="async">
-              <span class="frame__veil"><span>Open the live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span>
-            </div>
-          </a>
-        </div>
-        <div class="kit__body">
-          <div class="kit__head">
-            <span class="eyebrow eyebrow-dot">Kit 02 &middot; 6 pages</span>
-            <h3 class="kit__title"><a href="kit-ai.html" data-name="AI">AI Product Kit</a></h3>
-            <p class="kit__desc">Built for AI tools and agent products: a demo-first hero, a searchable prompt playground, a model comparison table, an API reference page, pricing with token maths and a waitlist flow that captures the email.</p>
-          </div>
-          <div class="kit__feat">
-            <span class="tag tag-kit">6 pages</span><span class="tag">Prompt library</span><span class="tag">Model compare</span><span class="tag">API docs</span><span class="tag">Waitlist</span>
-          </div>
-          <div class="kit__buy">
-            <div class="price"><b data-price="AI">€49</b><em>Launch price</em></div>
-            <a class="btn btn-g" href="kit-ai.html">See all 6 pages</a>
-            <a class="btn btn-p buy" data-sku="AI" href="https://buy.stripe.com/bJecN44QL5DE7fqdFR7Re0t" rel="noopener">Get the kit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-        </div>
-      </article>
+          <figure class="plate plate--2" aria-hidden="true">
+            <div class="plate__chrome"><i class="plate__dot"></i><i class="plate__dot"></i><i class="plate__dot"></i><span class="plate__url">restaurant-kit</span></div>
+            <img src="assets/shots/restaurant-kit--menu.png" alt="" width="1000" height="750" loading="eager" decoding="async">
+          </figure>
 
-      <!-- Studio -->
-      <article class="kit rv" id="studio" style="--kit:var(--studio)">
-        <div class="kit__media lift">
-          <a class="frame frame--crop" href="demo/studio-portfolio-kit/index.html" target="_blank" rel="noopener" aria-label="Open the Studio and Portfolio Kit live demo">
-            <div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">studio-portfolio-kit / index.html</span><span class="frame__spacer"></span></div>
-            <div class="frame__view">
-              <img src="assets/shots/studio-portfolio-kit--index.png" alt="Studio and Portfolio Kit home page preview" width="1000" height="750" loading="lazy" decoding="async">
-              <span class="frame__veil"><span>Open the live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span>
-            </div>
-          </a>
+          <figure class="plate plate--1">
+            <div class="plate__chrome"><i class="plate__dot"></i><i class="plate__dot"></i><i class="plate__dot"></i><span class="plate__url">launchplate/demo/saas-launch-kit</span></div>
+            <img src="assets/shots/saas-launch-kit--index.png"
+                 alt="The SaaS Launch Kit homepage: a dark landing page with a headline, two calls to action and a product dashboard preview."
+                 width="1000" height="694" loading="eager" decoding="async" fetchpriority="high">
+          </figure>
         </div>
-        <div class="kit__body">
-          <div class="kit__head">
-            <span class="eyebrow eyebrow-dot">Kit 03 &middot; 6 pages</span>
-            <h3 class="kit__title"><a href="kit-studio.html" data-name="STUDIO">Studio &amp; Portfolio Kit</a></h3>
-            <p class="kit__desc">For agencies, freelancers and studios: a filterable work grid, a long-form case-study layout, a services and pricing page, an about page with real structure, and a contact page written to actually get the enquiry.</p>
-          </div>
-          <div class="kit__feat">
-            <span class="tag tag-kit">6 pages</span><span class="tag">Case study</span><span class="tag">Work grid</span><span class="tag">Services</span><span class="tag">Contact</span>
-          </div>
-          <div class="kit__buy">
-            <div class="price"><b data-price="STUDIO">€49</b><em>Launch price</em></div>
-            <a class="btn btn-g" href="kit-studio.html">See all 6 pages</a>
-            <a class="btn btn-p buy" data-sku="STUDIO" href="https://buy.stripe.com/3cI5kCbf92rs0R231d7Re0u" rel="noopener">Get the kit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-        </div>
-      </article>
-      <article class="kit rv" id="law" style="--kit:#8c2f39">
-        <div class="kit__media lift">
-          <span class="kit__badge">Most billable</span>
-          <a class="frame frame--crop" href="demo/lawfirm-kit/index.html" target="_blank" rel="noopener" aria-label="Open the Law Firm & Professional Services Kit live demo">
-            <div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">lawfirm-kit / index.html</span><span class="frame__spacer"></span></div>
-            <div class="frame__view">
-              <img src="assets/shots/lawfirm-kit--about.png" alt="Law Firm & Professional Services Kit preview" width="1000" height="750" loading="lazy" decoding="async">
-              <span class="frame__veil"><span>Open the live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span>
-            </div>
-          </a>
-        </div>
-        <div class="kit__body">
-          <div class="kit__head">
-            <span class="eyebrow eyebrow-dot">Kit 04 &middot; 7 pages</span>
-            <h3 class="kit__title"><a href="demo/lawfirm-kit/index.html" target="_blank" rel="noopener" data-name="LAW">Law Firm & Professional Services Kit</a></h3>
-            <p class="kit__desc">Seven pages for a law firm or professional practice: practice areas, attorney profiles, a single-attorney template, insights and a consultation form with conflicts-check language.</p>
-          </div>
-          <div class="kit__feat"><span class="tag tag-kit">7 pages</span><span class="tag">Attorney profiles</span><span class="tag">Consultation form</span><span class="tag">Light + dark</span></div>
-          <div class="kit__buy">
-            <div class="price"><b data-price="LAW">&euro;49</b><em>Launch price</em></div>
-            <a class="btn btn-g" href="demo/lawfirm-kit/index.html" target="_blank" rel="noopener">Open live demo</a>
-            <a class="btn btn-p buy" data-sku="LAW" href="https://buy.stripe.com/00weVcgzt3vw6bmgS37Re0w" rel="noopener">Get the kit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-        </div>
-      </article>
-      <article class="kit rv" id="clinic" style="--kit:#2b6ca3">
-        <div class="kit__media lift">
-          
-          <a class="frame frame--crop" href="demo/clinic-kit/index.html" target="_blank" rel="noopener" aria-label="Open the Dental & Medical Clinic Kit live demo">
-            <div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">clinic-kit / index.html</span><span class="frame__spacer"></span></div>
-            <div class="frame__view">
-              <img src="assets/shots/clinic-kit--index.png" alt="Dental & Medical Clinic Kit preview" width="1000" height="750" loading="lazy" decoding="async">
-              <span class="frame__veil"><span>Open the live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span>
-            </div>
-          </a>
-        </div>
-        <div class="kit__body">
-          <div class="kit__head">
-            <span class="eyebrow eyebrow-dot">Kit 05 &middot; 6 pages</span>
-            <h3 class="kit__title"><a href="demo/clinic-kit/index.html" target="_blank" rel="noopener" data-name="CLINIC">Dental & Medical Clinic Kit</a></h3>
-            <p class="kit__desc">Six pages for a clinic or practice: services by category, practitioner profiles, appointment booking, facility and contact.</p>
-          </div>
-          <div class="kit__feat"><span class="tag tag-kit">6 pages</span><span class="tag">Service catalogue</span><span class="tag">Appointments</span><span class="tag">Team</span></div>
-          <div class="kit__buy">
-            <div class="price"><b data-price="CLINIC">&euro;49</b><em>Launch price</em></div>
-            <a class="btn btn-g" href="demo/clinic-kit/index.html" target="_blank" rel="noopener">Open live demo</a>
-            <a class="btn btn-p buy" data-sku="CLINIC" href="https://buy.stripe.com/eVq6oG5UPd66czK8lx7Re0z" rel="noopener">Get the kit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-        </div>
-      </article>
-      <article class="kit rv" id="food" style="--kit:#b5502a">
-        <div class="kit__media lift">
-          
-          <a class="frame frame--crop" href="demo/restaurant-kit/index.html" target="_blank" rel="noopener" aria-label="Open the Restaurant & Café Kit live demo">
-            <div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">restaurant-kit / index.html</span><span class="frame__spacer"></span></div>
-            <div class="frame__view">
-              <img src="assets/shots/restaurant-kit--index.png" alt="Restaurant & Café Kit preview" width="1000" height="750" loading="lazy" decoding="async">
-              <span class="frame__veil"><span>Open the live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span>
-            </div>
-          </a>
-        </div>
-        <div class="kit__body">
-          <div class="kit__head">
-            <span class="eyebrow eyebrow-dot">Kit 06 &middot; 6 pages</span>
-            <h3 class="kit__title"><a href="demo/restaurant-kit/index.html" target="_blank" rel="noopener" data-name="FOOD">Restaurant & Café Kit</a></h3>
-            <p class="kit__desc">Six pages for a restaurant or café: full menu with categories, reservations, gallery with lightbox, story and contact.</p>
-          </div>
-          <div class="kit__feat"><span class="tag tag-kit">6 pages</span><span class="tag">Menu system</span><span class="tag">Reservations</span><span class="tag">Gallery</span></div>
-          <div class="kit__buy">
-            <div class="price"><b data-price="FOOD">&euro;49</b><em>Launch price</em></div>
-            <a class="btn btn-g" href="demo/restaurant-kit/index.html" target="_blank" rel="noopener">Open live demo</a>
-            <a class="btn btn-p buy" data-sku="FOOD" href="https://buy.stripe.com/28E3cu3MH6HIdDOeJV7Re0y" rel="noopener">Get the kit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-        </div>
-      </article>
-      <article class="kit rv" id="dir" style="--kit:#2f7d6e">
-        <div class="kit__media lift">
-          <span class="kit__badge">Least competition</span>
-          <a class="frame frame--crop" href="demo/directory-kit/index.html" target="_blank" rel="noopener" aria-label="Open the Directory & Marketplace Kit live demo">
-            <div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">directory-kit / index.html</span><span class="frame__spacer"></span></div>
-            <div class="frame__view">
-              <img src="assets/shots/directory-kit--index.png" alt="Directory & Marketplace Kit preview" width="1000" height="750" loading="lazy" decoding="async">
-              <span class="frame__veil"><span>Open the live demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></span>
-            </div>
-          </a>
-        </div>
-        <div class="kit__body">
-          <div class="kit__head">
-            <span class="eyebrow eyebrow-dot">Kit 07 &middot; 7 pages</span>
-            <h3 class="kit__title"><a href="demo/directory-kit/index.html" target="_blank" rel="noopener" data-name="DIR">Directory & Marketplace Kit</a></h3>
-            <p class="kit__desc">Six pages for a niche directory: working client-side filtering and search, listing detail, category landings, a submit flow and paid placement tiers.</p>
-          </div>
-          <div class="kit__feat"><span class="tag tag-kit">6 pages</span><span class="tag">Live filtering</span><span class="tag">Submit flow</span><span class="tag">Paid tiers</span></div>
-          <div class="kit__buy">
-            <div class="price"><b data-price="DIR">&euro;49</b><em>Launch price</em></div>
-            <a class="btn btn-g" href="demo/directory-kit/index.html" target="_blank" rel="noopener">Open live demo</a>
-            <a class="btn btn-p buy" data-sku="DIR" href="https://buy.stripe.com/aFa00ierl3vwczK45h7Re0x" rel="noopener">Get the kit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-        </div>
-      </article>
-
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ================= BUNDLE ================= -->
-<section id="bundle" class="sec-tight">
+<!-- ============================================================== CONTACT SHEET -->
+<section class="sheet" aria-label="Screenshots from across the seven kits">
+  <div class="pm-marquee pm-marquee--pause" data-pm-speed="34">
+    <div class="pm-marquee__track">
+      <figure class="sheet-item"><img src="assets/shots/studio-portfolio-kit--work.png" alt="Studio &amp; Portfolio Kit — work grid page" width="1000" height="750" loading="lazy" decoding="async"></figure>
+      <figure class="sheet-item"><img src="assets/shots/lawfirm-kit--about.png" alt="Law Firm Kit — about page" width="1000" height="750" loading="lazy" decoding="async"></figure>
+      <figure class="sheet-item"><img src="assets/shots/ai-product-kit--playground.png" alt="AI Product Kit — playground page" width="1000" height="750" loading="lazy" decoding="async"></figure>
+      <figure class="sheet-item"><img src="assets/shots/restaurant-kit--menu.png" alt="Restaurant &amp; Café Kit — menu page" width="1000" height="750" loading="lazy" decoding="async"></figure>
+      <figure class="sheet-item"><img src="assets/shots/clinic-kit--services.png" alt="Dental &amp; Medical Clinic Kit — services page" width="1000" height="750" loading="lazy" decoding="async"></figure>
+      <figure class="sheet-item"><img src="assets/shots/saas-launch-kit--docs.png" alt="SaaS Launch Kit — documentation page" width="1000" height="750" loading="lazy" decoding="async"></figure>
+      <figure class="sheet-item"><img src="assets/shots/directory-kit--browse.png" alt="Directory &amp; Marketplace Kit — browse and filter page" width="1000" height="750" loading="lazy" decoding="async"></figure>
+      <figure class="sheet-item"><img src="assets/shots/studio-portfolio-kit--case-study.png" alt="Studio &amp; Portfolio Kit — case study page" width="1000" height="750" loading="lazy" decoding="async"></figure>
+      <figure class="sheet-item"><img src="assets/shots/ai-product-kit--models.png" alt="AI Product Kit — model comparison page" width="1000" height="750" loading="lazy" decoding="async"></figure>
+      <figure class="sheet-item"><img src="assets/shots/lawfirm-kit--attorney-detail.png" alt="Law Firm Kit — attorney profile page" width="1000" height="750" loading="lazy" decoding="async"></figure>
+      <figure class="sheet-item"><img src="assets/shots/clinic-kit--appointments.png" alt="Dental &amp; Medical Clinic Kit — appointment booking page" width="1000" height="750" loading="lazy" decoding="async"></figure>
+      <figure class="sheet-item"><img src="assets/shots/saas-launch-kit--pricing.png" alt="SaaS Launch Kit — pricing page" width="1000" height="750" loading="lazy" decoding="async"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================== ASSURANCE BAND -->
+<section class="band" aria-labelledby="band-h">
+  <h2 id="band-h" class="vis-hidden">What you get and how it is guaranteed</h2>
+  <div class="wrap wrap--wide" style="padding-inline:0">
+    <div class="band__stats">
+      <div class="band__stat">
+        <b><span data-pm-ticker="7">7</span></b>
+        <span>Complete kits, seven industries</span>
+      </div>
+      <div class="band__stat">
+        <b><span data-pm-ticker="45">45</span></b>
+        <span>Finished pages, not placeholders</span>
+      </div>
+      <div class="band__stat">
+        <b>∞</b>
+        <span>Client projects on one licence</span>
+      </div>
+      <div class="band__stat">
+        <b><span data-pm-ticker="30">30</span></b>
+        <span>Days to ask for your money back</span>
+      </div>
+    </div>
+
+    <div class="band__grid">
+      <div class="band__item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3 class="ed-h4">Download the moment you pay</h3>
+        <p>Stripe checkout, then the zip. HTML, CSS, JS, images — the same files the demo runs on.</p>
+      </div>
+      <div class="band__item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12a9 9 0 109-9 9 9 0 00-6.4 2.6L3 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 3v5h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3 class="ed-h4">Thirty days to change your mind</h3>
+        <p>Email us inside 30 days and we refund it. No questions, no form, no explanation needed.</p>
+      </div>
+      <div class="band__item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 10V7a5 5 0 0110 0v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="4" y="10" width="16" height="10" rx="2.5" stroke="currentColor" stroke-width="1.6"/></svg>
+        <h3 class="ed-h4">One licence, every client</h3>
+        <p>Use a kit on as many client projects as you like, for as long as you like. No per-site fee, ever.</p>
+      </div>
+      <div class="band__item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/></svg>
+        <h3 class="ed-h4">Click through it before you buy</h3>
+        <p>Every page of every kit is live as a full demo. No signup, no email gate, no crippled preview.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================== № 02 · THE ARITHMETIC -->
+<section id="maths" class="sec pm-isolate" aria-labelledby="maths-h">
+  <span class="pm-layer pm-bg-grid" aria-hidden="true" style="--pm-grid-size:64px"></span>
   <div class="wrap">
-    <div class="bundle rv-scale">
-      <div class="bundle__in">
-        <div class="bundle__body">
-          <span class="eyebrow eyebrow-dot">Best value</span>
-          <h2 class="h-l">The Complete Bundle.<br><span class="em">Everything, forever.</span></h2>
-          <p class="lede">All three kits — every one of the <b data-pages="BUNDLE">19</b> pages — plus every kit released in the future, free. One payment, one licence, unlimited projects.</p>
-          <ul class="bundle__list">
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> SaaS Launch Kit — 7 pages</li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> AI Product Kit — 6 pages</li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Studio &amp; Portfolio Kit — 6 pages</li>
-            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Every future kit, free</li>
-          </ul>
-          <div class="kit__buy" style="border-top-color:rgba(245,158,11,.25)">
-            <div class="price"><b data-price="BUNDLE">€99</b><em>Launch price</em></div>
-            <a class="btn btn-a buy" data-sku="BUNDLE" href="https://buy.stripe.com/bJefZgerl5DEgQ059l7Re0v" rel="noopener">Get the bundle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-          <p class="micro">The three kits bought individually come to €147. The bundle is €99 and includes every kit released later.</p>
+    <p class="ed-marker" data-pm-reveal>
+      <span class="ed-num">№&nbsp;02</span>
+      <span class="ed-marker__rule" aria-hidden="true"></span>
+      <span class="ed-meta ed-marker__label">The argument</span>
+    </p>
+
+    <div class="hero__grid" style="align-items:end;gap:clamp(24px,4vw,64px)">
+      <h2 id="maths-h" class="ed-h2" data-pm-reveal>A €49 line item<br>inside a €3,000 invoice.</h2>
+      <p class="ed-body ed-dropcap" data-pm-reveal data-pm-delay="120">
+        You are not buying code. You are buying back the two days at the start of a project
+        where nothing is billable and everything is a blank file. Here is the honest version
+        of that trade, with the numbers we can actually stand behind.
+      </p>
+    </div>
+
+    <div class="maths__grid mt-5">
+
+      <div>
+        <div data-pm-reveal="scale">
+          <aside class="ticket" aria-labelledby="ticket-h">
+            <p class="ticket__head">
+              <span class="ed-meta" id="ticket-h">Example project</span>
+              <span class="ed-meta">Docket</span>
+            </p>
+            <p class="ticket__row"><span>Client website build</span><span class="lead" aria-hidden="true"></span><b>€3,000</b></p>
+            <p class="ticket__row"><span>Launchplate kit</span><span class="lead" aria-hidden="true"></span><b>€49</b></p>
+            <p class="ticket__row ticket__row--pct"><span>Kit as a share of the invoice</span><span class="lead" aria-hidden="true"></span><b>1.6%</b></p>
+            <p class="ticket__row ticket__row--total"><span>Your margin</span><span class="lead" aria-hidden="true"></span><b>everything else</b></p>
+            <p class="ticket__foot">
+              €3,000 is an illustration, not a quoted rate — put your own number in.
+              At €5,000 the kit is under one per cent of the job; at €1,500 it is
+              a shade over three. There is no version of this where the kit is the
+              expensive part.
+            </p>
+          </aside>
         </div>
-        <div class="fan" aria-hidden="true">
-          <div class="frame frame--crop"><div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">studio-portfolio-kit</span><span class="frame__spacer"></span></div><div class="frame__view"><img src="assets/shots/studio-portfolio-kit--case-study.png" alt="" width="1000" height="750" loading="lazy" decoding="async"></div></div>
-          <div class="frame frame--crop"><div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">saas-launch-kit</span><span class="frame__spacer"></span></div><div class="frame__view"><img src="assets/shots/saas-launch-kit--pricing.png" alt="" width="1000" height="750" loading="lazy" decoding="async"></div></div>
-          <div class="frame frame--crop"><div class="frame__bar"><span class="frame__dots"><i></i><i></i><i></i></span><span class="frame__url">ai-product-kit</span><span class="frame__spacer"></span></div><div class="frame__view"><img src="assets/shots/ai-product-kit--models.png" alt="" width="1000" height="750" loading="lazy" decoding="async"></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ================= WHAT'S INSIDE ================= -->
-<section id="inside" class="sec rule">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="eyebrow">What's inside</span>
-      <h2 class="h-l">Built the way <span class="em">you'd build it</span>.</h2>
-      <p class="lede">If you know HTML, you already know how to edit these. Nothing is generated, nothing is minified, nothing is hidden behind a component API.</p>
-    </div>
+        <p class="pull mt-5" data-pm-reveal>The second use<br>costs nothing.</p>
 
-    <div class="stats rv" style="margin-bottom:clamp(28px,3.5vw,44px)">
-      <div class="stat"><b>19</b><span>Finished pages across the library</span></div>
-      <div class="stat"><b>0</b><span>Dependencies to install</span></div>
-      <div class="stat"><b>2</b><span>Themes per kit — light and dark</span></div>
-      <div class="stat"><b>100%</b><span>Editable, unminified source</span></div>
-    </div>
-
-    <div class="feats rv rv-2">
-      <div class="feat">
-        <span class="feat__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 6-6 6 6 6M16 6l6 6-6 6"/></svg></span>
-        <h3>Plain HTML and CSS</h3>
-        <p>No bundler, no config file, no dependency graph that rots in six months. Double-click <code class="mono">index.html</code> and it opens. Deploy by dragging the folder anywhere.</p>
-      </div>
-      <div class="feat">
-        <span class="feat__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z"/></svg></span>
-        <h3>Light and dark, both wired</h3>
-        <p>Both themes ship, driven by CSS custom properties with a working toggle. Change six variables at the top of the stylesheet and the whole kit is rebranded.</p>
-      </div>
-      <div class="feat">
-        <span class="feat__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
-        <h3>Genuinely responsive</h3>
-        <p>Fluid type, real breakpoints, tested from 320&nbsp;px to ultrawide. Not a desktop layout that squashes and hopes — the mobile navigation actually works.</p>
-      </div>
-      <div class="feat">
-        <span class="feat__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg></span>
-        <h3>SEO wired in, not bolted on</h3>
-        <p>Semantic markup, one <code class="mono">h1</code> per page, unique titles and descriptions, Open Graph and Twitter cards, and JSON-LD structured data on every page.</p>
-      </div>
-      <div class="feat">
-        <span class="feat__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v.01M11 12h1v5h1"/></svg></span>
-        <h3>Accessible by construction</h3>
-        <p>Landmarks, focus-visible states, labelled controls, skip links and colour contrast that passes. Keyboard navigation works because it was tested, not assumed.</p>
-      </div>
-      <div class="feat">
-        <span class="feat__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></span>
-        <h3>Documented and licensed</h3>
-        <p>A README that explains the folder structure, the CSS variables and exactly which lines to change first — plus the full licence text in the ZIP, in writing.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= LICENCE ================= -->
-<section id="licence" class="sec rule">
-  <div class="wrap">
-    <div class="split">
-      <div class="rv">
-        <span class="eyebrow">The licence</span>
-        <h2 class="h-l" style="margin:16px 0 18px">Buy once. <span class="em">Use it forever.</span></h2>
-        <p class="lede">One flat payment per kit. No subscription, no renewal, no per-seat pricing, no expiry. The plain-English summary is on the right and the full text ships inside every ZIP.</p>
-        <div class="cta-row" style="margin-top:26px">
-          <a class="btn btn-g" href="#faq">Read the FAQ</a>
-          <a class="btn btn-g" href="#kits">Browse the kits</a>
+        <div class="callout mt-4" data-pm-reveal>
+          <p class="ed-body">
+            One licence covers every client you will ever have. Buy the Law Firm Kit for one
+            solicitor and you own it for the next four — and for the accountant, and for the
+            surveyor. Kit on client one: €49. Kit on client two: €0. Kit on client nine: €0.
+          </p>
         </div>
       </div>
-      <div class="rv rv-2">
-        <div class="lic">
-          <div class="lic__col lic--yes">
-            <h3><svg viewBox="0 0 24 24" aria-hidden="true" style="width:15px;height:15px"><path d="M20 6 9 17l-5-5"/></svg> You may</h3>
-            <ul>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Use a kit on unlimited personal projects</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Use it on unlimited commercial projects</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Build and charge for client sites with it</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Modify, restyle and rewrite anything</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Keep using it forever, including offline</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Ship it without any attribution or credit</li>
-            </ul>
-          </div>
-          <div class="lic__col lic--no">
-            <h3><svg viewBox="0 0 24 24" aria-hidden="true" style="width:15px;height:15px"><path d="M18 6 6 18M6 6l12 12"/></svg> You may not</h3>
-            <ul>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg> Resell or redistribute the kit as a template</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg> Publish it to a template marketplace</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg> Share the ZIP publicly or with non-buyers</li>
-              <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg> Repackage it as a theme or a site builder</li>
-            </ul>
-            <p class="micro" style="margin-top:auto">In short: build whatever you like with it — just do not sell the kit itself.</p>
+
+      <div>
+        <div class="ledger" data-pm-reveal="scale">
+          <table>
+            <caption class="vis-hidden">Estimated hours for a six-page marketing site, built from scratch compared with built from a Launchplate kit</caption>
+            <thead>
+              <tr>
+                <th scope="col">Stage of a 6-page marketing site</th>
+                <th scope="col">From scratch</th>
+                <th scope="col">From a kit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Layout, grid, responsive pass</th><td class="was">8–14 h</td><td class="now">done</td></tr>
+              <tr><th scope="row">Page structure &amp; placeholder copy</th><td class="was">4–8 h</td><td class="now">0–2 h</td></tr>
+              <tr><th scope="row">Dark mode &amp; accessibility pass</th><td class="was">3–6 h</td><td class="now">done</td></tr>
+              <tr><th scope="row">Menus, filters, forms, galleries</th><td class="was">3–6 h</td><td class="now">0–1 h</td></tr>
+              <tr><th scope="row">Rebrand to the client's identity</th><td class="was">2–4 h</td><td class="now">1–2 h</td></tr>
+              <tr><th scope="row">Client revisions &amp; QA</th><td class="was">4–8 h</td><td class="now">3–6 h</td></tr>
+              <tr class="is-total"><th scope="row">Rough total</th><td class="was">24–46 h</td><td class="now">4–11 h</td></tr>
+            </tbody>
+          </table>
+          <div class="ledger__foot">
+            <p>
+              <strong>This is an honest estimate, not a statistic.</strong>
+              We built the seven kits and timed ourselves rebranding them; your hours will
+              differ with your stack, your client and how many rounds of revisions you agreed
+              to. We have not surveyed anyone, and we are not going to invent a number that
+              says we save you exactly 23.4 hours.
+            </p>
           </div>
         </div>
+
+        <p class="ed-small ledger-note" data-pm-reveal data-pm-delay="80">
+          Even at the pessimistic end of that table — the kit saves you a single working day —
+          €49 is worth roughly forty minutes at a €75/hour rate. The optimistic end is a week
+          you get to spend on the parts of the project the client actually notices.
+        </p>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- ================= FAQ ================= -->
-<section id="faq" class="sec rule">
+<!-- ============================================================== № 03 · THE CATALOGUE -->
+<section id="catalogue" class="sec" aria-labelledby="cat-h">
   <div class="wrap">
-    <div class="split">
-      <div class="rv">
-        <span class="eyebrow">Questions</span>
-        <h2 class="h-l" style="margin:16px 0 18px">Everything a buyer<br>reasonably asks.</h2>
-        <p class="lede">Nothing here is a marketing answer. If something is still unclear, the demos are free — click through them first.</p>
+    <p class="ed-marker" data-pm-reveal>
+      <span class="ed-num">№&nbsp;03</span>
+      <span class="ed-marker__rule" aria-hidden="true"></span>
+      <span class="ed-meta ed-marker__label">The seven kits</span>
+    </p>
+
+    <div class="hero__grid" style="align-items:end;gap:clamp(24px,4vw,64px)">
+      <h2 id="cat-h" class="ed-h2" data-pm-reveal>Seven kits.<br>Every page finished.</h2>
+      <p class="ed-body ed-dropcap" data-pm-reveal data-pm-delay="120">
+        Each kit is an entire website — every page linked, every state designed, every word
+        written. Pick a vertical below and page through the actual screens, or open a demo
+        and click through it the way a client would: the menus work, the filters filter,
+        the pricing toggles toggle. What you click is exactly what lands in the zip.
+      </p>
+    </div>
+  </div>
+
+  <div class="wrap mt-5">
+    <nav class="toc" aria-label="Contents — the seven kits">
+      <a class="toc__row" href="#panel-saas" style="--k:#7ea3ff">
+        <span class="toc__n">01</span><i class="toc__swatch" aria-hidden="true"></i>
+        <span class="toc__name">SaaS Launch Kit</span>
+        <span class="toc__lead" aria-hidden="true"></span>
+        <span class="toc__pages">8 pages</span>
+        <span class="toc__price">€49</span>
+      </a>
+      <a class="toc__row" href="#panel-ai" style="--k:#22d3a7">
+        <span class="toc__n">02</span><i class="toc__swatch" aria-hidden="true"></i>
+        <span class="toc__name">AI Product Kit</span>
+        <span class="toc__lead" aria-hidden="true"></span>
+        <span class="toc__pages">6 pages</span>
+        <span class="toc__price">€49</span>
+      </a>
+      <a class="toc__row" href="#panel-studio" style="--k:#c084fc">
+        <span class="toc__n">03</span><i class="toc__swatch" aria-hidden="true"></i>
+        <span class="toc__name">Studio &amp; Portfolio Kit</span>
+        <span class="toc__lead" aria-hidden="true"></span>
+        <span class="toc__pages">6 pages</span>
+        <span class="toc__price">€49</span>
+      </a>
+      <a class="toc__row" href="#panel-law" style="--k:#d9707a">
+        <span class="toc__n">04</span><i class="toc__swatch" aria-hidden="true"></i>
+        <span class="toc__name">Law Firm &amp; Professional Services Kit</span>
+        <span class="toc__lead" aria-hidden="true"></span>
+        <span class="toc__pages">7 pages</span>
+        <span class="toc__price">€49</span>
+      </a>
+      <a class="toc__row" href="#panel-clinic" style="--k:#5fa8dd">
+        <span class="toc__n">05</span><i class="toc__swatch" aria-hidden="true"></i>
+        <span class="toc__name">Dental &amp; Medical Clinic Kit</span>
+        <span class="toc__lead" aria-hidden="true"></span>
+        <span class="toc__pages">6 pages</span>
+        <span class="toc__price">€49</span>
+      </a>
+      <a class="toc__row" href="#panel-food" style="--k:#e08055">
+        <span class="toc__n">06</span><i class="toc__swatch" aria-hidden="true"></i>
+        <span class="toc__name">Restaurant &amp; Café Kit</span>
+        <span class="toc__lead" aria-hidden="true"></span>
+        <span class="toc__pages">6 pages</span>
+        <span class="toc__price">€49</span>
+      </a>
+      <a class="toc__row" href="#panel-dir" style="--k:#55bfa9">
+        <span class="toc__n">07</span><i class="toc__swatch" aria-hidden="true"></i>
+        <span class="toc__name">Directory &amp; Marketplace Kit</span>
+        <span class="toc__lead" aria-hidden="true"></span>
+        <span class="toc__pages">6 pages</span>
+        <span class="toc__price">€49</span>
+      </a>
+    </nav>
+  </div>
+
+  <div class="wrap wrap--wide mt-5">
+    <div class="kb" data-pm-reveal data-pm-delay="60">
+
+      <div class="kb__top">
+        <span class="ed-meta kb__lab" aria-hidden="true">Filter&nbsp;→</span>
+        <div class="kb__filters" role="group" aria-label="Filter kits by industry">
+          <button type="button" class="kb__chip" data-filter="all" aria-pressed="true">All 7</button>
+          <button type="button" class="kb__chip" data-filter="tech" aria-pressed="false">Tech &amp; SaaS</button>
+          <button type="button" class="kb__chip" data-filter="local" aria-pressed="false">Local business</button>
+          <button type="button" class="kb__chip" data-filter="creative" aria-pressed="false">Creative</button>
+          <button type="button" class="kb__chip" data-filter="professional" aria-pressed="false">Professional</button>
+          <button type="button" class="kb__chip" data-filter="marketplace" aria-pressed="false">Marketplace</button>
+        </div>
+        <span class="ed-meta kb__count" data-count-out>7 kits · 45 pages</span>
       </div>
-      <div class="faq rv rv-2">
-        <details open>
-          <summary>What exactly do I get for my money?</summary>
-          <p>A ZIP file. Inside it: every HTML page of the kit, one stylesheet, the small amount of vanilla JavaScript that powers things like the pricing toggle, the icons and images used, a README, and the licence in full. All of it is unminified text you can open in any editor.</p>
-        </details>
-        <details>
-          <summary>Can I use this for paid client work?</summary>
-          <p>Yes, and this is the main reason people buy. The licence covers unlimited personal and commercial projects, including sites you build and invoice a client for. You do not need a separate licence per client or per site. The only thing you cannot do is resell the kit itself as a template.</p>
-        </details>
-        <details>
-          <summary>Do I need React, Tailwind, npm or a build step?</summary>
-          <p>No — that is the entire point. Every kit is hand-written HTML and CSS with a little vanilla JavaScript. There is no <code class="mono">package.json</code>, no bundler and nothing to install. Open the folder, edit the text, upload it to any host: Netlify, Vercel, GitHub Pages, Cloudflare Pages, or a plain old FTP server.</p>
-        </details>
-        <details>
-          <summary>Can I really see everything before I pay?</summary>
-          <p>Yes. Every page of every kit is published as a live demo on this site — not a video, not a slideshow, the actual pages. Click any preview, click through the navigation, resize the window, toggle the theme. Nothing is gated and there is no signup.</p>
-        </details>
-        <details>
-          <summary>How is it delivered, and do I need an account?</summary>
-          <p>Payment is handled by Stripe. As soon as it clears you land on a download page with your files, and the same permanent link is on your receipt. There is no account to create, no password, and no login to lose.</p>
-        </details>
-        <details>
-          <summary>What if it is not right for me?</summary>
-          <p>Reply to your Stripe receipt within 30 days and you get a full refund. No form, no justification, no questions. Digital goods are easy to refund and arguing about €49 is not worth anyone's afternoon.</p>
-        </details>
-        <details>
-          <summary>Do I get updates, and do they cost extra?</summary>
-          <p>Updates to a kit you bought are free, forever — bug fixes, browser fixes and improvements included. The Complete Bundle goes further: every entirely new kit released in the future is included at no extra cost.</p>
-        </details>
-        <details>
-          <summary>Can I change the colours and fonts?</summary>
-          <p>Easily. Each kit's stylesheet opens with a block of CSS custom properties — background, surface, text, accent, radius and font stack. Change those six or so values and the whole kit is rebranded. Everything downstream inherits from them.</p>
-        </details>
-        <details>
-          <summary>Are there hidden fees, upsells or a subscription?</summary>
-          <p>None. The price you see is the total. There is no pro tier, no license key to renew, no analytics beacon and nothing in the files that phones home. Once the ZIP is on your machine, this shop is irrelevant to you.</p>
-        </details>
-        <details>
-          <summary>Which kit should I buy?</summary>
-          <p>Selling software with plans and docs — the SaaS Launch Kit. Launching an AI tool or agent and need a playground, model comparison or waitlist — the AI Product Kit. Selling your own services or showing client work — the Studio &amp; Portfolio Kit. Torn between two of them, or expecting to build more than one site: the bundle is cheaper than any two kits bought separately.</p>
-        </details>
+
+      <div class="kb__body">
+        <div class="kb__rail" data-rail>
+          <button type="button" class="kb__kit" data-kit="saas" data-tags="tech" style="--kc:#7ea3ff"><span class="kb__kit-n">01</span><span class="kb__kit-name">SaaS Launch</span><span class="kb__kit-p">8p</span></button>
+          <button type="button" class="kb__kit" data-kit="ai" data-tags="tech" style="--kc:#22d3a7"><span class="kb__kit-n">02</span><span class="kb__kit-name">AI Product</span><span class="kb__kit-p">6p</span></button>
+          <button type="button" class="kb__kit" data-kit="studio" data-tags="creative" style="--kc:#c084fc"><span class="kb__kit-n">03</span><span class="kb__kit-name">Studio &amp; Portfolio</span><span class="kb__kit-p">6p</span></button>
+          <button type="button" class="kb__kit" data-kit="law" data-tags="professional local" style="--kc:#d9707a"><span class="kb__kit-n">04</span><span class="kb__kit-name">Law Firm</span><span class="kb__kit-p">7p</span></button>
+          <button type="button" class="kb__kit" data-kit="clinic" data-tags="local" style="--kc:#5fa8dd"><span class="kb__kit-n">05</span><span class="kb__kit-name">Dental &amp; Clinic</span><span class="kb__kit-p">6p</span></button>
+          <button type="button" class="kb__kit" data-kit="food" data-tags="local" style="--kc:#e08055"><span class="kb__kit-n">06</span><span class="kb__kit-name">Restaurant &amp; Café</span><span class="kb__kit-p">6p</span></button>
+          <button type="button" class="kb__kit" data-kit="dir" data-tags="marketplace tech" style="--kc:#55bfa9"><span class="kb__kit-n">07</span><span class="kb__kit-name">Directory</span><span class="kb__kit-p">6p</span></button>
+          <p class="kb__note">Every kit is €49 on its own. <a href="#bundle">All seven — plus every future kit — is €99</a>, once.</p>
+        </div>
+
+        <div class="kb__stage" data-stage>
+          <p class="kb-status" role="status" aria-live="polite" data-status></p>
+
+          <article class="kb-panel" id="panel-saas" data-panel="saas" style="--kc:#7ea3ff">
+            <div class="kb-view">
+              <span class="kb-view__halo" aria-hidden="true"></span>
+              <figure class="plate">
+                <div class="plate__chrome">
+                  <i class="plate__dot"></i><i class="plate__dot"></i><i class="plate__dot"></i>
+                  <span class="plate__url" data-url>saas-launch-kit / index.html</span>
+                </div>
+                <img class="kb-shot" data-shot src="assets/shots/saas-launch-kit--index.png" width="1000" height="750"
+                     alt="The SaaS Launch Kit landing page, rendered in a browser." loading="lazy" decoding="async">
+              </figure>
+              <p class="plate-cap">Plate 01 · SaaS Launch Kit</p>
+
+              <div class="kb-pages">
+                <p class="kb-pages__h"><span class="ed-meta">8 pages in this kit</span> <em>— click to preview, or open one live</em></p>
+                <div class="kb-pagelist" data-pagelist>
+                  <button type="button" class="kb-page" aria-pressed="true" data-shot-src="assets/shots/saas-launch-kit--index.png" data-shot-alt="The SaaS Launch Kit landing page, rendered in a browser." data-url="saas-launch-kit / index.html">Landing</button>
+                  <button type="button" class="kb-page" aria-pressed="false" data-shot-src="assets/shots/saas-launch-kit--features.png" data-shot-alt="The SaaS Launch Kit features page, rendered in a browser." data-url="saas-launch-kit / features.html">Features</button>
+                  <button type="button" class="kb-page" aria-pressed="false" data-shot-src="assets/shots/saas-launch-kit--pricing.png" data-shot-alt="The SaaS Launch Kit pricing page with a monthly and annual toggle, rendered in a browser." data-url="saas-launch-kit / pricing.html">Pricing</button>
+                  <button type="button" class="kb-page" aria-pressed="false" data-shot-src="assets/shots/saas-launch-kit--docs.png" data-shot-alt="The SaaS Launch Kit documentation shell, rendered in a browser." data-url="saas-launch-kit / docs.html">Docs</button>
+                  <button type="button" class="kb-page" aria-pressed="false" data-shot-src="assets/shots/saas-launch-kit--changelog.png" data-shot-alt="The SaaS Launch Kit changelog page, rendered in a browser." data-url="saas-launch-kit / changelog.html">Changelog</button>
+                  <button type="button" class="kb-page" aria-pressed="false" data-shot-src="assets/shots/saas-launch-kit--about.png" data-shot-alt="The SaaS Launch Kit about and team page, rendered in a browser." data-url="saas-launch-kit / about.html">About</button>
+                  <button type="button" class="kb-page" aria-pressed="false" data-shot-src="assets/shots/saas-launch-kit--legal.png" data-shot-alt="The SaaS Launch Kit privacy and terms page, rendered in a browser." data-url="saas-launch-kit / legal.html">Legal</button>
+                  <a class="kb-page kb-page--link" href="demo/saas-launch-kit/404.html" title="No screenshot yet — opens the live page">404 <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M4 2h6v6M10 2 3 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="kb-meta">
+              <p class="kb-meta__eyebrow">
+                <span class="ed-num">№&nbsp;01</span>
+                <span class="kb-meta__bar" aria-hidden="true"></span>
+                <span class="ed-meta">For a software client</span>
+              </p>
+              <h3 class="ed-h3">SaaS Launch Kit</h3>
+              <p class="kb-meta__price">
+                <span class="kb-meta__eur">€49</span>
+                <span class="ed-meta">One payment · lifetime licence</span>
+              </p>
+              <p class="ed-body" style="font-size:.9062rem">Everything a software product needs on day one: a landing page, pricing with a working monthly/annual toggle, a features deep-dive, a dated changelog, a three-column docs shell and a full legal page. The awkward pages nobody wants to design are already designed.</p>
+              <ul class="kb-feats">
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Pricing page with a real monthly/annual toggle and a long comparison table</span></li>
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Docs shell with a sticky sidebar, copy buttons and scroll-spy</span></li>
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Changelog with version tags and New / Improved / Fixed badges</span></li>
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Light and dark, both designed, on a toggle that remembers</span></li>
+              </ul>
+              <p class="kb-meta__buttons">
+                <a class="ed-btn ed-btn--paper" href="https://buy.stripe.com/bJeaEW971aXYfLWgS37Re0s">Buy the SaaS Launch Kit — €49</a>
+                <a class="ed-btn ed-btn--quiet" href="demo/saas-launch-kit/index.html">Open the live demo <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3h7v7M13 3L4 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </p>
+              <p class="kb-meta__fine">Instant download · 30-day no-questions refund · unlimited personal and client projects · no attribution required</p>
+            </div>
+          </article>
+
+          <article class="kb-panel" id="panel-ai" data-panel="ai" style="--kc:#22d3a7">
+            <div class="kb-view">
+              <span class="kb-view__halo" aria-hidden="true"></span>
+              <figure class="plate">
+                <div class="plate__chrome">
+                  <i class="plate__dot"></i><i class="plate__dot"></i><i class="plate__dot"></i>
+                  <span class="plate__url" data-url>ai-product-kit / index.html</span>
+                </div>
+                <img class="kb-shot" data-shot src="assets/shots/ai-product-kit--index.png" width="1000" height="750"
+                     alt="The AI Product Kit landing page, rendered in a browser." loading="lazy" decoding="async">
+              </figure>
+              <p class="plate-cap">Plate 02 · AI Product Kit</p>
+
+              <div class="kb-pages">
+                <p class="kb-pages__h"><span class="ed-meta">6 pages in this kit</span> <em>— click to preview, or open one live</em></p>
+                <div class="kb-pagelist" data-pagelist>
+                  <button type="button" class="kb-page" aria-pressed="true" data-shot-src="assets/shots/ai-product-kit--index.png" data-shot-alt="The AI Product Kit landing page, rendered in a browser." data-url="ai-product-kit / index.html">Landing</button>
+                  <button type="button" class="kb-page" aria-pressed="false" data-shot-src="assets/shots/ai-product-kit--playground.png" data-shot-alt="The AI Product Kit playground page, rendered in a browser." data-url="ai-product-kit / playground.html">Playground</button>
+                  <button type="button" class="kb-page" aria-pressed="false" data-shot-src="assets/shots/ai-product-kit--models.png" data-shot-alt="The AI Product Kit model comparison page, rendered in a browser." data-url="ai-product-kit / models.html">Models</button>
+                  <button type="button" class="kb-page" aria-pressed="false" data-shot-src="assets/shots/ai-product-kit--pricing.png" data-shot-alt="The AI Product Kit pricing page, rendered in a browser." data-url="ai-product-kit / pricing.html">Pricing</button>
+                  <button type="button" class="kb-page" aria-pressed="false" data-shot-src="assets/shots/ai-product-kit--api.png" data-shot-alt="The AI Product Kit API reference page, rendered in a browser." data-url="ai-product-kit / api.html">API reference</button>
+                  <button type="button" class="kb-page" aria-pressed="false" data-shot-src="assets/shots/ai-product-kit--waitlist.png" data-shot-alt="The AI Product Kit waitlist page, rendered in a browser." data-url="ai-product-kit / waitlist.html">Waitlist</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="kb-meta">
+              <p class="kb-meta__eyebrow">
+                <span class="ed-num">№&nbsp;02</span>
+                <span class="kb-meta__bar" aria-hidden="true"></span>
+                <span class="ed-meta">For an AI tool or agent</span>
+              </p>
+              <h3 class="ed-h3">AI Product Kit</h3>
+              <p class="kb-meta__price">
+                <span class="kb-meta__eur">€49</span>
+                <span class="ed-meta">One payment · lifetime licence</span>
+              </p>
+              <p class="ed-body" style="font-size:.9062rem">Built for the way AI products are actually sold: a demo-first hero, a prompt showcase, a model comparison table, an API reference page and a waitlist flow for the thing that has not shipped yet. Drop in a client’s model names and it reads as their product.</p>
+              <ul class="kb-feats">
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Demo-first hero with a prompt showcase</span></li>
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Model comparison table with capability and price columns</span></li>
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>API reference page with endpoint blocks and copyable samples</span></li>
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Waitlist flow with a referral-style confirmation state</span></li>
+              </ul>
+              <p class="kb-meta__buttons">
+                <a class="ed-btn ed-btn--paper" href="https://buy.stripe.com/bJecN44QL5DE7fqdFR7Re0t">Buy the AI Product Kit — €49</a>
+                <a class="ed-btn ed-btn--quiet" href="demo/ai-product-kit/index.html">Open the live demo <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3h7v7M13 3L4 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </p>
+              <p class="kb-meta__fine">Instant download · 30-day no-questions refund · unlimited personal and client projects · no attribution required</p>
+            </div>
+          </article>
+
+          <article class="kb-panel" id="panel-studio" data-panel="studio" style="--kc:#c084fc">
+            <div class="kb-view">
+              <span class="kb-view__halo" aria-hidden="true"></span>
+              <figure class="plate">
+                <div class="plate__chrome">
+                  <i class="plate__dot"></i><i class="plate__dot"></i><i class="plate__dot"></i>
+                  <span class="plate__url" data-url>studio-portfolio-kit / index.html</span>
+                </div>
+                <img class="kb-shot" data-shot src="assets/shots/studio-portfolio-kit--index.png" width="1000" height="750"
+                     alt="The Studio and Portfolio Kit landing page with a large editorial headline, rendered in a browser." loading="lazy" decoding="async">
+              </figure>
+              <p class="plate-cap">Plate 03 · Studio &amp; Portfolio Kit</p>
+
+              <div class="kb-pages">
+                <p class="kb-pages__h"><span class="ed-meta">6 pages in this kit</span> <em>— click to preview, or open one live</em></p>
+                <div class="kb-pagelist" data-pagelist>
+                  <button type="button" class="kb-page" aria-pressed="true" data-shot-src="assets/shots/studio-portfolio-kit--index.png" data-shot-alt="The Studio and Portfolio Kit landing page with a large editorial headline, rendered in a browser." data-url="studio-portfolio-kit / index.html">Landing</button>
+                  <button type="button" class="kb-page" aria-pressed="false" data-shot-src="assets/shots/studio-portfolio-kit--work.png" data-shot-alt="The Studio and Portfolio Kit work archive with a filterable project grid, rendered in a browser." data-url="studio-portfolio-kit / work.html">Work grid</button>
+                  <button type="button" class="kb-page" aria-pressed="false" data-shot-src="assets/shots/studio-portfolio-kit--case-study.png" data-shot-alt="The Studio and Portfolio Kit case study layout, rendered in a browser." data-url="studio-portfolio-kit / case-study.html">Case study</button>
+                  <button type="button" class="kb-page" aria-pressed="false" data-shot-src="assets/shots/studio-portfolio-kit--services.png" data-shot-alt="The Studio and Portfolio Kit services page, rendered in a browser." data-url="studio-portfolio-kit / services.html">Services</button>
+                  <button type="button" class="kb-page" aria-pressed="false" data-shot-src="assets/shots/studio-portfolio-kit--about.png" data-shot-alt="The Studio and Portfolio Kit about page, rendered in a browser." data-url="studio-portfolio-kit / about.html">About</button>
+                  <button type="button" class="kb-page" aria-pressed="false" data-shot-src="assets/shots/studio-portfolio-kit--contact.png" data-shot-alt="The Studio and Portfolio Kit contact page, rendered in a browser." data-url="studio-portfolio-kit / contact.html">Contact</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="kb-meta">
+              <p class="kb-meta__eyebrow">
+                <span class="ed-num">№&nbsp;03</span>
+                <span class="kb-meta__bar" aria-hidden="true"></span>
+                <span class="ed-meta">For your own studio, or a client’s</span>
+              </p>
+              <h3 class="ed-h3">Studio & Portfolio Kit</h3>
+              <p class="kb-meta__price">
+                <span class="kb-meta__eur">€49</span>
+                <span class="ed-meta">One payment · lifetime licence</span>
+              </p>
+              <p class="ed-body" style="font-size:.9062rem">The one you will probably use on your own site first. A filterable work grid, a proper case-study layout with the results section clients ask for, a services page, an about page and a contact page written to qualify a lead rather than just collect an email.</p>
+              <ul class="kb-feats">
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Filterable work grid with hover states that hold up on a big screen</span></li>
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Full case-study layout: brief, process, outcome, next project</span></li>
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Services page with scope and engagement blocks</span></li>
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Contact page written to qualify, not to decorate</span></li>
+              </ul>
+              <p class="kb-meta__buttons">
+                <a class="ed-btn ed-btn--paper" href="https://buy.stripe.com/3cI5kCbf92rs0R231d7Re0u">Buy the Studio Kit — €49</a>
+                <a class="ed-btn ed-btn--quiet" href="demo/studio-portfolio-kit/index.html">Open the live demo <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3h7v7M13 3L4 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </p>
+              <p class="kb-meta__fine">Instant download · 30-day no-questions refund · unlimited personal and client projects · no attribution required</p>
+            </div>
+          </article>
+
+          <article class="kb-panel" id="panel-law" data-panel="law" style="--kc:#d9707a">
+            <div class="kb-view">
+              <span class="kb-view__halo" aria-hidden="true"></span>
+              <figure class="plate">
+                <div class="plate__chrome">
+                  <i class="plate__dot"></i><i class="plate__dot"></i><i class="plate__dot"></i>
+                  <span class="plate__url" data-url>lawfirm-kit / attorney-detail.html</span>
+                </div>
+                <img class="kb-shot" data-shot src="assets/shots/lawfirm-kit--attorney-detail.png" width="1000" height="750"
+                     alt="The Law Firm Kit single-attorney profile page, rendered in a browser." loading="lazy" decoding="async">
+              </figure>
+              <p class="plate-cap">Plate 04 · Law Firm Kit</p>
+
+              <div class="kb-pages">
+                <p class="kb-pages__h"><span class="ed-meta">7 pages in this kit</span> <em>— click to preview, or open one live</em></p>
+                <div class="kb-pagelist" data-pagelist>
+                  <a class="kb-page kb-page--link" href="demo/lawfirm-kit/index.html" title="No screenshot yet — opens the live page">Landing <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M4 2h6v6M10 2 3 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                  <a class="kb-page kb-page--link" href="demo/lawfirm-kit/practice-areas.html" title="No screenshot yet — opens the live page">Practice areas <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M4 2h6v6M10 2 3 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                  <a class="kb-page kb-page--link" href="demo/lawfirm-kit/attorneys.html" title="No screenshot yet — opens the live page">Attorneys <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M4 2h6v6M10 2 3 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                  <button type="button" class="kb-page" aria-pressed="true" data-shot-src="assets/shots/lawfirm-kit--attorney-detail.png" data-shot-alt="The Law Firm Kit single-attorney profile page, rendered in a browser." data-url="lawfirm-kit / attorney-detail.html">Attorney profile</button>
+                  <a class="kb-page kb-page--link" href="demo/lawfirm-kit/insights.html" title="No screenshot yet — opens the live page">Insights <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M4 2h6v6M10 2 3 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                  <button type="button" class="kb-page" aria-pressed="false" data-shot-src="assets/shots/lawfirm-kit--about.png" data-shot-alt="The Law Firm Kit about page with a serif headline over a deep navy header, rendered in a browser." data-url="lawfirm-kit / about.html">About the firm</button>
+                  <a class="kb-page kb-page--link" href="demo/lawfirm-kit/contact.html" title="No screenshot yet — opens the live page">Consultation <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M4 2h6v6M10 2 3 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="kb-meta">
+              <p class="kb-meta__eyebrow">
+                <span class="ed-num">№&nbsp;04</span>
+                <span class="kb-meta__bar" aria-hidden="true"></span>
+                <span class="ed-meta">The highest-billing site on the list</span>
+              </p>
+              <h3 class="ed-h3">Law Firm & Professional Services Kit</h3>
+              <p class="kb-meta__price">
+                <span class="kb-meta__eur">€49</span>
+                <span class="ed-meta">One payment · lifetime licence</span>
+              </p>
+              <p class="ed-body" style="font-size:.9062rem">Seven pages for a firm or practice: practice areas, an attorney index, a reusable single-attorney template, an insights section and a consultation form with conflicts-check language already written. Serious typography, no stock-photo handshakes.</p>
+              <ul class="kb-feats">
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Practice-area pages with credibility blocks</span></li>
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Attorney index plus a reusable single-attorney profile template</span></li>
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Insights section for the firm’s own writing</span></li>
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Consultation form with conflicts-check and disclaimer copy written</span></li>
+              </ul>
+              <p class="kb-meta__buttons">
+                <a class="ed-btn ed-btn--paper" href="https://buy.stripe.com/00weVcgzt3vw6bmgS37Re0w">Buy the Law Firm Kit — €49</a>
+                <a class="ed-btn ed-btn--quiet" href="demo/lawfirm-kit/index.html">Open the live demo <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3h7v7M13 3L4 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </p>
+              <p class="kb-meta__fine">Instant download · 30-day no-questions refund · unlimited personal and client projects · no attribution required</p>
+            </div>
+          </article>
+
+          <article class="kb-panel" id="panel-clinic" data-panel="clinic" style="--kc:#5fa8dd">
+            <div class="kb-view">
+              <span class="kb-view__halo" aria-hidden="true"></span>
+              <figure class="plate">
+                <div class="plate__chrome">
+                  <i class="plate__dot"></i><i class="plate__dot"></i><i class="plate__dot"></i>
+                  <span class="plate__url" data-url>clinic-kit / index.html</span>
+                </div>
+                <img class="kb-shot" data-shot src="assets/shots/clinic-kit--index.png" width="1000" height="750"
+                     alt="The Dental and Medical Clinic Kit landing page with a booking call to action, rendered in a browser." loading="lazy" decoding="async">
+              </figure>
+              <p class="plate-cap">Plate 05 · Dental &amp; Medical Clinic Kit</p>
+
+              <div class="kb-pages">
+                <p class="kb-pages__h"><span class="ed-meta">6 pages in this kit</span> <em>— click to preview, or open one live</em></p>
+                <div class="kb-pagelist" data-pagelist>
+                  <button type="button" class="kb-page" aria-pressed="true" data-shot-src="assets/shots/clinic-kit--index.png" data-shot-alt="The Dental and Medical Clinic Kit landing page with a booking call to action, rendered in a browser." data-url="clinic-kit / index.html">Landing</button>
+                  <button type="button" class="kb-page" aria-pressed="false" data-shot-src="assets/shots/clinic-kit--services.png" data-shot-alt="The Clinic Kit services page grouped by treatment category, rendered in a browser." data-url="clinic-kit / services.html">Services</button>
+                  <a class="kb-page kb-page--link" href="demo/clinic-kit/team.html" title="No screenshot yet — opens the live page">Team <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M4 2h6v6M10 2 3 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                  <button type="button" class="kb-page" aria-pressed="false" data-shot-src="assets/shots/clinic-kit--appointments.png" data-shot-alt="The Clinic Kit appointment booking page, rendered in a browser." data-url="clinic-kit / appointments.html">Appointments</button>
+                  <button type="button" class="kb-page" aria-pressed="false" data-shot-src="assets/shots/clinic-kit--about.png" data-shot-alt="The Clinic Kit about page, rendered in a browser." data-url="clinic-kit / about.html">About the practice</button>
+                  <a class="kb-page kb-page--link" href="demo/clinic-kit/contact.html" title="No screenshot yet — opens the live page">Contact <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M4 2h6v6M10 2 3 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="kb-meta">
+              <p class="kb-meta__eyebrow">
+                <span class="ed-num">№&nbsp;05</span>
+                <span class="kb-meta__bar" aria-hidden="true"></span>
+                <span class="ed-meta">The local job that comes back every year</span>
+              </p>
+              <h3 class="ed-h3">Dental & Medical Clinic Kit</h3>
+              <p class="kb-meta__price">
+                <span class="kb-meta__eur">€49</span>
+                <span class="ed-meta">One payment · lifetime licence</span>
+              </p>
+              <p class="ed-body" style="font-size:.9062rem">Six pages for a clinic or practice: a service catalogue grouped by category, practitioner profiles with credentials, an appointment request flow, a facility page and contact. Calm, legible, and built for someone reading it on a phone in a waiting room.</p>
+              <ul class="kb-feats">
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Service catalogue grouped by category with per-treatment detail</span></li>
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Practitioner profiles with credentials and specialisms</span></li>
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Appointment request flow with day and time selection</span></li>
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Facility, insurance and contact pages already written</span></li>
+              </ul>
+              <p class="kb-meta__buttons">
+                <a class="ed-btn ed-btn--paper" href="https://buy.stripe.com/eVq6oG5UPd66czK8lx7Re0z">Buy the Clinic Kit — €49</a>
+                <a class="ed-btn ed-btn--quiet" href="demo/clinic-kit/index.html">Open the live demo <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3h7v7M13 3L4 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </p>
+              <p class="kb-meta__fine">Instant download · 30-day no-questions refund · unlimited personal and client projects · no attribution required</p>
+            </div>
+          </article>
+
+          <article class="kb-panel" id="panel-food" data-panel="food" style="--kc:#e08055">
+            <div class="kb-view">
+              <span class="kb-view__halo" aria-hidden="true"></span>
+              <figure class="plate">
+                <div class="plate__chrome">
+                  <i class="plate__dot"></i><i class="plate__dot"></i><i class="plate__dot"></i>
+                  <span class="plate__url" data-url>restaurant-kit / index.html</span>
+                </div>
+                <img class="kb-shot" data-shot src="assets/shots/restaurant-kit--index.png" width="1000" height="750"
+                     alt="The Restaurant and Café Kit landing page with a warm candlelit hero, rendered in a browser." loading="lazy" decoding="async">
+              </figure>
+              <p class="plate-cap">Plate 06 · Restaurant &amp; Café Kit</p>
+
+              <div class="kb-pages">
+                <p class="kb-pages__h"><span class="ed-meta">6 pages in this kit</span> <em>— click to preview, or open one live</em></p>
+                <div class="kb-pagelist" data-pagelist>
+                  <button type="button" class="kb-page" aria-pressed="true" data-shot-src="assets/shots/restaurant-kit--index.png" data-shot-alt="The Restaurant and Café Kit landing page with a warm candlelit hero, rendered in a browser." data-url="restaurant-kit / index.html">Landing</button>
+                  <button type="button" class="kb-page" aria-pressed="false" data-shot-src="assets/shots/restaurant-kit--menu.png" data-shot-alt="The Restaurant and Café Kit menu page with categories and dietary marks, rendered in a browser." data-url="restaurant-kit / menu.html">Menu</button>
+                  <a class="kb-page kb-page--link" href="demo/restaurant-kit/reservations.html" title="No screenshot yet — opens the live page">Reservations <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M4 2h6v6M10 2 3 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                  <a class="kb-page kb-page--link" href="demo/restaurant-kit/gallery.html" title="No screenshot yet — opens the live page">Gallery <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M4 2h6v6M10 2 3 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                  <button type="button" class="kb-page" aria-pressed="false" data-shot-src="assets/shots/restaurant-kit--about.png" data-shot-alt="The Restaurant and Café Kit story page, rendered in a browser." data-url="restaurant-kit / about.html">Our story</button>
+                  <button type="button" class="kb-page" aria-pressed="false" data-shot-src="assets/shots/restaurant-kit--contact.png" data-shot-alt="The Restaurant and Café Kit contact page with hours and a map block, rendered in a browser." data-url="restaurant-kit / contact.html">Contact</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="kb-meta">
+              <p class="kb-meta__eyebrow">
+                <span class="ed-num">№&nbsp;06</span>
+                <span class="kb-meta__bar" aria-hidden="true"></span>
+                <span class="ed-meta">The weekend job that pays well</span>
+              </p>
+              <h3 class="ed-h3">Restaurant & Café Kit</h3>
+              <p class="kb-meta__price">
+                <span class="kb-meta__eur">€49</span>
+                <span class="ed-meta">One payment · lifetime licence</span>
+              </p>
+              <p class="ed-body" style="font-size:.9062rem">Six pages for a restaurant, café or bar: a full menu system with categories and dietary marks, a reservations page, a gallery with a keyboard-operable lightbox, the story page every owner asks for, and contact with opening hours and a map block.</p>
+              <ul class="kb-feats">
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Full menu system: categories, prices, dietary and allergen marks</span></li>
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reservations page with party size, date and time fields</span></li>
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Gallery with a keyboard-operable lightbox</span></li>
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Story and contact pages with opening hours and a map block</span></li>
+              </ul>
+              <p class="kb-meta__buttons">
+                <a class="ed-btn ed-btn--paper" href="https://buy.stripe.com/28E3cu3MH6HIdDOeJV7Re0y">Buy the Restaurant Kit — €49</a>
+                <a class="ed-btn ed-btn--quiet" href="demo/restaurant-kit/index.html">Open the live demo <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3h7v7M13 3L4 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </p>
+              <p class="kb-meta__fine">Instant download · 30-day no-questions refund · unlimited personal and client projects · no attribution required</p>
+            </div>
+          </article>
+
+          <article class="kb-panel" id="panel-dir" data-panel="dir" style="--kc:#55bfa9">
+            <div class="kb-view">
+              <span class="kb-view__halo" aria-hidden="true"></span>
+              <figure class="plate">
+                <div class="plate__chrome">
+                  <i class="plate__dot"></i><i class="plate__dot"></i><i class="plate__dot"></i>
+                  <span class="plate__url" data-url>directory-kit / index.html</span>
+                </div>
+                <img class="kb-shot" data-shot src="assets/shots/directory-kit--index.png" width="1000" height="750"
+                     alt="The Directory and Marketplace Kit landing page, rendered in a browser." loading="lazy" decoding="async">
+              </figure>
+              <p class="plate-cap">Plate 07 · Directory &amp; Marketplace Kit</p>
+
+              <div class="kb-pages">
+                <p class="kb-pages__h"><span class="ed-meta">6 pages in this kit</span> <em>— click to preview, or open one live</em></p>
+                <div class="kb-pagelist" data-pagelist>
+                  <button type="button" class="kb-page" aria-pressed="true" data-shot-src="assets/shots/directory-kit--index.png" data-shot-alt="The Directory and Marketplace Kit landing page, rendered in a browser." data-url="directory-kit / index.html">Landing</button>
+                  <button type="button" class="kb-page" aria-pressed="false" data-shot-src="assets/shots/directory-kit--browse.png" data-shot-alt="The Directory and Marketplace Kit browse page with working filters, rendered in a browser." data-url="directory-kit / browse.html">Browse &amp; filter</button>
+                  <a class="kb-page kb-page--link" href="demo/directory-kit/category.html" title="No screenshot yet — opens the live page">Category <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M4 2h6v6M10 2 3 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                  <a class="kb-page kb-page--link" href="demo/directory-kit/listing.html" title="No screenshot yet — opens the live page">Listing detail <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M4 2h6v6M10 2 3 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                  <a class="kb-page kb-page--link" href="demo/directory-kit/submit.html" title="No screenshot yet — opens the live page">Submit a listing <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M4 2h6v6M10 2 3 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                  <a class="kb-page kb-page--link" href="demo/directory-kit/pricing.html" title="No screenshot yet — opens the live page">Paid tiers <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M4 2h6v6M10 2 3 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="kb-meta">
+              <p class="kb-meta__eyebrow">
+                <span class="ed-num">№&nbsp;07</span>
+                <span class="kb-meta__bar" aria-hidden="true"></span>
+                <span class="ed-meta">The one with a business model attached</span>
+              </p>
+              <h3 class="ed-h3">Directory & Marketplace Kit</h3>
+              <p class="kb-meta__price">
+                <span class="kb-meta__eur">€49</span>
+                <span class="ed-meta">One payment · lifetime licence</span>
+              </p>
+              <p class="ed-body" style="font-size:.9062rem">Six pages for a niche directory or marketplace: client-side search, filtering and sorting that genuinely work with no backend, a listing detail page, category landings, a submit-a-listing flow and a paid placement tiers page for the directory’s own revenue.</p>
+              <ul class="kb-feats">
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Working client-side search, filtering and sorting — no backend needed</span></li>
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Listing detail page plus category landing pages</span></li>
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Submit-a-listing flow with validation states</span></li>
+                <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3 8.4 3 3L13 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Paid placement tiers page for the directory’s own revenue</span></li>
+              </ul>
+              <p class="kb-meta__buttons">
+                <a class="ed-btn ed-btn--paper" href="https://buy.stripe.com/aFa00ierl3vwczK45h7Re0x">Buy the Directory Kit — €49</a>
+                <a class="ed-btn ed-btn--quiet" href="demo/directory-kit/index.html">Open the live demo <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3h7v7M13 3L4 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </p>
+              <p class="kb-meta__fine">Instant download · 30-day no-questions refund · unlimited personal and client projects · no attribution required</p>
+            </div>
+          </article>
+
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= FINAL CTA ================= -->
-<section class="sec-tight">
+<!-- ============================================================== № 04 · WHAT'S INSIDE -->
+<section id="inside" class="sec pm-isolate" aria-labelledby="inside-h">
+  <span class="pm-layer pm-bg-grid pm-bg-grid--center" aria-hidden="true" style="--pm-grid-size:64px"></span>
   <div class="wrap">
-    <div class="final rv-scale">
-      <span class="eyebrow eyebrow-dot" style="justify-content:center">Ready when you are</span>
-      <h2 class="h-l" style="margin-top:18px">Stop rebuilding<br>the <span class="em">same page</span>.</h2>
-      <p class="lede">Pick a kit, change the copy, deploy before lunch. And if it is not for you, the refund takes one email.</p>
-      <div class="cta-row">
-        <a class="btn btn-p btn-lg" href="#kits">Browse the kits <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-g btn-lg" href="demo/ai-product-kit/index.html" target="_blank" rel="noopener">Try a demo first <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+    <p class="ed-marker" data-pm-reveal>
+      <span class="ed-num">№&nbsp;04</span>
+      <span class="ed-marker__rule" aria-hidden="true"></span>
+      <span class="ed-meta ed-marker__label">What's inside every kit</span>
+    </p>
+
+    <div class="hero__grid" style="align-items:end;gap:clamp(24px,4vw,64px)">
+      <h2 id="inside-h" class="ed-h2" data-pm-reveal>The same standard<br>on all 45 pages.</h2>
+      <p class="ed-body" data-pm-reveal data-pm-delay="120">
+        There is no filler page in this catalogue. Every one of the 45 was designed,
+        written and checked as if it were the page a client would land on first — because
+        with a template, it usually is.
+      </p>
+    </div>
+
+    <div class="bento mt-5">
+
+      <!-- the live rebrand demo -->
+      <div class="tile t-6" data-pm-reveal>
+        <div class="rb">
+          <div>
+            <div class="tile__ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l7 4v10l-7 4-7-4V7z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="12" r="2.6" stroke="currentColor" stroke-width="1.7"/></svg></div>
+            <h3 class="ed-h4">Rebrand the whole kit from six variables</h3>
+            <p>
+              Colour, hover, contrast, tinted surface, secondary highlight, corner radius.
+              They sit in one block at the top of one stylesheet, with a matching block for
+              dark mode. Pick a client palette and watch the preview rebrand itself —
+              that is the actual mechanism, not an animation of one.
+            </p>
+
+            <div class="rb__swatches" role="group" aria-label="Preview a client brand palette">
+              <button type="button" class="rb__sw" style="--c:#0f7a68" aria-pressed="true"  aria-label="Emerald palette" data-brand="#0f7a68" data-hover="#0b6152" data-soft="#e7f2ef" data-acc="#b0541f" data-radius="12px"></button>
+              <button type="button" class="rb__sw" style="--c:#2549c9" aria-pressed="false" aria-label="Cobalt palette"  data-brand="#2549c9" data-hover="#1b3aa6" data-soft="#e8ecfb" data-acc="#c2410c" data-radius="10px"></button>
+              <button type="button" class="rb__sw" style="--c:#7a2233" aria-pressed="false" aria-label="Oxblood palette" data-brand="#7a2233" data-hover="#5e1a28" data-soft="#f5eaec" data-acc="#8a6a2f" data-radius="4px"></button>
+              <button type="button" class="rb__sw" style="--c:#16181d" aria-pressed="false" aria-label="Ink palette"     data-brand="#16181d" data-hover="#000000" data-soft="#eceded" data-acc="#d8452f" data-radius="16px"></button>
+              <button type="button" class="rb__sw" style="--c:#d8452f" aria-pressed="false" aria-label="Coral palette"   data-brand="#d8452f" data-hover="#b53724" data-soft="#fdecea" data-acc="#1f6f5c" data-radius="20px"></button>
+              <button type="button" class="rb__sw" style="--c:#0e7490" aria-pressed="false" aria-label="Teal palette"    data-brand="#0e7490" data-hover="#0b5a71" data-soft="#e3f2f6" data-acc="#b45309" data-radius="8px"></button>
+            </div>
+
+            <pre class="rb__code" tabindex="0" aria-label="The six custom properties that drive a rebrand"><code>:root {
+  <b>--brand</b>:          <span class="v"><i data-chip="brand"></i><span data-v="brand">#0f7a68</span></span>;   <span class="c">/* 1 · primary accent   */</span>
+  <b>--brand-hover</b>:    <span class="v"><i data-chip="hover"></i><span data-v="hover">#0b6152</span></span>;   <span class="c">/* 2 · pressed / hover  */</span>
+  <b>--brand-contrast</b>: <span class="v"><i data-chip="contrast"></i><span data-v="contrast">#ffffff</span></span>;   <span class="c">/* 3 · text on accent   */</span>
+  <b>--brand-soft</b>:     <span class="v"><i data-chip="soft"></i><span data-v="soft">#e7f2ef</span></span>;   <span class="c">/* 4 · tinted surface   */</span>
+  <b>--brand-accent</b>:   <span class="v"><i data-chip="acc"></i><span data-v="acc">#b0541f</span></span>;   <span class="c">/* 5 · secondary accent */</span>
+  <b>--radius</b>:         <span class="v"><span data-v="radius">12px</span></span>;     <span class="c">/* 6 · corner rounding  */</span>
+}</code></pre>
+          </div>
+
+          <div>
+            <figure class="plate rb__plate">
+              <div class="plate__chrome"><i class="plate__dot"></i><i class="plate__dot"></i><i class="plate__dot"></i><span class="plate__url">northwind.example — client preview</span></div>
+              <div class="rb__mock" data-mock aria-hidden="true">
+                <div class="rb__bar">
+                  <span class="rb__logo"><i></i>Northwind</span>
+                  <span class="rb__nav"><span>Product</span><span>Pricing</span><span>Docs</span></span>
+                  <span class="rb__navbtn">Start free</span>
+                </div>
+                <div class="rb__body">
+                  <span class="rb__pill">New · v2.4</span>
+                  <h4>Ship the client site this week.</h4>
+                  <p>Every page written, styled and responsive. Change six variables and it is theirs.</p>
+                  <div class="rb__row">
+                    <span class="rb__cta">Book a demo</span>
+                    <span class="rb__ghost">See pricing</span>
+                    <span class="rb__badge">30-day refund</span>
+                  </div>
+                  <div class="rb__cards">
+                    <div class="rb__card"><i></i><b></b><span></span></div>
+                    <div class="rb__card"><i></i><b></b><span></span></div>
+                    <div class="rb__card"><i></i><b></b><span></span></div>
+                  </div>
+                </div>
+              </div>
+            </figure>
+            <p class="plate-cap">A kit page, recoloured live · <span data-swatch-name>Emerald</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tile t-3 t-tall" data-pm-reveal>
+        <div class="tile__ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16M4 12h16M4 19h10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+        <h3 class="ed-h4">All forty-five pages, named</h3>
+        <p>Not "7 templates and some sections". Seven websites, and here is every page in them.</p>
+        <div class="pages-reel">
+          <div class="pm-marquee pm-marquee--v pm-marquee--pause" data-pm-speed="26">
+            <div class="pm-marquee__track">
+              <div class="pages-reel__item"><b>Home</b><i>SaaS Launch</i></div>
+              <div class="pages-reel__item"><b>Features</b><i>SaaS Launch</i></div>
+              <div class="pages-reel__item"><b>Pricing</b><i>SaaS Launch</i></div>
+              <div class="pages-reel__item"><b>Docs</b><i>SaaS Launch</i></div>
+              <div class="pages-reel__item"><b>Changelog</b><i>SaaS Launch</i></div>
+              <div class="pages-reel__item"><b>About</b><i>SaaS Launch</i></div>
+              <div class="pages-reel__item"><b>Legal</b><i>SaaS Launch</i></div>
+              <div class="pages-reel__item"><b>404</b><i>SaaS Launch</i></div>
+              <div class="pages-reel__item"><b>Home</b><i>AI Product</i></div>
+              <div class="pages-reel__item"><b>Playground</b><i>AI Product</i></div>
+              <div class="pages-reel__item"><b>Models</b><i>AI Product</i></div>
+              <div class="pages-reel__item"><b>Pricing</b><i>AI Product</i></div>
+              <div class="pages-reel__item"><b>API reference</b><i>AI Product</i></div>
+              <div class="pages-reel__item"><b>Waitlist</b><i>AI Product</i></div>
+              <div class="pages-reel__item"><b>Home</b><i>Studio</i></div>
+              <div class="pages-reel__item"><b>Work</b><i>Studio</i></div>
+              <div class="pages-reel__item"><b>Case study</b><i>Studio</i></div>
+              <div class="pages-reel__item"><b>Services</b><i>Studio</i></div>
+              <div class="pages-reel__item"><b>About</b><i>Studio</i></div>
+              <div class="pages-reel__item"><b>Contact</b><i>Studio</i></div>
+              <div class="pages-reel__item"><b>Home</b><i>Law Firm</i></div>
+              <div class="pages-reel__item"><b>Practice areas</b><i>Law Firm</i></div>
+              <div class="pages-reel__item"><b>Attorneys</b><i>Law Firm</i></div>
+              <div class="pages-reel__item"><b>Attorney profile</b><i>Law Firm</i></div>
+              <div class="pages-reel__item"><b>Insights</b><i>Law Firm</i></div>
+              <div class="pages-reel__item"><b>About</b><i>Law Firm</i></div>
+              <div class="pages-reel__item"><b>Consultation</b><i>Law Firm</i></div>
+              <div class="pages-reel__item"><b>Home</b><i>Clinic</i></div>
+              <div class="pages-reel__item"><b>Services</b><i>Clinic</i></div>
+              <div class="pages-reel__item"><b>Team</b><i>Clinic</i></div>
+              <div class="pages-reel__item"><b>Appointments</b><i>Clinic</i></div>
+              <div class="pages-reel__item"><b>About</b><i>Clinic</i></div>
+              <div class="pages-reel__item"><b>Contact</b><i>Clinic</i></div>
+              <div class="pages-reel__item"><b>Home</b><i>Restaurant</i></div>
+              <div class="pages-reel__item"><b>Menu</b><i>Restaurant</i></div>
+              <div class="pages-reel__item"><b>Reservations</b><i>Restaurant</i></div>
+              <div class="pages-reel__item"><b>Gallery</b><i>Restaurant</i></div>
+              <div class="pages-reel__item"><b>Our story</b><i>Restaurant</i></div>
+              <div class="pages-reel__item"><b>Contact</b><i>Restaurant</i></div>
+              <div class="pages-reel__item"><b>Home</b><i>Directory</i></div>
+              <div class="pages-reel__item"><b>Browse</b><i>Directory</i></div>
+              <div class="pages-reel__item"><b>Category</b><i>Directory</i></div>
+              <div class="pages-reel__item"><b>Listing detail</b><i>Directory</i></div>
+              <div class="pages-reel__item"><b>Submit a listing</b><i>Directory</i></div>
+              <div class="pages-reel__item"><b>Placement tiers</b><i>Directory</i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tile t-3" data-pm-reveal data-pm-delay="60">
+        <div class="tile__ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/><path d="M12 4a8 8 0 000 16z" fill="currentColor"/></svg></div>
+        <h3 class="ed-h4">Light and dark, both finished</h3>
+        <p>Every kit ships both themes wired to a working toggle — two designed palettes,
+           not one palette with the brightness turned down. It follows the OS until
+           someone chooses, then it remembers. Clients always ask.</p>
+        <div class="swatches" aria-hidden="true">
+          <div class="swatch swatch--light">
+            <span class="swatch__bar"></span><span class="swatch__line"></span>
+            <span class="swatch__line swatch__line--short"></span>
+            <span class="swatch__tag">Light</span>
+          </div>
+          <div class="swatch swatch--dark">
+            <span class="swatch__bar"></span><span class="swatch__line"></span>
+            <span class="swatch__line swatch__line--short"></span>
+            <span class="swatch__tag">Dark</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tile t-3" data-pm-reveal data-pm-delay="100">
+        <div class="tile__ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="12" height="14" rx="2" stroke="currentColor" stroke-width="1.7"/><rect x="16" y="8" width="5" height="11" rx="1.5" stroke="currentColor" stroke-width="1.7"/></svg></div>
+        <h3 class="ed-h4">Responsive from 320px up</h3>
+        <p>Laid out for small phones, tablets, laptops and ultrawide monitors — including
+           the tables, menus, docs shells and filter panels that usually break first.</p>
+        <div class="bps" aria-hidden="true">
+          <span class="bp" style="--w:14%"><i>320</i></span>
+          <span class="bp" style="--w:30%"><i>768</i></span>
+          <span class="bp" style="--w:56%"><i>1280</i></span>
+          <span class="bp" style="--w:100%"><i>2560</i></span>
+        </div>
+      </div>
+
+      <div class="tile t-2" data-pm-reveal>
+        <div class="tile__ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 7h14M5 12h9M5 17h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="18" cy="16" r="3" stroke="currentColor" stroke-width="1.7"/></svg></div>
+        <h3 class="ed-h4">Interactions that actually run</h3>
+        <p>Filters filter, pricing toggles toggle, lightboxes open, mobile menus close,
+           docs scroll-spy works, forms show their states. Behaviour, not screenshots of it.</p>
+      </div>
+
+      <div class="tile t-2" data-pm-reveal data-pm-delay="60">
+        <div class="tile__ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 4h9l5 5v11a1 1 0 01-1 1H6a1 1 0 01-1-1V5a1 1 0 011-1z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M14 4v6h6" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+        <h3 class="ed-h4">Copy written by a person</h3>
+        <p>Believable industry placeholder text on every page, so the first client
+           walkthrough lands. Then replace every word — that is what it is for.</p>
+      </div>
+
+      <div class="tile t-2" data-pm-reveal data-pm-delay="100">
+        <div class="tile__ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 12h17M12 3.5c4 4.5 4 12.5 0 17M12 3.5c-4 4.5-4 12.5 0 17" stroke="currentColor" stroke-width="1.5"/></svg></div>
+        <h3 class="ed-h4">Meta and structured data done</h3>
+        <p>Titles, descriptions, Open Graph tags and structured data are already filled in
+           on every page. One less handover checklist item.</p>
+      </div>
+
+      <div class="tile t-3" data-pm-reveal>
+        <div class="tile__ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.6" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.7"/></svg></div>
+        <h3 class="ed-h4">Accessibility built in, not audited on</h3>
+        <p>Semantic landmarks, one h1 per page and no skipped heading levels, a skip link as
+           the first focusable element, visible focus rings in both themes, labelled icon
+           buttons and a full reduced-motion path. The part of the brief clients never pay
+           for and always assume.</p>
+      </div>
+
+      <div class="tile t-3" data-pm-reveal data-pm-delay="60">
+        <div class="tile__ico"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 15a4.5 4.5 0 013.6-4.4A5.5 5.5 0 0118.4 11 4 4 0 0118 19H8a4 4 0 01-4-4z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+        <h3 class="ed-h4">Deploy it anywhere, then hand it over</h3>
+        <p>Netlify, Vercel, Cloudflare Pages, GitHub Pages, or the shared host the client
+           already pays for and refuses to move off. Upload the folder and it runs. Every
+           kit ships a plain-English README you can rename into a handover document.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================== № 05 · BUNDLE -->
+<section id="bundle" class="sec pm-isolate" aria-labelledby="bundle-h">
+  <span class="pm-layer pm-bg-aurora" aria-hidden="true"></span>
+  <div class="wrap">
+    <p class="ed-marker" data-pm-reveal>
+      <span class="ed-num">№&nbsp;05</span>
+      <span class="ed-marker__rule" aria-hidden="true"></span>
+      <span class="ed-meta ed-marker__label">The complete bundle</span>
+    </p>
+
+    <div class="ledger__grid">
+      <div>
+        <h2 id="bundle-h" class="ed-h2" data-pm-reveal>The arithmetic<br>is not subtle.</h2>
+
+        <p class="pull mt-4" data-pm-reveal data-pm-delay="80">€343 of kits.<br>€99 for the lot.</p>
+
+        <p class="ed-body mt-4" data-pm-reveal data-pm-delay="120">
+          Seven kits at €49 each comes to €343. The complete bundle is €99, so you are
+          €244 ahead the moment you buy it — and every kit released after today lands in
+          the same download, free, forever. No renewal, no seat count, no upgrade tier.
+        </p>
+
+        <p class="ed-body mt-2" data-pm-reveal data-pm-delay="160">
+          Put it back into the docket above: if a site build is a €3,000 line on your
+          invoice, the entire library is 3.3 per cent of one job. Once. For every client
+          after that, it costs nothing at all.
+        </p>
+
+        <p class="mt-4" data-pm-reveal data-pm-delay="200">
+          <a class="ed-btn ed-btn--gold ed-btn--lg" data-pm-magnetic="0.22"
+             href="https://buy.stripe.com/bJefZgerl5DEgQ059l7Re0v">
+            Get all seven kits — €99
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </p>
+        <p class="ed-small mt-2" data-pm-reveal data-pm-delay="240">
+          Instant download · 30-day refund, no questions · Lifetime licence
+        </p>
+      </div>
+
+      <div data-pm-reveal="scale" data-pm-delay="120">
+        <div class="receipt">
+          <span class="pm-border-beam pm-border-beam--slow" aria-hidden="true"></span>
+
+          <div class="receipt__head">
+            <span class="ed-meta">The complete bundle</span>
+            <span class="ed-meta">45 pages</span>
+          </div>
+
+          <div class="mt-2">
+            <p class="receipt__line"><span>SaaS Launch Kit</span><span class="lead" aria-hidden="true"></span><span class="amt">€49</span></p>
+            <p class="receipt__line"><span>AI Product Kit</span><span class="lead" aria-hidden="true"></span><span class="amt">€49</span></p>
+            <p class="receipt__line"><span>Studio &amp; Portfolio Kit</span><span class="lead" aria-hidden="true"></span><span class="amt">€49</span></p>
+            <p class="receipt__line"><span>Law Firm Kit</span><span class="lead" aria-hidden="true"></span><span class="amt">€49</span></p>
+            <p class="receipt__line"><span>Dental &amp; Medical Clinic Kit</span><span class="lead" aria-hidden="true"></span><span class="amt">€49</span></p>
+            <p class="receipt__line"><span>Restaurant &amp; Café Kit</span><span class="lead" aria-hidden="true"></span><span class="amt">€49</span></p>
+            <p class="receipt__line"><span>Directory &amp; Marketplace Kit</span><span class="lead" aria-hidden="true"></span><span class="amt">€49</span></p>
+            <p class="receipt__line"><span>Every future kit we release</span><span class="lead" aria-hidden="true"></span><span class="amt">€0</span></p>
+          </div>
+
+          <p class="receipt__sub"><span>Bought separately</span><span class="lead" aria-hidden="true"></span><span class="amt">€343</span></p>
+
+          <div class="receipt__total">
+            <div>
+              <span class="ed-meta">Bundle price</span>
+              <b class="mt-1" style="display:block">€99</b>
+            </div>
+            <span class="ed-small" style="text-align:right;max-width:14ch">one payment<br>lifetime licence</span>
+          </div>
+
+          <p class="receipt__save">
+            You keep <strong class="gold">€244</strong> — and every kit released after today
+            arrives in the same download at no extra cost.
+          </p>
+
+          <p class="mt-3">
+            <a class="ed-btn ed-btn--gold ed-btn--full" href="https://buy.stripe.com/bJefZgerl5DEgQ059l7Re0v">
+              Buy the complete bundle — €99
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ============================================================== № 06 · LICENCE -->
+<section id="licence" class="sec sec--tight" aria-labelledby="lic-h">
+  <div class="wrap">
+    <p class="ed-marker" data-pm-reveal>
+      <span class="ed-num">№&nbsp;06</span>
+      <span class="ed-marker__rule" aria-hidden="true"></span>
+      <span class="ed-meta ed-marker__label">Licence</span>
+    </p>
+
+    <div class="hero__grid" style="align-items:end;gap:clamp(24px,4vw,64px)">
+      <h2 id="lic-h" class="ed-h2" data-pm-reveal>The licence,<br>in plain English.</h2>
+      <p class="ed-body" data-pm-reveal data-pm-delay="120">
+        One payment, one licence, no expiry. The only thing you cannot do is sell the kit
+        itself — everything you build <em>with</em> it is yours and your client's.
+      </p>
+    </div>
+
+    <div class="licence__grid mt-5">
+      <div class="licence__col licence__col--yes" data-pm-reveal>
+        <p class="ed-meta">Yes — included</p>
+        <ul class="licence__list">
+          <li><svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l4 4L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Use it on <strong class="ink">unlimited client projects</strong> — one purchase covers every client you will ever have.</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l4 4L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Use it on unlimited projects of your own, commercial or otherwise.</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l4 4L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Charge your client whatever your work is worth. We take €49 once and go away — no cut, no questions.</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l4 4L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Change anything — layout, colours, copy, code. Merge two kits, or port it into a CMS.</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l4 4L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Hand the finished files to the client and walk away. They own their website outright. No attribution, no back-link, no licence key.</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l4 4L16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Keep using it forever. The licence does not expire and does not renew.</span></li>
+        </ul>
+      </div>
+
+      <div class="licence__col licence__col--no" data-pm-reveal data-pm-delay="80">
+        <p class="ed-meta">No — not included</p>
+        <ul class="licence__list">
+          <li><svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg><span>Reselling or redistributing a kit as a template, on its own or inside another product.</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg><span>Listing it on a template marketplace, theme store or bundle, modified or not.</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg><span>Sharing your download outside your own company or team — not as a freebie, not "just for a friend's agency".</span></li>
+          <li><svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5.5 5.5l9 9M14.5 5.5l-9 9" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg><span>Building a site-builder, theme generator or subscription product whose main value is these files.</span></li>
+        </ul>
+        <p class="ed-small mt-3">
+          Short version: sell the <em>work</em>, not the <em>kit</em>. Everything a normal
+          freelancer or agency does with a template is covered.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================== № 07 · FAQ -->
+<section id="faq" class="sec sec--tight" aria-labelledby="faq-h">
+  <div class="wrap">
+    <p class="ed-marker" data-pm-reveal>
+      <span class="ed-num">№&nbsp;07</span>
+      <span class="ed-marker__rule" aria-hidden="true"></span>
+      <span class="ed-meta ed-marker__label">Questions</span>
+    </p>
+
+    <h2 id="faq-h" class="ed-h2" data-pm-reveal style="max-width:16ch">Before you spend the €49.</h2>
+
+    <div class="faq mt-5" data-pm-reveal data-pm-delay="80">
+      <details open>
+        <summary><span class="n">01</span><span class="q">What exactly do I get after paying?</span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="faq__a">A download link, straight after Stripe checkout. Inside is a zip containing the kit: every HTML page, the stylesheet, the scripts, the images and a README. It is the same set of files the live demo runs on — nothing is held back for a "pro" version.</div>
+      </details>
+      <details>
+        <summary><span class="n">02</span><span class="q">Can I use this for paid client work?</span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="faq__a">Yes — that is what it is built for. One purchase covers unlimited client projects, forever. There is no per-site fee, no reporting, no licence key to activate, and nothing stopping you charging your normal rate for the work.</div>
+      </details>
+      <details>
+        <summary><span class="n">03</span><span class="q">Can I look at everything before I buy?</span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="faq__a">Every page of every kit is published as a live demo — no signup, no email gate. Use the <a href="#catalogue">kit browser</a> to page through the screenshots, then click through <a href="demo/saas-launch-kit/index.html">the SaaS Launch Kit</a>, <a href="demo/lawfirm-kit/index.html">the Law Firm Kit</a> or <a href="demo/directory-kit/index.html">the Directory Kit</a> exactly as a visitor would.</div>
+      </details>
+      <details>
+        <summary><span class="n">04</span><span class="q">Realistically, how long does a rebrand take?</span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="faq__a">The colour work is minutes — six custom properties at the top of one stylesheet, plus a matching block for dark mode. You can try it on <a href="#inside">the live demo above</a>. Swapping copy and images is the real work, and every page ships with realistic written content rather than lorem ipsum, so you are editing sentences instead of inventing them. Our own estimate for a full six-page rebrand is 4–11 hours against 24–46 from scratch — <a href="#maths">an honest estimate, not a survey</a>.</div>
+      </details>
+      <details>
+        <summary><span class="n">05</span><span class="q">What if it turns out not to fit the job?</span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="faq__a">Email us within 30 days and we refund it. No questions, no form to fill in, no explanation required. A €49 template is not worth an argument to either of us.</div>
+      </details>
+      <details>
+        <summary><span class="n">06</span><span class="q">Will it work with my stack — WordPress, Webflow, React?</span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="faq__a">The kits are standard HTML, CSS and JavaScript, so you can ship them as they are, or lift the layouts, type scale and components into whatever you normally build in. Plenty of people buy a kit purely to skip the design phase and rebuild it in their own stack — the licence allows that.</div>
+      </details>
+      <details>
+        <summary><span class="n">07</span><span class="q">Do I get future kits and updates?</span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="faq__a">Buy a single kit and you get every future update to that kit. Buy the <a href="#bundle">complete bundle</a> and you also get every new kit we release, free, in the same download — permanently.</div>
+      </details>
+      <details>
+        <summary><span class="n">08</span><span class="q">Is the placeholder copy usable, or is it lorem ipsum?</span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="faq__a">It is written English, industry by industry — real headlines, real service descriptions, real menu items, plausible attorney bios. It is there so the first client walkthrough looks like a website rather than a wireframe. Every word is meant to be replaced before launch, and the demos say so.</div>
+      </details>
+      <details>
+        <summary><span class="n">09</span><span class="q">Single kit or the bundle?</span><span class="plus" aria-hidden="true"></span></summary>
+        <div class="faq__a">If you know exactly which one you need today, buy that one for €49. If you take on more than two site builds a year, the bundle at €99 is cheaper than buying a second kit later — and it keeps growing.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================== № 08 · FINAL CTA -->
+<section class="sec finale pm-isolate" aria-labelledby="end-h">
+  <span class="pm-layer pm-bg-halo" aria-hidden="true"></span>
+  <span class="pm-layer pm-bg-grid" aria-hidden="true" style="--pm-grid-size:52px"></span>
+  <div class="pm-meteors" data-pm-meteors="9" aria-hidden="true"></div>
+
+  <div class="wrap wrap--tight finale__inner">
+    <span class="finale__rule" aria-hidden="true"></span>
+    <p class="ed-meta" data-pm-reveal>№&nbsp;08 — Take the whole shelf</p>
+    <h2 id="end-h" class="ed-display mt-3" data-pm-reveal data-pm-delay="60" style="font-size:clamp(2.3rem,5.6vw,4.6rem)">
+      Seven finished sites.<br><em class="ed-italic">Ninety-nine euro.</em>
+    </h2>
+    <p class="ed-deck mt-3" style="margin-inline:auto" data-pm-reveal data-pm-delay="120">
+      45 pages, both themes, unlimited client projects, every future kit included.
+      One payment, no renewal, and thirty days to change your mind.
+    </p>
+
+    <div class="finale__cta" data-pm-reveal data-pm-delay="180">
+      <a class="ed-btn ed-btn--gold ed-btn--lg" data-pm-magnetic="0.22"
+         href="https://buy.stripe.com/bJefZgerl5DEgQ059l7Re0v">
+        Get all seven — €99
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="ed-btn ed-btn--quiet ed-btn--lg" href="demo/saas-launch-kit/index.html">Open a live demo first</a>
+    </div>
+    <p class="finale__note" data-pm-reveal data-pm-delay="220">
+      Or take one kit for €49 — <a class="ed-link" href="#catalogue">browse the catalogue</a>.
+    </p>
+  </div>
+</section>
 </main>
 
+<!-- ============================================================== FOOTER -->
 <footer class="foot">
-  <div class="wrap">
+  <div class="wrap wrap--wide">
     <div class="foot__grid">
-      <div class="foot__brand">
-        <a href="index.html" class="logo"><span class="logo-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span> Launchplate</a>
-        <p>Hand-written landing page kits for people who would rather ship than configure a build pipeline.</p>
-      </div>
       <div>
-        <h4>Kits</h4>
+        <p class="ed-wordmark" style="font-size:1.35rem">Launchplate <small>The&nbsp;Catalogue</small></p>
+        <p class="ed-small mt-2" style="max-width:34ch">
+          Complete multi-page website kits for freelancers and small studios.
+          Seven kits, 45 finished pages, one lifetime licence.
+        </p>
+        <p class="mt-3">
+          <a class="ed-btn ed-btn--gold ed-btn--sm" href="https://buy.stripe.com/bJefZgerl5DEgQ059l7Re0v">Get all seven — €99</a>
+        </p>
+      </div>
+
+      <div>
+        <h3>The kits</h3>
         <ul>
-          <li><a href="kit-saas.html">SaaS Launch Kit</a></li>
-          <li><a href="kit-ai.html">AI Product Kit</a></li>
-          <li><a href="kit-studio.html">Studio &amp; Portfolio Kit</a></li>
-          <li><a href="#bundle">The Complete Bundle</a></li>
+          <li><a href="#panel-saas">SaaS Launch</a></li>
+          <li><a href="#panel-ai">AI Product</a></li>
+          <li><a href="#panel-studio">Studio &amp; Portfolio</a></li>
+          <li><a href="#panel-law">Law Firm</a></li>
+          <li><a href="#panel-clinic">Dental &amp; Medical Clinic</a></li>
+          <li><a href="#panel-food">Restaurant &amp; Café</a></li>
+          <li><a href="#panel-dir">Directory &amp; Marketplace</a></li>
         </ul>
       </div>
+
       <div>
-        <h4>Live demos</h4>
+        <h3>Live demos</h3>
         <ul>
-          <li><a href="demo/saas-launch-kit/index.html" target="_blank" rel="noopener">SaaS demo &nearr;</a></li>
-          <li><a href="demo/ai-product-kit/index.html" target="_blank" rel="noopener">AI demo &nearr;</a></li>
-          <li><a href="demo/studio-portfolio-kit/index.html" target="_blank" rel="noopener">Studio demo &nearr;</a></li>
+          <li><a href="demo/saas-launch-kit/index.html">SaaS Launch demo</a></li>
+          <li><a href="demo/ai-product-kit/index.html">AI Product demo</a></li>
+          <li><a href="demo/studio-portfolio-kit/index.html">Studio &amp; Portfolio demo</a></li>
+          <li><a href="demo/lawfirm-kit/index.html">Law Firm demo</a></li>
+          <li><a href="demo/clinic-kit/index.html">Clinic demo</a></li>
+          <li><a href="demo/restaurant-kit/index.html">Restaurant demo</a></li>
+          <li><a href="demo/directory-kit/index.html">Directory demo</a></li>
         </ul>
       </div>
+
       <div>
-        <h4>Buying</h4>
+        <h3>Buying</h3>
         <ul>
-          <li><a href="#inside">What's inside</a></li>
-          <li><a href="#licence">Licence summary</a></li>
-          <li><a href="#faq">Refunds &amp; FAQ</a></li>
+          <li><a href="#bundle">The complete bundle — €99</a></li>
+          <li><a href="#maths">The €49-vs-€3,000 maths</a></li>
+          <li><a href="#licence">Licence in plain English</a></li>
+          <li><a href="#faq">30-day refund</a></li>
+          <li><a href="#inside">What's inside a kit</a></li>
         </ul>
       </div>
     </div>
-    <div class="foot__base">
-      <span>&copy; 2026 Launchplate. Payments handled by Stripe.</span>
-      <span>Instant download &middot; Lifetime licence &middot; 30-day refund</span>
+
+    <div class="foot__bottom">
+      <span>© <span data-year>2026</span> Launchplate. Prices in EUR, VAT handled at checkout by Stripe.</span>
+      <span>Every brand shown in a demo is fictional; all demo content is placeholder copy.</span>
     </div>
   </div>
 </footer>
 
-<script src="js/store.js" defer></script>
-<script src="js/convert.js" defer></script>
+<!-- ============================================================== STRUCTURED DATA -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://inflex00-ctrl.github.io/launchplate/#website",
+      "url": "https://inflex00-ctrl.github.io/launchplate/",
+      "name": "Launchplate",
+      "description": "Complete multi-page website kits for freelancers and agencies."
+    },
+    {
+      "@type": "Product",
+      "@id": "https://inflex00-ctrl.github.io/launchplate/#bundle",
+      "name": "Launchplate — The Complete Bundle",
+      "description": "All seven Launchplate website kits — 45 finished pages — plus every future kit, free. One payment, lifetime licence, unlimited personal and client projects.",
+      "image": "https://inflex00-ctrl.github.io/launchplate/assets/shots/saas-launch-kit--index.png",
+      "brand": { "@type": "Brand", "name": "Launchplate" },
+      "category": "Website template",
+      "offers": {
+        "@type": "Offer",
+        "price": "99",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://inflex00-ctrl.github.io/launchplate/#bundle",
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "EU",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": 30,
+          "returnMethod": "https://schema.org/ReturnByMail",
+          "returnFees": "https://schema.org/FreeReturn"
+        }
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://inflex00-ctrl.github.io/launchplate/#panel-saas",
+      "name": "SaaS Launch Kit",
+      "description": "Eight pages for a software company: landing, pricing with a monthly/annual toggle, features, changelog, docs shell, about, legal and a 404.",
+      "image": "https://inflex00-ctrl.github.io/launchplate/assets/shots/saas-launch-kit--index.png",
+      "brand": { "@type": "Brand", "name": "Launchplate" },
+      "category": "Website template",
+      "offers": { "@type": "Offer", "price": "49", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://inflex00-ctrl.github.io/launchplate/#panel-saas" }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://inflex00-ctrl.github.io/launchplate/#panel-ai",
+      "name": "AI Product Kit",
+      "description": "Six pages for an AI tool or agent: demo-first hero, prompt playground, model comparison table, pricing, API reference and a waitlist flow.",
+      "image": "https://inflex00-ctrl.github.io/launchplate/assets/shots/ai-product-kit--index.png",
+      "brand": { "@type": "Brand", "name": "Launchplate" },
+      "category": "Website template",
+      "offers": { "@type": "Offer", "price": "49", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://inflex00-ctrl.github.io/launchplate/#panel-ai" }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://inflex00-ctrl.github.io/launchplate/#panel-studio",
+      "name": "Studio & Portfolio Kit",
+      "description": "Six pages for agencies, freelancers and studios: work grid, case-study layout, services, about and a contact page built to convert.",
+      "image": "https://inflex00-ctrl.github.io/launchplate/assets/shots/studio-portfolio-kit--index.png",
+      "brand": { "@type": "Brand", "name": "Launchplate" },
+      "category": "Website template",
+      "offers": { "@type": "Offer", "price": "49", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://inflex00-ctrl.github.io/launchplate/#panel-studio" }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://inflex00-ctrl.github.io/launchplate/#panel-law",
+      "name": "Law Firm & Professional Services Kit",
+      "description": "Seven pages for a law firm or professional practice: practice areas, attorney index, a single-attorney template, insights, about and a consultation form.",
+      "image": "https://inflex00-ctrl.github.io/launchplate/assets/shots/lawfirm-kit--about.png",
+      "brand": { "@type": "Brand", "name": "Launchplate" },
+      "category": "Website template",
+      "offers": { "@type": "Offer", "price": "49", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://inflex00-ctrl.github.io/launchplate/#panel-law" }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://inflex00-ctrl.github.io/launchplate/#panel-clinic",
+      "name": "Dental & Medical Clinic Kit",
+      "description": "Six pages for a clinic or practice: services by category, practitioner profiles, appointment booking, about and contact.",
+      "image": "https://inflex00-ctrl.github.io/launchplate/assets/shots/clinic-kit--index.png",
+      "brand": { "@type": "Brand", "name": "Launchplate" },
+      "category": "Website template",
+      "offers": { "@type": "Offer", "price": "49", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://inflex00-ctrl.github.io/launchplate/#panel-clinic" }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://inflex00-ctrl.github.io/launchplate/#panel-food",
+      "name": "Restaurant & Café Kit",
+      "description": "Six pages for a restaurant or café: full menu with categories and dietary marks, reservations, gallery with lightbox, story and contact.",
+      "image": "https://inflex00-ctrl.github.io/launchplate/assets/shots/restaurant-kit--index.png",
+      "brand": { "@type": "Brand", "name": "Launchplate" },
+      "category": "Website template",
+      "offers": { "@type": "Offer", "price": "49", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://inflex00-ctrl.github.io/launchplate/#panel-food" }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://inflex00-ctrl.github.io/launchplate/#panel-dir",
+      "name": "Directory & Marketplace Kit",
+      "description": "Six pages for a niche directory: client-side filtering and search, listing detail, category landings, a submit flow and paid placement tiers.",
+      "image": "https://inflex00-ctrl.github.io/launchplate/assets/shots/directory-kit--index.png",
+      "brand": { "@type": "Brand", "name": "Launchplate" },
+      "category": "Website template",
+      "offers": { "@type": "Offer", "price": "49", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://inflex00-ctrl.github.io/launchplate/#panel-dir" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What exactly do I get after paying?", "acceptedAnswer": { "@type": "Answer", "text": "A download link straight after Stripe checkout, containing a zip with every HTML page, the stylesheet, the scripts, the images and a README — the same files the live demo runs on." } },
+        { "@type": "Question", "name": "Can I use this for paid client work?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. One purchase covers unlimited client projects, forever. No per-site fee and no licence key." } },
+        { "@type": "Question", "name": "Realistically, how long does a rebrand take?", "acceptedAnswer": { "@type": "Answer", "text": "The colour work is six custom properties at the top of one stylesheet plus a matching dark-mode block, so it takes minutes. Swapping copy and images is the real work. Our own honest estimate for a full six-page rebrand is 4 to 11 hours, against 24 to 46 hours from scratch. That is an estimate from building and rebranding the kits ourselves, not a survey." } },
+        { "@type": "Question", "name": "What if it turns out not to fit the job?", "acceptedAnswer": { "@type": "Answer", "text": "Email us within 30 days and we refund it, no questions asked." } },
+        { "@type": "Question", "name": "Do I get future kits and updates?", "acceptedAnswer": { "@type": "Answer", "text": "A single kit includes every future update to that kit. The complete bundle also includes every new kit we release, free, forever." } }
+      ]
+    }
+  ]
+}
+</script>
+
 <script src="vendor/premium.js" defer></script>
+<script>
+/* =====================================================================================
+   FAILSAFES FIRST.
+   Nothing on this page may end up permanently invisible. premium.css only hides
+   [data-pm-reveal] under .pm-js — a class premium.js writes itself — so if the library
+   never arrives, nothing is hidden. What follows guards the remaining failure modes:
+   the library loads but IntersectionObserver never delivers, or the widget script below
+   throws before it can finish wiring the kit browser.
+   ===================================================================================== */
+(function () {
+  var d = document, root = d.documentElement;
+  function all(sel) { return Array.prototype.slice.call(d.querySelectorAll(sel)); }
+  function unhideReveals() { all("[data-pm-reveal]").forEach(function (el) { el.classList.add("pm-in"); }); }
+  function sweep() {
+    var vh = window.innerHeight || 800;
+    all("[data-pm-reveal]").forEach(function (el) {
+      if (el.classList.contains("pm-in")) return;
+      if (el.getBoundingClientRect().top < vh * 1.05) el.classList.add("pm-in");
+    });
+  }
+  /* premium.js never loaded -> drop the gate class so the hidden state cannot apply. */
+  setTimeout(function () { if (!window.Premium) root.classList.remove("pm-js"); }, 900);
+  /* the observer never fired for anything -> reveal the lot. */
+  setTimeout(function () { if (!d.querySelector("[data-pm-reveal].pm-in")) unhideReveals(); }, 2200);
+  setTimeout(sweep, 1200); setTimeout(sweep, 3000);
+  var st;
+  window.addEventListener("scroll", function () { clearTimeout(st); st = setTimeout(sweep, 200); }, { passive: true });
+  window.addEventListener("load", function () { setTimeout(sweep, 300); });
+  d.addEventListener("visibilitychange", function () { if (!d.hidden) sweep(); });
+  setTimeout(unhideReveals, 10000);   /* absolute last resort */
+  window.__lpUnhide = unhideReveals;
+
+  /* Kit-browser watchdog. The panels are only ever hidden by the script below; if that
+     script did not reach the end, un-hide every panel and drop the .js-on class so the
+     browser degrades to the full stacked catalogue instead of one lonely panel. */
+  setTimeout(function () {
+    if (window.__kbReady) return;
+    root.classList.remove("js-on");
+    all(".kb-panel").forEach(function (p) { p.hidden = false; });
+    all(".kb__kit").forEach(function (b) { b.hidden = false; });
+  }, 2500);
+})();
+
+(function () {
+  "use strict";
+  var d = document;
+  function all(sel, root) { return Array.prototype.slice.call((root || d).querySelectorAll(sel)); }
+
+  try {
+    /* ------------------------------------------------------------------ kit browser */
+    var rail   = d.querySelector("[data-rail]");
+    var stage  = d.querySelector("[data-stage]");
+    var status = d.querySelector("[data-status]");
+    var tabs   = rail ? all(".kb__kit", rail) : [];
+    var panels = stage ? all(".kb-panel", stage) : [];
+    var chips  = all(".kb__chip");
+    var countOut = d.querySelector("[data-count-out]");
+    var PAGES = { saas: 8, ai: 6, studio: 6, law: 7, clinic: 6, food: 6, dir: 6 };
+
+    if (tabs.length && panels.length) {
+      rail.setAttribute("role", "tablist");
+      rail.setAttribute("aria-label", "Choose a kit");
+      rail.setAttribute("aria-orientation", "vertical");
+
+      tabs.forEach(function (t, i) {
+        var id = t.getAttribute("data-kit");
+        t.setAttribute("role", "tab");
+        t.id = "tab-" + id;
+        t.setAttribute("aria-controls", "panel-" + id);
+        t.setAttribute("aria-selected", i === 0 ? "true" : "false");
+        t.tabIndex = i === 0 ? 0 : -1;
+      });
+      panels.forEach(function (p, i) {
+        p.setAttribute("role", "tabpanel");
+        p.setAttribute("aria-labelledby", "tab-" + p.getAttribute("data-panel"));
+        p.tabIndex = 0;
+        if (i !== 0) p.hidden = true;       /* the script does the hiding, never the CSS */
+      });
+
+      var select = function (id, moveFocus) {
+        tabs.forEach(function (t) {
+          var on = t.getAttribute("data-kit") === id;
+          t.setAttribute("aria-selected", on ? "true" : "false");
+          t.tabIndex = on ? 0 : -1;
+          if (on && moveFocus) t.focus();
+        });
+        panels.forEach(function (p) { p.hidden = p.getAttribute("data-panel") !== id; });
+      };
+      window.__kbSelect = select;
+
+      tabs.forEach(function (t) {
+        t.addEventListener("click", function () { select(t.getAttribute("data-kit"), false); });
+        t.addEventListener("keydown", function (ev) {
+          var vis = tabs.filter(function (x) { return !x.hidden; });
+          var i = vis.indexOf(t), n = vis.length, j = -1;
+          if (ev.key === "ArrowDown" || ev.key === "ArrowRight") j = (i + 1) % n;
+          else if (ev.key === "ArrowUp" || ev.key === "ArrowLeft") j = (i - 1 + n) % n;
+          else if (ev.key === "Home") j = 0;
+          else if (ev.key === "End") j = n - 1;
+          if (j < 0) return;
+          ev.preventDefault();
+          select(vis[j].getAttribute("data-kit"), true);
+        });
+      });
+
+      /* industry filter */
+      var applyFilter = function (f) {
+        var visible = [];
+        tabs.forEach(function (t) {
+          var ok = f === "all" || (" " + (t.getAttribute("data-tags") || "") + " ").indexOf(" " + f + " ") > -1;
+          t.hidden = !ok;
+          if (ok) visible.push(t);
+        });
+        chips.forEach(function (c) { c.setAttribute("aria-pressed", c.getAttribute("data-filter") === f ? "true" : "false"); });
+        if (!visible.length) return;
+        var pages = visible.reduce(function (s, t) { return s + (PAGES[t.getAttribute("data-kit")] || 0); }, 0);
+        if (countOut) countOut.textContent = visible.length + (visible.length === 1 ? " kit · " : " kits · ") + pages + " pages";
+        var cur = tabs.filter(function (t) { return t.getAttribute("aria-selected") === "true"; })[0];
+        if (!cur || cur.hidden) select(visible[0].getAttribute("data-kit"), false);
+      };
+      window.__kbFilter = applyFilter;
+      chips.forEach(function (c) {
+        c.addEventListener("click", function () { applyFilter(c.getAttribute("data-filter")); });
+      });
+
+      /* page switcher inside each panel */
+      panels.forEach(function (p) {
+        var img  = p.querySelector("[data-shot]");
+        var url  = p.querySelector("[data-url]");
+        var btns = all(".kb-page[data-shot-src]", p);
+        btns.forEach(function (b) {
+          b.addEventListener("click", function () {
+            btns.forEach(function (o) { o.setAttribute("aria-pressed", "false"); });
+            b.setAttribute("aria-pressed", "true");
+            if (img) {
+              img.src = b.getAttribute("data-shot-src");
+              img.alt = b.getAttribute("data-shot-alt") || img.alt;
+            }
+            if (url) url.textContent = b.getAttribute("data-url");
+            if (status) status.textContent = "Now previewing " + b.textContent.trim() + " — " + b.getAttribute("data-url");
+          });
+        });
+      });
+
+      /* deep links: #panel-law from the contents list or the footer selects the kit */
+      var fromHash = function () {
+        var m = /^#panel-([a-z]+)$/.exec(location.hash || "");
+        if (m && PAGES[m[1]] !== undefined) { applyFilter("all"); select(m[1], false); }
+      };
+      window.addEventListener("hashchange", fromHash);
+      fromHash();
+    }
+
+    /* ------------------------------------------------------- six-variable rebrand */
+    var mock = d.querySelector("[data-mock]");
+    var sws  = all(".rb__sw");
+    var swName = d.querySelector("[data-swatch-name]");
+    if (mock && sws.length) {
+      var setVal = function (key, val) {
+        var t = d.querySelector('[data-v="' + key + '"]');
+        if (t) t.textContent = val;
+        var chip = d.querySelector('[data-chip="' + key + '"]');
+        if (chip) chip.style.background = val;
+      };
+      var paint = function (b) {
+        mock.style.setProperty("--m-brand", b.getAttribute("data-brand"));
+        mock.style.setProperty("--m-soft",  b.getAttribute("data-soft"));
+        mock.style.setProperty("--m-acc",   b.getAttribute("data-acc"));
+        mock.style.setProperty("--m-r",     b.getAttribute("data-radius"));
+        setVal("brand",    b.getAttribute("data-brand"));
+        setVal("hover",    b.getAttribute("data-hover"));
+        setVal("contrast", "#ffffff");
+        setVal("soft",     b.getAttribute("data-soft"));
+        setVal("acc",      b.getAttribute("data-acc"));
+        setVal("radius",   b.getAttribute("data-radius"));
+        sws.forEach(function (o) { o.setAttribute("aria-pressed", o === b ? "true" : "false"); });
+        if (swName) swName.textContent = (b.getAttribute("aria-label") || "").replace(" palette", "");
+      };
+      window.__kbPaint = paint;
+      sws.forEach(function (b) { b.addEventListener("click", function () { paint(b); }); });
+      paint(sws[0]);
+    }
+
+    all("[data-year]").forEach(function (el) { el.textContent = String(new Date().getFullYear()); });
+
+    window.__kbReady = true;
+  } catch (err) {
+    /* Anything unexpected: give the reader the whole page back. */
+    if (window.__lpUnhide) window.__lpUnhide();
+    document.documentElement.classList.remove("js-on");
+    all(".kb-panel").forEach(function (p) { p.hidden = false; });
+    all(".kb__kit").forEach(function (b) { b.hidden = false; });
+    if (window.console && console.warn) console.warn("Launchplate UI:", err);
+  }
+})();
+</script>
+
 </body>
 </html>
