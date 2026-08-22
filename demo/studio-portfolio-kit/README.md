@@ -10,6 +10,36 @@ visitor's choice.
 
 ---
 
+## Make it real
+
+This kit is not a mockup: the project-brief form on `contact.html` delivers to your inbox,
+with every field arriving as a readable summary rather than a blob of JSON.
+
+Everything runs off one file, **`config.js`**, in this folder. Fill in the
+business details and a form-provider key and the site is deliverable:
+
+```js
+window.SITE_CONFIG = {
+  business: { name: "…", email: "…", phone: "…" },
+  forms:    { provider: "web3forms", key: "your-access-key" }
+};
+```
+
+That is the whole integration. With nothing configured the kit still renders
+and behaves sensibly — forms validate, then fall back to the visitor's own mail
+app rather than pretending to have sent something.
+
+Optional and off by default: privacy-first analytics (Plausible, Umami or
+Cloudflare — no Google Analytics, no consent banner needed).
+
+**[SETUP.md](SETUP.md) is the full walkthrough**: choosing a form provider
+(with real free-tier limits and prices for Web3Forms, Forminit, Formspree,
+FormSubmit, Basin and Netlify Forms), getting a key, deploying to Netlify /
+Vercel / Cloudflare Pages / ordinary shared hosting, connecting a domain, and a
+plain-English note on what each provider stores and what that means for GDPR.
+
+---
+
 ## 1. What's in the box
 
 ```
@@ -20,11 +50,15 @@ studio-portfolio-kit/
 ├── services.html       Packages and pricing, process timeline, capabilities, FAQ
 ├── about.html          Studio story, team, values, awards
 ├── contact.html        Project-brief form, studio details, availability
+├── config.js           ← the only file you must edit
 ├── css/
 │   └── style.css       The entire design system (~2,700 lines, heavily commented)
 ├── js/
+│   ├── forms.js        Form delivery — shared across all kits
+│   ├── integrations.js Analytics — shared across all kits
 │   └── main.js         Theme toggle, mobile nav, filtering, accordion, form, reveals
 ├── og-cover.png        1200×630 social share image — replace with your own
+├── SETUP.md            ZIP → live client site in 20 minutes
 ├── README.md           This file
 └── LICENCE.txt         Licence terms
 ```
@@ -181,25 +215,39 @@ falls back to native browser validation.
 
 ## 5. Making the contact form actually send
 
-The form in `contact.html` is client-side only — it validates, shows a success
-state and resets. It does not post anywhere, because a static template has
-nowhere to post to.
+They already do. The project brief validates, shows the status banner, and delivers.
 
-To connect it, point the `action` at your endpoint and let the browser submit:
+Set two things in `config.js` and enquiries arrive in a real inbox:
 
-```html
-<form class="form" data-brief-form action="https://formspree.io/f/YOURID" method="post">
+```js
+forms: {
+  provider: "web3forms",   // or forminit, formspree, formsubmit, basin, netlify, custom
+  key:      "your-access-key",
+  fallback: "mailto"       // what happens if you leave provider blank
+}
 ```
 
-Then in `js/main.js`, inside the `submit` handler, delete the
-`e.preventDefault()` on the success path (the validation branch above it should
-stay). Any form backend works — Formspree, Basin, Netlify Forms
-(`data-netlify="true"`), Getform, or your own handler. Every field already has a
-sensible `name` attribute.
+`js/forms.js` handles the rest: it validates, blocks bots with a honeypot and a
+time-trap, disables the button while sending, posts with `fetch()` so the
+visitor never leaves the page, and writes the real result into the same status
+banner the kit already uses. Every field is normalised into a readable email
+with a proper subject line and reply-to address, whatever shape the form is.
 
-If you use Netlify Forms, also add a hidden `form-name` input. If you handle
-submissions yourself, remember the `consent` checkbox is your record of
-permission — keep it.
+Leave `provider` blank and the form falls back to the visitor's own mail app
+(or says plainly that it is not connected yet, with `fallback: "notice"`). It
+never shows a success message for something it did not send.
+
+Adding your own form takes one attribute:
+
+```html
+<form data-form data-form-type="Quote request" novalidate>
+  …your fields…
+  <div class="form-status" data-form-status role="status" aria-live="polite"><span></span></div>
+</form>
+```
+
+Full walkthrough, provider comparison with real limits and prices, deployment
+and a GDPR note: **[SETUP.md](SETUP.md)**.
 
 ---
 

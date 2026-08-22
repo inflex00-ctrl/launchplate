@@ -356,6 +356,10 @@
 
     var status = form.querySelector("[data-form-status]");
 
+    /* forms.js delivers the brief; manage() stops it attaching a second
+       handler and plants the honeypot and time-trap. */
+    if (window.SiteForms) window.SiteForms.manage(form);
+
     function fieldOf(input) {
       return input.closest(".field") || input.closest(".fieldset");
     }
@@ -402,19 +406,44 @@
         return;
       }
 
-      if (status) {
+      var TICK =
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" ' +
+        'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+        '<path d="m4 12.5 5 5L20 6.5"/></svg>';
+      var WARN =
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" ' +
+        'stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/>' +
+        '<path d="M12 7.5v5"/><path d="M12 16.2h.01"/></svg>';
+
+      function reveal(ok, message) {
+        if (!status) return;
         status.setAttribute("data-visible", "true");
+        status.setAttribute("data-form-state", ok ? "ok" : "error");
         status.innerHTML =
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" ' +
-          'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-          '<path d="m4 12.5 5 5L20 6.5"/></svg>' +
-          "<span><strong>Brief received — thank you.</strong> This demo form does not send " +
-          "anywhere yet. Connect the <code>action</code> attribute to your form endpoint to go live " +
-          "(see the README).</span>";
+          (ok ? TICK : WARN) +
+          "<span><strong>" +
+          (ok ? "Brief received — thank you." : "Not sent.") +
+          "</strong> " + message + "</span>";
         status.scrollIntoView({ behavior: "smooth", block: "center" });
       }
 
-      form.reset();
+      /* Real delivery. Configure a provider in config.js and this posts
+         for real; leave it blank and it opens the visitor's mail client
+         instead of quietly doing nothing. */
+      if (!window.SiteForms) {
+        reveal(true, "This template has no form script loaded. See SETUP.md.");
+        form.reset();
+        return;
+      }
+
+      var button = form.querySelector('button[type="submit"], [type="submit"]');
+      window.SiteForms.setBusy(button, true);
+
+      window.SiteForms.send(form).then(function (result) {
+        window.SiteForms.setBusy(button, false);
+        reveal(result.ok, result.message);
+        if (result.ok && result.mode !== "mailto") form.reset();
+      });
     });
   }
 

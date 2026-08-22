@@ -13,12 +13,13 @@
      - keeps the sidebar .preview-card in sync with what is being typed
      - shows the success panel on submit
 
-   NOTHING IS SENT ANYWHERE. This is a template: the submit handler calls
-   preventDefault() and swaps in the success panel. See "WIRING YOUR OWN
-   BACKEND" further down for the three lines to change.
+   DELIVERY is not here. js/forms.js posts the finished submission to
+   whichever provider is named in config.js; this file owns the step flow,
+   the validation and the success/error panels only.
 
-   Plain ES5-flavoured JavaScript, no build step, no fetch(), so it works
-   opened straight from disk (file:///…).
+   Plain ES5-flavoured JavaScript, no build step, no dependencies, so it
+   works opened straight from disk (file:///…) — unconfigured, the last
+   step falls back to the visitor's mail app rather than faking a send.
    ========================================================================== */
 
 var SLSubmit = (function () {
@@ -405,7 +406,8 @@ var SLSubmit = (function () {
         files.length +
         " file" +
         (files.length === 1 ? "" : "s") +
-        " selected. In this template nothing is uploaded — the names are listed so you can check them.";
+        " selected. Whether these are delivered depends on your form provider — " +
+        "some accept attachments only on a paid plan. See SETUP.md.";
     });
   }
 
@@ -415,25 +417,18 @@ var SLSubmit = (function () {
 
   function onSubmit(e) {
     /* ------------------------------------------------------------------
-       WIRING YOUR OWN BACKEND
+       DELIVERY
        -------------------------------------------------------------------
-       As shipped this makes no request of any kind, because a template that
-       posted somewhere would break the moment you opened it from disk.
+       Handled by js/forms.js: it posts to whichever provider is named in
+       config.js, and with nothing configured it opens the visitor's mail
+       client rather than faking a success.
 
-       To make it real:
-         1. Put your endpoint on the form in submit.html, e.g.
-              <form id="submit-form" novalidate
-                    method="post" action="https://formspree.io/f/XXXXXXXX">
-            Netlify Forms instead wants  data-netlify="true"  plus a hidden
-            <input type="hidden" name="form-name" value="submit-form">.
-         2. Delete the e.preventDefault() line below, so the browser posts
-            the form normally, and point the form's success page at
-            submit.html#submitted (or whatever your host uses).
-         3. Delete the showSuccess() call — your endpoint's redirect takes
-            over from here.
-
-       Keep the validateAll() call: it is what stops a half-filled form ever
-       reaching your inbox.
+       Note on the screenshots and logo files in step 3: whether they are
+       actually delivered depends on the provider. Web3Forms and Formspree
+       both need a paid plan for attachments; Forminit, Basin, FormSubmit
+       and Netlify accept them on the free tier. If yours does not, the
+       submission still arrives — the maker is simply asked for the files
+       by return email. See SETUP.md.
        ------------------------------------------------------------------ */
     e.preventDefault();
 
@@ -445,7 +440,45 @@ var SLSubmit = (function () {
     }
 
     if (!validateAll()) return;
-    showSuccess();
+
+    if (!window.SiteForms) {
+      showSuccess();
+      return;
+    }
+
+    var button = els.form.querySelector('button[type="submit"], [type="submit"]');
+    window.SiteForms.setBusy(button, true);
+
+    window.SiteForms.send(els.form).then(function (result) {
+      window.SiteForms.setBusy(button, false);
+      if (result.ok) {
+        showSuccess(result.mode);
+      } else {
+        showError(result.message);
+      }
+    });
+  }
+
+  /* A submission that could not be delivered must say so, in the flow,
+     without throwing away everything the maker just typed. */
+  function showError(message) {
+    var box = document.getElementById("submit-error");
+    if (!box) {
+      box = document.createElement("p");
+      box.id = "submit-error";
+      box.setAttribute("role", "alert");
+      box.className = "field-error";
+      box.style.cssText = "display:block;margin-top:1rem";
+      var last = panels[panels.length - 1];
+      (last || els.form).appendChild(box);
+    }
+    box.textContent = message;
+    box.hidden = false;
+    els.status.textContent = message;
+    box.scrollIntoView({
+      behavior: SL.prefersReducedMotion() ? "auto" : "smooth",
+      block: "center"
+    });
   }
 
   /* Check every panel, not just the visible one, and jump to the first that
@@ -462,7 +495,10 @@ var SLSubmit = (function () {
     return true;
   }
 
-  function showSuccess() {
+  function showSuccess(mode) {
+    var box = document.getElementById("submit-error");
+    if (box) box.hidden = true;
+
     els.form.hidden = true;
     els.stepper.hidden = true;
     els.success.hidden = false;
@@ -473,7 +509,9 @@ var SLSubmit = (function () {
     if (email) els.successEmail.textContent = email;
 
     els.status.textContent =
-      "Submission received. An editor will be in touch by email.";
+      mode === "mailto"
+        ? "Your email app has been opened with the submission ready to send."
+        : "Submission received. An editor will be in touch by email.";
 
     var heading = document.getElementById("success-title");
     if (heading) heading.focus();
@@ -519,6 +557,10 @@ var SLSubmit = (function () {
 
     panels = $$(".step-panel[data-panel]", els.form);
     steps = $$(".stepper__item", els.stepper);
+
+    /* forms.js owns delivery for this form: manage() stops it attaching a
+       second submit handler and plants the honeypot and time-trap. */
+    if (window.SiteForms) window.SiteForms.manage(els.form);
 
     /* Panel headings take focus on a step change without joining the tab
        order — set here so the markup stays free of plumbing attributes. */

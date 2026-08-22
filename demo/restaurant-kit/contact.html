@@ -222,6 +222,8 @@
   ]
 }
 </script>
+  <noscript><style>/* JS off: entrance animations never run, so show final state */
+.reveal{opacity:1!important;transform:none!important;clip-path:none!important;filter:none!important}</style></noscript>
 </head>
 
 <body class="full-height">
@@ -415,7 +417,7 @@
         </div>
 
         <div class="split-media reveal reveal--right reveal-delay-1">
-          <div class="map">
+          <div class="map" data-map data-map-lat="53.3536" data-map-lon="-6.2871" data-map-zoom="17" data-map-label="Ember &amp; Oak, 14 Marlowe Street">
             <span class="map-pin" aria-hidden="true">
               <svg viewBox="0 0 20 20" fill="currentColor">
                 <path d="M10 2a5.5 5.5 0 00-5.5 5.5c0 4 5.5 10.5 5.5 10.5s5.5-6.5 5.5-10.5A5.5 5.5 0 0010 2z"/>
@@ -688,12 +690,12 @@
 
           <div class="form-foot">
             <button class="btn btn--primary btn--lg" type="submit" data-sending="Sending…">Send message</button>
-            <p class="form-note">
-              This is a demo form — it validates in the browser and shows the success
-              panel, but nothing is transmitted. To make it live, delete
-              <code>data-demo-form</code> from the <code>&lt;form&gt;</code> tag and add
-              your own <code>action</code> (Formspree, Netlify Forms, or your own
-              handler). The field <code>name</code> attributes are already sensible.
+            <p class="form-note" data-demo-notice>
+              <strong>Not connected yet.</strong> This form validates and is ready to send, but
+              no form provider has been configured. Add yours to the <code>forms</code> block in
+              <code>config.js</code> and messages arrive in your inbox — see <code>SETUP.md</code>.
+              Until then the form falls back to the visitor's own mail app. This note disappears
+              once a key is in place.
             </p>
           </div>
         </div>
@@ -897,6 +899,9 @@
   </div>
 </footer>
 
+<script src="config.js" defer></script>
+<script src="js/forms.js" defer></script>
+<script src="js/integrations.js" defer></script>
 <script src="js/main.js" defer></script>
 </body>
 </html>

@@ -541,14 +541,18 @@
   /* ------------------------------------------------------------------ *
    * 10. Forms — client-side validation and a demo submit
    *
-   *     This template has no back end. On a valid submit we show the
-   *     .form-status banner instead of posting anywhere. Wire your own
-   *     endpoint by replacing the marked block below.
+   *     Validation lives here; delivery is js/forms.js, driven by
+   *     config.js. The .form-status banner reports what actually happened —
+   *     sent, not connected yet, or failed.
    * ------------------------------------------------------------------ */
 
   function initForms() {
     $$("[data-form]").forEach(function (form) {
       var status = $(".form-status", form) || $("#" + form.id + "-status");
+
+      /* Claim the form so forms.js does not also attach its generic
+         handler, and let it plant the honeypot and time-trap. */
+      if (window.SiteForms) window.SiteForms.manage(form);
 
       function fieldOf(control) {
         return control.closest(".field") || control.closest(".fieldset");
@@ -605,25 +609,27 @@
           return;
         }
 
-        /* ---- Replace this block with your own submission ----------------
-           fetch("/api/appointments", {
-             method: "POST",
-             body: new FormData(form)
-           });
+        /* ---- Real submission -------------------------------------------
+           forms.js posts this to whichever provider is named in
+           config.js. With nothing configured it falls back to the
+           visitor's mail client, or says plainly that the form is not
+           connected yet — never a silent success.
            ---------------------------------------------------------------- */
 
-        if (status) {
-          status.classList.remove("form-status--error");
+        function reveal(ok, message) {
+          if (!status) return;
+          status.classList.toggle("form-status--error", !ok);
           status.classList.add("is-visible");
           var text = $("[data-status-text]", status);
           if (text) {
-            text.innerHTML =
-              "<strong>" +
-              (form.getAttribute("data-success-title") || "Request received.") +
-              "</strong> " +
-              (form.getAttribute("data-success-body") ||
-                "This is a demonstration form — no data was sent. Connect it to your own booking system or inbox before going live.");
+            text.innerHTML = ok
+              ? "<strong>" +
+                (form.getAttribute("data-success-title") || "Request received.") +
+                "</strong> " +
+                message
+              : "<strong>Not sent.</strong> " + message;
           }
+          status.setAttribute("data-form-state", ok ? "ok" : "error");
           status.setAttribute("tabindex", "-1");
           status.focus();
           status.scrollIntoView({
@@ -632,12 +638,29 @@
           });
         }
 
-        form.reset();
-        $$(".radio-card", form).forEach(function (c) {
-          c.classList.remove("is-checked");
-        });
-        $$(".slot", form).forEach(function (s) {
-          s.setAttribute("aria-pressed", "false");
+        function clearForm() {
+          form.reset();
+          $$(".radio-card", form).forEach(function (c) {
+            c.classList.remove("is-checked");
+          });
+          $$(".slot", form).forEach(function (s) {
+            s.setAttribute("aria-pressed", "false");
+          });
+        }
+
+        if (!window.SiteForms) {
+          reveal(true, "This template has no form script loaded. See SETUP.md.");
+          clearForm();
+          return;
+        }
+
+        var button = form.querySelector('button[type="submit"], .btn[type="submit"]');
+        window.SiteForms.setBusy(button, true);
+
+        window.SiteForms.send(form).then(function (result) {
+          window.SiteForms.setBusy(button, false);
+          reveal(result.ok, result.message);
+          if (result.ok && result.mode !== "mailto") clearForm();
         });
       });
     });

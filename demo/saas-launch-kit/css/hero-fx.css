@@ -1,0 +1,477 @@
+/* ==========================================================================
+   NORTHWIND — hero-fx.css
+   Cinematic hero layer. Self-contained, zero external requests.
+   --------------------------------------------------------------------------
+   Techniques lifted from build/lib/premium.css (masked grid, conic god-rays,
+   ambient halo, split-word reveal, sheen sweep, pulse ring) and re-tuned to
+   Northwind's teal / deep-ink tokens.
+
+   SAFETY CONTRACT
+   ---------------
+   Nothing in this file hides content that only JavaScript can bring back.
+   Every entrance is a CSS @keyframes animation with `both` fill: if CSS runs,
+   the animation runs. JS is used only for *live* behaviour (counters, drift)
+   and every JS-driven element already contains its final value in the markup.
+   The `prefers-reduced-motion` block at the bottom forces every element to its
+   settled state with `animation: none`.
+
+   Contents
+     1. Atmosphere layers (grid, god-rays, teal bloom)
+     2. Hero content choreography (pill, word reveal, lede, CTAs, notes)
+     3. Product mockup: entrance, bar growth, scan line, live chip
+     4. Floating "at risk" alert
+     5. Reduced motion + print
+   ========================================================================== */
+
+.hfx {
+  --hfx-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --hfx-ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --hfx-grid-color: color-mix(in srgb, var(--brand) 20%, transparent);
+  --hfx-ray-color: color-mix(in srgb, var(--brand) 20%, transparent);
+  --hfx-bloom-1: color-mix(in srgb, var(--brand) 30%, transparent);
+  --hfx-bloom-2: color-mix(in srgb, var(--brand-accent) 16%, transparent);
+  isolation: isolate;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .hfx {
+    --hfx-grid-color: color-mix(in srgb, var(--brand) 26%, transparent);
+    --hfx-ray-color: color-mix(in srgb, var(--brand) 26%, transparent);
+    --hfx-bloom-1: color-mix(in srgb, var(--brand) 34%, transparent);
+    --hfx-bloom-2: color-mix(in srgb, var(--brand-accent) 20%, transparent);
+  }
+}
+:root[data-theme="dark"] .hfx {
+  --hfx-grid-color: color-mix(in srgb, var(--brand) 26%, transparent);
+  --hfx-ray-color: color-mix(in srgb, var(--brand) 26%, transparent);
+  --hfx-bloom-1: color-mix(in srgb, var(--brand) 34%, transparent);
+  --hfx-bloom-2: color-mix(in srgb, var(--brand-accent) 20%, transparent);
+}
+
+
+/* ==========================================================================
+   1. ATMOSPHERE
+   Three inert, absolutely-positioned layers stacked under the content. Each
+   one is masked so it dissolves before it reaches an edge — an unmasked
+   pattern running to the viewport edge is the classic "template" tell.
+   ========================================================================== */
+
+.hfx__atmos {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  contain: strict;
+}
+
+.hfx__layer {
+  position: absolute;
+  inset: 0;
+  display: block;
+  pointer-events: none;
+}
+
+/* --- masked engineering grid ------------------------------------------- */
+.hfx__grid {
+  background-image:
+    linear-gradient(to right, var(--hfx-grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--hfx-grid-color) 1px, transparent 1px);
+  background-size: 72px 72px;
+  background-position: center top;
+  -webkit-mask-image: radial-gradient(ellipse 78% 62% at 50% 0%, #000 8%, transparent 76%);
+          mask-image: radial-gradient(ellipse 78% 62% at 50% 0%, #000 8%, transparent 76%);
+  opacity: 0;
+  animation: hfx-fade-in 1400ms var(--hfx-ease-soft) 120ms both;
+}
+
+/* --- conic god-rays fanning from the top centre ------------------------- */
+.hfx__rays {
+  inset: -60% -40% auto -40%;
+  height: 170%;
+  background: repeating-conic-gradient(from 208deg at 50% 0%,
+    var(--hfx-ray-color) 0deg 1.1deg, transparent 1.1deg 8deg);
+  -webkit-mask-image: radial-gradient(ellipse 52% 66% at 50% 0%, #000, transparent 70%);
+          mask-image: radial-gradient(ellipse 52% 66% at 50% 0%, #000, transparent 70%);
+  opacity: 0;
+  animation:
+    hfx-rays-in 2200ms var(--hfx-ease-soft) 260ms both,
+    hfx-rays-sweep 34s ease-in-out 2s infinite;
+  will-change: transform, opacity;
+}
+
+/* --- soft teal bloom, slowly breathing ---------------------------------- */
+.hfx__bloom {
+  inset: -34% -12% auto -12%;
+  height: 108%;
+  background:
+    radial-gradient(44% 42% at 50% 22%, var(--hfx-bloom-1), transparent 70%),
+    radial-gradient(32% 34% at 78% 12%, var(--hfx-bloom-2), transparent 72%),
+    radial-gradient(38% 34% at 16% 34%, var(--hfx-bloom-1), transparent 74%);
+  filter: blur(30px);
+  opacity: 0;
+  animation:
+    hfx-fade-in 1800ms var(--hfx-ease-soft) both,
+    hfx-breathe 16s ease-in-out 1.8s infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes hfx-fade-in { to { opacity: 1; } }
+@keyframes hfx-rays-in { to { opacity: 0.9; } }
+@keyframes hfx-rays-sweep {
+  0%, 100% { transform: rotate(-2.2deg); }
+  50%      { transform: rotate(2.2deg); }
+}
+@keyframes hfx-breathe {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50%      { transform: translate3d(0, 1.5%, 0) scale(1.07); }
+}
+
+/* --- horizon: a hairline of brand light the god-rays appear to fall from -- */
+.hfx__horizon {
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 1px;
+  top: 0;
+  background: linear-gradient(90deg,
+    transparent, color-mix(in srgb, var(--brand) 55%, transparent) 26%,
+    color-mix(in srgb, var(--brand) 75%, transparent) 50%,
+    color-mix(in srgb, var(--brand) 55%, transparent) 74%, transparent);
+  box-shadow:
+    0 0 18px 1px color-mix(in srgb, var(--brand) 40%, transparent),
+    0 0 60px 14px color-mix(in srgb, var(--brand) 18%, transparent);
+  transform: scaleX(0);
+  transform-origin: 50% 50%;
+  animation: hfx-horizon-in 1600ms var(--hfx-ease) 180ms both;
+}
+@keyframes hfx-horizon-in {
+  from { transform: scaleX(0); opacity: 0; }
+  to   { transform: scaleX(1); opacity: 0.85; }
+}
+
+/* --- vignette so the centre column reads as the lit part of the frame ----- */
+.hfx__vignette {
+  background: radial-gradient(130% 88% at 50% 26%,
+    transparent 52%, color-mix(in srgb, var(--text-strong) 7%, transparent) 100%);
+}
+
+
+/* ==========================================================================
+   2. HERO CONTENT CHOREOGRAPHY
+   A single load-time cascade: pill -> headline words -> lede -> CTAs -> notes.
+   All pure CSS, so the copy is on screen even if every script is blocked.
+   ========================================================================== */
+
+.hfx .pill {
+  animation: hfx-rise 700ms var(--hfx-ease) 80ms both;
+}
+
+/* Live sheen travelling across the announcement pill. */
+.hfx .pill {
+  position: relative;
+  overflow: hidden;
+}
+.hfx .pill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(100deg, transparent 30%,
+              color-mix(in srgb, var(--brand) 26%, transparent) 48%, transparent 66%);
+  transform: translateX(-120%);
+  animation: hfx-sheen 5.5s var(--hfx-ease-soft) 2.4s infinite;
+}
+@keyframes hfx-sheen {
+  0%, 62%  { transform: translateX(-120%); }
+  86%, 100% { transform: translateX(120%); }
+}
+
+/* --- staggered word reveal on the headline ------------------------------ */
+.hfx__word {
+  display: inline-block;
+  will-change: transform, opacity, filter;
+  animation: hfx-word-in 820ms var(--hfx-ease) both;
+  animation-delay: calc(220ms + var(--i, 0) * 62ms);
+}
+@keyframes hfx-word-in {
+  from { opacity: 0; transform: translate3d(0, 0.42em, 0); filter: blur(9px); }
+  to   { opacity: 1; transform: none; filter: blur(0); }
+}
+
+/* The final clause carries the promise — give it the brand. */
+.hfx__word--key {
+  color: var(--brand);
+}
+
+.hfx .lede    { animation: hfx-rise 780ms var(--hfx-ease) 720ms both; }
+.hfx .btn-row { animation: hfx-rise 780ms var(--hfx-ease) 840ms both; }
+.hfx .hero__note { animation: hfx-rise 780ms var(--hfx-ease) 960ms both; }
+
+@keyframes hfx-rise {
+  from { opacity: 0; transform: translate3d(0, 14px, 0); filter: blur(6px); }
+  to   { opacity: 1; transform: none; filter: blur(0); }
+}
+
+/* Primary CTA gets a slow specular sweep so the eye lands on it. */
+.hfx .btn--primary {
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-brand);
+}
+.hfx .btn--primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(100deg, transparent 34%,
+              rgba(255, 255, 255, 0.34) 50%, transparent 66%);
+  transform: translateX(-130%);
+  animation: hfx-sheen 6s var(--hfx-ease-soft) 3.2s infinite;
+}
+
+
+/* ==========================================================================
+   3. PRODUCT MOCKUP
+   ========================================================================== */
+
+.hfx .hero__visual {
+  perspective: 1600px;
+  perspective-origin: 50% 0%;
+}
+
+.hfx .hero__visual .mock {
+  transform-origin: 50% 0%;
+  box-shadow:
+    0 2px 4px rgba(14, 16, 18, 0.04),
+    0 30px 60px -18px rgba(14, 16, 18, 0.22),
+    0 60px 120px -40px color-mix(in srgb, var(--brand) 32%, transparent);
+  animation: hfx-mock-in 1250ms var(--hfx-ease) 380ms both;
+  will-change: transform, opacity;
+}
+@keyframes hfx-mock-in {
+  from {
+    opacity: 0;
+    transform: rotateX(11deg) translate3d(0, 54px, 0) scale(0.955);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Brand bloom under the mock, gently pulsing so the panel reads as lit. */
+.hfx .hero__visual::before {
+  animation: hfx-glow-pulse 7.5s ease-in-out 1.6s infinite;
+}
+@keyframes hfx-glow-pulse {
+  0%, 100% { opacity: 0.85; transform: scaleX(1); }
+  50%      { opacity: 1;    transform: scaleX(1.06); }
+}
+
+/* --- bars grow out of the baseline -------------------------------------- */
+.hfx .mock__chart { position: relative; }
+.hfx .mock__bar-col {
+  transform-origin: 50% 100%;
+  animation: hfx-bar-grow 900ms var(--hfx-ease) both;
+  animation-delay: calc(1150ms + var(--i, 0) * 52ms);
+  will-change: transform;
+}
+@keyframes hfx-bar-grow {
+  from { transform: scaleY(0.04); opacity: 0.25; }
+  60%  { opacity: 1; }
+  to   { transform: scaleY(1); opacity: 1; }
+}
+
+/* The four "strong" bars keep a faint teal halo once settled. */
+.hfx .mock__bar-col[data-strong="true"] {
+  box-shadow: 0 0 12px -2px color-mix(in srgb, var(--brand) 55%, transparent);
+}
+
+/* --- scanning highlight across the account rows -------------------------- */
+.hfx .mock__rows {
+  position: relative;
+  isolation: isolate;
+}
+.hfx .mock__rows::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 58%;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    color-mix(in srgb, var(--brand) 13%, transparent) 45%,
+    color-mix(in srgb, var(--brand) 20%, transparent) 62%,
+    transparent 100%);
+  transform: translate3d(0, -110%, 0);
+  animation: hfx-scan 7s cubic-bezier(0.5, 0, 0.5, 1) 2.4s infinite;
+  will-change: transform;
+}
+@keyframes hfx-scan {
+  0%        { transform: translate3d(0, -110%, 0); opacity: 0; }
+  6%        { opacity: 1; }
+  40%       { transform: translate3d(0, 190%, 0); opacity: 1; }
+  46%, 100% { transform: translate3d(0, 190%, 0); opacity: 0; }
+}
+
+/* Row that the scan "finds" gets a persistent warm tint. */
+.hfx .mock__row--flagged {
+  background: color-mix(in srgb, var(--warn) 8%, var(--surface));
+}
+
+/* --- the "Live" chip actually pulses ------------------------------------ */
+.hfx .mock__head .mock__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.hfx .mock__head .mock__chip::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 0 0 currentColor;
+  animation: hfx-pulse-dot 2.4s ease-out infinite;
+}
+@keyframes hfx-pulse-dot {
+  0%   { box-shadow: 0 0 0 0 color-mix(in srgb, currentColor 55%, transparent); }
+  70%  { box-shadow: 0 0 0 7px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+/* Counter digits must not reflow while they tick. */
+.hfx .mock__stat-value {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+/* JS adds this for one frame each time a value changes. */
+.hfx .mock__stat.is-ticking .mock__stat-value {
+  animation: hfx-tick 620ms var(--hfx-ease-soft);
+}
+@keyframes hfx-tick {
+  0%   { transform: translateY(0);      color: var(--text-strong); }
+  35%  { transform: translateY(-2px);   color: var(--brand); }
+  100% { transform: translateY(0);      color: var(--text-strong); }
+}
+
+
+/* ==========================================================================
+   4. FLOATING "AT RISK" ALERT
+   Decorative (aria-hidden) — it restates the Vantive row already in the
+   table, so screen readers lose nothing by skipping it.
+   ========================================================================== */
+
+.hfx__alert {
+  position: absolute;
+  right: clamp(-1rem, -0.5vw, 0.5rem);
+  bottom: 12%;
+  z-index: 3;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  width: 16.5rem;
+  max-width: calc(100% - 2rem);
+  padding: 0.8rem 0.9rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+          backdrop-filter: blur(14px) saturate(160%);
+  box-shadow: var(--shadow-lg);
+  animation: hfx-alert-in 900ms var(--hfx-ease) 2600ms both;
+  will-change: transform, opacity;
+}
+@keyframes hfx-alert-in {
+  from { opacity: 0; transform: translate3d(26px, 10px, 0) scale(0.94); }
+  to   { opacity: 1; transform: none; }
+}
+
+.hfx__alert-icon {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--warn-soft);
+  color: var(--warn);
+  border: 1px solid color-mix(in srgb, var(--warn) 26%, transparent);
+}
+.hfx__alert-icon svg { width: 14px; height: 14px; }
+
+.hfx__alert-body { min-width: 0; }
+.hfx__alert-title {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 640;
+  letter-spacing: -0.01em;
+  color: var(--text-strong);
+}
+.hfx__alert-note {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+.hfx__alert-cta {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-size: 11px;
+  font-weight: 640;
+  color: var(--brand);
+}
+
+@media (max-width: 900px) {
+  .hfx__alert { right: 0.5rem; bottom: 6%; width: 14rem; }
+}
+@media (max-width: 720px) {
+  /* Decorative duplicate — drop it rather than let it crowd the mock. */
+  .hfx__alert { display: none; }
+}
+
+
+/* ==========================================================================
+   5. REDUCED MOTION
+   Everything resolves to its finished state. Nothing stays hidden, nothing
+   keeps moving, counters show their real numbers (see hero-fx.js).
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .hfx .pill,
+  .hfx .lede,
+  .hfx .btn-row,
+  .hfx .hero__note,
+  .hfx__word,
+  .hfx .hero__visual .mock,
+  .hfx .mock__bar-col,
+  .hfx__alert,
+  .hfx__grid,
+  .hfx__rays,
+  .hfx__bloom,
+  .hfx__horizon {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  .hfx__rays { opacity: 0.55 !important; }
+  .hfx .pill::after,
+  .hfx .btn--primary::after,
+  .hfx .mock__rows::after,
+  .hfx .mock__head .mock__chip::before,
+  .hfx .hero__visual::before {
+    animation: none !important;
+  }
+  .hfx .pill::after,
+  .hfx .btn--primary::after,
+  .hfx .mock__rows::after { display: none !important; }
+  .hfx .mock__stat.is-ticking .mock__stat-value { animation: none !important; }
+}
+
+@media print {
+  .hfx__atmos, .hfx__alert { display: none !important; }
+}

@@ -15,6 +15,37 @@ fetched over HTTP.
 
 ---
 
+## Make it real
+
+This kit is not a mockup: the four-step listing submission on `submit.html` delivers
+to your inbox, screenshots included where your provider supports attachments.
+
+Everything runs off one file, **`config.js`**, in this folder. Fill in the
+business details and a form-provider key and the site is deliverable:
+
+```js
+window.SITE_CONFIG = {
+  business: { name: "…", email: "…", phone: "…" },
+  forms:    { provider: "web3forms", key: "your-access-key" }
+};
+```
+
+That is the whole integration. With nothing configured the kit still renders
+and behaves sensibly — forms validate, then fall back to the visitor's own mail
+app rather than pretending to have sent something.
+
+Optional and off by default: privacy-first analytics. SETUP.md also covers how
+to put the listing data behind a git-based CMS so a client can add entries
+without touching `js/data.js`.
+
+**[SETUP.md](SETUP.md) is the full walkthrough**: choosing a form provider
+(with real free-tier limits and prices for Web3Forms, Forminit, Formspree,
+FormSubmit, Basin and Netlify Forms), getting a key, deploying to Netlify /
+Vercel / Cloudflare Pages / ordinary shared hosting, connecting a domain, and a
+plain-English note on what each provider stores and what that means for GDPR.
+
+---
+
 ## Contents
 
 | File | What it is |
@@ -27,7 +58,12 @@ fetched over HTTP.
 | `pricing.html` | Listing plans — free / featured / sponsored, a full comparison table and an FAQ |
 | `css/style.css` | The entire stylesheet, driven by CSS custom properties |
 | `js/data.js` | **The only file you need to edit to change the directory contents** |
+| `config.js` | **The only file you must edit.** Business details, form provider, analytics |
+| `js/forms.js` | Form delivery — validation, spam traps, provider transport. Shared across all kits |
+| `js/integrations.js` | Analytics. Shared across all kits |
 | `js/main.js` | Shared behaviour — theme, navigation, icons, generated logo marks, listing cards, scroll reveals, counters |
+| `css/hero.css` | Home-page hero only — the dot backdrop and orange bloom, the search-bar halo, the live counters and the listing wall with its border beam. Delete the `<link>` in `index.html` and the hero falls back to a still version |
+| `js/hero.js` | Home-page hero only — the split headline, the typed search placeholder and the counters. Safe to delete |
 | `js/browse.js` | The filter, search and sort engine |
 | `js/listing.js` | Builds the detail page from the dataset |
 | `js/submit.js` | The multi-step form |
@@ -43,6 +79,8 @@ directory-kit/
 ├── category.html
 ├── submit.html
 ├── pricing.html
+├── config.js        ← the only file you must edit
+├── SETUP.md         ZIP → live client site in 20 minutes
 ├── README.md
 ├── LICENCE.txt
 ├── assets/
@@ -50,10 +88,14 @@ directory-kit/
 │   ├── og-image.png
 │   └── og-image-source.html
 ├── css/
-│   └── style.css
+│   ├── style.css
+│   └── hero.css     ← home-page hero motion only
 └── js/
     ├── data.js      ← your content lives here
+    ├── forms.js         Form delivery — shared across all kits
+    ├── integrations.js  Analytics — shared across all kits
     ├── main.js
+    ├── hero.js      ← home-page hero motion only
     ├── browse.js
     ├── listing.js
     └── submit.js
@@ -350,14 +392,40 @@ jobs, `Product` for physical goods. The rest of the graph stays the same.
 
 ## Wiring up the forms
 
-The submit form does not send anything anywhere — it validates, shows the success panel
-and stops. There is a clearly marked comment in `js/submit.js` showing the three lines to
-change. The usual no-backend options are Formspree, Netlify Forms, Basin or a Google Form
-endpoint; all of them work by pointing the `<form>` at their URL.
+They already do. The four-step listing submission delivers, with the uploaded
+screenshots attached where your provider supports attachments.
 
-The upvote buttons and the "Save for later" button are demonstration interactions. Upvotes
-are per-page-view; saves are stored in `localStorage`. Wire them to your own backend if
-you want them to persist.
+Set two things in `config.js` and enquiries arrive in a real inbox:
+
+```js
+forms: {
+  provider: "web3forms",   // or forminit, formspree, formsubmit, basin, netlify, custom
+  key:      "your-access-key",
+  fallback: "mailto"       // what happens if you leave provider blank
+}
+```
+
+`js/forms.js` handles the rest: it validates, blocks bots with a honeypot and a
+time-trap, disables the button while sending, posts with `fetch()` so the
+visitor never leaves the page, and writes the real result into the same status
+banner the kit already uses. Every field is normalised into a readable email
+with a proper subject line and reply-to address, whatever shape the form is.
+
+Leave `provider` blank and the form falls back to the visitor's own mail app
+(or says plainly that it is not connected yet, with `fallback: "notice"`). It
+never shows a success message for something it did not send.
+
+Adding your own form takes one attribute:
+
+```html
+<form data-form data-form-type="Quote request" novalidate>
+  …your fields…
+  <div class="form-status" data-form-status role="status" aria-live="polite"><span></span></div>
+</form>
+```
+
+Full walkthrough, provider comparison with real limits and prices, deployment
+and a GDPR note: **[SETUP.md](SETUP.md)**.
 
 ---
 

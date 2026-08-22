@@ -1,0 +1,320 @@
+/* =========================================================================
+   HALLOWAY & FINCH — hero.css
+   The home-page hero only. Loaded after style.css so it can amplify it.
+
+   Techniques lifted (not linked) from the premium motion layer: a radially
+   masked rule grid, a slow drifting bloom, a specular light rake, a
+   stroke-dash "draws itself" rule, per-word split-text reveal and animated
+   counters. Everything runs on transform / opacity / filter only.
+
+   SAFETY CONTRACT
+     Nothing in this file hides content unless the <html> element carries
+     .hf-stage, and that class is added by the inline script in index.html.
+     The same script adds .hf-stage-off after a fixed delay, which drops
+     every hiding rule whether or not js/hero.js ever ran. With JavaScript
+     disabled the hero renders in its final state at first paint.
+
+   CONTENTS
+     1  Staging primitives
+     2  Atmosphere: masked grid + warm window bloom
+     3  Headline: per-word arrival
+     4  Copy column: eyebrow, lead, actions, proof
+     5  Art column: portrait settle, light rake, brass rule draw, badge
+     6  Reduced motion & print
+   ========================================================================= */
+
+
+/* =========================================================================
+   1. STAGING PRIMITIVES
+   `.hf-stage:not(.hf-stage-off)` is the only gate. Read it as "JavaScript
+   is present and the watchdog has not yet fired".
+   ========================================================================= */
+
+.hero [data-hero-stage] {
+  --hf-d: 0ms;
+  transition:
+    opacity 1.05s var(--ease) var(--hf-d),
+    transform 1.05s var(--ease) var(--hf-d);
+}
+
+.hf-stage:not(.hf-stage-off) .hero [data-hero-stage] {
+  opacity: 0;
+  transform: translate3d(0, 15px, 0);
+  will-change: opacity, transform;
+}
+
+.hf-stage:not(.hf-stage-off) .hero [data-hero-stage].is-in {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+
+/* =========================================================================
+   2. ATMOSPHERE
+   Two decorative layers behind the copy. Both sit at z-index -1, below
+   .hero__inner (z-index auto / 0) and above .hero::before, so the existing
+   navy gradient and paper grain are untouched.
+   ========================================================================= */
+
+.hero__atmos {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Ruled paper. Brass hairlines on a 64px pitch, dissolved by a radial mask
+   so the grid never reaches an edge and never reads as a "tech" grid. */
+.hero__grid {
+  position: absolute;
+  inset: -1px;
+  background-image:
+    linear-gradient(to right, rgba(206, 173, 116, 0.11) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(206, 173, 116, 0.085) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse 82% 86% at 24% 0%, #000 2%, transparent 70%);
+          mask-image: radial-gradient(ellipse 82% 86% at 24% 0%, #000 2%, transparent 70%);
+}
+
+/* A pool of warm light on the floor beneath the portrait plate, so the art
+   column sits in the room instead of on top of it. */
+.hero__floor {
+  position: absolute;
+  inset: auto -10% -14% 42%;
+  height: 62%;
+  background: radial-gradient(52% 62% at 52% 100%, rgba(219, 191, 137, 0.13), transparent 70%);
+  filter: blur(14px);
+}
+
+/* Warm light from the window in the portrait, spilling across the band.
+   Thirty-eight seconds a cycle: perceptible only if you sit with it. */
+.hero__bloom {
+  position: absolute;
+  inset: -30% -18% auto -18%;
+  height: 132%;
+  background:
+    radial-gradient(40% 44% at 74% 14%, rgba(219, 191, 137, 0.26), transparent 70%),
+    radial-gradient(34% 40% at 88% 38%, rgba(201, 164, 100, 0.15), transparent 72%),
+    radial-gradient(46% 40% at 8% 96%, rgba(124, 36, 52, 0.16), transparent 72%);
+  filter: blur(26px);
+  transform: translate3d(0, 0, 0);
+  animation: hf-bloom 38s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+  will-change: transform, opacity;
+}
+
+@keyframes hf-bloom {
+  from { transform: translate3d(0, 0, 0) scale(1); opacity: 0.82; }
+  to   { transform: translate3d(-2.6%, 2.4%, 0) scale(1.1); opacity: 1; }
+}
+
+/* The bloom brightens a touch in the dark theme, where it does more work. */
+:root[data-theme="dark"] .hero__bloom { filter: blur(30px) brightness(1.12); }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .hero__bloom { filter: blur(30px) brightness(1.12); }
+}
+
+
+/* =========================================================================
+   3. HEADLINE — per-word arrival
+   js/hero.js wraps each word of the h1 in .hf-w and stamps --hf-d on it.
+   The words carry a little blur out of focus, which is what stops this
+   from reading as a generic fade.
+   ========================================================================= */
+
+.hero h1 .hf-w {
+  display: inline-block;
+  transition:
+    opacity 0.92s var(--ease) var(--hf-d, 0ms),
+    transform 0.92s var(--ease) var(--hf-d, 0ms),
+    filter 0.92s var(--ease) var(--hf-d, 0ms);
+}
+
+.hf-stage:not(.hf-stage-off) .hero h1 .hf-w {
+  opacity: 0;
+  transform: translate3d(0, 0.32em, 0);
+  filter: blur(7px);
+  will-change: opacity, transform, filter;
+}
+
+.hf-stage:not(.hf-stage-off) .hero h1 .hf-w.is-in {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+  will-change: auto;
+}
+
+
+/* =========================================================================
+   4. COPY COLUMN
+   The proof figures count once. Tabular numerals stop the row from
+   twitching as the digits change width mid-count.
+   ========================================================================= */
+
+.hero__proof-value {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+
+/* =========================================================================
+   5. ART COLUMN
+   ========================================================================= */
+
+/* --- The portrait settles into focus ---------------------------------- */
+
+.hero__art .artwork {
+  transition:
+    opacity 1.5s var(--ease) 0.12s,
+    transform 1.5s var(--ease) 0.12s,
+    filter 1.5s var(--ease) 0.12s;
+}
+
+.hf-stage:not(.hf-stage-off) .hero__art .artwork {
+  opacity: 0;
+  transform: scale(1.05);
+  filter: blur(11px);
+  will-change: opacity, transform, filter;
+}
+
+.hf-stage:not(.hf-stage-off) .hero__art .artwork.is-in {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+  will-change: auto;
+}
+
+/* --- Light rake ------------------------------------------------------- *
+   One slow specular pass across the plate, once, after it has settled.
+   Default opacity is 0, so with JavaScript off this layer never appears.
+ * ---------------------------------------------------------------------- */
+
+.artwork__rake {
+  position: absolute;
+  inset: -12% -70%;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(-42%, 0, 0);
+  background: linear-gradient(
+    100deg,
+    transparent 36%,
+    rgba(255, 246, 224, 0.22) 47%,
+    rgba(255, 246, 224, 0.07) 55%,
+    transparent 66%
+  );
+}
+
+.hf-stage:not(.hf-stage-off) .hero__art .artwork.is-in .artwork__rake {
+  animation: hf-rake 2.3s cubic-bezier(0.36, 0.05, 0.28, 1) 0.5s both;
+  will-change: transform, opacity;
+}
+
+@keyframes hf-rake {
+  0%   { opacity: 0; transform: translate3d(-42%, 0, 0); }
+  16%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { opacity: 0; transform: translate3d(42%, 0, 0); }
+}
+
+/* --- The brass rule draws itself -------------------------------------- *
+   Replaces the static .art-plate::before frame on the home hero only.
+   pathLength="100" normalises the dash maths regardless of the box the
+   SVG is stretched into.
+ * ---------------------------------------------------------------------- */
+
+.art-plate--drawn::before { display: none; }
+
+.hero__rule {
+  position: absolute;
+  inset: 1.5rem -1.5rem -1.5rem 1.5rem;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.hero__rule rect {
+  stroke: rgba(201, 164, 100, 0.42);
+}
+
+.hf-stage:not(.hf-stage-off) .hero__rule rect {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}
+
+.hf-stage:not(.hf-stage-off) .hero__art.is-in .hero__rule rect {
+  animation: hf-draw 1.9s cubic-bezier(0.36, 0.05, 0.28, 1) 0.28s forwards;
+}
+
+@keyframes hf-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@media (max-width: 47.99em) {
+  .hero__rule { inset: 0.9rem -0.9rem -0.9rem 0.9rem; }
+}
+
+/* --- Founding badge --------------------------------------------------- */
+
+.hero .art-badge {
+  transition:
+    opacity 0.95s var(--ease) var(--hf-d, 0ms),
+    transform 0.95s var(--ease) var(--hf-d, 0ms);
+}
+
+.hf-stage:not(.hf-stage-off) .hero .art-badge[data-hero-stage] {
+  transform: translate3d(0, 14px, 0) scale(0.97);
+}
+
+.hf-stage:not(.hf-stage-off) .hero .art-badge[data-hero-stage].is-in {
+  transform: none;
+}
+
+
+/* =========================================================================
+   6. REDUCED MOTION & PRINT
+   The inline script already declines to stage anything when the visitor
+   asks for reduced motion; these rules are the belt to that braces, and
+   also cover a preference changed after load.
+   ========================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__bloom,
+  .artwork__rake,
+  .hero__rule rect {
+    animation: none !important;
+  }
+
+  .artwork__rake { opacity: 0 !important; }
+
+  .hero [data-hero-stage],
+  .hero h1 .hf-w,
+  .hero__art .artwork,
+  .hero .art-badge {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+
+  .hero__rule rect {
+    stroke-dasharray: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}
+
+@media print {
+  .hero__atmos,
+  .artwork__rake { display: none !important; }
+
+  .hero [data-hero-stage],
+  .hero h1 .hf-w,
+  .hero__art .artwork {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}

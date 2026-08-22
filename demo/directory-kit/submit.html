@@ -462,14 +462,13 @@
             </label>
           </div>
 
-          <p class="notice">
+          <p class="notice" data-demo-notice>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 7.6v.6"/></svg>
             <span>
-              <strong>Template note:</strong> this form is front end only — submitting shows the
-              confirmation panel and sends nothing anywhere. To make it real, point the
-              <code>&lt;form&gt;</code> at your own endpoint (Formspree, Netlify Forms, a Google Apps
-              Script or your own API) and remove the <code>preventDefault()</code> guard in
-              <code>js/submit.js</code>. The three lines you need to change are commented there.
+              <strong>Not connected yet.</strong> This form is ready to deliver, but no form
+              provider has been set. Open <code>config.js</code>, put your provider and key in the
+              <code>forms</code> block, and submissions start arriving in your inbox — see
+              <code>SETUP.md</code>. This notice disappears by itself once a key is in place.
             </span>
           </p>
 
@@ -605,6 +604,9 @@
 </footer>
 
 <script src="js/data.js"></script>
+<script src="config.js"></script>
+<script src="js/forms.js"></script>
+<script src="js/integrations.js"></script>
 <script src="js/main.js"></script>
 <script src="js/submit.js"></script>
 

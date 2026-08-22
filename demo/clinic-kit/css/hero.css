@@ -1,0 +1,292 @@
+/* ==========================================================================
+   BRIGHTWATER DENTAL — hero.css
+   The home-page hero and the trust bar directly beneath it. Loaded after
+   style.css so it can amplify it; it redefines nothing the rest of the kit
+   depends on.
+
+   Techniques lifted (not linked) from the premium motion layer: a masked
+   dot field, a slow breathing radial wash, per-word split-text reveal,
+   staged assembly of an illustrated scene and stroke-dash icon drawing.
+   Everything runs on transform / opacity / filter only.
+
+   SAFETY CONTRACT
+     Nothing here hides content unless <html> carries .bw-stage, and that
+     class is added by the inline script in index.html — never by the
+     stylesheet. The same script adds .bw-stage-off on a fixed timer, which
+     drops every hiding rule whether or not js/hero.js ran at all. With
+     JavaScript off, or under prefers-reduced-motion, the hero paints in its
+     final state at first paint.
+
+   CONTENTS
+     1  Staging primitives
+     2  Atmosphere: breathing wash, dot field, settling rings
+     3  Headline: per-word arrival
+     4  The illustrated scene assembles
+     5  Floating trust chips
+     6  Trust-bar icons draw themselves
+     7  Reduced motion & print
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. STAGING PRIMITIVES
+   ========================================================================== */
+
+.hero [data-hero-stage] {
+  --bw-d: 0ms;
+  transition:
+    opacity 1s var(--ease-out) var(--bw-d),
+    transform 1s var(--ease-out) var(--bw-d);
+}
+
+.bw-stage:not(.bw-stage-off) .hero [data-hero-stage] {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  will-change: opacity, transform;
+}
+
+.bw-stage:not(.bw-stage-off) .hero [data-hero-stage].is-in {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+
+/* ==========================================================================
+   2. ATMOSPHERE
+   The kit already ships three drifting orbs. This adds two quieter layers
+   underneath them: a wash that breathes on a 26-second cycle, and a dot
+   field masked to a soft ellipse so it never meets an edge.
+   ========================================================================== */
+
+.hero-wash {
+  position: absolute;
+  inset: -18% -12% auto -12%;
+  height: 128%;
+  z-index: -3;
+  pointer-events: none;
+  background:
+    radial-gradient(46% 52% at 62% 26%, rgba(12, 113, 127, 0.14), transparent 72%),
+    radial-gradient(40% 46% at 22% 62%, rgba(111, 208, 216, 0.16), transparent 72%);
+  filter: blur(18px);
+  transform: translate3d(0, 0, 0);
+  animation: bw-breathe 26s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+  will-change: transform, opacity;
+}
+
+@keyframes bw-breathe {
+  from { transform: scale(1); opacity: 0.72; }
+  to   { transform: scale(1.07); opacity: 1; }
+}
+
+.hero-dots {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  pointer-events: none;
+  background-image: radial-gradient(circle at 1px 1px, rgba(12, 113, 127, 0.16) 1px, transparent 0);
+  background-size: 26px 26px;
+  -webkit-mask-image: radial-gradient(ellipse 58% 62% at 24% 34%, #000 2%, transparent 72%);
+          mask-image: radial-gradient(ellipse 58% 62% at 24% 34%, #000 2%, transparent 72%);
+}
+
+:root[data-theme="dark"] .hero-dots {
+  background-image: radial-gradient(circle at 1px 1px, rgba(150, 220, 226, 0.14) 1px, transparent 0);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .hero-dots {
+    background-image: radial-gradient(circle at 1px 1px, rgba(150, 220, 226, 0.14) 1px, transparent 0);
+  }
+}
+
+/* The concentric ripple rings ease outward once, as though the page had
+   just been set down on still water. */
+.hero-rings {
+  transition:
+    opacity 1.9s var(--ease-out) 0.15s,
+    transform 1.9s var(--ease-out) 0.15s;
+}
+
+.bw-stage:not(.bw-stage-off) .hero-rings {
+  opacity: 0;
+  transform: scale(0.94);
+}
+
+.bw-stage:not(.bw-stage-off) .hero-rings.is-in {
+  opacity: 0.5;
+  transform: none;
+}
+
+
+/* ==========================================================================
+   3. HEADLINE — per-word arrival
+   js/hero.js wraps each word in .bw-w and stamps --bw-d on it. Words, not
+   characters: on a two-line display line, per-character churn reads as a
+   gimmick, and a dental practice cannot afford one.
+   ========================================================================== */
+
+.hero h1 .bw-w {
+  display: inline-block;
+  transition:
+    opacity 0.9s var(--ease-out) var(--bw-d, 0ms),
+    transform 0.9s var(--ease-out) var(--bw-d, 0ms),
+    filter 0.9s var(--ease-out) var(--bw-d, 0ms);
+}
+
+.bw-stage:not(.bw-stage-off) .hero h1 .bw-w {
+  opacity: 0;
+  transform: translate3d(0, 0.34em, 0);
+  filter: blur(6px);
+  will-change: opacity, transform, filter;
+}
+
+.bw-stage:not(.bw-stage-off) .hero h1 .bw-w.is-in {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+  will-change: auto;
+}
+
+
+/* ==========================================================================
+   4. THE SCENE ASSEMBLES
+   Room first, then the furniture, then the plant — the order a room is
+   actually filled. Groups are transformed about their own bounding box so
+   nothing drifts across the frame.
+   ========================================================================== */
+
+.hero-art .ph-frame {
+  transition:
+    opacity 1.35s var(--ease-out) 0.1s,
+    transform 1.35s var(--ease-out) 0.1s;
+}
+
+.bw-stage:not(.bw-stage-off) .hero-art .ph-frame {
+  opacity: 0;
+  transform: scale(0.965) translate3d(0, 12px, 0);
+  will-change: opacity, transform;
+}
+
+.bw-stage:not(.bw-stage-off) .hero-art .ph-frame.is-in {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+.scene-part {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  transition:
+    opacity 1.1s var(--ease-out) var(--bw-d, 0ms),
+    transform 1.1s var(--ease-out) var(--bw-d, 0ms);
+}
+
+.bw-stage:not(.bw-stage-off) .hero-art .scene-part {
+  opacity: 0;
+  transform: translateY(9px) scale(0.98);
+}
+
+.bw-stage:not(.bw-stage-off) .hero-art .scene-part.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+
+/* ==========================================================================
+   5. FLOATING TRUST CHIPS
+   The chip's entrance and its perpetual float are on different elements —
+   an anchor that eases in, and the chip itself that keeps drifting. Two
+   animations fighting over one transform is the usual way this effect
+   ends up stuttering.
+   ========================================================================== */
+
+.hero-art .chip-anchor {
+  position: absolute;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.hero-art .chip-anchor > .badge-float {
+  position: relative;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+}
+
+.bw-stage:not(.bw-stage-off) .hero-art .chip-anchor {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0) scale(0.96);
+}
+
+.bw-stage:not(.bw-stage-off) .hero-art .chip-anchor.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+.hero-art .chip-anchor {
+  transition:
+    opacity 0.95s var(--ease-out) var(--bw-d, 0ms),
+    transform 0.95s var(--ease-out) var(--bw-d, 0ms);
+}
+
+
+/* ==========================================================================
+   6. TRUST-BAR ICONS DRAW THEMSELVES
+   js/hero.js measures each stroked shape and writes the dash pair inline,
+   so with JavaScript off every icon is simply already drawn. The class
+   below only supplies the timing.
+   ========================================================================== */
+
+.trust-item svg [data-draw] {
+  transition: stroke-dashoffset 1.15s cubic-bezier(0.33, 0.03, 0.2, 1) var(--bw-d, 0ms);
+}
+
+.trust-item.is-drawn svg [data-draw] {
+  stroke-dashoffset: 0 !important;
+}
+
+
+/* ==========================================================================
+   7. REDUCED MOTION & PRINT
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-wash { animation: none !important; }
+
+  .hero [data-hero-stage],
+  .hero h1 .bw-w,
+  .hero-art .ph-frame,
+  .hero-art .chip-anchor,
+  .hero-art .scene-part,
+  .hero-rings {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+
+  .hero-rings { opacity: 0.5 !important; }
+
+  .trust-item svg [data-draw] {
+    stroke-dasharray: none !important;
+    stroke-dashoffset: 0 !important;
+    transition: none !important;
+  }
+}
+
+@media print {
+  .hero-wash,
+  .hero-dots { display: none !important; }
+
+  .hero [data-hero-stage],
+  .hero h1 .bw-w,
+  .hero-art .ph-frame,
+  .hero-art .chip-anchor,
+  .hero-art .scene-part {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}

@@ -28,6 +28,26 @@
 <meta name="twitter:image" content="assets/og-home.png">
 
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/hero.css">
+
+<!-- The scroll-reveal classes in style.css start at opacity 0 and are lit by
+     main.js. Without JavaScript that would leave the page below the hero
+     blank, so put everything in its final state instead. -->
+
+<!-- Hero staging. This script — never the stylesheet — is what hides the hero
+     for its entrance, and the same script cancels the hiding again after 3.6s
+     whether or not js/hero.js ever ran. With JavaScript disabled, or if the
+     visitor asks for reduced motion, the hero paints in its final state. -->
+<script>
+  (function () {
+    var d = document.documentElement;
+    try {
+      if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    } catch (e) {}
+    d.classList.add("bw-stage");
+    setTimeout(function () { d.classList.add("bw-stage-off"); }, 3600);
+  })();
+</script>
 
 <!-- Apply the saved theme before first paint so there is no flash of the
      wrong palette. Kept inline and tiny on purpose. -->
@@ -113,6 +133,8 @@
   "publisher": { "@id": "https://brightwaterdental.example.com/#practice" }
 }
 </script>
+  <noscript><style>/* JS off: entrance animations never run, so show final state */
+.chip-anchor,.hero-art,.hero-rings,.is-visible,.reveal,.scene-part{opacity:1!important;transform:none!important;clip-path:none!important;filter:none!important}</style></noscript>
 </head>
 
 <body class="full-height">
@@ -198,6 +220,8 @@
 
 <!-- ================================ HERO ================================ -->
 <section class="hero">
+  <span class="hero-wash" aria-hidden="true"></span>
+  <span class="hero-dots" aria-hidden="true"></span>
   <div class="hero-orbs" aria-hidden="true">
     <span class="orb orb--1"></span>
     <span class="orb orb--2"></span>
@@ -207,35 +231,39 @@
 
   <div class="container container--wide">
     <div class="hero-inner">
-      <div class="hero-copy reveal is-visible">
-        <p class="eyebrow">Dublin 2 &amp; Sandyford</p>
+      <div class="hero-copy">
+        <p class="eyebrow" data-hero-stage style="--bw-d:70ms">Dublin 2 &amp; Sandyford</p>
         <h1 class="display">Dentistry that<br>takes its time.</h1>
-        <p class="lede">Two Dublin practices, one unhurried standard of care. We explain every option in plain English, quote a fixed price before anything starts, and never recommend treatment you do not need.</p>
+        <p class="lede" data-hero-stage style="--bw-d:520ms">Two Dublin practices, one unhurried standard of care. We explain every option in plain English, quote a fixed price before anything starts, and never recommend treatment you do not need.</p>
 
-        <div class="hero-actions">
+        <div class="hero-actions" data-hero-stage style="--bw-d:680ms">
           <a class="btn btn--primary btn--lg btn--arrow" href="appointments.html">
             Book an appointment<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M11 6l4 4-4 4"/></svg>
           </a>
           <a class="btn btn--secondary btn--lg" href="services.html">Treatments &amp; fees</a>
         </div>
 
-        <div class="hero-note">
+        <div class="hero-note" data-hero-stage style="--bw-d:840ms">
           <span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.6"/><path d="M6.6 10.2l2.3 2.3 4.5-4.8"/></svg> Same-week emergency slots</span>
           <span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.6"/><path d="M6.6 10.2l2.3 2.3 4.5-4.8"/></svg> 0% finance over 12 months</span>
           <span><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.6"/><path d="M6.6 10.2l2.3 2.3 4.5-4.8"/></svg> Free parking in Sandyford</span>
         </div>
       </div>
 
-      <div class="hero-art reveal reveal--scale is-visible" data-parallax="0.05">
+      <div class="hero-art" data-parallax="0.05">
         <div class="ph-frame">
-          <div class="ph ph--reception ph--wide" role="img" aria-label="The Brightwater Dental reception at Marlowe Quay: pale timber, soft daylight and low seating."><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><rect x="0" y="198" width="400" height="102" fill="rgba(196,150,102,.30)"/><rect x="0" y="198" width="400" height="4" fill="rgba(10,48,60,.14)"/><path d="M236 104a56 56 0 0 1 112 0v94H236z" fill="rgba(255,255,255,.58)"/><path d="M292 48v150" stroke="rgba(255,255,255,.55)" stroke-width="3"/><path d="M236 128h112" stroke="rgba(255,255,255,.45)" stroke-width="3"/><rect x="38" y="152" width="152" height="46" rx="4" fill="rgba(10,48,60,.34)"/><rect x="30" y="142" width="168" height="12" rx="6" fill="rgba(255,255,255,.62)"/><rect x="58" y="166" width="52" height="20" rx="3" fill="rgba(255,255,255,.18)"/><rect x="212" y="170" width="62" height="28" rx="8" fill="rgba(10,48,60,.22)"/><rect x="216" y="162" width="54" height="12" rx="6" fill="rgba(255,255,255,.34)"/><path d="M132 30v34" stroke="rgba(10,48,60,.30)" stroke-width="2.5"/><path d="M110 82a22 18 0 0 1 44 0z" fill="rgba(255,255,255,.72)"/><path d="M352 198v-30" stroke="rgba(46,110,88,.55)" stroke-width="3"/><ellipse cx="340" cy="158" rx="17" ry="9" fill="rgba(46,110,88,.45)" transform="rotate(-24 340 158)"/><ellipse cx="366" cy="152" rx="17" ry="9" fill="rgba(46,110,88,.38)" transform="rotate(22 366 152)"/><ellipse cx="352" cy="136" rx="13" ry="8" fill="rgba(46,110,88,.50)" transform="rotate(-6 352 136)"/><path d="M340 198h26l-4 22h-18z" fill="rgba(196,150,102,.62)"/></svg></div>
+          <div class="ph ph--reception ph--wide" role="img" aria-label="The Brightwater Dental reception at Marlowe Quay: pale timber, soft daylight and low seating."><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><g class="scene-part scene-part--room" style="--bw-d:360ms"><rect x="0" y="198" width="400" height="102" fill="rgba(196,150,102,.30)"/><rect x="0" y="198" width="400" height="4" fill="rgba(10,48,60,.14)"/><path d="M236 104a56 56 0 0 1 112 0v94H236z" fill="rgba(255,255,255,.58)"/><path d="M292 48v150" stroke="rgba(255,255,255,.55)" stroke-width="3"/><path d="M236 128h112" stroke="rgba(255,255,255,.45)" stroke-width="3"/></g><g class="scene-part scene-part--furniture" style="--bw-d:700ms"><rect x="38" y="152" width="152" height="46" rx="4" fill="rgba(10,48,60,.34)"/><rect x="30" y="142" width="168" height="12" rx="6" fill="rgba(255,255,255,.62)"/><rect x="58" y="166" width="52" height="20" rx="3" fill="rgba(255,255,255,.18)"/><rect x="212" y="170" width="62" height="28" rx="8" fill="rgba(10,48,60,.22)"/><rect x="216" y="162" width="54" height="12" rx="6" fill="rgba(255,255,255,.34)"/><path d="M132 30v34" stroke="rgba(10,48,60,.30)" stroke-width="2.5"/><path d="M110 82a22 18 0 0 1 44 0z" fill="rgba(255,255,255,.72)"/></g><g class="scene-part scene-part--plant" style="--bw-d:1040ms"><path d="M352 198v-30" stroke="rgba(46,110,88,.55)" stroke-width="3"/><ellipse cx="340" cy="158" rx="17" ry="9" fill="rgba(46,110,88,.45)" transform="rotate(-24 340 158)"/><ellipse cx="366" cy="152" rx="17" ry="9" fill="rgba(46,110,88,.38)" transform="rotate(22 366 152)"/><ellipse cx="352" cy="136" rx="13" ry="8" fill="rgba(46,110,88,.50)" transform="rotate(-6 352 136)"/><path d="M340 198h26l-4 22h-18z" fill="rgba(196,150,102,.62)"/></g></svg></div>
         </div>
 
-        <span class="badge-float float-slow" style="top: -14px; left: -10px;">
-          <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.8l2.5 5.1 5.6.8-4 3.9 1 5.6L10 14.6l-5 2.6 1-5.6-4-3.9 5.6-.8L10 1.8z"/></svg> 4.9 average from 384 reviews
+        <span class="chip-anchor" style="top: -14px; left: -10px; --bw-d:1180ms">
+          <span class="badge-float float-slow">
+            <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.8l2.5 5.1 5.6.8-4 3.9 1 5.6L10 14.6l-5 2.6 1-5.6-4-3.9 5.6-.8L10 1.8z"/></svg> 4.9 average from 384 reviews
+          </span>
         </span>
-        <span class="badge-float float-slower" style="bottom: -18px; right: -6px;">
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.6"/><path d="M10 5.6V10l2.9 1.8"/></svg> Next check-up: Thursday 09:20
+        <span class="chip-anchor" style="bottom: -18px; right: -6px; --bw-d:1360ms">
+          <span class="badge-float float-slower">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="10" r="7.6"/><path d="M10 5.6V10l2.9 1.8"/></svg> Next check-up: Thursday 09:20
+          </span>
         </span>
       </div>
     </div>
@@ -640,6 +668,10 @@
   </div>
 </footer>
 
+<script src="config.js" defer></script>
+<script src="js/forms.js" defer></script>
+<script src="js/integrations.js" defer></script>
 <script src="js/main.js" defer></script>
+<script src="js/hero.js" defer></script>
 </body>
 </html>

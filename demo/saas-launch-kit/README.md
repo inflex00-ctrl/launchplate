@@ -9,6 +9,35 @@ the filesystem, in any modern browser.
 
 ---
 
+## Make it real
+
+This kit is not a mockup: the release-notes signup on `changelog.html` posts for real.
+
+Everything runs off one file, **`config.js`**, in this folder. Fill in the
+business details and a form-provider key and the site is deliverable:
+
+```js
+window.SITE_CONFIG = {
+  business: { name: "…", email: "…", phone: "…" },
+  forms:    { provider: "web3forms", key: "your-access-key" }
+};
+```
+
+That is the whole integration. With nothing configured the kit still renders
+and behaves sensibly — forms validate, then fall back to the visitor's own mail
+app rather than pretending to have sent something.
+
+Optional and off by default: privacy-first analytics (Plausible, Umami or
+Cloudflare — no Google Analytics, no consent banner needed).
+
+**[SETUP.md](SETUP.md) is the full walkthrough**: choosing a form provider
+(with real free-tier limits and prices for Web3Forms, Forminit, Formspree,
+FormSubmit, Basin and Netlify Forms), getting a key, deploying to Netlify /
+Vercel / Cloudflare Pages / ordinary shared hosting, connecting a domain, and a
+plain-English note on what each provider stores and what that means for GDPR.
+
+---
+
 ## Table of contents
 
 1. [What's included](#whats-included)
@@ -106,10 +135,14 @@ saas-launch-kit/
 ├── legal.html              Privacy policy + terms
 ├── 404.html                Not-found page
 │
+├── config.js               ← the only file you must edit
+│
 ├── css/
 │   └── style.css           The entire design system (one file)
 │
 ├── js/
+│   ├── forms.js            Form delivery — shared across all kits
+│   ├── integrations.js     Analytics — shared across all kits
 │   └── main.js             Theme, nav, pricing toggle, copy, scroll-spy
 │
 ├── assets/
@@ -120,6 +153,7 @@ saas-launch-kit/
 ├── robots.txt
 ├── sitemap.xml
 ├── LICENSE.txt
+├── SETUP.md                ZIP → live client site in 20 minutes
 └── README.md               This file
 ```
 

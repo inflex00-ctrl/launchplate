@@ -8,12 +8,13 @@
 <meta name="author" content="Meridian Studio">
 <meta name="theme-color" content="#f5f2ec" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#100f0d" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://meridian.studio/">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Meridian Studio">
 <meta property="og:title" content="Meridian — Independent Design Studio">
 <meta property="og:description" content="Brand identity, digital product and editorial systems. An independent studio in Lisbon and Copenhagen, working since 2014.">
-
+<meta property="og:url" content="https://meridian.studio/">
 <meta property="og:image" content="https://meridian.studio/og-cover.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -37,6 +38,7 @@
 </script>
 
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/hero-fx.css">
 
 <script type="application/ld+json">
 {
@@ -79,6 +81,8 @@
   ]
 }
 </script>
+  <noscript><style>/* JS off: entrance animations never run, so show final state */
+.mfx-art__ring,.mfx-art__spot{opacity:1!important;transform:none!important;clip-path:none!important;filter:none!important}</style></noscript>
 </head>
 
 <body>
@@ -159,16 +163,16 @@
 <main id="main">
 
   <!-- ================= HERO ================= -->
-  <section class="hero shell" aria-labelledby="hero-title">
+  <section class="hero shell mfx" aria-labelledby="hero-title">
     <div class="hero__meta">
       <p class="eyebrow">Lisbon &amp; Copenhagen — Independent since 2014</p>
       <p class="pill pill--accent"><span class="dot" aria-hidden="true"></span> Two project slots open for Q3</p>
     </div>
 
     <h1 class="display-xl hero__title" id="hero-title">
-      <span class="line">We design</span>
-      <span class="line indent">the things</span>
-      <span class="line">people <span class="serif">trust</span>.</span>
+      <span class="line"><span class="mfx__w" style="--i:0">We</span> <span class="mfx__w" style="--i:1">design</span></span>
+      <span class="line indent"><span class="mfx__w" style="--i:2">the</span> <span class="mfx__w" style="--i:3">things</span></span>
+      <span class="line"><span class="mfx__w" style="--i:4">people</span> <span class="mfx__w mfx__w--serif" style="--i:5"><span class="serif">trust</span>.</span></span>
     </h1>
 
     <div class="hero__foot">
@@ -185,15 +189,15 @@
 
       <div class="stat-row">
         <div class="stat">
-          <span class="stat__value">11</span>
+          <span class="stat__value"><span data-mfx-count="11">11</span></span>
           <span class="stat__label">Years independent, no investors, no holding company</span>
         </div>
         <div class="stat">
-          <span class="stat__value">68</span>
+          <span class="stat__value"><span data-mfx-count="68">68</span></span>
           <span class="stat__label">Brand systems shipped across 14 markets</span>
         </div>
         <div class="stat">
-          <span class="stat__value">91<sup>%</sup></span>
+          <span class="stat__value"><span data-mfx-count="91">91</span><sup>%</sup></span>
           <span class="stat__label">Of new work arrives by referral</span>
         </div>
       </div>
@@ -201,9 +205,17 @@
   </section>
 
   <!-- ================= HERO ARTWORK ================= -->
-  <div class="hero-band shell shell--wide">
-    <div class="art art--meridian art--cinema" role="img" aria-label="Abstract composition: concentric rings over a deep blue field with an ember-coloured disc rising from the lower left.">
+  <div class="hero-band shell shell--wide mfx-band">
+    <div class="art art--meridian art--cinema mfx-art" role="img" aria-label="Abstract composition: concentric rings over a deep blue field with an ember-coloured disc rising from the lower left.">
       <span class="art__field" aria-hidden="true"></span>
+      <!-- Registration rules + ring: they draw themselves in after the field
+           settles, and carry the second (counter-moving) parallax layer. -->
+      <span class="mfx-art__parts" aria-hidden="true">
+        <span class="mfx-art__rule mfx-art__rule--v"></span>
+        <span class="mfx-art__rule mfx-art__rule--h"></span>
+        <span class="mfx-art__ring"></span>
+      </span>
+      <span class="mfx-art__spot" aria-hidden="true"></span>
     </div>
   </div>
 
@@ -573,18 +585,10 @@
   <p class="footer__monogram" aria-hidden="true">MERIDIAN</p>
 </footer>
 
+<script src="config.js"></script>
+<script src="js/forms.js"></script>
+<script src="js/integrations.js"></script>
 <script src="js/main.js"></script>
-<div id="lp-ribbon" style="position:fixed;left:0;right:0;bottom:0;z-index:2147483647;
-background:#0b0d12;color:#e9eef5;border-top:1px solid #232a36;
-font:14px/1.45 -apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,sans-serif;
-display:flex;align-items:center;gap:14px;justify-content:center;flex-wrap:wrap;padding:11px 16px">
-<span style="display:flex;align-items:center;gap:8px;font-weight:600">
-<span style="width:17px;height:17px;border-radius:5px;background:linear-gradient(135deg,#f2994a,#f2c14e);display:inline-block"></span>
-Launchplate demo</span>
-<span style="color:#95a1b2">You're browsing a live preview of a paid template kit.</span>
-<a href="https://inflex00-ctrl.github.io/launchplate/" style="background:#f2994a;color:#0b0d12;font-weight:700;padding:8px 16px;border-radius:8px;text-decoration:none">Get this kit — &euro;49 &rarr;</a>
-<a href="https://inflex00-ctrl.github.io/launchplate/" style="color:#95a1b2;text-decoration:underline">See all kits</a>
-</div>
-<style>body{padding-bottom:64px!important}</style>
+<script src="js/hero-fx.js"></script>
 </body>
 </html>

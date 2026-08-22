@@ -1,10 +1,12 @@
 /* ==========================================================================
    LUMEN — AI Product Kit
-   waitlist.js — client-side validation, a fake submit, and the success state.
+   waitlist.js — client-side validation, delivery, and the success state.
 
-   There is no backend in a template, so submit() simulates a network round
-   trip and then swaps in the success panel. Replace `fakeSubmit` with a real
-   fetch() to your endpoint — everything else stays as it is.
+   Validation, the progress bar and the success panel live here. Delivery is
+   js/forms.js, which posts to whichever provider is named in config.js. The
+   success panel is only ever shown when something actually happened: with
+   nothing configured the signup reports that it could not be delivered
+   instead of pretending.
    ========================================================================== */
 
 (function () {
@@ -122,13 +124,47 @@
     });
   }
 
-  /* -- Submit ---------------------------------------------------------- */
-  function fakeSubmit() {
-    /* Swap this for:
-         return fetch("/api/waitlist", { method: "POST", body: data });        */
-    return new Promise(function (resolve) {
-      window.setTimeout(resolve, 900);
+  /* -- Submit ---------------------------------------------------------- *
+     Delivery is handled by forms.js, which posts to whichever provider is
+     named in config.js. It always resolves — never rejects — so the
+     success panel can only appear when something actually happened.     */
+
+  if (window.SiteForms) window.SiteForms.manage(form);
+
+  function submitWaitlist() {
+    if (window.SiteForms) return window.SiteForms.send(form);
+    /* forms.js not loaded — say so rather than pretending. */
+    return Promise.resolve({
+      ok: false,
+      mode: "unconfigured",
+      message: "The form script is not loaded. See SETUP.md.",
+      status: 0
     });
+  }
+
+  /* The error banner lives next to the submit button and is created on
+     demand, so an unconfigured kit never shows an empty box. */
+  function showError(message) {
+    var box = form.querySelector("[data-form-error]");
+    if (!box) {
+      box = document.createElement("p");
+      box.setAttribute("data-form-error", "");
+      box.setAttribute("role", "alert");
+      box.className = "field__error";
+      box.style.cssText = "display:block;margin-top:.75rem";
+      if (submitBtn && submitBtn.parentNode) {
+        submitBtn.parentNode.insertBefore(box, submitBtn.nextSibling);
+      } else {
+        form.appendChild(box);
+      }
+    }
+    box.textContent = message;
+    box.hidden = false;
+  }
+
+  function clearError() {
+    var box = form.querySelector("[data-form-error]");
+    if (box) box.hidden = true;
   }
 
   form.addEventListener("submit", function (e) {
@@ -156,18 +192,40 @@
       return;
     }
 
+    clearError();
     submitBtn.setAttribute("aria-disabled", "true");
+    submitBtn.disabled = true;
     if (submitLabel) submitLabel.textContent = "Joining…";
 
-    fakeSubmit().then(function () {
+    submitWaitlist().then(function (result) {
+      submitBtn.removeAttribute("aria-disabled");
+      submitBtn.disabled = false;
+      if (submitLabel) submitLabel.textContent = "Join the waitlist";
+
+      if (!result.ok) {
+        showError(result.message);
+        return;
+      }
+
       var email = document.getElementById("wl-email");
 
       if (successEmail && email) successEmail.textContent = email.value.trim();
 
-      /* A plausible queue position rather than a hard-coded one. */
+      /* The queue position is template flourish: a static site cannot
+         know it. Show it only if the owner has set a starting count in
+         config.js, and otherwise hide the card rather than invent a
+         number for a real visitor. */
       if (successPosition) {
-        successPosition.textContent =
-          "#" + (2848 + Math.floor(Math.random() * 40)).toLocaleString("en-GB");
+        var base = window.SITE_CONFIG && window.SITE_CONFIG.waitlist
+          ? parseInt(window.SITE_CONFIG.waitlist.baseCount, 10)
+          : NaN;
+        var card = successPosition.closest ? successPosition.closest(".queue-card") : null;
+        if (isNaN(base)) {
+          if (card) card.hidden = true;
+        } else {
+          if (card) card.hidden = false;
+          successPosition.textContent = "#" + base.toLocaleString("en-GB");
+        }
       }
 
       if (formState) formState.hidden = true;

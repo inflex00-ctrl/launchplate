@@ -8,12 +8,13 @@
 <meta name="author" content="Lumen">
 <meta name="theme-color" content="#fcfbf9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0b0b0f" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://lumen.example.com/">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
 <!-- Open Graph / Twitter -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Lumen">
-
+<meta property="og:url" content="https://lumen.example.com/">
 <meta property="og:title" content="Lumen — The agent runtime for production AI features">
 <meta property="og:description" content="Connect your data, define tools in a few lines, and ship an AI assistant your team can actually audit.">
 <meta property="og:image" content="assets/og-home.png">
@@ -24,6 +25,10 @@
 <meta name="twitter:image" content="assets/og-home.png">
 
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/hero-fx.css">
+<!-- .reveal is hidden by CSS and un-hidden by main.js. With scripting off
+     that would leave sections blank, so restore them here. -->
+<noscript><style>.reveal{opacity:1 !important;transform:none !important}</style></noscript>
 
 <!-- Set the theme before first paint so there is no flash of the wrong palette. -->
 <script>
@@ -63,6 +68,8 @@
   }
 }
 </script>
+  <noscript><style>/* JS off: entrance animations never run, so show final state */
+.afx__aurora,.afx__beam,.afx__bloom,.afx__meteor,.reveal{opacity:1!important;transform:none!important;clip-path:none!important;filter:none!important}</style></noscript>
 </head>
 
 <body class="full-height">
@@ -124,7 +131,22 @@
 <main id="main">
 
   <!-- ============================== HERO ============================== -->
-  <section class="hero">
+  <section class="hero afx">
+    <!-- Decorative atmosphere: aurora wash, drifting starfield (dark theme),
+         amber "token stream" meteors and a bloom behind the console. -->
+    <div class="afx__atmos" aria-hidden="true">
+      <span class="afx__layer afx__aurora"></span>
+      <span class="afx__layer afx__stars"></span>
+      <span class="afx__layer afx__bloom"></span>
+      <span class="afx__layer afx__meteors">
+        <span class="afx__meteor" style="left:46%;--afx-delay:0.4s;--afx-dur:7.5s"></span>
+        <span class="afx__meteor" style="left:58%;--afx-delay:2.9s;--afx-dur:8.5s"></span>
+        <span class="afx__meteor" style="left:69%;--afx-delay:1.4s;--afx-dur:6.8s"></span>
+        <span class="afx__meteor" style="left:79%;--afx-delay:4.6s;--afx-dur:9.2s"></span>
+        <span class="afx__meteor" style="left:88%;--afx-delay:3.2s;--afx-dur:7.9s"></span>
+        <span class="afx__meteor" style="left:97%;--afx-delay:6.1s;--afx-dur:8.8s"></span>
+      </span>
+    </div>
     <div class="container container--wide">
       <div class="hero-inner">
 
@@ -177,8 +199,9 @@
         </div>
 
         <!-- Simulated agent console -->
-        <div class="console-wrap reveal">
+        <div class="console-wrap">
           <div class="console">
+            <span class="afx__beam" aria-hidden="true"></span>
             <div class="console-bar">
               <div class="console-dots" aria-hidden="true"><span></span><span></span><span></span></div>
               <div class="console-title">
@@ -195,10 +218,49 @@
               </button>
             </div>
 
-            <div class="console-body" data-demo-body role="log" aria-live="polite" aria-label="Simulated agent conversation"></div>
+            <!-- The finished transcript, as real markup. demo.js clears this
+                 and re-streams it; with scripting off it simply stands. -->
+            <div class="console-body" data-demo-body role="log" aria-live="polite" aria-label="Simulated agent conversation">
+              <div class="msg msg--user">
+                <div class="msg-avatar" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="6.5" r="3"/><path d="M3.5 17c.9-3.3 3.5-5 6.5-5s5.6 1.7 6.5 5"/></svg>
+                </div>
+                <div class="msg-content">
+                  <div class="msg-role">You</div>
+                  <div class="msg-text">Review the Q3 vendor agreement and flag anything that deviates from our standard terms.</div>
+                </div>
+              </div>
+              <div class="msg msg--ai">
+                <div class="msg-avatar" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1.6l1.9 4.9 4.9 1.9-4.9 1.9L10 15.2 8.1 10.3 3.2 8.4l4.9-1.9L10 1.6z"/><path d="M15.6 13.2l.8 2.1 2.1.8-2.1.8-.8 2.1-.8-2.1-2.1-.8 2.1-.8.8-2.1z" opacity=".55"/></svg>
+                </div>
+                <div class="msg-content">
+                  <div class="msg-role">Lumen</div>
+                  <div class="msg-text">
+                    <div class="tool-call">
+                      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="12" height="12" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>
+                      <span>search_documents(q: "vendor agreement Q3")</span>
+                      <span class="tok-dim" style="opacity:.7;margin-left:.15rem">&middot; 0.9s</span>
+                    </div>
+                    <div class="tool-call">
+                      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="12" height="12" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>
+                      <span>compare(baseline: "MSA-standard-v4")</span>
+                      <span class="tok-dim" style="opacity:.7;margin-left:.15rem">&middot; 0.7s</span>
+                    </div>
+                    <p>I read all 84 pages and diffed them against your standard MSA. Three clauses deviate:</p>
+                    <ul>
+                      <li>&sect;4.2 Payment terms are Net-60, not Net-30 &mdash; a 30-day cash-flow shift.</li>
+                      <li>&sect;9.1 Liability cap sits at 1&times; fees; your policy floor is 2&times;.</li>
+                      <li>&sect;12.4 Auto-renewal has no termination-for-convenience window.</li>
+                    </ul>
+                    <p>I have drafted redlines for each. Want me to send them to Legal?</p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <div class="console-input">
-              <span class="fake-field" data-demo-field aria-hidden="true"></span>
+              <span class="fake-field" data-demo-field aria-hidden="true">Ask Lumen anything about this contract&hellip;</span>
               <span class="console-send" aria-hidden="true">
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M2.5 8h10M9 4.5L12.5 8 9 11.5"/>
@@ -210,7 +272,7 @@
           <div class="console-float">
             <span class="dot" aria-hidden="true"></span>
             <div>
-              <strong><span data-demo-tokens>12</span> tok/s</strong>
+              <strong><span data-demo-tokens>64</span> tok/s<span class="afx__meter" aria-hidden="true"><i></i><i></i><i></i><i></i></span></strong>
               <span>210 ms to first token</span>
             </div>
           </div>
@@ -705,19 +767,11 @@
   </div>
 </footer>
 
+<script src="config.js" defer></script>
+<script src="js/forms.js" defer></script>
+<script src="js/integrations.js" defer></script>
 <script src="js/main.js" defer></script>
 <script src="js/demo.js" defer></script>
-<div id="lp-ribbon" style="position:fixed;left:0;right:0;bottom:0;z-index:2147483647;
-background:#0b0d12;color:#e9eef5;border-top:1px solid #232a36;
-font:14px/1.45 -apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,sans-serif;
-display:flex;align-items:center;gap:14px;justify-content:center;flex-wrap:wrap;padding:11px 16px">
-<span style="display:flex;align-items:center;gap:8px;font-weight:600">
-<span style="width:17px;height:17px;border-radius:5px;background:linear-gradient(135deg,#f2994a,#f2c14e);display:inline-block"></span>
-Launchplate demo</span>
-<span style="color:#95a1b2">You're browsing a live preview of a paid template kit.</span>
-<a href="https://inflex00-ctrl.github.io/launchplate/" style="background:#f2994a;color:#0b0d12;font-weight:700;padding:8px 16px;border-radius:8px;text-decoration:none">Get this kit — &euro;49 &rarr;</a>
-<a href="https://inflex00-ctrl.github.io/launchplate/" style="color:#95a1b2;text-decoration:underline">See all kits</a>
-</div>
-<style>body{padding-bottom:64px!important}</style>
+<script src="js/hero-fx.js" defer></script>
 </body>
 </html>

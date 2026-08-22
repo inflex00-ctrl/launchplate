@@ -76,6 +76,8 @@
   ]
 }
 </script>
+  <noscript><style>/* JS off: entrance animations never run, so show final state */
+.chip-anchor,.hero-art,.hero-rings,.is-visible,.reveal,.scene-part{opacity:1!important;transform:none!important;clip-path:none!important;filter:none!important}</style></noscript>
 </head>
 
 <body class="full-height">
@@ -183,16 +185,21 @@
 
       <!-- ---------------------------- FORM ---------------------------- -->
       <div class="reveal">
-        <div class="notice notice--warning mb-6">
+        <div class="notice notice--warning mb-6" data-demo-notice>
           <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3.2l7.2 12.6H2.8L10 3.2z"/><path d="M10 8v3.2M10 13.6h.01"/></svg>
           <div>
-            <p><strong>This is a template demonstration form.</strong> Brightwater Dental is a fictional practice. Submitting this form sends nothing to anybody and books no appointment. Nothing on this page is medical or dental advice.</p>
+            <p><strong>Not connected yet.</strong> Brightwater Dental is a fictional practice used for this template, and no form provider has been configured, so nothing is delivered and no appointment is booked. Set one in <code>config.js</code> &mdash; see <code>SETUP.md</code> &mdash; and this notice disappears.</p>
           </div>
         </div>
 
+        <!-- Optional Cal.com / Calendly embed. Stays empty and invisible unless
+             booking.url is set in config.js; the request form below is the
+             fallback and stays put unless booking.replaceForm is true. -->
+        <div class="booking-embed" data-booking-embed data-booking-replace="#booking" hidden></div>
+
         <form class="form-card" id="booking" data-form novalidate
               data-success-title="Request received."
-              data-success-body="In a live site this would reach the practice inbox. Connect the form to your own booking system or email endpoint before you publish — see README.md.">
+              data-success-body="The practice will confirm your appointment by email or phone. Nothing is booked until we confirm.">
 
           <fieldset class="fieldset">
             <legend><span class="legend-step" aria-hidden="true">1</span>About you</legend>
@@ -561,6 +568,9 @@
   </div>
 </footer>
 
+<script src="config.js" defer></script>
+<script src="js/forms.js" defer></script>
+<script src="js/integrations.js" defer></script>
 <script src="js/main.js" defer></script>
 </body>
 </html>

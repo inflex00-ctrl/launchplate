@@ -1,0 +1,297 @@
+/* =========================================================================
+   MERIDIAN — hero-fx.css
+   The hero's opening sequence. Self-contained, no external requests.
+   -------------------------------------------------------------------------
+   Techniques lifted from build/lib/premium.css (split-text line reveal,
+   cursor spotlight, parallax, masked layers) and deliberately dialled *down*
+   for an editorial studio: one idea per element, long easings, small travel.
+
+   SAFETY CONTRACT
+   ---------------
+   Nothing here hides content that only JavaScript can bring back. Every
+   entrance is a CSS @keyframes animation with `both` fill — if CSS runs, the
+   animation runs and ends on the visible state. JS only adds the two things
+   that genuinely need a pointer or a scroll position: the cursor spotlight
+   and the parallax offset, both written as custom properties that default to
+   a no-op. The reduced-motion block pins everything to its final state.
+
+   Contents
+     1. Headline: masked per-word reveal
+     2. Supporting copy, availability pill, stats
+     3. Hero artwork: assembly sequence, parallax, cursor spotlight
+     4. Reduced motion + print
+   ========================================================================= */
+
+/* Declared on :root, not on .mfx — the artwork band is a SIBLING of the hero
+   section, so a variable scoped to .mfx would be undefined there and every
+   `animation` shorthand using it would be dropped as invalid. */
+:root {
+  --mfx-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+/* =========================================================================
+   1. HEADLINE
+   Each line is its own mask; the words inside rise through it on a short
+   stagger. One overflow container per line (not per word) keeps descenders
+   safe — the padding/margin pair below re-opens the box for the "g" in
+   "design" without changing the layout by a single pixel.
+   ========================================================================= */
+
+.mfx .hero__title .line {
+  overflow: hidden;
+  padding-bottom: 0.22em;
+  margin-bottom: -0.22em;
+}
+
+.mfx__w {
+  display: inline-block;
+  transform: translate3d(0, 140%, 0);
+  animation: mfx-word-up 1150ms var(--mfx-ease) both;
+  animation-delay: calc(180ms + var(--i, 0) * 90ms);
+  will-change: transform;
+}
+@keyframes mfx-word-up {
+  from { transform: translate3d(0, 140%, 0); }
+  to   { transform: translate3d(0, 0, 0); }
+}
+
+/* The italic serif word is the headline's one flourish — let it arrive with
+   a whisper of extra travel so the eye lands on it last. */
+.mfx__w--serif {
+  animation-duration: 1350ms;
+}
+
+
+/* =========================================================================
+   2. SUPPORTING COPY
+   ========================================================================= */
+
+.mfx .hero__meta    { animation: mfx-rise 900ms var(--mfx-ease) 60ms both; }
+.mfx .hero__foot > div:first-child { animation: mfx-rise 1000ms var(--mfx-ease) 620ms both; }
+.mfx .stat-row      { animation: mfx-rise 1000ms var(--mfx-ease) 740ms both; }
+
+@keyframes mfx-rise {
+  from { opacity: 0; transform: translate3d(0, 18px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Availability pill: the dot should read as a live status light. */
+.mfx .pill--accent .dot {
+  animation: mfx-pulse 2.6s ease-out infinite;
+}
+@keyframes mfx-pulse {
+  0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent); }
+  70%  { box-shadow: 0 0 0 7px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+/* Stats tick up; the digits are tabular so nothing reflows while they do. */
+.mfx .stat__value { font-variant-numeric: tabular-nums; }
+
+/* Rules above the stats draw themselves in, left to right. */
+.mfx .stat-row {
+  border-top-color: transparent;
+  position: relative;
+}
+.mfx .stat-row::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: var(--line-strong);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  animation: mfx-rule 1400ms var(--mfx-ease) 760ms both;
+}
+@keyframes mfx-rule {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+
+/* =========================================================================
+   3. HERO ARTWORK
+   The composition assembles: the field settles from a wider crop, the ember
+   disc rises from the lower left, the sand disc scales in, and two hairline
+   registration rules draw across it. All transform/opacity only.
+   ========================================================================= */
+
+.mfx-art {
+  --mfx-par-a: 0px;      /* written by hero-fx.js on scroll */
+  --mfx-par-b: 0px;
+  --mfx-mx: 50%;         /* written by hero-fx.js on pointermove */
+  --mfx-my: 50%;
+}
+
+/* The band is uncovered top-to-bottom, the way a plate is revealed in print.
+   Base state has no clip-path at all, so an engine that cannot animate
+   clip-path simply shows the finished artwork. */
+.mfx-band {
+  animation: mfx-band-in 1500ms var(--mfx-ease) 240ms both;
+  will-change: clip-path;
+}
+@keyframes mfx-band-in {
+  from { clip-path: inset(0 0 100% 0); opacity: 0.4; }
+  to   { clip-path: inset(0 0 0 0);    opacity: 1; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Two animations: the settle, then style.css's endless slow drift picking
+     up exactly where the settle left off (scale 1.06 / -1.2% / -0.8%), so
+     there is no jump between them. `translate` is a separate property from
+     `transform`, which is what lets the parallax offset ride on top of a
+     keyframed transform without fighting it. */
+  .mfx-band .art__field {
+    animation:
+      mfx-field-in 1800ms var(--mfx-ease) 320ms both,
+      drift 26s ease-in-out 2.1s infinite alternate;
+    translate: 0 var(--mfx-par-a);
+  }
+}
+@keyframes mfx-field-in {
+  from { transform: scale(1.16) translate3d(-1.2%, -0.8%, 0); }
+  to   { transform: scale(1.06) translate3d(-1.2%, -0.8%, 0); }
+}
+
+/* Ember disc rises into frame from the lower left. */
+.mfx-band .art--meridian .art__field::before {
+  animation: mfx-disc-in 1600ms var(--mfx-ease) 520ms both;
+  will-change: transform, opacity;
+}
+@keyframes mfx-disc-in {
+  from { opacity: 0; transform: translate3d(-14%, 26%, 0) scale(0.86); }
+  to   { opacity: 0.94; transform: none; }
+}
+
+/* Sand disc scales in a beat later. */
+.mfx-band .art--meridian .art__field::after {
+  animation: mfx-dot-in 1200ms var(--mfx-ease) 860ms both;
+  will-change: transform, opacity;
+}
+@keyframes mfx-dot-in {
+  from { opacity: 0; transform: scale(0.4); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* --- registration mark ---------------------------------------------------
+   Rules and ring share one centre, so together they read as a printer's
+   registration target sitting on the composition's left third — deliberate
+   art direction rather than a stray overlay grid. */
+.mfx-art__parts {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  translate: 0 var(--mfx-par-b);
+}
+
+.mfx-art__rule {
+  position: absolute;
+  display: block;
+  /* Fixed warm off-white rather than a theme token: the artwork field is a
+     dark blue/terracotta in BOTH themes, so the mark has to be light in
+     both. --art-bone flips to near-black on dark and would vanish. */
+  background: rgba(247, 242, 234, 0.5);
+}
+.mfx-art__rule--v {
+  left: 33.33%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform: scaleY(0);
+  transform-origin: 50% 0;
+  animation: mfx-draw-y 1500ms var(--mfx-ease) 900ms both;
+}
+.mfx-art__rule--h {
+  left: 0;
+  right: 0;
+  top: 38%;
+  height: 1px;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  animation: mfx-draw-x 1700ms var(--mfx-ease) 1040ms both;
+}
+@keyframes mfx-draw-y { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes mfx-draw-x { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+.mfx-art__ring {
+  position: absolute;
+  display: block;
+  left: 33.33%;
+  top: 38%;
+  /* `translate` centres the ring on the crosshair; `transform` is left free
+     for the scale-in animation so the two never fight. */
+  translate: -50% -50%;
+  width: clamp(64px, 8.5vw, 132px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1.5px solid rgba(247, 242, 234, 0.62);
+  opacity: 0;
+  animation: mfx-ring-in 1400ms var(--mfx-ease) 1180ms both;
+}
+@keyframes mfx-ring-in {
+  from { opacity: 0; transform: scale(0.55); }
+  to   { opacity: 0.9; transform: none; }
+}
+
+/* --- cursor spotlight ---------------------------------------------------
+   hero-fx.js writes --mfx-mx/--mfx-my in percentages; CSS does the drawing,
+   so a pointermove costs two setProperty calls inside a rAF and no layout.
+   Soft-light keeps it reading as light falling on the artwork rather than a
+   white blob pasted over it.                                              */
+.mfx-art__spot {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: soft-light;
+  background: radial-gradient(
+    clamp(220px, 26vw, 460px) circle at var(--mfx-mx) var(--mfx-my),
+    rgba(255, 255, 255, 0.55),
+    rgba(255, 255, 255, 0.14) 42%,
+    transparent 68%);
+  transition: opacity 520ms var(--ease);
+}
+.mfx-art.is-spot .mfx-art__spot { opacity: 1; }
+
+
+/* =========================================================================
+   4. REDUCED MOTION
+   Everything lands on its finished state; nothing keeps moving. The counters
+   show their real figures because hero-fx.js never touches them (see there).
+   ========================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .mfx__w,
+  .mfx .hero__meta,
+  .mfx .hero__foot > div:first-child,
+  .mfx .stat-row,
+  .mfx-band,
+  .mfx-band .art__field,
+  .mfx-band .art--meridian .art__field::before,
+  .mfx-band .art--meridian .art__field::after,
+  .mfx-art__rule,
+  .mfx-art__ring,
+  .mfx .stat-row::before {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    translate: none !important;
+  }
+  .mfx-band { clip-path: none !important; }
+  .mfx-band .art__field { transform: scale(1.06) !important; }
+  .mfx-band .art--meridian .art__field::before { opacity: 0.94 !important; }
+  /* `translate` centres the ring on the crosshair — it is layout, not
+     motion, so it must survive the reset above. */
+  .mfx-art__ring { opacity: 0.9 !important; translate: -50% -50% !important; }
+  .mfx .stat-row { border-top-color: var(--line); }
+  .mfx .stat-row::before { display: none !important; }
+  .mfx .pill--accent .dot { animation: none !important; }
+  .mfx-art__spot { display: none !important; }
+}
+
+@media print {
+  .mfx-art__parts, .mfx-art__spot { display: none !important; }
+}

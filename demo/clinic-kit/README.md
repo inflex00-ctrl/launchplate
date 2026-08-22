@@ -10,6 +10,42 @@ a real server.
 
 ---
 
+## Make it real
+
+This kit is not a mockup: the appointment request on `appointments.html` and the
+contact form both deliver to a real inbox, with every field arriving as a
+readable summary.
+
+Everything runs off one file, **`config.js`**, in this folder. Fill in the
+business details and a form-provider key and the site is deliverable:
+
+```js
+window.SITE_CONFIG = {
+  business: { name: "…", email: "…", phone: "…" },
+  forms:    { provider: "web3forms", key: "your-access-key" }
+};
+```
+
+That is the whole integration. With nothing configured the kit still renders
+and behaves sensibly — forms validate, then fall back to the visitor's own mail
+app rather than pretending to have sent something.
+
+Also optional, also off by default: a Cal.com or Calendly embed on the
+appointments page (the form stays as the fallback), real OpenStreetMap embeds
+for both practice locations, and privacy-first analytics.
+
+One caution worth passing to the client: a web form is not the place for
+symptoms or diagnoses. Health data is a special category under GDPR Article 9
+and needs a much higher bar than a contact form clears. SETUP.md says so too.
+
+**[SETUP.md](SETUP.md) is the full walkthrough**: choosing a form provider
+(with real free-tier limits and prices for Web3Forms, Forminit, Formspree,
+FormSubmit, Basin and Netlify Forms), getting a key, deploying to Netlify /
+Vercel / Cloudflare Pages / ordinary shared hosting, connecting a domain, and a
+plain-English note on what each provider stores and what that means for GDPR.
+
+---
+
 ## Contents
 
 | Page | File | What it covers |
@@ -25,6 +61,10 @@ Plus:
 
 ```
 css/style.css              One stylesheet, ~4,400 lines, fully tokenised
+config.js                  The only file you must edit
+SETUP.md                   ZIP → live client site in 20 minutes
+js/forms.js                Form delivery — shared across all kits
+js/integrations.js         Analytics / maps / booking — shared across all kits
 js/main.js                 One script, 15 self-contained modules
 assets/favicon.svg         Scalable favicon
 assets/og-*.png (one per page)        1200×630 social sharing card
@@ -45,9 +85,12 @@ clinic-kit/
 ├── appointments.html
 ├── about.html
 ├── contact.html
+├── config.js            ← the only file you must edit
 ├── css/
 │   └── style.css
 ├── js/
+│   ├── forms.js         Form delivery — shared across all kits
+│   ├── integrations.js  Analytics / maps / booking — shared across all kits
 │   └── main.js
 ├── assets/
 │   ├── favicon.svg
@@ -149,11 +192,24 @@ The `portrait--a` … `portrait--f` modifiers set three colour variables
 1200×630. Export JPEG at about 75% quality, or WebP if you are comfortable
 providing a fallback.
 
-**Maps.** The `.map` blocks on `contact.html` are a CSS-drawn street grid, not
-a real map. Replace the whole `<div class="map">…</div>` with the embed
-`<iframe>` from your map provider and give the iframe `width="100%"`,
-`style="border:0"`, `loading="lazy"` and a `title`. Note that a real map embed
-*is* an external request, which is why the template does not ship with one.
+**Maps.** The drawn street grid is a placeholder, and swapping it for a real
+map is a config change, not an HTML one:
+
+```js
+map: { enabled: true, provider: "osm", lat: 53.3462, lon: -6.2436, zoom: 16 }
+```
+
+OpenStreetMap is the default — no API key, no account, no tracking cookie,
+nothing to pay. Find your coordinates by right-clicking your building on
+openstreetmap.org and reading them out of the URL. This kit has two practices, so each
+`.map` carries its own `data-map-lat` / `data-map-lon` in `contact.html`,
+which override the config — edit those directly.
+
+The illustration is only hidden, never removed, so setting `enabled: false`
+brings it straight back. `provider: "google"` gives you a keyless Google embed
+instead; it sets cookies, so you would need a consent banner for it in the EU,
+which is exactly why OSM is the default.
+
 
 ---
 
@@ -169,16 +225,39 @@ section from any page without breaking the others.
 
 ### Making the forms actually send
 
-Both forms are demonstrations: they validate, then show a success banner
-without posting anywhere. In `main.js`, find the block marked:
+They already do. The appointment request and the contact form both deliver.
+
+Set two things in `config.js` and enquiries arrive in a real inbox:
 
 ```js
-/* ---- Replace this block with your own submission ---------------- */
+forms: {
+  provider: "web3forms",   // or forminit, formspree, formsubmit, basin, netlify, custom
+  key:      "your-access-key",
+  fallback: "mailto"       // what happens if you leave provider blank
+}
 ```
 
-Point it at your own endpoint, form service or inbox. If you use a hosted form
-service, you can instead delete `data-form` from the `<form>` element and set
-its `action` and `method` normally — the styling does not depend on the JS.
+`js/forms.js` handles the rest: it validates, blocks bots with a honeypot and a
+time-trap, disables the button while sending, posts with `fetch()` so the
+visitor never leaves the page, and writes the real result into the same status
+banner the kit already uses. Every field is normalised into a readable email
+with a proper subject line and reply-to address, whatever shape the form is.
+
+Leave `provider` blank and the form falls back to the visitor's own mail app
+(or says plainly that it is not connected yet, with `fallback: "notice"`). It
+never shows a success message for something it did not send.
+
+Adding your own form takes one attribute:
+
+```html
+<form data-form data-form-type="Quote request" novalidate>
+  …your fields…
+  <div class="form-status" data-form-status role="status" aria-live="polite"><span></span></div>
+</form>
+```
+
+Full walkthrough, provider comparison with real limits and prices, deployment
+and a GDPR note: **[SETUP.md](SETUP.md)**.
 
 ### Motion
 

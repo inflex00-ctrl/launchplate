@@ -135,6 +135,8 @@
   ]
 }
 </script>
+  <noscript><style>/* JS off: entrance animations never run, so show final state */
+.artwork__rake{opacity:1!important;transform:none!important;clip-path:none!important;filter:none!important}</style></noscript>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -252,8 +254,8 @@
         <div class="form-status" data-form-status role="status" aria-live="polite">
           <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 10.5l4 4 8-9"/></svg>
           <span>
-            <strong>Thank you &mdash; your request has been recorded.</strong>
-            This template has no server attached, so nothing has been sent. Wire the form up to your own handler or form service before publishing; the README explains how in three lines.
+            <strong>Thank you &mdash; your request has been sent.</strong>
+            A partner reviews every enquiry and replies within one business day.
           </span>
         </div>
 
@@ -474,7 +476,7 @@
         <p class="eyebrow">Finding us</p>
         <h2>Boston &mdash; Financial District</h2>
       </div>
-      <div class="artwork scene scene--map map-plate ">
+      <div class="artwork scene scene--map map-plate " data-map data-map-lat="42.3554" data-map-lon="-71.0555" data-map-zoom="17" data-map-label="Halloway &amp; Finch LLP, 128 Ashcroft Street">
   <svg class="artwork__svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrative street map of the Boston Financial District office location">
     <defs>
       <radialGradient id="mg1" cx="52%" cy="46%" r="42%">
@@ -513,7 +515,7 @@
   <span class="map-plate__pin" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 17.5s6-5.2 6-9.5a6 6 0 1 0-12 0c0 4.3 6 9.5 6 9.5z"/><circle cx="10" cy="8" r="2.2"/></svg></span>
   <div class="map-plate__label"><span><strong>128 Ashcroft Street, Suite 1900</strong> &middot; Boston MA 02110</span><a class="btn btn--ghost btn--sm" href="#directions">Get directions</a></div>
 </div>
-      <p class="form__note mt-md">This is a drawn placeholder. Replace it with an embedded map or a static image of your own location &mdash; see &ldquo;Swapping in a real map&rdquo; in the README.</p>
+      <p class="form__note mt-md" data-map-caption>This is a drawn placeholder. Replace it with an embedded map or a static image of your own location &mdash; see &ldquo;Swapping in a real map&rdquo; in the README.</p>
     </div>
   </section>
 
@@ -658,6 +660,9 @@
   </div>
 </footer>
 
+<script src="config.js"></script>
+<script src="js/forms.js"></script>
+<script src="js/integrations.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

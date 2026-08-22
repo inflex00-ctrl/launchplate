@@ -10,6 +10,38 @@ or hand to the next person. Nothing rots.
 
 ---
 
+## Make it real
+
+This kit is not a mockup: the booking request on `reservations.html` and the contact
+form both deliver to a real inbox, with the date, time, party size and every
+other field arriving as a readable summary.
+
+Everything runs off one file, **`config.js`**, in this folder. Fill in the
+business details and a form-provider key and the site is deliverable:
+
+```js
+window.SITE_CONFIG = {
+  business: { name: "…", email: "…", phone: "…" },
+  forms:    { provider: "web3forms", key: "your-access-key" }
+};
+```
+
+That is the whole integration. With nothing configured the kit still renders
+and behaves sensibly — forms validate, then fall back to the visitor's own mail
+app rather than pretending to have sent something.
+
+Also optional, also off by default: a Cal.com or Calendly embed on the
+reservations page (the form stays as the fallback), a real OpenStreetMap embed
+in place of the drawn map, and privacy-first analytics.
+
+**[SETUP.md](SETUP.md) is the full walkthrough**: choosing a form provider
+(with real free-tier limits and prices for Web3Forms, Forminit, Formspree,
+FormSubmit, Basin and Netlify Forms), getting a key, deploying to Netlify /
+Vercel / Cloudflare Pages / ordinary shared hosting, connecting a domain, and a
+plain-English note on what each provider stores and what that means for GDPR.
+
+---
+
 ## What's in the box
 
 | File | What it is |
@@ -21,11 +53,17 @@ or hand to the next person. Nothing rots.
 | `gallery.html` | Filterable image grid with a keyboard-operable lightbox, plus private-hire section |
 | `contact.html` | Address, map placeholder, hours, getting here, contact form, FAQ |
 | `css/style.css` | The entire design system — one file, ~3,600 lines, driven by CSS custom properties |
+| `config.js` | **The only file you must edit.** Business details, form provider, analytics, map, booking |
+| `js/forms.js` | Form delivery — validation, spam traps, provider transport. Shared across all kits |
+| `js/integrations.js` | Analytics, maps and booking embeds. Shared across all kits |
 | `js/main.js` | Theme toggle, mobile nav, scroll reveal, tabs, filters, lightbox, accordion, parallax, hours logic, counters, form validation |
+| `css/hero.css` | Home-page hero only — the candlelight bloom, the drifting haze and embers, the plated-dish assembly and the split-word headline. Delete the `<link>` in `index.html` and the hero falls back to a still, fully readable version |
+| `js/hero.js` | Home-page hero only — splits the headline into words and drives the two-layer parallax. Safe to delete |
 | `assets/favicon.svg` | Scalable favicon |
 | `assets/og-*.png` | Social sharing cards, one per page (1200 × 630) |
 | `assets/og-source.html` | The HTML the sharing cards are rendered from — edit and re-screenshot after rebranding |
 | `robots.txt`, `sitemap.xml` | Ready to go — just swap in your domain |
+| `SETUP.md` | ZIP → live client site in 20 minutes — providers, deployment, GDPR |
 | `LICENCE.txt` | Full licence text |
 
 Six pages, fifteen files, zero dependencies.
@@ -125,36 +163,62 @@ photographs, change each `data-lb-art="ph ph-scene ph-scene--bar"` to point at t
 image at full size — or swap the `<div data-lb-art>` inside `js/main.js` (module 7) for an
 `<img>` and feed it a `data-lb-src`.
 
-The map on `index.html` and `contact.html` is also a CSS placeholder (`.map`). Replace the
-whole `<div class="map">…</div>` with your Google Maps or OpenStreetMap `<iframe>` — the
-surrounding layout does not care. Note that doing so introduces the kit's first external
-request, and in the EU usually a cookie-consent obligation; a static map image plus a
-"Get directions" link avoids both.
+**Maps.** The drawn street grid is a placeholder, and swapping it for a real
+map is a config change, not an HTML one:
+
+```js
+map: { enabled: true, provider: "osm", lat: 53.3536, lon: -6.2871, zoom: 16 }
+```
+
+OpenStreetMap is the default — no API key, no account, no tracking cookie,
+nothing to pay. Find your coordinates by right-clicking your building on
+openstreetmap.org and reading them out of the URL. Both the home page and the contact page
+pick it up; the address card stays on top of the real map.
+
+The illustration is only hidden, never removed, so setting `enabled: false`
+brings it straight back. `provider: "google"` gives you a keyless Google embed
+instead; it sets cookies, so you would need a consent banner for it in the EU,
+which is exactly why OSM is the default.
+
 
 ---
 
 ## Making the forms send
 
-The reservation and contact forms validate, show a success panel and reset — but they do
-not send anything. That is deliberate: a template that silently swallows bookings is worse
-than one that obviously doesn't send them.
+They already do. The reservation and contact forms validate, show the success panel, and
+deliver.
 
-To connect a real endpoint:
+Set two things in `config.js` and enquiries arrive in a real inbox:
 
-```html
-<!-- before -->
-<form data-demo-form id="booking" data-success-toast="Booking request sent">
-
-<!-- after -->
-<form id="booking" action="https://formspree.io/f/YOUR_ID" method="POST">
+```js
+forms: {
+  provider: "web3forms",   // or forminit, formspree, formsubmit, basin, netlify, custom
+  key:      "your-access-key",
+  fallback: "mailto"       // what happens if you leave provider blank
+}
 ```
 
-Remove `data-demo-form`, add `action` and `method`. Any form service works —
-Formspree, Basin, Netlify Forms (add `data-netlify="true"`), Getform, or your own script.
-The honeypot field (`.hp`) is already in place and most services will respect it.
+`js/forms.js` handles the rest: it validates, blocks bots with a honeypot and a
+time-trap, disables the button while sending, posts with `fetch()` so the
+visitor never leaves the page, and writes the real result into the same status
+banner the kit already uses. Every field is normalised into a readable email
+with a proper subject line and reply-to address, whatever shape the form is.
 
-If you keep client-side validation, leave `data-demo-form` off and the browser's native
-validation takes over, which is fine — the CSS styles `:invalid` states either way.
+Leave `provider` blank and the form falls back to the visitor's own mail app
+(or says plainly that it is not connected yet, with `fallback: "notice"`). It
+never shows a success message for something it did not send.
+
+Adding your own form takes one attribute:
+
+```html
+<form data-form data-form-type="Quote request" novalidate>
+  …your fields…
+  <div class="form-status" data-form-status role="status" aria-live="polite"><span></span></div>
+</form>
+```
+
+Full walkthrough, provider comparison with real limits and prices, deployment
+and a GDPR note: **[SETUP.md](SETUP.md)**.
 
 ---
 

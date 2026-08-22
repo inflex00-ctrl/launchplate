@@ -1,0 +1,560 @@
+@charset "UTF-8";
+/* ==========================================================================
+   STACKLIST — hero.css
+   The home-page hero, made to feel like a directory people actually browse:
+   a masked dot field with a warm orange bloom, a search bar that types real
+   queries at you, counters that run up, and a wall of live listings that
+   staggers in with a beam travelling around the sponsored card.
+
+   Loaded AFTER css/style.css. Same palette, same type scale, same radii —
+   this file only adds motion and one new component (the listing wall).
+
+   --------------------------------------------------------------------------
+   THE NO-BLANK-HERO RULE
+   Nothing here hides content unless <html> carries `sl-js`, which a two-line
+   inline script in <head> adds. With JavaScript off — or if a script throws —
+   the hero renders complete, the search form still submits, the counters read
+   their final values and the typewriter shows its static placeholder.
+   js/hero.js also sets `sl-safe` after four seconds as a second line of
+   defence.
+   --------------------------------------------------------------------------
+   CONTENTS
+     01. No-blank safety net (also repairs the site-wide [data-reveal])
+     02. Backdrop: dots, bloom, drifting orbs
+     03. Entrance choreography
+     04. Search bar: halo, focus state, typed placeholder
+     05. Live counters
+     06. The listing wall (+ border beam on the sponsored card)
+     07. Reduced motion
+     08. Small screens
+   ========================================================================== */
+
+
+/* ==========================================================================
+   01. NO-BLANK SAFETY NET
+   --------------------------------------------------------------------------
+   css/style.css starts [data-reveal] at opacity 0 and lets JS put it back.
+   These rules flip the dependency so the page is readable with no JS at all.
+   ========================================================================== */
+
+[data-reveal] {
+  opacity: 1;
+  transform: none;
+}
+
+html.sl-js [data-reveal]:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+/* The watchdog, set by js/hero.js after four seconds no matter what. */
+html.sl-safe [data-reveal],
+html.sl-safe .hero--live [data-hero],
+html.sl-safe .hero-word,
+html.sl-safe .hero-wall__card,
+html.sl-safe .hero-stat {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+
+/* ==========================================================================
+   02. BACKDROP
+   --------------------------------------------------------------------------
+   .hero::before (warm wash) and .hero::after (masked grid) already exist in
+   style.css. This adds a dot field on top of the grid, a bloom that breathes
+   behind the headline, and two very slow orbs that keep the corners alive.
+   All decorative, all aria-hidden, all transform/opacity only.
+   ========================================================================== */
+
+.hero--live { isolation: isolate; }
+
+.hero-fx {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* -- Dot field, masked so it dissolves before it reaches the copy -------- */
+.hero-fx__dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(currentColor 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: color-mix(in srgb, var(--ink) 26%, transparent);
+  opacity: 0.8;
+  -webkit-mask-image: radial-gradient(58% 60% at 50% 18%, #000 8%, transparent 72%);
+          mask-image: radial-gradient(58% 60% at 50% 18%, #000 8%, transparent 72%);
+}
+
+/* -- The orange bloom behind the headline -------------------------------- */
+.hero-fx__bloom {
+  position: absolute;
+  left: 50%;
+  top: -18%;
+  width: min(1100px, 130%);
+  aspect-ratio: 2 / 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  /* Held in custom properties because sl-breathe animates `opacity` — an
+     opacity override could never win against a running animation, so the
+     dark-theme boost has to change the colour instead. */
+  --bloom-1: 26%;
+  --bloom-2: 6%;
+  background:
+    radial-gradient(closest-side,
+      color-mix(in srgb, var(--brand) var(--bloom-1), transparent),
+      color-mix(in srgb, var(--brand) var(--bloom-2), transparent) 55%,
+      transparent 78%);
+  filter: blur(24px);
+  animation: sl-breathe 8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@keyframes sl-breathe {
+  0%, 100% { opacity: 0.75; transform: translateX(-50%) scale(1); }
+  50%      { opacity: 1;    transform: translateX(-50%) scale(1.06); }
+}
+
+/* -- Two slow orbs, one brand, one accent -------------------------------- */
+.hero-fx__orb {
+  position: absolute;
+  width: 38vw;
+  max-width: 520px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.4;
+}
+
+.hero-fx__orb--a {
+  left: -16%;
+  top: -12%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--brand) 30%, transparent), transparent 72%);
+  animation: sl-drift-a 26s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+}
+
+.hero-fx__orb--b {
+  right: -18%;
+  top: 8%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 32%, transparent), transparent 72%);
+  animation: sl-drift-b 34s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+}
+
+@keyframes sl-drift-a {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(7%, 9%, 0) scale(1.12); }
+}
+
+@keyframes sl-drift-b {
+  from { transform: translate3d(0, 0, 0) scale(1.08); }
+  to   { transform: translate3d(-9%, 6%, 0) scale(1); }
+}
+
+/* Dark needs more of everything: a wash that reads at 8% on paper disappears
+   entirely on near-black, so the bloom and orbs are pushed up here. Declared
+   twice — once for the system preference, once for the explicit toggle —
+   exactly the way style.css handles its own dark palette. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .hero-fx__bloom { --bloom-1: 46%; --bloom-2: 13%; filter: blur(34px); }
+  :root:not([data-theme="light"]) .hero-fx__orb { opacity: 0.7; }
+  :root:not([data-theme="light"]) .hero-fx__dots { opacity: 0.5; }
+  :root:not([data-theme="light"]) .searchbar-halo { --halo-1: 52%; }
+}
+
+:root[data-theme="dark"] .hero-fx__bloom { --bloom-1: 46%; --bloom-2: 13%; filter: blur(34px); }
+:root[data-theme="dark"] .hero-fx__orb { opacity: 0.7; }
+:root[data-theme="dark"] .hero-fx__dots { opacity: 0.5; }
+:root[data-theme="dark"] .searchbar-halo { --halo-1: 52%; }
+
+
+/* ==========================================================================
+   03. ENTRANCE CHOREOGRAPHY
+   --------------------------------------------------------------------------
+   `both` fill again: the pre-state lives inside the animation, so an element
+   whose animation never runs is simply visible.
+   ========================================================================== */
+
+html.sl-js .hero--live [data-hero] {
+  animation: sl-rise 700ms var(--ease-out) both;
+}
+
+html.sl-js .hero--live [data-hero="1"] { animation-delay: 40ms; }
+html.sl-js .hero--live [data-hero="3"] { animation-delay: 400ms; }
+html.sl-js .hero--live [data-hero="4"] { animation-delay: 500ms; }
+html.sl-js .hero--live [data-hero="5"] { animation-delay: 600ms; }
+html.sl-js .hero--live [data-hero="6"] { animation-delay: 680ms; }
+html.sl-js .hero--live [data-hero="7"] { animation-delay: 760ms; }
+
+@keyframes sl-rise {
+  from { opacity: 0; transform: translate3d(0, 14px, 0); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* -- Headline, one word at a time ----------------------------------------
+   js/hero.js wraps each word of the h1 in a span, keeping the <em> and the
+   punctuation exactly where they were, so the heading's accessible name is
+   unchanged. Nothing is hidden until those spans exist.                    */
+.hero-word {
+  display: inline-block;
+  will-change: transform, opacity, filter;
+}
+
+/* Punctuation folded onto the end of a word by js/hero.js. */
+.hero-punct { font-style: normal; }
+
+html.sl-js .hero-word {
+  animation: sl-word 780ms var(--ease-out) both;
+  animation-delay: calc(120ms + var(--i, 0) * 48ms);
+}
+
+@keyframes sl-word {
+  from { opacity: 0; transform: translate3d(0, 0.3em, 0); filter: blur(8px); }
+  60%  { opacity: 1; }
+  to   { opacity: 1; transform: none; filter: blur(0); }
+}
+
+
+/* ==========================================================================
+   04. SEARCH BAR
+   --------------------------------------------------------------------------
+   The bar itself is untouched — same markup, same GET to browse.html. What
+   is added is a halo behind it and a placeholder that types real queries.
+   The <label> is still the accessible name, so the churning placeholder is
+   invisible to screen readers, and it stops the moment anyone focuses or
+   types.
+   ========================================================================== */
+
+.searchbar-shell {
+  position: relative;
+  max-width: 40rem;
+  margin-inline: auto;
+}
+
+.searchbar-halo {
+  position: absolute;
+  inset: -20px -12px;
+  border-radius: var(--radius-pill);
+  pointer-events: none;
+  --halo-1: 30%;
+  background: radial-gradient(58% 130% at 50% 50%,
+    color-mix(in srgb, var(--brand) var(--halo-1), transparent),
+    transparent 72%);
+  filter: blur(18px);
+  opacity: 0.7;
+  animation: sl-halo 6.5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@keyframes sl-halo {
+  0%, 100% { opacity: 0.5; transform: scale(0.97); }
+  50%      { opacity: 0.9; transform: scale(1.03); }
+}
+
+.searchbar-shell .searchbar {
+  position: relative;
+  max-width: none;
+  transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease),
+    transform var(--dur) var(--ease);
+}
+
+.searchbar-shell .searchbar:focus-within { transform: translateY(-1px); }
+
+/* A blinking block that stands in for a caret while the placeholder types.
+   js/hero.js appends and removes the character itself, so nothing here can
+   leave a stray caret behind if the script stops. */
+.searchbar__input::placeholder { transition: none; }
+
+
+/* ==========================================================================
+   05. LIVE COUNTERS
+   ========================================================================== */
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--sp-3) var(--sp-6);
+  margin-top: var(--sp-5);
+  color: var(--text-muted);
+  font-size: var(--step--1);
+}
+
+.hero-stat {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4em;
+}
+
+.hero-stat b {
+  font-size: var(--step-1);
+  font-weight: 700;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.hero-stat--brand b { color: var(--brand-text); }
+
+
+/* ==========================================================================
+   06. THE LISTING WALL
+   --------------------------------------------------------------------------
+   Four real entries from js/data.js, rendered as static markup so the wall
+   is there whether or not any script runs. Each card links straight through
+   to its listing page — this is a shortcut into the directory, not a
+   decoration.
+   ========================================================================== */
+
+.hero-wall-wrap { margin-top: clamp(2rem, 4vw, 3.25rem); }
+
+/* The wall now closes the hero, so the section needs less air underneath. */
+.hero--live { padding-bottom: clamp(2rem, 1.5rem + 2vw, 3rem); }
+
+.hero-wall {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--sp-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero-wall__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.55rem;
+  height: 100%;
+  padding: var(--sp-4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  color: var(--text);
+  text-align: left;
+  text-decoration: none;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+}
+
+.hero-wall__card:hover {
+  transform: translateY(-3px);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow);
+}
+
+.hero-wall__card:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+.hero-wall__top {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.hero-wall__name {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.hero-wall__cat {
+  display: block;
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+.hero-wall__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  margin-top: auto;
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.hero-wall__meta svg {
+  width: 14px;
+  height: 14px;
+  color: var(--accent);
+}
+
+.hero-wall__meta span {
+  color: var(--text-muted);
+}
+
+.hero-wall__flag {
+  display: inline-block;
+  margin-left: auto;
+  padding: 0.15em 0.5em;
+  border-radius: var(--radius-pill);
+  background: var(--brand-soft);
+  color: var(--brand-text);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.hero-wall__flag--free {
+  background: var(--ok-soft);
+  color: var(--ok);
+}
+
+/* -- The mark tile: a slow lift plus a sheen that crosses it ------------- */
+.hero-wall__mark {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-wall__mark svg g {
+  transform-origin: 32px 32px;
+  animation: sl-mark 6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.hero-wall__item:nth-child(2) .hero-wall__mark svg g { animation-delay: -1.5s; }
+.hero-wall__item:nth-child(3) .hero-wall__mark svg g { animation-delay: -3s; }
+.hero-wall__item:nth-child(4) .hero-wall__mark svg g { animation-delay: -4.5s; }
+
+@keyframes sl-mark {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-1.6px) scale(1.05); }
+}
+
+.hero-wall__mark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, 0.45) 50%, transparent 70%);
+  transform: translateX(-130%);
+  animation: sl-sheen 7s var(--ease-out) infinite;
+}
+
+.hero-wall__item:nth-child(2) .hero-wall__mark::after { animation-delay: 1.4s; }
+.hero-wall__item:nth-child(3) .hero-wall__mark::after { animation-delay: 2.8s; }
+.hero-wall__item:nth-child(4) .hero-wall__mark::after { animation-delay: 4.2s; }
+
+@keyframes sl-sheen {
+  0%   { transform: translateX(-130%); }
+  18%  { transform: translateX(130%); }
+  100% { transform: translateX(130%); }
+}
+
+/* -- Sponsored card: a beam travelling the border -------------------------
+   The mask-composite ring trick. Two mask layers — the content box and the
+   whole box — subtracted from each other leave a 1px ring; whatever is
+   painted behind then shows only inside that ring. A square gradient sprite
+   is driven around it with offset-path: rect(), which moves at a constant
+   linear speed instead of racing the long edges the way a rotating conic
+   does. Engines without offset-path fall back to a rotation, which still
+   reads as a moving highlight.                                             */
+.hero-wall__card--sponsored {
+  border-color: color-mix(in srgb, var(--brand) 32%, var(--line));
+}
+
+.hero-wall__beam {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  padding: 1px;
+  overflow: hidden;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+
+.hero-wall__beam::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 66px;
+  aspect-ratio: 1;
+  background: linear-gradient(to left, var(--brand), var(--accent), transparent);
+  transform-origin: 50% 50%;
+  animation: sl-beam-spin 6s linear infinite;
+}
+
+@supports (offset-path: rect(0px auto auto 0px round 8px)) {
+  .hero-wall__beam::after {
+    offset-path: rect(0 auto auto 0 round 66px);
+    offset-distance: 0%;
+    animation: sl-beam 6s linear infinite;
+  }
+}
+
+@keyframes sl-beam { to { offset-distance: 100%; } }
+@keyframes sl-beam-spin { to { transform: rotate(360deg); } }
+
+/* -- The wall staggers in ------------------------------------------------- */
+html.sl-js .hero-wall__card {
+  animation: sl-card-in 640ms var(--ease-out) both;
+  animation-delay: calc(700ms + var(--i, 0) * 90ms);
+}
+
+.hero-wall__item:nth-child(1) .hero-wall__card { --i: 0; }
+.hero-wall__item:nth-child(2) .hero-wall__card { --i: 1; }
+.hero-wall__item:nth-child(3) .hero-wall__card { --i: 2; }
+.hero-wall__item:nth-child(4) .hero-wall__card { --i: 3; }
+
+@keyframes sl-card-in {
+  from { opacity: 0; transform: translate3d(0, 18px, 0) scale(0.97); }
+  to   { opacity: 1; transform: none; }
+}
+
+
+/* ==========================================================================
+   07. REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-fx__bloom,
+  .hero-fx__orb,
+  .searchbar-halo,
+  .hero-wall__mark svg g,
+  .hero-wall__mark::after,
+  .hero-wall__beam::after {
+    animation: none !important;
+  }
+
+  .hero-fx__bloom { opacity: 0.85; transform: translateX(-50%); }
+  .hero-wall__mark::after { display: none; }
+
+  .hero--live [data-hero],
+  .hero-word,
+  .hero-wall__card,
+  .hero-stat {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    animation: none !important;
+  }
+
+  .hero-wall__card:hover { transform: none; }
+}
+
+
+/* ==========================================================================
+   08. SMALL SCREENS
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .hero-wall { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 460px) {
+  .hero-wall { grid-template-columns: minmax(0, 1fr); }
+  .hero-fx__orb { display: none; }
+  .hero-stats { gap: var(--sp-2) var(--sp-4); }
+}

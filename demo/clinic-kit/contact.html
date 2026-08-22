@@ -108,6 +108,8 @@
   ]
 }
 </script>
+  <noscript><style>/* JS off: entrance animations never run, so show final state */
+.chip-anchor,.hero-art,.hero-rings,.is-visible,.reveal,.scene-part{opacity:1!important;transform:none!important;clip-path:none!important;filter:none!important}</style></noscript>
 </head>
 
 <body class="full-height">
@@ -234,7 +236,7 @@
 
       <!-- ------------------------ MARLOWE QUAY ------------------------ -->
       <article class="location-card reveal" id="marlowe-quay">
-        <div class="map">
+        <div class="map" data-map data-map-lat="53.3462" data-map-lon="-6.2436" data-map-zoom="17" data-map-label="Brightwater Dental, Marlowe Quay">
           <div class="map-pin" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8.5c0 4.2-6 10-6 10s-6-5.8-6-10a6 6 0 1112 0z"/><circle cx="10" cy="8.4" r="2.2"/></svg></div>
           <div class="map-card">
             <h3>Marlowe Quay</h3>
@@ -299,7 +301,7 @@
 
       <!-- -------------------------- SANDYFORD ------------------------- -->
       <article class="location-card reveal" id="sandyford">
-        <div class="map">
+        <div class="map" data-map data-map-lat="53.2776" data-map-lon="-6.2214" data-map-zoom="16" data-map-label="Brightwater Dental, Sandyford">
           <div class="map-pin" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8.5c0 4.2-6 10-6 10s-6-5.8-6-10a6 6 0 1112 0z"/><circle cx="10" cy="8.4" r="2.2"/></svg></div>
           <div class="map-card">
             <h3>Sandyford</h3>
@@ -375,10 +377,10 @@
         <h2>Ask us anything, and a person will answer</h2>
         <p class="lede mt-5">General questions, insurance queries, requests for records or feedback about a visit. We answer everything within one working day.</p>
 
-        <div class="notice notice--warning mt-6">
+        <div class="notice notice--warning mt-6" data-demo-notice>
           <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3.2l7.2 12.6H2.8L10 3.2z"/><path d="M10 8v3.2M10 13.6h.01"/></svg>
           <div>
-            <p><strong>Template demonstration.</strong> Brightwater Dental is a fictional practice; this form sends nothing to anybody, and nothing on this site is medical or dental advice. <strong>Never use a web form to describe an emergency</strong> &mdash; ring instead.</p>
+            <p><strong>Not connected yet.</strong> Brightwater Dental is a fictional practice used for this template, and no form provider has been configured, so nothing is delivered. Set one in <code>config.js</code> &mdash; see <code>SETUP.md</code> &mdash; and this notice disappears. <strong>Never use a web form to describe an emergency</strong> &mdash; ring instead.</p>
           </div>
         </div>
 
@@ -408,7 +410,7 @@
       <div class="reveal reveal--right">
         <form class="form-card" id="contact-form" data-form novalidate
               data-success-title="Thank you — message noted."
-              data-success-body="This demonstration form does not send anything. Point it at your own inbox or form handler before going live; see README.md.">
+              data-success-body="We answer everything within one working day.">
           <div class="form-grid">
             <div class="field">
               <label class="field-label" for="c-name">Your name <span class="req" aria-hidden="true">*</span></label>
@@ -567,6 +569,9 @@
   </div>
 </footer>
 
+<script src="config.js" defer></script>
+<script src="js/forms.js" defer></script>
+<script src="js/integrations.js" defer></script>
 <script src="js/main.js" defer></script>
 </body>
 </html>

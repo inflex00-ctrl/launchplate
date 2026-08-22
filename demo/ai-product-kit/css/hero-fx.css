@@ -1,0 +1,504 @@
+/* ==========================================================================
+   LUMEN — hero-fx.css
+   Cinematic hero layer for the landing page. Self-contained, no requests.
+   --------------------------------------------------------------------------
+   Techniques lifted from build/lib/premium.css (meteors, CSS starfield,
+   aurora ribbon, rotating conic border, shimmer text, glow bloom) and re-tuned
+   to Lumen's warm-amber-on-warm-neutral palette.
+
+   SAFETY CONTRACT
+   ---------------
+   Nothing here hides content that only JS can bring back. Every entrance is a
+   CSS @keyframes animation with `both` fill, so if CSS runs the animation
+   runs. The console transcript is real markup — demo.js replaces it with the
+   streamed version, but with scripting off the finished transcript stands.
+   The reduced-motion block at the bottom pins everything to its final state.
+
+   Contents
+     1. Atmosphere: aurora, meteors, starfield (dark), amber bloom
+     2. Hero copy choreography + headline gradient sweep
+     3. Console: entrance, conic beam, live glow, streaming pulse
+     4. Token chip
+     5. Reduced motion + print
+   ========================================================================== */
+
+.afx {
+  --afx-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --afx-ease-soft: cubic-bezier(0.32, 0.72, 0, 1);
+
+  --afx-glow: color-mix(in srgb, var(--brand) 34%, transparent);
+  --afx-glow-soft: color-mix(in srgb, var(--brand) 16%, transparent);
+  --afx-streak: color-mix(in srgb, var(--brand) 55%, transparent);
+  --afx-star: rgba(255, 255, 255, 0);      /* light theme: no stars */
+  --afx-star-op: 0;
+  --afx-aurora-op: 0.5;
+  --afx-meteor-op: 0.34;
+  isolation: isolate;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .afx {
+    --afx-glow: color-mix(in srgb, var(--brand) 42%, transparent);
+    --afx-glow-soft: color-mix(in srgb, var(--brand) 20%, transparent);
+    --afx-streak: color-mix(in srgb, var(--brand) 85%, transparent);
+    --afx-star: rgba(255, 246, 232, 0.85);
+    --afx-star-op: 0.55;
+    --afx-aurora-op: 0.42;
+    --afx-meteor-op: 0.9;
+  }
+}
+:root[data-theme="dark"] .afx {
+  --afx-glow: color-mix(in srgb, var(--brand) 42%, transparent);
+  --afx-glow-soft: color-mix(in srgb, var(--brand) 20%, transparent);
+  --afx-streak: color-mix(in srgb, var(--brand) 85%, transparent);
+  --afx-star: rgba(255, 246, 232, 0.85);
+  --afx-star-op: 0.55;
+  --afx-aurora-op: 0.42;
+  --afx-meteor-op: 0.9;
+}
+
+
+/* ==========================================================================
+   1. ATMOSPHERE
+   Inert layers stacked under the content. The hero's own ::before (grid) and
+   ::after (amber wash) stay exactly as they were — these sit between them.
+   ========================================================================== */
+
+.afx__atmos {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  contain: strict;
+}
+
+.afx__layer {
+  position: absolute;
+  inset: 0;
+  display: block;
+  pointer-events: none;
+}
+
+/* --- warm aurora ribbon spilling in from the top ------------------------ */
+.afx__aurora {
+  inset: -40% -15% auto -15%;
+  height: 105%;
+  background-image: repeating-linear-gradient(101deg,
+    var(--brand) 0%,
+    color-mix(in srgb, var(--brand) 45%, transparent) 12%,
+    transparent 22%,
+    color-mix(in srgb, var(--brand-strong) 70%, transparent) 32%,
+    var(--brand) 44%);
+  background-size: 220% 220%;
+  filter: blur(72px) saturate(130%);
+  opacity: 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 76%);
+          mask-image: linear-gradient(to bottom, #000 0%, transparent 76%);
+  animation:
+    afx-aurora-in 2400ms var(--afx-ease-soft) both,
+    afx-aurora-pan 34s linear 1s infinite;
+  will-change: background-position, opacity;
+}
+@keyframes afx-aurora-in { to { opacity: var(--afx-aurora-op); } }
+@keyframes afx-aurora-pan {
+  from { background-position: 0% 50%; }
+  to   { background-position: 220% 50%; }
+}
+
+/* --- CSS starfield (dark theme only — --afx-star-op is 0 on light) ------ */
+.afx__stars::before,
+.afx__stars::after {
+  content: "";
+  position: absolute;
+  inset: -25%;
+  background-repeat: repeat;
+  will-change: transform, opacity;
+}
+.afx__stars::before {
+  background-image:
+    radial-gradient(1px 1px at 24px 32px,  var(--afx-star) 50%, transparent 100%),
+    radial-gradient(1px 1px at 88px 12px,  var(--afx-star) 50%, transparent 100%),
+    radial-gradient(1px 1px at 130px 96px, var(--afx-star) 50%, transparent 100%),
+    radial-gradient(1px 1px at 56px 140px, var(--afx-star) 50%, transparent 100%),
+    radial-gradient(1px 1px at 168px 60px, var(--afx-star) 50%, transparent 100%);
+  background-size: 191px 191px;
+  opacity: calc(var(--afx-star-op) * 0.7);
+  animation: afx-stars-drift 140s linear infinite, afx-twinkle 7s ease-in-out infinite;
+}
+.afx__stars::after {
+  background-image:
+    radial-gradient(1.5px 1.5px at 40px 60px,   var(--afx-star) 45%, transparent 100%),
+    radial-gradient(1.4px 1.4px at 150px 24px,  var(--afx-streak) 45%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 96px 176px,  var(--afx-star) 45%, transparent 100%),
+    radial-gradient(1.4px 1.4px at 210px 120px, var(--afx-star) 45%, transparent 100%);
+  background-size: 281px 281px;
+  opacity: var(--afx-star-op);
+  animation: afx-stars-drift 80s linear infinite reverse, afx-twinkle 4.5s ease-in-out 1.3s infinite;
+}
+@keyframes afx-stars-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-191px, -120px, 0); }
+}
+@keyframes afx-twinkle {
+  0%, 100% { opacity: var(--afx-star-op); }
+  50%      { opacity: calc(var(--afx-star-op) * 0.42); }
+}
+
+/* --- amber meteors: token-stream streaks falling behind the console ----- */
+.afx__meteors { overflow: hidden; }
+.afx__meteor {
+  position: absolute;
+  top: -8%;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: var(--afx-streak);
+  box-shadow: 0 0 8px 1px var(--afx-glow-soft);
+  opacity: 0;
+  transform: rotate(216deg);
+  animation: afx-meteor var(--afx-dur, 7s) linear var(--afx-delay, 0s) infinite;
+  will-change: transform, opacity;
+}
+.afx__meteor::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 150px;
+  height: 1px;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, var(--afx-streak), transparent 88%);
+}
+@keyframes afx-meteor {
+  0%        { transform: rotate(216deg) translateX(0);      opacity: 0; }
+  6%        { opacity: var(--afx-meteor-op, 0.6); }
+  62%       { opacity: var(--afx-meteor-op, 0.6); }
+  100%      { transform: rotate(216deg) translateX(-820px); opacity: 0; }
+}
+
+/* --- amber bloom sitting behind the console ----------------------------- */
+.afx__bloom {
+  inset: -10% -6% auto auto;
+  width: 70%;
+  height: 96%;
+  background:
+    radial-gradient(46% 44% at 62% 40%, var(--afx-glow), transparent 70%),
+    radial-gradient(34% 30% at 30% 16%, var(--afx-glow-soft), transparent 74%);
+  filter: blur(46px);
+  opacity: 0;
+  animation:
+    afx-fade 2000ms var(--afx-ease-soft) 200ms both,
+    afx-breathe 14s ease-in-out 2s infinite;
+  will-change: transform, opacity;
+}
+@keyframes afx-fade { to { opacity: 1; } }
+@keyframes afx-breathe {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50%      { transform: translate3d(-1.5%, 1.5%, 0) scale(1.08); }
+}
+
+
+/* ==========================================================================
+   2. HERO COPY
+   ========================================================================== */
+
+.afx .announce      { animation: afx-rise 720ms var(--afx-ease) 60ms both; }
+.afx .hero-copy h1  { animation: afx-rise 900ms var(--afx-ease) 180ms both; }
+.afx .hero-copy .lead { animation: afx-rise 820ms var(--afx-ease) 340ms both; }
+.afx .hero-actions  { animation: afx-rise 820ms var(--afx-ease) 460ms both; }
+.afx .hero-meta     { animation: afx-rise 820ms var(--afx-ease) 580ms both; }
+
+@keyframes afx-rise {
+  from { opacity: 0; transform: translate3d(0, 16px, 0); filter: blur(7px); }
+  to   { opacity: 1; transform: none; filter: blur(0); }
+}
+
+/* --- headline: an amber highlight sweeping through the ink --------------
+   Guarded behind @supports: without background-clip:text the headline keeps
+   its normal colour rather than going transparent (i.e. invisible).       */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .afx .hero-copy h1 {
+    background-image: linear-gradient(100deg,
+      var(--text) 34%,
+      color-mix(in srgb, var(--brand) 72%, var(--text)) 46%,
+      var(--brand) 50%,
+      color-mix(in srgb, var(--brand) 72%, var(--text)) 54%,
+      var(--text) 66%);
+    background-size: 300% 100%;
+    background-position: 130% 0;
+    /* MUST repeat. With `no-repeat` a 300%-wide image positioned off to one
+       side leaves part of the box with no background at all — and since the
+       text is filled with that background, the uncovered glyphs would render
+       completely invisible. Both ends of the gradient are var(--text), so the
+       tiling seam is undetectable. */
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    /* Descenders would clip against the text box without this pair. */
+    padding-bottom: 0.08em;
+    margin-bottom: -0.08em;
+    animation:
+      afx-rise 900ms var(--afx-ease) 180ms both,
+      afx-sweep 9s var(--afx-ease-soft) 1.6s infinite;
+  }
+}
+@keyframes afx-sweep {
+  0%, 12%   { background-position: 130% 0; }
+  52%, 100% { background-position: -30% 0; }
+}
+
+/* Primary CTA: specular sweep so the eye lands on it. */
+.afx .btn--primary {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px -12px var(--afx-glow);
+}
+.afx .btn--primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(100deg, transparent 34%,
+    color-mix(in srgb, var(--brand) 60%, transparent) 50%, transparent 66%);
+  transform: translateX(-130%);
+  animation: afx-glint 6s var(--afx-ease-soft) 2.8s infinite;
+}
+@keyframes afx-glint {
+  0%, 64%   { transform: translateX(-130%); }
+  88%, 100% { transform: translateX(130%); }
+}
+
+/* Announcement pill gets a slow travelling hairline. */
+.afx .announce {
+  position: relative;
+  overflow: hidden;
+}
+.afx .announce::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(100deg, transparent 32%,
+    color-mix(in srgb, var(--brand) 30%, transparent) 50%, transparent 68%);
+  transform: translateX(-120%);
+  animation: afx-glint 5.5s var(--afx-ease-soft) 2s infinite;
+}
+
+
+/* ==========================================================================
+   3. CONSOLE
+   ========================================================================== */
+
+.afx .console-wrap {
+  perspective: 1800px;
+  perspective-origin: 50% 30%;
+}
+
+/* Belt and braces: even if a `reveal` class is re-added inside the hero, it
+   must not be able to hide the console. The entrance below is pure CSS. */
+.afx .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.afx .console {
+  animation: afx-console-in 1300ms var(--afx-ease) 320ms both;
+  will-change: transform, opacity;
+}
+@keyframes afx-console-in {
+  from {
+    opacity: 0;
+    transform: rotateX(9deg) rotateY(-6deg) translate3d(0, 44px, 0) scale(0.96);
+  }
+  to { opacity: 1; transform: none; }
+}
+
+/* --- rotating conic beam around the console rim -------------------------
+   The 1px ring is carved with the two-layer mask trick; a conic gradient is
+   painted behind it and the angle is animated via @property.             */
+@property --afx-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.afx__beam {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  border-radius: inherit;
+  pointer-events: none;
+  padding: 1.25px;
+  background: conic-gradient(from var(--afx-angle),
+    transparent 0%,
+    color-mix(in srgb, var(--brand) 15%, transparent) 6%,
+    var(--brand) 12%,
+    color-mix(in srgb, var(--brand) 15%, transparent) 18%,
+    transparent 30%,
+    transparent 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0;
+  animation:
+    afx-fade 1200ms linear 1200ms both,
+    afx-angle-spin 7s linear 1200ms infinite;
+}
+@keyframes afx-angle-spin { to { --afx-angle: 360deg; } }
+
+/* --- ambient bloom under the console ------------------------------------ */
+.afx .console {
+  box-shadow:
+    var(--shadow-xl),
+    0 40px 110px -50px var(--afx-glow);
+  transition: box-shadow 480ms var(--afx-ease-soft);
+}
+
+/* hero-fx.js flips this on for ~700ms every time tokens land, so the panel
+   visibly brightens as the answer streams. Purely additive: without JS the
+   console simply keeps its resting shadow. */
+.afx .console-wrap.is-streaming .console {
+  box-shadow:
+    var(--shadow-xl),
+    0 0 0 1px color-mix(in srgb, var(--brand) 26%, transparent),
+    0 40px 130px -46px color-mix(in srgb, var(--brand) 60%, transparent);
+}
+
+/* The transcript surface warms very slightly while tokens arrive. */
+.afx .console-wrap.is-streaming .console-body {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%,
+      color-mix(in srgb, var(--brand) 22%, transparent), transparent 72%),
+    var(--surface);
+}
+.afx .console-body {
+  transition: background 600ms var(--afx-ease-soft);
+  /* The body's own top mask fades the first 22px. Push the transcript clear
+     of it so the opening "You" line is fully legible before any scrolling. */
+  padding-top: calc(var(--sp-5) + 10px);
+}
+
+/* Tool-call chips: land with a small pop rather than appearing. */
+.afx .tool-call {
+  animation: afx-chip-in 460ms var(--afx-ease) both;
+}
+@keyframes afx-chip-in {
+  from { opacity: 0; transform: translate3d(-6px, 4px, 0) scale(0.96); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* A chip whose spinner has resolved gets a one-shot amber flash. */
+.afx .tool-call.is-done {
+  animation: afx-chip-done 700ms var(--afx-ease-soft);
+}
+@keyframes afx-chip-done {
+  0%   { border-color: var(--brand); background: color-mix(in srgb, var(--brand) 14%, var(--bg-inset)); }
+  100% { border-color: var(--border); background: var(--bg-inset); }
+}
+
+
+/* ==========================================================================
+   4. TOKEN CHIP
+   ========================================================================== */
+
+.afx .console-float {
+  animation: afx-rise 800ms var(--afx-ease) 1000ms both;
+}
+.afx .console-float strong {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+.afx .console-float .dot {
+  animation: afx-pulse-dot 2s ease-out infinite;
+}
+@keyframes afx-pulse-dot {
+  0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--success) 60%, transparent); }
+  70%  { box-shadow: 0 0 0 8px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+/* Small equaliser that only moves while the answer is streaming. */
+.afx__meter {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 13px;
+  margin-left: 0.55rem;
+  vertical-align: -1px;
+}
+.afx__meter i {
+  display: block;
+  width: 2.5px;
+  border-radius: 1.5px;
+  background: var(--brand);
+  opacity: 0.45;
+  transform-origin: 50% 100%;
+}
+/* Resting silhouette — a static equaliser rather than a row of dots. */
+.afx__meter i:nth-child(1) { height: 45%; }
+.afx__meter i:nth-child(2) { height: 78%; }
+.afx__meter i:nth-child(3) { height: 58%; }
+.afx__meter i:nth-child(4) { height: 92%; }
+.afx .console-wrap.is-streaming .afx__meter i {
+  opacity: 1;
+  animation: afx-eq 900ms ease-in-out infinite;
+}
+.afx__meter i:nth-child(2) { animation-delay: 140ms; }
+.afx__meter i:nth-child(3) { animation-delay: 280ms; }
+.afx__meter i:nth-child(4) { animation-delay: 420ms; }
+@keyframes afx-eq {
+  0%, 100% { transform: scaleY(0.45); }
+  50%      { transform: scaleY(1.5); }
+}
+
+
+/* ==========================================================================
+   5. REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .afx .announce,
+  .afx .hero-copy h1,
+  .afx .hero-copy .lead,
+  .afx .hero-actions,
+  .afx .hero-meta,
+  .afx .console,
+  .afx .console-float,
+  .afx .tool-call,
+  .afx__aurora,
+  .afx__bloom {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  .afx__aurora { opacity: 0.34 !important; filter: blur(72px) saturate(130%) !important; }
+  .afx__bloom  { filter: blur(46px) !important; }
+
+  @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    /* Drop the clip entirely — plain ink, guaranteed legible, no sweep. */
+    .afx .hero-copy h1 {
+      background-image: none !important;
+      color: var(--text) !important;
+      -webkit-text-fill-color: var(--text) !important;
+    }
+  }
+
+  .afx__meteors,
+  .afx__stars { display: none !important; }
+
+  .afx .btn--primary::after,
+  .afx .announce::after,
+  .afx__beam { display: none !important; }
+
+  .afx .console-float .dot,
+  .afx__meter i { animation: none !important; }
+}
+
+@media print {
+  .afx__atmos, .afx__beam { display: none !important; }
+}

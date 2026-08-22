@@ -103,6 +103,8 @@
   ]
 }
 </script>
+  <noscript><style>/* JS off: entrance animations never run, so show final state */
+.reveal{opacity:1!important;transform:none!important;clip-path:none!important;filter:none!important}</style></noscript>
 </head>
 
 <body class="full-height">
@@ -212,6 +214,11 @@
               holding message.
             </p>
           </div>
+
+          <!-- Optional Cal.com / Calendly embed. Stays empty and invisible unless
+               booking.url is set in config.js; the booking form below is the
+               fallback and stays put unless booking.replaceForm is true. -->
+          <div class="booking-embed mt-8" data-booking-embed data-booking-replace="#booking" hidden></div>
 
           <form class="mt-8 reveal reveal-delay-1" data-demo-form id="booking" data-success-toast="Booking request sent" novalidate>
 
@@ -491,11 +498,11 @@
 
             <div class="form-foot">
               <button class="btn btn--primary btn--lg" type="submit" data-sending="Sending…">Request this table</button>
-              <p class="form-note">
-                Demo form. Nothing is sent anywhere and no data leaves this page. To make
-                it live, add your endpoint as <code>action</code> on the
-                <code>&lt;form&gt;</code> — Formspree, Netlify Forms, your own booking
-                API — and delete the <code>data-demo-form</code> attribute.
+              <p class="form-note" data-demo-notice>
+                <strong>Not connected yet.</strong> Booking requests are ready to send, but no
+                form provider has been configured. Add yours to the <code>forms</code> block in
+                <code>config.js</code> — see <code>SETUP.md</code>. Until then the form falls back
+                to the visitor's own mail app. This note disappears once a key is in place.
               </p>
             </div>
           </form>
@@ -905,6 +912,9 @@
   </div>
 </footer>
 
+<script src="config.js" defer></script>
+<script src="js/forms.js" defer></script>
+<script src="js/integrations.js" defer></script>
 <script src="js/main.js" defer></script>
 </body>
 </html>

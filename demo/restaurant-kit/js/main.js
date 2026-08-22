@@ -18,7 +18,7 @@
      9.  Hero parallax             [data-parallax]
      10. Opening-hours awareness   [data-hours]
      11. Animated counters         [data-count]
-     12. Demo forms + validation   [data-demo-form]
+     12. Forms: validation + delivery via js/forms.js   [data-demo-form]
      13. Toasts
      14. Current year              [data-year]
    ========================================================================== */
@@ -711,10 +711,11 @@
   }
 
   /* ------------------------------------------------------------------ *
-   * 12. Demo forms
-   *     Any <form data-demo-form> validates in the browser and shows the
-   *     success panel instead of navigating. Remove the attribute and add
-   *     an `action` to wire it to a real endpoint.
+   * 12. Forms
+   *     Any <form data-demo-form> validates in the browser, then hands the
+   *     submission to js/forms.js, which posts it to whichever provider is
+   *     named in config.js. The success panel and toast below are shown
+   *     only when the send actually succeeded.
    * ------------------------------------------------------------------ */
 
   function initForms() {
@@ -733,6 +734,10 @@
 
     $$("[data-demo-form]").forEach(function (form) {
       var status = $("[data-form-status]", form) || $("#" + form.id + "-status");
+
+      /* forms.js does the actual delivery; manage() stops it attaching a
+         second handler and plants the honeypot and time-trap. */
+      if (window.SiteForms) window.SiteForms.manage(form);
 
       function fieldOf(control) {
         return control.closest(".field") || control.closest("fieldset");
@@ -791,20 +796,20 @@
         }
 
         var btn = form.querySelector('button[type="submit"], .btn[type="submit"]');
-        if (btn) {
-          btn.setAttribute("aria-disabled", "true");
-          var original = btn.textContent;
-          btn.textContent = btn.getAttribute("data-sending") || "Sending…";
 
-          window.setTimeout(function () {
-            btn.removeAttribute("aria-disabled");
-            btn.textContent = original;
-          }, 1200);
-        }
-
-        window.setTimeout(function () {
+        function reveal(ok, message) {
           if (status) {
+            var body = status.querySelector("div") || status.querySelector("span");
+            if (body) {
+              body.innerHTML = ok
+                ? "<strong>" +
+                  (form.getAttribute("data-success-title") || "Thank you — that has been sent.") +
+                  "</strong> " + message
+                : "<strong>Not sent.</strong> " + message;
+            }
             status.classList.add("is-visible");
+            status.classList.toggle("form-status--error", !ok);
+            status.setAttribute("data-form-state", ok ? "ok" : "error");
             status.setAttribute("tabindex", "-1");
             status.focus();
             if (status.scrollIntoView) {
@@ -814,9 +819,27 @@
               });
             }
           }
-          showToast(form.getAttribute("data-success-toast") || "Request sent");
+          showToast(
+            ok
+              ? form.getAttribute("data-success-toast") || "Request sent"
+              : "Could not send — please try again"
+          );
+        }
+
+        /* Real delivery through forms.js. Unconfigured, it opens the
+           visitor's mail client rather than faking a success. */
+        if (!window.SiteForms) {
+          reveal(true, "This template has no form script loaded. See SETUP.md.");
           form.reset();
-        }, 1200);
+          return;
+        }
+
+        window.SiteForms.setBusy(btn, true);
+        window.SiteForms.send(form).then(function (result) {
+          window.SiteForms.setBusy(btn, false);
+          reveal(result.ok, result.message);
+          if (result.ok && result.mode !== "mailto") form.reset();
+        });
       });
     });
   }

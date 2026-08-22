@@ -140,6 +140,8 @@
   ]
 }
 </script>
+  <noscript><style>/* JS off: entrance animations never run, so show final state */
+.artwork__rake{opacity:1!important;transform:none!important;clip-path:none!important;filter:none!important}</style></noscript>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -388,7 +390,7 @@
           <p class="form__note">No third party ever receives your address. Unsubscribe in one click.</p>
           <div class="form-status" data-form-status role="status" aria-live="polite">
             <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 10.5l4 4 8-9"/></svg>
-            <span><strong>Noted &mdash; but nothing was sent.</strong> This template has no mailing list attached; connect the form to your own provider before publishing.</span>
+            <span></span>
           </div>
         </form>
       </div>
@@ -496,6 +498,9 @@
   </div>
 </footer>
 
+<script src="config.js"></script>
+<script src="js/forms.js"></script>
+<script src="js/integrations.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

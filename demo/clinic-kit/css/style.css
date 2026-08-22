@@ -4442,3 +4442,18 @@ ol.timeline,
 
   h1, h2, h3 { break-after: avoid; }
 }
+
+/* ==========================================================================
+   BOOKING EMBED
+   Slot for an optional Cal.com / Calendly iframe, filled by
+   js/integrations.js when booking.url is set in config.js. It carries the
+   [hidden] attribute until then, so an unconfigured kit renders as before.
+   ========================================================================== */
+.booking-embed {
+  border: 1px solid var(--border, rgba(0, 0, 0, 0.12));
+  border-radius: var(--radius, 12px);
+  overflow: hidden;
+  background: var(--surface, #fff);
+}
+.booking-embed[hidden] { display: none; }
+.booking-embed iframe { display: block; width: 100%; border: 0; }

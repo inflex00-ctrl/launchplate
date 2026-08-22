@@ -7,13 +7,14 @@
 <meta name="description" content="Northwind unifies product usage, billing and support into one account timeline, then tells your revenue team exactly which customers to act on today. Live in an afternoon.">
 <meta name="theme-color" content="#0f7a68" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0b0d0e" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://northwind.example.com/index.html">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Northwind">
 <meta property="og:title" content="Northwind — turn product usage into revenue you can see coming">
 <meta property="og:description" content="Northwind unifies product usage, billing and support into one account timeline, then tells your revenue team exactly which customers to act on today. Live in an afternoon.">
-
+<meta property="og:url" content="https://northwind.example.com/index.html">
 <meta property="og:image" content="https://northwind.example.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -30,6 +31,7 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/favicon.svg">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/hero-fx.css">
 <script>(function(){try{var t=localStorage.getItem("nw-theme");if(t==="dark"||t==="light"){document.documentElement.setAttribute("data-theme",t);document.documentElement.style.colorScheme=t;}}catch(e){}})();</script>
 
 <script type="application/ld+json">
@@ -90,6 +92,8 @@
   ]
 }
 </script>
+  <noscript><style>/* JS off: entrance animations never run, so show final state */
+.hfx__bloom,.hfx__grid,.hfx__rays{opacity:1!important;transform:none!important;clip-path:none!important;filter:none!important}</style></noscript>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -128,7 +132,15 @@
 <main id="main">
 
 <!-- ============================ HERO ============================ -->
-<section class="hero texture" aria-labelledby="hero-heading">
+<section class="hero texture hfx" aria-labelledby="hero-heading">
+  <!-- Decorative atmosphere: masked grid, conic god-rays, teal bloom. -->
+  <div class="hfx__atmos" aria-hidden="true">
+    <span class="hfx__layer hfx__grid"></span>
+    <span class="hfx__layer hfx__rays"></span>
+    <span class="hfx__layer hfx__bloom"></span>
+    <span class="hfx__layer hfx__horizon"></span>
+    <span class="hfx__layer hfx__vignette"></span>
+  </div>
   <div class="container">
     <div class="hero__inner">
       <a class="pill" href="changelog.html">
@@ -137,7 +149,7 @@
         <span class="pill__arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m0 0L9 4m4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
 
-      <h1 class="display" id="hero-heading">Know which account to call<br class="hide-sm"> before the renewal call.</h1>
+      <h1 class="display" id="hero-heading"><span class="hfx__word" style="--i:0">Know</span> <span class="hfx__word" style="--i:1">which</span> <span class="hfx__word" style="--i:2">account</span> <span class="hfx__word" style="--i:3">to</span> <span class="hfx__word" style="--i:4">call</span><br class="hide-sm"> <span class="hfx__word" style="--i:5">before</span> <span class="hfx__word" style="--i:6">the</span> <span class="hfx__word hfx__word--key" style="--i:7">renewal</span> <span class="hfx__word hfx__word--key" style="--i:8">call.</span></h1>
 
       <p class="lede">Northwind unifies product usage, billing and support into a single account timeline &mdash; then tells your revenue team exactly who to act on today, and what to say.</p>
 
@@ -180,30 +192,30 @@
       <div class="mock__stats">
         <div class="mock__stat">
           <div class="mock__stat-label">Accounts at risk</div>
-          <div class="mock__stat-value">18</div>
+          <div class="mock__stat-value" data-hfx-count="18" data-hfx-drift="1">18</div>
           <div class="mock__stat-delta">&minus;32% vs. prev</div>
         </div>
         <div class="mock__stat">
           <div class="mock__stat-label">Expansion ready</div>
-          <div class="mock__stat-value">47</div>
+          <div class="mock__stat-value" data-hfx-count="47" data-hfx-drift="1">47</div>
           <div class="mock__stat-delta">+19% vs. prev</div>
         </div>
         <div class="mock__stat">
           <div class="mock__stat-label">Pipeline influenced</div>
-          <div class="mock__stat-value">$1.4M</div>
+          <div class="mock__stat-value" data-hfx-count="1.4" data-hfx-decimals="1" data-hfx-prefix="$" data-hfx-suffix="M">$1.4M</div>
           <div class="mock__stat-delta">+11% vs. prev</div>
         </div>
       </div>
       <div class="mock__panel">
         <div class="mock__stat-label">Weekly active seats by cohort</div>
-        <div class="mock__chart"><div class="mock__bar-col" style="height:32%"></div><div class="mock__bar-col" style="height:38%"></div><div class="mock__bar-col" style="height:30%"></div><div class="mock__bar-col" style="height:44%"></div><div class="mock__bar-col" style="height:41%"></div><div class="mock__bar-col" style="height:52%"></div><div class="mock__bar-col" style="height:48%"></div><div class="mock__bar-col" style="height:61%"></div><div class="mock__bar-col" style="height:58%"></div><div class="mock__bar-col" style="height:70%"></div><div class="mock__bar-col" style="height:66%" data-strong="true"></div><div class="mock__bar-col" style="height:82%" data-strong="true"></div><div class="mock__bar-col" style="height:78%" data-strong="true"></div><div class="mock__bar-col" style="height:94%" data-strong="true"></div></div>
+        <div class="mock__chart"><div class="mock__bar-col" style="--i:0;height:32%"></div><div class="mock__bar-col" style="--i:1;height:38%"></div><div class="mock__bar-col" style="--i:2;height:30%"></div><div class="mock__bar-col" style="--i:3;height:44%"></div><div class="mock__bar-col" style="--i:4;height:41%"></div><div class="mock__bar-col" style="--i:5;height:52%"></div><div class="mock__bar-col" style="--i:6;height:48%"></div><div class="mock__bar-col" style="--i:7;height:61%"></div><div class="mock__bar-col" style="--i:8;height:58%"></div><div class="mock__bar-col" style="--i:9;height:70%"></div><div class="mock__bar-col" style="--i:10;height:66%" data-strong="true"></div><div class="mock__bar-col" style="--i:11;height:82%" data-strong="true"></div><div class="mock__bar-col" style="--i:12;height:78%" data-strong="true"></div><div class="mock__bar-col" style="--i:13;height:94%" data-strong="true"></div></div>
       </div>
       <div class="mock__rows">
         <div class="mock__row">
           <span class="mock__cell"><span class="mock__avatar">HL</span><strong>Harbourline</strong></span>
           <span>Seats +42%</span><span class="mock__chip">Expansion</span>
         </div>
-        <div class="mock__row">
+        <div class="mock__row mock__row--flagged">
           <span class="mock__cell"><span class="mock__avatar">VT</span><strong>Vantive Group</strong></span>
           <span>No login 14d</span><span class="badge badge--warn">At risk</span>
         </div>
@@ -215,6 +227,17 @@
     </div>
   </div>
 </div>
+      <!-- Decorative: restates the Vantive row above, so SRs lose nothing. -->
+      <aside class="hfx__alert" aria-hidden="true">
+        <span class="hfx__alert-icon">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 3.2 18 17H2L10 3.2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M10 8.3v3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="10" cy="14.3" r="0.95" fill="currentColor"/></svg>
+        </span>
+        <span class="hfx__alert-body">
+          <strong class="hfx__alert-title">Vantive Group is going quiet</strong>
+          <span class="hfx__alert-note">No login in 14 days &middot; $48k renews in 21 days</span>
+          <span class="hfx__alert-cta">Open playbook &rarr;</span>
+        </span>
+      </aside>
     </div>
   </div>
 </section>
@@ -521,18 +544,10 @@
   </div>
 </footer>
 
+<script src="config.js" defer></script>
+<script src="js/forms.js" defer></script>
+<script src="js/integrations.js" defer></script>
 <script src="js/main.js" defer></script>
-<div id="lp-ribbon" style="position:fixed;left:0;right:0;bottom:0;z-index:2147483647;
-background:#0b0d12;color:#e9eef5;border-top:1px solid #232a36;
-font:14px/1.45 -apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,sans-serif;
-display:flex;align-items:center;gap:14px;justify-content:center;flex-wrap:wrap;padding:11px 16px">
-<span style="display:flex;align-items:center;gap:8px;font-weight:600">
-<span style="width:17px;height:17px;border-radius:5px;background:linear-gradient(135deg,#f2994a,#f2c14e);display:inline-block"></span>
-Launchplate demo</span>
-<span style="color:#95a1b2">You're browsing a live preview of a paid template kit.</span>
-<a href="https://inflex00-ctrl.github.io/launchplate/" style="background:#f2994a;color:#0b0d12;font-weight:700;padding:8px 16px;border-radius:8px;text-decoration:none">Get this kit — &euro;49 &rarr;</a>
-<a href="https://inflex00-ctrl.github.io/launchplate/" style="color:#95a1b2;text-decoration:underline">See all kits</a>
-</div>
-<style>body{padding-bottom:64px!important}</style>
+<script src="js/hero-fx.js" defer></script>
 </body>
 </html>

@@ -8,6 +8,36 @@ file system, exactly as it will on your server.
 
 ---
 
+## Make it real
+
+This kit is not a mockup: the waitlist form delivers real signups to your inbox.
+
+Everything runs off one file, **`config.js`**, in this folder. Fill in the
+business details and a form-provider key and the site is deliverable:
+
+```js
+window.SITE_CONFIG = {
+  business: { name: "…", email: "…", phone: "…" },
+  forms:    { provider: "web3forms", key: "your-access-key" }
+};
+```
+
+That is the whole integration. With nothing configured the kit still renders
+and behaves sensibly — forms validate, then fall back to the visitor's own mail
+app rather than pretending to have sent something.
+
+The waitlist confirmation no longer invents a queue position — it shows one
+only if you set `waitlist.baseCount`, and hides the card otherwise. Optional
+privacy-first analytics is available too, off by default.
+
+**[SETUP.md](SETUP.md) is the full walkthrough**: choosing a form provider
+(with real free-tier limits and prices for Web3Forms, Forminit, Formspree,
+FormSubmit, Basin and Netlify Forms), getting a key, deploying to Netlify /
+Vercel / Cloudflare Pages / ordinary shared hosting, connecting a domain, and a
+plain-English note on what each provider stores and what that means for GDPR.
+
+---
+
 ## 1. What is in the box
 
 | File | What it is |
@@ -19,6 +49,9 @@ file system, exactly as it will on your server.
 | `pricing.html` | Usage-based tiers, an interactive cost calculator, and an eight-question FAQ |
 | `waitlist.html` | Waitlist flow: validated form, live progress bar, and a success state with referral link |
 | `css/style.css` | The entire design system. One file, ~2,000 lines, heavily commented |
+| `config.js` | **The only file you must edit.** Business details, form provider, analytics |
+| `js/forms.js` | Form delivery — validation, spam traps, provider transport. Shared across all kits |
+| `js/integrations.js` | Analytics. Shared across all kits |
 | `js/main.js` | Shared behaviour: theme toggle, mobile nav, tabs, clipboard, scroll reveal, scroll-spy |
 | `js/demo.js` | The typewriter/streaming agent console on the landing page |
 | `js/playground.js` | Category filter + search for the prompt library |
@@ -43,9 +76,12 @@ ai-product-kit/
 ├── api.html
 ├── pricing.html
 ├── waitlist.html
+├── config.js            ← the only file you must edit
 ├── css/
 │   └── style.css
 ├── js/
+│   ├── forms.js         Form delivery — shared across all kits
+│   ├── integrations.js  Analytics / maps / booking — shared across all kits
 │   ├── main.js
 │   ├── demo.js
 │   ├── playground.js
@@ -53,6 +89,7 @@ ai-product-kit/
 │   └── waitlist.js
 ├── assets/
 │   └── favicon.svg
+├── SETUP.md             ZIP → live client site in 20 minutes
 ├── README.md
 └── LICENCE.txt
 ```

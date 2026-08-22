@@ -321,8 +321,17 @@
 
   for (var n = 0; n < forms.length; n++) {
     (function (form) {
-      var status = form.querySelector('[data-form-status]');
+      /* On contact.html the banner sits just above the form rather than
+         inside it, so look outside the form as well before giving up —
+         otherwise the confirmation silently never appears. */
+      var status =
+        form.querySelector('[data-form-status]') ||
+        (form.parentElement && form.parentElement.querySelector('[data-form-status]'));
       var controls = form.querySelectorAll('input, select, textarea');
+
+      /* Tell forms.js this form has an owner, so it does not attach its
+         own generic handler on top of ours. Also plants the spam traps. */
+      if (window.SiteForms) window.SiteForms.manage(form);
 
       for (var i = 0; i < controls.length; i++) {
         controls[i].addEventListener('blur', function () {
@@ -351,16 +360,47 @@
           return;
         }
 
-        if (status) {
+        var clearErrors = function () {
+          var choices = form.querySelectorAll('.field, .consent');
+          for (var w = 0; w < choices.length; w++) choices[w].classList.remove('is-invalid');
+        };
+
+        var reveal = function (ok, message) {
+          if (!status) return;
+          var span = status.querySelector('span');
+          if (span) {
+            span.innerHTML =
+              '<strong>' + (ok ? 'Thank you &mdash; your request has been sent.' : 'Not sent.') +
+              '</strong> ' + message;
+          }
           status.classList.add('is-visible');
+          status.classList.toggle('form-status--error', !ok);
+          status.setAttribute('data-form-state', ok ? 'ok' : 'error');
           status.setAttribute('tabindex', '-1');
           status.focus();
+        };
+
+        /* Real delivery. forms.js posts to whatever provider is set in
+           config.js; with nothing configured it opens the visitor's mail
+           client or says plainly that the form is not connected yet. */
+        if (!window.SiteForms) {
+          reveal(true, 'This template has no form script loaded. See SETUP.md.');
+          form.reset();
+          clearErrors();
+          return;
         }
 
-        form.reset();
+        var button = form.querySelector('button[type="submit"], .btn[type="submit"]');
+        window.SiteForms.setBusy(button, true);
 
-        var choices = form.querySelectorAll('.field, .consent');
-        for (var w = 0; w < choices.length; w++) choices[w].classList.remove('is-invalid');
+        window.SiteForms.send(form).then(function (result) {
+          window.SiteForms.setBusy(button, false);
+          reveal(result.ok, result.message);
+          if (result.ok && result.mode !== 'mailto') {
+            form.reset();
+            clearErrors();
+          }
+        });
       });
     })(forms[n]);
   }

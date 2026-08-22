@@ -13,6 +13,37 @@ legal advice and no part of it should survive into a live site.
 
 ---
 
+## Make it real
+
+This kit is not a mockup: the consultation request on `contact.html` and the
+newsletter signup on `insights.html` both deliver to a real inbox.
+
+Everything runs off one file, **`config.js`**, in this folder. Fill in the
+business details and a form-provider key and the site is deliverable:
+
+```js
+window.SITE_CONFIG = {
+  business: { name: "…", email: "…", phone: "…" },
+  forms:    { provider: "web3forms", key: "your-access-key" }
+};
+```
+
+That is the whole integration. With nothing configured the kit still renders
+and behaves sensibly — forms validate, then fall back to the visitor's own mail
+app rather than pretending to have sent something.
+
+Also optional, also off by default: a real OpenStreetMap embed in place of the
+drawn map on `contact.html` (no API key, no tracking cookie), and privacy-first
+analytics.
+
+**[SETUP.md](SETUP.md) is the full walkthrough**: choosing a form provider
+(with real free-tier limits and prices for Web3Forms, Forminit, Formspree,
+FormSubmit, Basin and Netlify Forms), getting a key, deploying to Netlify /
+Vercel / Cloudflare Pages / ordinary shared hosting, connecting a domain, and a
+plain-English note on what each provider stores and what that means for GDPR.
+
+---
+
 ## Contents
 
 ```
@@ -24,10 +55,14 @@ lawfirm-kit/
 ├── about.html             Firm history, values, timeline, community work, awards
 ├── contact.html           Consultation request form, three offices with hours, map, FAQ
 ├── insights.html          Article listing with working category filter and newsletter strip
+├── config.js              ← the only file you must edit
 ├── css/
 │   └── style.css          The entire design system (one file, ~3,100 lines, commented)
 ├── js/
+│   ├── forms.js           Form delivery — shared across all kits
+│   ├── integrations.js    Analytics / maps — shared across all kits
 │   └── main.js            Theme toggle, mobile nav, reveals, filter, form validation (~10 KB)
+├── SETUP.md               ZIP → live client site in 20 minutes
 ├── README.md              This file
 └── LICENSE.txt            Licence in full
 ```
@@ -165,50 +200,61 @@ Do not describe an image as "photo of" — screen readers already announce it.
 
 ### Swapping in a real map
 
-On `contact.html`, find `<div class="artwork scene scene--map map-plate">`. Replace the
-inner `<svg>` with your embed, keeping the wrapper so the aspect ratio, corner and
-address label survive:
+**Maps.** The drawn street grid is a placeholder, and swapping it for a real
+map is a config change, not an HTML one:
 
-```html
-<iframe src="https://www.google.com/maps/embed?pb=YOUR_EMBED_ID"
-        title="Map of our Boston office" style="border:0;width:100%;height:100%"
-        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+```js
+map: { enabled: true, provider: "osm", lat: 42.3554, lon: -71.0555, zoom: 16 }
 ```
 
-A static map image is often the better choice: it costs nothing, loads instantly and
-sets no third-party cookies. Delete the `map-plate__pin` span if your map has its own
-marker.
+OpenStreetMap is the default — no API key, no account, no tracking cookie,
+nothing to pay. Find your coordinates by right-clicking your building on
+openstreetmap.org and reading them out of the URL. The address label and "Get directions"
+button stay on top of the real map; only the drawn artwork is hidden.
+
+The illustration is only hidden, never removed, so setting `enabled: false`
+brings it straight back. `provider: "google"` gives you a keyless Google embed
+instead; it sets cookies, so you would need a consent banner for it in the EU,
+which is exactly why OSM is the default.
+
 
 ---
 
 ## Making the forms work
 
-There is no back end in a static kit, so `js/main.js` validates the consultation form
-and shows a confirmation message without sending anything. Wire it to a real handler in
-one of these ways:
+They already do. The consultation request and the newsletter signup both deliver.
 
-**1. A form service** (Formspree, Netlify Forms, Basin, Getform). Usually one attribute:
+Set two things in `config.js` and enquiries arrive in a real inbox:
 
-```html
-<form class="form" action="https://formspree.io/f/YOUR_ID" method="POST" data-form>
+```js
+forms: {
+  provider: "web3forms",   // or forminit, formspree, formsubmit, basin, netlify, custom
+  key:      "your-access-key",
+  fallback: "mailto"       // what happens if you leave provider blank
+}
 ```
 
-Then delete the `event.preventDefault()` line in section 6 of `main.js` so the browser
-submits normally, or keep the script and post with `fetch()`.
+`js/forms.js` handles the rest: it validates, blocks bots with a honeypot and a
+time-trap, disables the button while sending, posts with `fetch()` so the
+visitor never leaves the page, and writes the real result into the same status
+banner the kit already uses. Every field is normalised into a readable email
+with a proper subject line and reply-to address, whatever shape the form is.
 
-**2. Your own script.** Point `action` at your PHP/Node endpoint. The validation and
-error styling keep working; only the submit handler changes.
+Leave `provider` blank and the form falls back to the visitor's own mail app
+(or says plainly that it is not connected yet, with `fallback: "notice"`). It
+never shows a success message for something it did not send.
 
-**3. Email fallback.** `action="mailto:you@example.com"` works everywhere and looks
-unprofessional everywhere. Use it only as a stopgap.
+Adding your own form takes one attribute:
 
-**Before you launch a legal enquiry form,** check three things with your client: that
-the destination inbox is monitored, that the confirmation wording does not imply an
-attorney–client relationship (the template's does not — read it before you change it),
-and that any data you collect is covered by their privacy notice.
+```html
+<form data-form data-form-type="Quote request" novalidate>
+  …your fields…
+  <div class="form-status" data-form-status role="status" aria-live="polite"><span></span></div>
+</form>
+```
 
-Every control is already labelled, hinted and wired for `aria-invalid`, so validation
-messages are announced to screen readers.
+Full walkthrough, provider comparison with real limits and prices, deployment
+and a GDPR note: **[SETUP.md](SETUP.md)**.
 
 ---
 
