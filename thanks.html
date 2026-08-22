@@ -3,7 +3,9 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Your download — Launchplate</title>
 <meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="vendor/premium.css">
 <link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/enhance.css">
 <style>
 .dl{max-width:640px;margin:0 auto;text-align:center;padding:80px 0}
 .tick{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--acc),var(--acc2));
@@ -18,7 +20,7 @@
 .note{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:20px;
   font-size:14px;color:var(--dim);text-align:left;margin-top:30px}
 .note b{color:var(--tx)}
-</style></head><body>
+</style></head><body class="pm">
 <nav><div class="wrap"><a href="index.html" class="logo"><i></i>Launchplate</a></div></nav>
 <div class="wrap"><div class="dl">
   <div class="tick"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div>
@@ -48,4 +50,5 @@ document.getElementById('files').innerHTML = show.map(function(k){
     '<b>'+c.n+'</b><span>ZIP · download</span></a>';
 }).join('');
 </script><script src="js/convert.js" defer></script>
+<script src="vendor/premium.js" defer></script>
 </body></html>

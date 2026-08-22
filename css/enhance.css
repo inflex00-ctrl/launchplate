@@ -1,0 +1,31 @@
+/* Applies the premium motion library to the storefront. Purely additive:
+   if premium.css fails to load, the site still renders normally. */
+header.hero, .hero { position: relative; isolation: isolate; }
+.hero::after{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(60% 50% at 50% 0%, rgba(242,153,74,.14), transparent 70%),
+    radial-gradient(40% 40% at 15% 20%, rgba(91,140,255,.10), transparent 70%);
+}
+/* masked grid behind the hero — the mask is what stops it reading as a template */
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:-2;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:58px 58px;
+  -webkit-mask-image:radial-gradient(70% 60% at 50% 30%,#000 20%,transparent 78%);
+          mask-image:radial-gradient(70% 60% at 50% 30%,#000 20%,transparent 78%);
+}
+/* cards: lift + subtle glow on hover */
+.card{transition:transform .32s cubic-bezier(.22,.9,.3,1),border-color .32s,box-shadow .32s}
+.card:hover{box-shadow:0 26px 60px -28px rgba(0,0,0,.9),0 0 0 1px rgba(242,153,74,.22)}
+/* primary buttons get a sheen sweep */
+.btn-p{position:relative;overflow:hidden}
+.btn-p::after{content:"";position:absolute;top:0;left:-140%;width:60%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.32),transparent);
+  transform:skewX(-18deg);transition:left .65s cubic-bezier(.22,.9,.3,1)}
+.btn-p:hover::after{left:150%}
+@media (prefers-reduced-motion: reduce){
+  .btn-p::after{display:none}
+  .card{transition:none}
+}

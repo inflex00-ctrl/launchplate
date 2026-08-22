@@ -1,0 +1,1616 @@
+/* =====================================================================================
+   premium.css — a dependency-free "premium 2026" UI/motion utility layer
+   -------------------------------------------------------------------------------------
+   Zero external requests. No build step. No Tailwind. Works from file://.
+   Everything is a plain class prefixed `pm-` so it can be dropped into any page
+   without colliding with existing styles.
+
+   Techniques distilled from: linear.app, vercel.com, resend.com, clerk.com,
+   stripe.com, ui.aceternity.com, magicui.design, 21st.dev, ui.shadcn.com.
+   See NOTES.md for the research writeup and per-technique sourcing.
+
+   TABLE OF CONTENTS
+     01  Design tokens (colour, type, space, motion)
+     02  Reset + base typography
+     03  Type scale utilities
+     04  Layout: container, section, stack, grid, bento
+     05  Surfaces: card, glass, hairlines, dividers
+     06  Backgrounds: grid, dots, mesh, aurora, spotlight, beams, noise, vignette,
+         starfield
+     07  Animated borders: beam, conic, shine, glow ring
+     08  Glow, bloom and depth
+     09  Text effects: gradient, shimmer, aurora, typewriter, scramble, split, highlight
+     10  Buttons, badges, pills, inputs
+     11  Motion: scroll reveal, stagger, marquee, tilt, spotlight-follow, magnetic
+     12  Scroll-linked: progress bar, sticky scroll, parallax
+     13  Micro-components: stat, ticker, node beam, orbit, ripple, meteors,
+         skeleton shimmer, tap ripple, checkmark draw, pulsing border
+     14  Reduced motion + print
+   ===================================================================================== */
+
+
+/* =====================================================================================
+   01  DESIGN TOKENS
+   -------------------------------------------------------------------------------------
+   Colour approach (this is the single biggest "expensive" lever on dark UI):
+
+   1. ONE ink base, never pure #000. Linear ships #08090a; Vercel #000 with #111/#333
+      "accents"; Resend #000 + Radix alpha scales. Pure black kills the sense of depth
+      because nothing can sit *below* it. We use #08090a and go up from there.
+   2. Surfaces are ALPHA WHITE over the base, not opaque greys. rgba(255,255,255,.02..06)
+      composites with whatever gradient/mesh sits behind, so panels feel lit by the scene
+      instead of pasted on top. Opaque greys are what make dark pages look muddy.
+   3. Every raised surface gets a 1px *inset top highlight* (`inset 0 1px 0 rgba(255,255,255,.06)`)
+      — a simulated light source above the page. This one shadow does 80% of the work.
+   4. Colour lives in the LIGHT, not the fill: near-neutral panels, saturated colour only
+      in glows, gradients, beams and 1–2 accent moments per screen.
+   5. Text is a 3-step ramp (#f7f8f8 / #b4bcd0 / #8a8f98 — Linear's exact ramp). Body copy
+      is never pure white; pure white on near-black vibrates.
+   ===================================================================================== */
+
+:root {
+  /* ---- ink + surfaces ------------------------------------------------------------- */
+  --pm-bg:           #08090a;   /* page base — near-black, faintly blue */
+  --pm-bg-1:         #0f1011;   /* raised panel */
+  --pm-bg-2:         #141516;   /* raised panel, second step */
+  --pm-bg-3:         #191a1b;   /* input / inset wells */
+  --pm-surface:      rgba(255, 255, 255, 0.024);
+  --pm-surface-2:    rgba(255, 255, 255, 0.045);
+  --pm-surface-3:    rgba(255, 255, 255, 0.075);
+
+  /* ---- hairlines ------------------------------------------------------------------ */
+  --pm-line:         rgba(255, 255, 255, 0.075);
+  --pm-line-2:       rgba(255, 255, 255, 0.125);
+  --pm-line-3:       rgba(255, 255, 255, 0.20);
+  --pm-highlight:    rgba(255, 255, 255, 0.07);  /* the inset top rim */
+
+  /* ---- text ramp ------------------------------------------------------------------ */
+  --pm-text:         #f7f8f8;
+  --pm-text-2:       #b4bcd0;
+  --pm-text-3:       #8a8f98;
+  --pm-text-4:       #62666d;
+
+  /* ---- accents -------------------------------------------------------------------- */
+  --pm-accent:       #7c6cff;   /* violet — primary */
+  --pm-accent-2:     #38bdf8;   /* cyan */
+  --pm-accent-3:     #f472b6;   /* pink */
+  --pm-accent-4:     #ffaa40;   /* amber */
+  --pm-accent-ink:   #ffffff;
+
+  /* Pre-mixed alpha versions of the accent for glow/tint (avoids color-mix() support
+     questions and keeps everything one hop from the token). */
+  --pm-accent-a08:   rgba(124, 108, 255, 0.08);
+  --pm-accent-a16:   rgba(124, 108, 255, 0.16);
+  --pm-accent-a32:   rgba(124, 108, 255, 0.32);
+  --pm-accent-a64:   rgba(124, 108, 255, 0.64);
+
+  /* ---- radii (Linear's ladder) ----------------------------------------------------- */
+  --pm-r-4:  4px;   --pm-r-6:  6px;   --pm-r-8:  8px;
+  --pm-r-12: 12px;  --pm-r-16: 16px;  --pm-r-24: 24px;  --pm-r-32: 32px;
+  --pm-r-pill: 9999px;
+
+  /* ---- spacing rhythm -------------------------------------------------------------- */
+  --pm-1: 4px;   --pm-2: 8px;   --pm-3: 12px;  --pm-4: 16px;  --pm-5: 24px;
+  --pm-6: 32px;  --pm-7: 48px;  --pm-8: 64px;  --pm-9: 96px;  --pm-10: 128px;
+  --pm-gutter: clamp(20px, 4vw, 40px);
+  --pm-section-y: clamp(64px, 9vw, 136px);
+  --pm-max: 1120px;          /* content column — premium sites sit 1080–1200px */
+  --pm-measure: 62ch;        /* max line length for body copy */
+
+  /* ---- type ------------------------------------------------------------------------ */
+  /* System stacks only. `-apple-system` first gets SF Pro on macOS/iOS, Segoe on Win,
+     Roboto on Android — all three are high-quality UI faces, which is why a system
+     stack no longer reads as "cheap" the way it did in 2015. */
+  --pm-font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto,
+             "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+  --pm-font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+             "Liberation Mono", monospace;
+
+  /* ---- motion ---------------------------------------------------------------------- */
+  /* Two easings do almost everything on these sites: a soft decel for entrances and a
+     slight overshoot-free "swift" curve for hover states. Durations stay short. */
+  --pm-ease:      cubic-bezier(0.22, 0.61, 0.36, 1);      /* decelerate */
+  --pm-ease-out:  cubic-bezier(0.16, 1, 0.3, 1);          /* expo out — reveals */
+  --pm-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --pm-fast:   140ms;
+  --pm-med:    280ms;
+  --pm-slow:   680ms;
+
+  /* ---- shadows: three layers = depth; one layer = flat ------------------------------ */
+  --pm-shadow-sm:
+      0 1px 2px rgba(0, 0, 0, 0.45),
+      inset 0 1px 0 var(--pm-highlight);
+  --pm-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.4),
+      0 8px 24px -8px rgba(0, 0, 0, 0.6),
+      inset 0 1px 0 var(--pm-highlight);
+  --pm-shadow-lg:
+      0 1px 2px rgba(0, 0, 0, 0.5),
+      0 12px 32px -12px rgba(0, 0, 0, 0.7),
+      0 48px 96px -48px rgba(0, 0, 0, 0.9),
+      inset 0 1px 0 var(--pm-highlight);
+
+  /* ---- effect knobs (overridable per element via inline style) ---------------------- */
+  --pm-grid-size: 44px;
+  --pm-grid-color: rgba(255, 255, 255, 0.055);
+  --pm-dot-size: 22px;
+  --pm-dot-color: rgba(255, 255, 255, 0.13);
+  --pm-noise-opacity: 0.035;
+  --pm-star-color: rgba(255, 255, 255, 0.85);
+  --pm-star-opacity: 0.55;
+  --pm-skeleton-base: rgba(255, 255, 255, 0.055);
+  --pm-skeleton-sheen: rgba(255, 255, 255, 0.14);
+  --pm-beam-from: var(--pm-accent-4);
+  --pm-beam-to:   var(--pm-accent);
+  --pm-beam-size: 72px;
+  --pm-beam-dur:  6s;
+  --pm-beam-width: 1px;
+  --pm-marquee-dur: 40s;
+  --pm-marquee-gap: 24px;
+}
+
+/* Optional light theme. Same structure, inverted ramp — every utility below reads
+   tokens only, so a single attribute flips the whole library. */
+[data-pm-theme="light"] {
+  --pm-bg: #ffffff;      --pm-bg-1: #fafafa;  --pm-bg-2: #f4f4f5;  --pm-bg-3: #eeeeef;
+  --pm-surface:   rgba(0, 0, 0, 0.02);
+  --pm-surface-2: rgba(0, 0, 0, 0.04);
+  --pm-surface-3: rgba(0, 0, 0, 0.07);
+  --pm-line:   rgba(0, 0, 0, 0.09);
+  --pm-line-2: rgba(0, 0, 0, 0.14);
+  --pm-line-3: rgba(0, 0, 0, 0.22);
+  --pm-highlight: rgba(255, 255, 255, 0.9);
+  --pm-text: #16181d;    --pm-text-2: #3c4149; --pm-text-3: #6f6e77; --pm-text-4: #8a8f98;
+  --pm-grid-color: rgba(0, 0, 0, 0.05);
+  --pm-dot-color:  rgba(0, 0, 0, 0.14);
+  --pm-noise-opacity: 0.02;
+  --pm-star-color: rgba(0, 0, 0, 0.6);
+  --pm-star-opacity: 0.3;
+  --pm-skeleton-base: rgba(0, 0, 0, 0.055);
+  --pm-skeleton-sheen: rgba(255, 255, 255, 0.7);
+}
+
+
+/* =====================================================================================
+   02  RESET + BASE
+   ===================================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body.pm {
+  margin: 0;
+  background: var(--pm-bg);
+  color: var(--pm-text);
+  font-family: var(--pm-font);
+  font-size: 15px;               /* Linear ships 15px body; 16px reads "template" */
+  line-height: 1.6;
+  letter-spacing: -0.011em;      /* every premium site tracks body slightly tight */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-synthesis-weight: none;
+  overflow-x: hidden;
+}
+
+body.pm ::selection { background: var(--pm-accent-a32); color: var(--pm-text); }
+
+/* :where() keeps this at ZERO specificity, so a component class like .pm-btn--primary
+   can still set its own colour. (A plain `.pm a` here silently made every primary
+   button white-on-white.) */
+:where(.pm a) { color: inherit; text-decoration: none; }
+.pm img, .pm svg, .pm video { display: block; max-width: 100%; }
+.pm h1, .pm h2, .pm h3, .pm h4, .pm p, .pm figure { margin: 0; }
+:where(.pm button, .pm input, .pm textarea, .pm select) { font: inherit; color: inherit; }
+
+/* Focus ring that matches the aesthetic instead of the OS default. */
+.pm :focus-visible {
+  outline: 2px solid var(--pm-accent-a64);
+  outline-offset: 2px;
+  border-radius: var(--pm-r-6);
+}
+
+
+/* =====================================================================================
+   03  TYPE SCALE
+   -------------------------------------------------------------------------------------
+   The single most reliable "expensive" signal after colour: NEGATIVE TRACKING THAT
+   SCALES WITH SIZE. Measured off the real sites —
+     Vercel (Geist):  14px→-0.02em · 24px→-0.04em · 48px→-0.06em · 72px→-0.06em
+     Linear (Inter):  body -0.011em · small -0.013em · title -0.012em · display -0.022em
+   Rule of thumb baked in below: -0.011em at body, ramping to -0.045em at display.
+   Line-height moves the opposite way: 1.6 at body → 0.98 at display.
+   Weight: 500–600 for headings (NOT 700 — Linear's "bold" is 680 on a variable axis;
+   with system fonts 600 is the closest equivalent that stays elegant).
+   ===================================================================================== */
+
+.pm-display {
+  font-size: clamp(2.75rem, 6.4vw, 5rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  font-weight: 600;
+  color: var(--pm-text);
+}
+.pm-h1 {
+  font-size: clamp(2.125rem, 4.2vw, 3.25rem);
+  line-height: 1.06;
+  letter-spacing: -0.038em;
+  font-weight: 600;
+}
+.pm-h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: 1.12;
+  letter-spacing: -0.032em;
+  font-weight: 600;
+}
+.pm-h3 {
+  font-size: 1.3125rem;
+  line-height: 1.3;
+  letter-spacing: -0.022em;
+  font-weight: 590;
+}
+.pm-h4 {
+  font-size: 1rem;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+  font-weight: 560;
+}
+.pm-lead {
+  font-size: clamp(1.0625rem, 1.35vw, 1.1875rem);
+  line-height: 1.6;
+  letter-spacing: -0.014em;
+  color: var(--pm-text-2);
+  font-weight: 400;
+}
+.pm-body   { font-size: 0.9375rem; line-height: 1.65; letter-spacing: -0.011em; color: var(--pm-text-2); }
+.pm-small  { font-size: 0.8125rem; line-height: 1.5;  letter-spacing: -0.013em; color: var(--pm-text-3); }
+.pm-micro  { font-size: 0.75rem;   line-height: 1.4;  letter-spacing: -0.005em; color: var(--pm-text-3); }
+
+/* Eyebrow / kicker — the one place tracking goes POSITIVE. */
+.pm-eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 560;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--pm-text-3);
+}
+
+.pm-mono { font-family: var(--pm-font-mono); font-size: 0.8125rem; letter-spacing: -0.01em; }
+
+/* Measure: body copy never exceeds ~62 characters. Long lines are the #1 tell of an
+   amateur landing page. `.pm-measure-center` also centres the block. */
+.pm-measure        { max-width: var(--pm-measure); }
+.pm-measure-center { max-width: var(--pm-measure); margin-inline: auto; }
+
+.pm-dim    { color: var(--pm-text-3); }
+.pm-dimmer { color: var(--pm-text-4); }
+.pm-center { text-align: center; }
+.pm-balance { text-wrap: balance; }   /* keeps headline ragging even */
+.pm-pretty  { text-wrap: pretty; }    /* kills orphans in paragraphs */
+.pm-tnum   { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+
+
+/* =====================================================================================
+   04  LAYOUT
+   ===================================================================================== */
+
+.pm-container {
+  width: 100%;
+  max-width: var(--pm-max);
+  margin-inline: auto;
+  padding-inline: var(--pm-gutter);
+}
+.pm-container--wide { max-width: 1320px; }
+.pm-container--tight { max-width: 760px; }
+
+/* Section rhythm: vertical space is the cheapest luxury signal there is. Premium sites
+   run 96–160px between sections at desktop and never less than 64px at mobile. */
+.pm-section { position: relative; padding-block: var(--pm-section-y); }
+.pm-section--tight { padding-block: clamp(48px, 6vw, 80px); }
+
+/* A hairline that fades at both ends — used as a section separator everywhere on
+   linear.app and vercel.com. A solid 1px rule looks cheap; a masked one looks drawn. */
+.pm-rule {
+  height: 1px;
+  border: 0;
+  margin: 0;
+  background: linear-gradient(90deg, transparent, var(--pm-line-2) 18%, var(--pm-line-2) 82%, transparent);
+}
+.pm-rule--v { width: 1px; height: auto; align-self: stretch;
+  background: linear-gradient(180deg, transparent, var(--pm-line-2) 18%, var(--pm-line-2) 82%, transparent); }
+
+/* Vertical stack with a token gap. */
+.pm-stack   { display: flex; flex-direction: column; gap: var(--pm-4); }
+.pm-stack-2 { gap: var(--pm-2); } .pm-stack-3 { gap: var(--pm-3); }
+.pm-stack-5 { gap: var(--pm-5); } .pm-stack-6 { gap: var(--pm-6); }
+.pm-stack-7 { gap: var(--pm-7); }
+.pm-row     { display: flex; align-items: center; gap: var(--pm-3); flex-wrap: wrap; }
+.pm-row--center { justify-content: center; }
+.pm-row--between { justify-content: space-between; }
+.pm-spacer  { flex: 1 1 auto; }
+
+.pm-grid  { display: grid; gap: var(--pm-4); grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.pm-grid-2 { display: grid; gap: var(--pm-4); grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pm-grid-3 { display: grid; gap: var(--pm-4); grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.pm-grid-4 { display: grid; gap: var(--pm-4); grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+/* ---- Bento grid ------------------------------------------------------------------
+   A 6-column bed with explicit spans. The trick that makes bento look designed rather
+   than random: keep ONE tall hero tile and let the rest be 2- or 3-wide, and give every
+   tile the same radius + hairline so the grid reads as one object.                    */
+.pm-bento {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--pm-3);
+}
+.pm-col-2 { grid-column: span 2; }
+.pm-col-3 { grid-column: span 3; }
+.pm-col-4 { grid-column: span 4; }
+.pm-col-6 { grid-column: span 6; }
+.pm-row-2 { grid-row: span 2; }
+
+@media (max-width: 860px) {
+  .pm-bento { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pm-col-2, .pm-col-3, .pm-col-4, .pm-col-6 { grid-column: span 2; }
+  .pm-row-2 { grid-row: span 1; }
+  .pm-grid-3, .pm-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .pm-grid-2, .pm-grid-3, .pm-grid-4 { grid-template-columns: minmax(0, 1fr); }
+}
+
+.pm-relative { position: relative; }
+.pm-clip     { overflow: hidden; }
+.pm-isolate  { isolation: isolate; }   /* contains blend modes (noise, glow) */
+
+
+/* =====================================================================================
+   05  SURFACES
+   ===================================================================================== */
+
+/* The workhorse card. Four things make it feel expensive:
+     1. alpha-white fill, not an opaque grey
+     2. hairline border at 7.5% white
+     3. inset top highlight (the fake light source)
+     4. a real drop shadow with a long, soft third layer                             */
+.pm-card {
+  position: relative;
+  border-radius: var(--pm-r-16);
+  background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012)),
+      var(--pm-bg-1);
+  border: 1px solid var(--pm-line);
+  box-shadow: var(--pm-shadow);
+  padding: var(--pm-5);
+  transition: transform var(--pm-med) var(--pm-ease),
+              border-color var(--pm-med) var(--pm-ease),
+              box-shadow var(--pm-med) var(--pm-ease);
+}
+.pm-card--flush { padding: 0; overflow: hidden; }
+.pm-card--lift:hover {
+  transform: translateY(-2px);
+  border-color: var(--pm-line-2);
+  box-shadow: var(--pm-shadow-lg);
+}
+
+/* Glassmorphism, done tastefully: heavy SATURATION with modest blur, a bright top rim,
+   and a fill under 8% alpha. The cheap version is 20%+ white and blur(20px) with no
+   saturation — that reads as frosted plastic. Linear's header is
+   `backdrop-filter: saturate(1.8) blur(20px)`; we mirror that. */
+.pm-glass {
+  background: rgba(12, 13, 15, 0.55);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  border: 1px solid var(--pm-line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 8px 32px -12px rgba(0, 0, 0, 0.8);
+  border-radius: var(--pm-r-16);
+}
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  .pm-glass { background: rgba(16, 17, 19, 0.94); }   /* graceful fallback */
+}
+
+/* Sticky glass nav bar. */
+.pm-nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; gap: var(--pm-4);
+  padding: 10px var(--pm-gutter);
+  background: rgba(8, 9, 10, 0.6);
+  -webkit-backdrop-filter: saturate(180%) blur(18px);
+  backdrop-filter: saturate(180%) blur(18px);
+  border-bottom: 1px solid var(--pm-line);
+}
+
+/* An inset "well" for code / previews. */
+.pm-well {
+  background: var(--pm-bg);
+  border: 1px solid var(--pm-line);
+  border-radius: var(--pm-r-12);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.6);
+  padding: var(--pm-4);
+}
+
+
+/* =====================================================================================
+   06  BACKGROUNDS
+   -------------------------------------------------------------------------------------
+   All of these are DECORATIVE PSEUDO-ELEMENTS on a positioned parent, so they never
+   affect layout and can't be clicked. Every one is masked — an unmasked pattern that
+   runs to the edge of the viewport is the classic tell of a template.
+   ===================================================================================== */
+
+/* ------------------------------------------------------------------------------------
+   IMPORTANT — the pseudo-element budget.
+   Every atmosphere utility below paints into ::before (and .pm-noise / .pm-vignette into
+   ::after). An element has exactly ONE of each, so putting two ::before utilities on the
+   same tag (e.g. class="pm-bg-grid pm-bg-spotlight") does not stack them — the later
+   rule in this file simply overwrites the earlier one. That is a real trap, so:
+
+     ONE atmosphere class per element. To stack, nest layers:
+
+       <section class="pm-section pm-isolate pm-vignette">
+         <span class="pm-layer pm-bg-grid"></span>
+         <span class="pm-layer pm-bg-halo"></span>
+         …content…
+       </section>
+
+   `.pm-layer` (defined at the end of this section) is an absolutely-positioned, inert
+   box at z-index -1, so any number of them can be composited under the content.
+   ------------------------------------------------------------------------------------ */
+.pm-bg-grid, .pm-bg-dots, .pm-bg-mesh, .pm-bg-aurora, .pm-bg-halo,
+.pm-bg-spotlight, .pm-bg-beams, .pm-bg-glow { position: relative; isolation: isolate; }
+
+.pm-bg-grid::before, .pm-bg-dots::before, .pm-bg-mesh::before,
+.pm-bg-aurora::before, .pm-bg-spotlight::before, .pm-bg-spotlight::after,
+.pm-bg-beams::before, .pm-bg-glow::before, .pm-bg-halo::before {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ---- Grid lines with a radial fade ------------------------------------------------
+   Two repeating linear-gradients (cheaper than an SVG pattern and resolution
+   independent), then `mask-image` with a radial gradient so the grid dissolves toward
+   the edges. `--pm-grid-size` / `--pm-grid-color` are overridable inline.            */
+.pm-bg-grid::before {
+  inset: 0;
+  background-image:
+      linear-gradient(to right,  var(--pm-grid-color) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--pm-grid-color) 1px, transparent 1px);
+  background-size: var(--pm-grid-size) var(--pm-grid-size);
+  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 0%, #000 15%, transparent 78%);
+          mask-image: radial-gradient(ellipse 75% 65% at 50% 0%, #000 15%, transparent 78%);
+}
+/* Centre-focused variant, for mid-page sections. */
+.pm-bg-grid--center::before {
+  -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000 5%, transparent 75%);
+          mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, #000 5%, transparent 75%);
+}
+
+/* ---- Dot matrix -------------------------------------------------------------------
+   One radial-gradient tiled by background-size. `at 1px 1px` + `transparent 0` gives a
+   crisp 1px dot with no antialiasing halo.                                            */
+.pm-bg-dots::before {
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, var(--pm-dot-color) 1px, transparent 0);
+  background-size: var(--pm-dot-size) var(--pm-dot-size);
+  -webkit-mask-image: radial-gradient(ellipse 65% 60% at 50% 45%, #000 5%, transparent 75%);
+          mask-image: radial-gradient(ellipse 65% 60% at 50% 45%, #000 5%, transparent 75%);
+}
+
+/* ---- Animated gradient mesh --------------------------------------------------------
+   Stripe renders its mesh in WebGL. The 95%-as-good, 0-dependency version: 3–4 big
+   radial blobs on one blurred layer, each drifting on its own slow transform loop.
+   Animating TRANSFORM (not background-position) keeps it on the compositor.
+   `filter: blur()` on the container blends the blobs into a continuous field.        */
+.pm-bg-mesh::before {
+  inset: -20%;
+  filter: blur(72px) saturate(140%);
+  opacity: 0.75;
+  background:
+      radial-gradient(38% 42% at 22% 28%, var(--pm-accent-a64), transparent 70%),
+      radial-gradient(34% 38% at 78% 22%, rgba(56, 189, 248, 0.42), transparent 70%),
+      radial-gradient(40% 44% at 62% 78%, rgba(244, 114, 182, 0.34), transparent 70%),
+      radial-gradient(30% 34% at 12% 80%, rgba(255, 170, 64, 0.22), transparent 70%);
+  animation: pm-mesh-drift 22s var(--pm-ease-in-out) infinite alternate;
+  will-change: transform;
+}
+@keyframes pm-mesh-drift {
+  0%   { transform: translate3d(-3%, -2%, 0) scale(1);    }
+  50%  { transform: translate3d(3%, 2%, 0)  scale(1.12);  }
+  100% { transform: translate3d(-2%, 4%, 0) scale(1.04);  }
+}
+
+/* ---- Aurora ribbon (Aceternity "Aurora Background") --------------------------------
+   A repeating-linear-gradient ribbon, heavily blurred, skewed and slid horizontally.
+   The `mask-image` keeps it hugging one edge so it reads as light spilling in.        */
+.pm-bg-aurora::before {
+  inset: -30% -10% auto -10%;
+  height: 90%;
+  background-image: repeating-linear-gradient(100deg,
+      var(--pm-accent) 0%, var(--pm-accent-2) 14%, transparent 22%,
+      var(--pm-accent-3) 30%, var(--pm-accent) 42%);
+  background-size: 200% 200%;
+  filter: blur(64px) saturate(150%);
+  opacity: 0.28;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 82%);
+          mask-image: linear-gradient(to bottom, #000 0%, transparent 82%);
+  animation: pm-aurora 26s linear infinite;
+  will-change: background-position;
+}
+@keyframes pm-aurora {
+  from { background-position: 0% 50%; }
+  to   { background-position: 200% 50%; }
+}
+
+/* ---- Hero spotlight (Aceternity "Spotlight New") -----------------------------------
+   Two enormous ROTATED ellipses of near-invisible light (alpha .02–.08!). The reason it
+   looks expensive: the alphas are tiny and the shape is huge, so you read "a light is
+   on somewhere" rather than "there is a gradient here". Values below are the same
+   proportions Aceternity ships.                                                       */
+.pm-bg-spotlight::before,
+.pm-bg-spotlight::after {
+  top: 0; height: 1380px; width: 560px;
+  background: radial-gradient(68.5% 68.7% at 55% 31.5%,
+      hsla(252, 100%, 85%, 0.15) 0%,
+      hsla(252, 100%, 60%, 0.055) 50%,
+      hsla(252, 100%, 45%, 0) 80%);
+  opacity: 0;
+  animation: pm-spot-in 1.6s var(--pm-ease-out) 0.15s forwards;
+}
+.pm-bg-spotlight::before {
+  left: -10%;
+  transform: translateY(-350px) rotate(-45deg);
+  transform-origin: top left;
+}
+.pm-bg-spotlight::after {
+  right: -10%;
+  transform: translateY(-350px) rotate(45deg);
+  transform-origin: top right;
+  background: radial-gradient(68.5% 68.7% at 45% 31.5%,
+      hsla(196, 100%, 80%, 0.12) 0%,
+      hsla(196, 100%, 55%, 0.045) 50%,
+      transparent 80%);
+}
+@keyframes pm-spot-in { to { opacity: 1; } }
+
+/* ---- Conic light beams -------------------------------------------------------------
+   A single repeating-conic-gradient fan, masked to a wedge. Reads as god-rays.        */
+.pm-bg-beams::before {
+  inset: -50% -50% auto -50%;
+  height: 150%;
+  background: repeating-conic-gradient(from 210deg at 50% 0%,
+      rgba(255, 255, 255, 0.055) 0deg 1.2deg, transparent 1.2deg 9deg);
+  -webkit-mask-image: radial-gradient(ellipse 55% 70% at 50% 0%, #000, transparent 72%);
+          mask-image: radial-gradient(ellipse 55% 70% at 50% 0%, #000, transparent 72%);
+  animation: pm-beams-sweep 30s linear infinite;
+  will-change: transform;
+}
+@keyframes pm-beams-sweep {
+  from { transform: rotate(-2.5deg); }
+  50%  { transform: rotate(2.5deg);  }
+  to   { transform: rotate(-2.5deg); }
+}
+
+/* ---- Ambient glow behind a block ---------------------------------------------------
+   Use on a hero/product shot to make it look like it's emitting light.                */
+.pm-bg-glow::before {
+  inset: auto -20% -30% -20%;
+  height: 60%;
+  background: radial-gradient(50% 60% at 50% 50%, var(--pm-accent-a32), transparent 70%);
+  filter: blur(48px);
+}
+
+/* ---- Ambient halo  ·  .pm-bg-halo ---------------------------------------------------
+   One big soft accent bloom sitting behind hero content. Where .pm-bg-glow anchors to the
+   bottom edge (for a product shot that appears to emit light), the halo sits high and
+   centred — it is what stops a dark hero reading as a black rectangle. Keep the alpha
+   low (a16 ≈ 6%): you want "there is a light source", not "there is a purple circle".  */
+.pm-bg-halo::before {
+  inset: -25% -10% auto -10%;
+  height: 95%;
+  background:
+      radial-gradient(52% 46% at 50% 34%, var(--pm-accent-a16), transparent 72%),
+      radial-gradient(38% 34% at 68% 22%, rgba(56, 189, 248, 0.09), transparent 74%);
+  filter: blur(26px);
+}
+
+/* ---- Composable layer  ·  .pm-layer -------------------------------------------------
+   Inert, absolutely-positioned box for stacking atmosphere utilities under content.
+   Must come after the utilities above so its positioning wins over their
+   `position: relative`. Parent needs a stacking context — any pm-bg-* class provides
+   one, or add `.pm-isolate`.                                                           */
+.pm-layer {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ---- Film grain / noise -------------------------------------------------------------
+   An inline SVG feTurbulence as a data: URI — no network request, ~300 bytes, tiles
+   forever. `mix-blend-mode: overlay` at 3–4% is the difference between "flat vector
+   gradient" and "photographic". Every single site in the study uses some version.     */
+.pm-noise::after,
+.pm-noise-fixed::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: var(--pm-noise-opacity);
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 140px 140px;
+}
+.pm-noise { position: relative; isolation: isolate; }
+.pm-noise-fixed::after { position: fixed; z-index: 9999; }
+
+/* ---- Edge vignette ------------------------------------------------------------------
+   Darkens the frame so the centre column feels lit. Very cheap, very effective.       */
+.pm-vignette { position: relative; }
+.pm-vignette::after {
+  content: "";
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(120% 90% at 50% 40%, transparent 45%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+/* ---- Starfield / particle field  ·  .pm-stars ---------------------------------------
+   CSS-only, zero DOM, zero JS. Three tiled layers of radial-gradient "stars" at
+   different sizes and tile pitches; each layer drifts on its own transform loop and
+   fades in and out on a different period, which reads as twinkling parallax depth.
+   Because the tiles are prime-ish sizes (137/191/281px) the layers never visibly
+   resync. Everything animates on transform + opacity only.
+   Tune with --pm-star-color / --pm-star-opacity.                                       */
+.pm-stars { position: relative; isolation: isolate; }
+.pm-stars::before,
+.pm-stars::after {
+  content: "";
+  position: absolute; inset: -20%;
+  pointer-events: none;
+  z-index: -1;
+  background-repeat: repeat;
+  will-change: transform, opacity;
+}
+/* far layer — many small, dim stars, slow drift */
+.pm-stars::before {
+  background-image:
+      radial-gradient(1px 1px at 24px 32px,  var(--pm-star-color) 50%, transparent 100%),
+      radial-gradient(1px 1px at 88px 12px,  var(--pm-star-color) 50%, transparent 100%),
+      radial-gradient(1px 1px at 130px 96px, var(--pm-star-color) 50%, transparent 100%),
+      radial-gradient(1px 1px at 56px 140px, var(--pm-star-color) 50%, transparent 100%),
+      radial-gradient(1px 1px at 168px 60px, var(--pm-star-color) 50%, transparent 100%);
+  background-size: 191px 191px;
+  opacity: calc(var(--pm-star-opacity) * 0.72);
+  animation: pm-stars-drift 120s linear infinite, pm-twinkle 7s ease-in-out infinite;
+}
+/* near layer — fewer, brighter, faster, with a soft bloom on each */
+.pm-stars::after {
+  background-image:
+      radial-gradient(1.6px 1.6px at 40px 60px,  var(--pm-star-color) 45%, transparent 100%),
+      radial-gradient(1.4px 1.4px at 150px 24px, var(--pm-accent-a64) 45%, transparent 100%),
+      radial-gradient(1.6px 1.6px at 96px 176px, var(--pm-star-color) 45%, transparent 100%),
+      radial-gradient(1.4px 1.4px at 210px 120px,var(--pm-star-color) 45%, transparent 100%);
+  background-size: 281px 281px;
+  opacity: var(--pm-star-opacity);
+  animation: pm-stars-drift 70s linear infinite reverse, pm-twinkle 4.5s ease-in-out infinite 1.3s;
+}
+/* Optional third layer element for a denser field: <span class="pm-stars__dust"></span> */
+.pm-stars__dust {
+  position: absolute; inset: -20%;
+  pointer-events: none; z-index: -1;
+  background-image:
+      radial-gradient(1px 1px at 12px 78px,  var(--pm-star-color) 50%, transparent 100%),
+      radial-gradient(1px 1px at 104px 40px, var(--pm-star-color) 50%, transparent 100%),
+      radial-gradient(1px 1px at 72px 118px, var(--pm-star-color) 50%, transparent 100%);
+  background-size: 137px 137px;
+  opacity: calc(var(--pm-star-opacity) * 0.5);
+  animation: pm-stars-drift 180s linear infinite, pm-twinkle 9s ease-in-out infinite 2.1s;
+}
+@keyframes pm-stars-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-191px, -120px, 0); }
+}
+@keyframes pm-twinkle {
+  0%, 100% { opacity: var(--pm-star-opacity); }
+  50%      { opacity: calc(var(--pm-star-opacity) * 0.45); }
+}
+
+
+/* ---- Fade the bottom of a section into the page background ------------------------- */
+.pm-fade-b { -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+                     mask-image: linear-gradient(to bottom, #000 55%, transparent 100%); }
+.pm-fade-t { -webkit-mask-image: linear-gradient(to top,    #000 55%, transparent 100%);
+                     mask-image: linear-gradient(to top,    #000 55%, transparent 100%); }
+.pm-fade-x { -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+                     mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+
+
+/* =====================================================================================
+   07  ANIMATED BORDERS
+   -------------------------------------------------------------------------------------
+   The mechanism behind ALL of them is the same two-layer mask "ring" trick:
+
+       padding: 1px;                                   <- ring thickness
+       mask: linear-gradient(#000 0 0) content-box,     <- layer A: the inside
+             linear-gradient(#000 0 0);                 <- layer B: everything
+       mask-composite: exclude;                         <- B minus A == the 1px ring
+
+   Whatever you paint as the element's background then only shows inside that ring.
+   Paint a rotating conic gradient -> spinning border. Paint a travelling square ->
+   border beam. Paint an oversized radial and pan it -> shine border.
+   ===================================================================================== */
+
+/* @property lets us ANIMATE a custom property of type <angle>. Without it, custom
+   properties are strings and interpolate as discrete steps (i.e. no animation), which
+   is why rotating conic borders used to require an extra wrapper + rotate transform.
+   Supported: Chrome 85+, Safari 16.4+, Firefox 128+. Degrades to a static gradient. */
+@property --pm-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* Shared ring geometry. Applied to a decorative child so the host keeps its own bg. */
+.pm-border-beam,
+.pm-border-conic,
+.pm-border-shine {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  padding: var(--pm-beam-width);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;      /* WebKit's spelling of "exclude" */
+          mask-composite: exclude;
+  overflow: hidden;
+}
+
+/* ---- 7a. Border beam ---------------------------------------------------------------
+   A square gradient sprite driven around the rounded rectangle by `offset-path: rect()`.
+   Because it follows the geometry, it moves at CONSTANT LINEAR SPEED — the detail that
+   separates this from a rotating conic (which races along long edges and crawls at the
+   corners). This is exactly how magicui's <BorderBeam> works, minus React/Motion.     */
+.pm-border-beam::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  aspect-ratio: 1;
+  width: var(--pm-beam-size);
+  background: linear-gradient(to left, var(--pm-beam-from), var(--pm-beam-to), transparent);
+  /* fallback for engines without offset-path: rect() — orbit via rotation instead */
+  animation: pm-spin-fallback var(--pm-beam-dur) linear infinite;
+  transform-origin: 50% 50%;
+}
+@supports (offset-path: rect(0px auto auto 0px round 8px)) {
+  .pm-border-beam::after {
+    offset-path: rect(0 auto auto 0 round var(--pm-beam-size));
+    offset-distance: 0%;
+    animation: pm-beam-travel var(--pm-beam-dur) linear infinite;
+  }
+}
+@keyframes pm-beam-travel { to { offset-distance: 100%; } }
+@keyframes pm-spin-fallback { to { transform: rotate(360deg); } }
+.pm-border-beam--reverse::after { animation-direction: reverse; }
+.pm-border-beam--slow::after    { --pm-beam-dur: 11s; }
+
+/* ---- 7b. Rotating conic border ------------------------------------------------------
+   One arc of colour spun around the ring. Cheapest animated border there is: a single
+   compositor-friendly custom-property tween, no extra DOM.                            */
+.pm-border-conic {
+  background: conic-gradient(from var(--pm-angle),
+      transparent 0%,
+      var(--pm-beam-from) 8%,
+      var(--pm-beam-to) 16%,
+      transparent 28%,
+      transparent 100%);
+  animation: pm-angle-spin var(--pm-beam-dur) linear infinite;
+}
+@keyframes pm-angle-spin { to { --pm-angle: 360deg; } }
+
+/* Full-rainbow variant — the "AI gradient" border seen on 21st.dev / cult-ui cards. */
+.pm-border-conic--full {
+  background: conic-gradient(from var(--pm-angle),
+      var(--pm-accent), var(--pm-accent-2), var(--pm-accent-3),
+      var(--pm-accent-4), var(--pm-accent));
+  opacity: 0.9;
+}
+
+/* ---- 7c. Shine border (magicui <ShineBorder>) ---------------------------------------
+   A 300%-sized radial gradient panned diagonally across the ring. Softer and slower
+   than a beam — good for cards you don't want shouting.                               */
+.pm-border-shine {
+  background-image: radial-gradient(transparent, transparent,
+      var(--pm-beam-from), var(--pm-beam-to), transparent, transparent);
+  background-size: 300% 300%;
+  animation: pm-shine-pan 14s linear infinite;
+  will-change: background-position;
+}
+@keyframes pm-shine-pan {
+  0%   { background-position: 0% 0%; }
+  50%  { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* ---- 7d. Static gradient hairline ---------------------------------------------------
+   No animation at all: a border-image-ish gradient ring. Use it as the default card
+   border on a storefront and save the animated ones for one or two hero moments.      */
+.pm-border-grad {
+  position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  padding: 1px;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.02) 45%, transparent 70%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;  mask-composite: exclude;
+}
+
+
+/* =====================================================================================
+   08  GLOW, BLOOM, DEPTH
+   ===================================================================================== */
+
+/* Coloured bloom under an element. Two shadows: a tight one for the "lamp" and a wide
+   soft one for the spill. */
+.pm-glow    { box-shadow: 0 0 0 1px var(--pm-accent-a16),
+                          0 8px 32px -8px var(--pm-accent-a32); }
+.pm-glow-lg { box-shadow: 0 0 0 1px var(--pm-accent-a16),
+                          0 12px 40px -8px var(--pm-accent-a32),
+                          0 40px 120px -32px var(--pm-accent-a64); }
+.pm-glow-soft { box-shadow: 0 24px 80px -32px var(--pm-accent-a64); }
+
+/* Aceternity "Lamp": a hard-edged glow bar that bleeds upward from a line. */
+.pm-lamp { position: relative; }
+.pm-lamp::before {
+  content: "";
+  position: absolute; left: 50%; top: 0;
+  width: min(680px, 80%); height: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, var(--pm-accent) 30%, var(--pm-accent-2) 70%, transparent);
+  box-shadow: 0 0 24px 2px var(--pm-accent-a64), 0 0 90px 24px var(--pm-accent-a32);
+  opacity: 0.9;
+}
+
+/* The single most useful depth primitive: a bright hairline across the top edge that
+   fades out at both ends. Put it on cards, navs, footers, modals. */
+.pm-topline { position: relative; }
+.pm-topline::before {
+  content: "";
+  position: absolute; inset: 0 12% auto 12%; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+}
+
+
+/* =====================================================================================
+   09  TEXT EFFECTS
+   ===================================================================================== */
+
+/* Gradient text. `-webkit-background-clip: text` + transparent fill. `padding-bottom`
+   + `margin-bottom` compensation stops descenders (g, y, p) being clipped. */
+.pm-text-grad {
+  background-image: linear-gradient(180deg, #ffffff 25%, rgba(255, 255, 255, 0.55) 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+.pm-text-grad--accent {
+  background-image: linear-gradient(100deg, var(--pm-accent-2), var(--pm-accent) 45%, var(--pm-accent-3));
+}
+
+/* Animated gradient text (magicui <AnimatedGradientText>): 300% background panned
+   forever. The gradient must return to its start colour or the loop will jump. */
+.pm-text-grad-anim {
+  background-image: linear-gradient(90deg,
+      var(--pm-accent-4), var(--pm-accent), var(--pm-accent-2), var(--pm-accent-4));
+  background-size: 300% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent;
+  animation: pm-grad-pan 8s linear infinite;
+  padding-bottom: 0.12em; margin-bottom: -0.12em;
+}
+@keyframes pm-grad-pan { to { background-position: 300% 0; } }
+
+/* Aurora text: same clip, but the layer also rotates/scales, so the colour boundaries
+   move non-linearly. Reads much richer than a straight pan. */
+.pm-text-aurora {
+  display: inline-block;
+  background-image: linear-gradient(135deg,
+      var(--pm-accent-3), var(--pm-accent), var(--pm-accent-2), var(--pm-accent-3));
+  background-size: 200% auto;
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent;
+  animation: pm-aurora-text 9s var(--pm-ease-in-out) infinite alternate;
+  padding-bottom: 0.12em; margin-bottom: -0.12em;
+}
+@keyframes pm-aurora-text {
+  0%   { background-position: 0% 50%;   }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%;   }
+}
+
+/* Shimmer sweep over dim text (magicui <AnimatedShinyText>). The text colour must be
+   SEMI-TRANSPARENT so the clipped white gradient can show through it. */
+.pm-text-shimmer {
+  --pm-shimmer-w: 120px;
+  color: rgba(255, 255, 255, 0.42);
+  background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.95) 50%, transparent);
+  background-repeat: no-repeat;
+  background-size: var(--pm-shimmer-w) 100%;
+  -webkit-background-clip: text; background-clip: text;
+  animation: pm-text-shimmer 6.5s var(--pm-ease-in-out) infinite;
+}
+@keyframes pm-text-shimmer {
+  0%, 88%, 100% { background-position: calc(-1 * var(--pm-shimmer-w)) 0; }
+  38%, 62%      { background-position: calc(100% + var(--pm-shimmer-w)) 0; }
+}
+
+/* Highlight behind a phrase, drawn like a marker stroke. */
+.pm-mark {
+  position: relative;
+  background: linear-gradient(180deg, transparent 62%, var(--pm-accent-a32) 62%);
+  padding-inline: 0.08em;
+}
+
+/* Typewriter caret (the JS drives the text; the caret is pure CSS). */
+.pm-caret::after {
+  content: "";
+  display: inline-block;
+  width: 0.06em; height: 1em;
+  margin-left: 0.08em;
+  vertical-align: -0.12em;
+  background: currentColor;
+  animation: pm-blink 1.05s steps(1) infinite;
+}
+@keyframes pm-blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+
+/* Per-character / per-word reveal.
+   JS wraps each piece in <span style="--pm-i:n"> and adds .pm-in when the line scrolls
+   into view — the animation is gated on .pm-in so a headline below the fold still
+   plays on arrival instead of having finished before anyone saw it.                   */
+.pm-chars > span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.45em);
+  filter: blur(4px);
+  will-change: transform, opacity;
+}
+.pm-chars.pm-in > span {
+  animation: pm-char-in 0.62s var(--pm-ease-out) forwards;
+  animation-delay: calc(var(--pm-i) * 22ms);
+}
+/* Word mode: bigger travel, softer blur, slower cadence. This is the one to use on
+   real copy — per-character on a full sentence is the classic overdone version.       */
+.pm-chars--words > span { transform: translateY(0.5em); filter: blur(7px); }
+.pm-chars--words.pm-in > span {
+  animation-duration: 0.78s;
+  animation-delay: calc(var(--pm-i) * 55ms);
+}
+@keyframes pm-char-in { to { opacity: 1; transform: none; filter: blur(0); } }
+
+/* Scramble / decode target. Tabular mono keeps the line from reflowing while the
+   glyphs churn — without this the text visibly jitters as widths change.              */
+.pm-scramble {
+  font-variant-numeric: tabular-nums;
+  font-family: var(--pm-font-mono);
+  letter-spacing: -0.01em;
+}
+.pm-scramble--sans { font-family: inherit; }
+
+
+/* =====================================================================================
+   10  BUTTONS, BADGES, INPUTS
+   ===================================================================================== */
+
+.pm-btn {
+  --pm-btn-bg: var(--pm-surface-2);
+  position: relative;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: var(--pm-r-8);
+  border: 1px solid var(--pm-line-2);
+  background: var(--pm-btn-bg);
+  color: var(--pm-text);
+  font-size: 0.875rem; font-weight: 520; letter-spacing: -0.012em;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: background var(--pm-fast) var(--pm-ease),
+              border-color var(--pm-fast) var(--pm-ease),
+              transform var(--pm-fast) var(--pm-ease),
+              box-shadow var(--pm-fast) var(--pm-ease);
+}
+.pm-btn:hover  { background: var(--pm-surface-3); border-color: var(--pm-line-3); }
+.pm-btn:active { transform: translateY(0.5px) scale(0.995); }
+
+/* Primary = white on near-black. Vercel, Linear, Resend and Clerk all ship this;
+   it out-performs any coloured CTA on a dark page because it's the brightest object. */
+.pm-btn--primary {
+  background: #fff; color: #08090a; border-color: transparent;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), inset 0 -1px 0 rgba(0, 0, 0, 0.12);
+}
+.pm-btn--primary:hover { background: #e9e9ec; }
+
+.pm-btn--accent {
+  background: linear-gradient(180deg, var(--pm-accent), #6355e6);
+  border-color: transparent; color: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -10px var(--pm-accent-a64),
+              inset 0 1px 0 rgba(255,255,255,.22);
+}
+.pm-btn--ghost { background: transparent; border-color: transparent; color: var(--pm-text-2); }
+.pm-btn--ghost:hover { background: var(--pm-surface-2); color: var(--pm-text); }
+.pm-btn--lg { height: 44px; padding: 0 22px; font-size: 0.9375rem; border-radius: var(--pm-r-12); }
+.pm-btn--pill { border-radius: var(--pm-r-pill); }
+
+/* Shimmer button (21st.dev's signature): a rotating conic ring INSIDE a pill, plus a
+   sweeping specular highlight on hover. */
+.pm-btn--shimmer {
+  overflow: hidden;
+  isolation: isolate;
+  background: transparent;
+  border-color: transparent;
+  color: var(--pm-text);
+}
+.pm-btn--shimmer::before {
+  content: "";
+  position: absolute; inset: -150%;
+  z-index: -1;
+  background: conic-gradient(from var(--pm-angle), transparent 0 78%, rgba(255,255,255,.9) 92%, transparent 100%);
+  animation: pm-angle-spin 3.2s linear infinite;
+}
+.pm-btn--shimmer::after {
+  content: "";
+  position: absolute; inset: 1px;
+  z-index: -1;
+  border-radius: inherit;
+  background: #0d0e10;
+}
+
+/* Specular sweep on hover — the "glint" used on Linear/Framer CTAs. */
+.pm-sheen { position: relative; overflow: hidden; }
+.pm-sheen::after {
+  content: "";
+  position: absolute; inset: 0;
+  transform: translateX(-120%) skewX(-18deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  transition: transform 0.75s var(--pm-ease-out);
+  pointer-events: none;
+}
+.pm-sheen:hover::after { transform: translateX(120%) skewX(-18deg); }
+
+/* Badge / announcement pill — nearly every 2026 hero opens with one. */
+.pm-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  height: 28px; padding: 0 12px 0 8px;
+  border-radius: var(--pm-r-pill);
+  border: 1px solid var(--pm-line-2);
+  background: var(--pm-surface-2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  font-size: 0.75rem; font-weight: 500; letter-spacing: -0.008em;
+  color: var(--pm-text-2);
+}
+.pm-badge__dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--pm-accent-2);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.18);
+  animation: pm-pulse-dot 2.4s var(--pm-ease-in-out) infinite;
+}
+@keyframes pm-pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 2px rgba(56,189,248,.22); }
+  50%      { box-shadow: 0 0 0 6px rgba(56,189,248,0);   }
+}
+.pm-kbd {
+  font-family: var(--pm-font-mono); font-size: 11px;
+  padding: 2px 6px; border-radius: var(--pm-r-6);
+  border: 1px solid var(--pm-line-2); background: var(--pm-surface-2);
+  color: var(--pm-text-3);
+}
+
+.pm-input {
+  height: 38px; width: 100%;
+  padding: 0 12px;
+  border-radius: var(--pm-r-8);
+  border: 1px solid var(--pm-line-2);
+  background: var(--pm-bg);
+  color: var(--pm-text);
+  font: inherit; font-size: 0.875rem;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
+  transition: border-color var(--pm-fast) var(--pm-ease), box-shadow var(--pm-fast) var(--pm-ease);
+}
+.pm-input::placeholder { color: var(--pm-text-4); }
+.pm-input:focus {
+  outline: none;
+  border-color: var(--pm-accent-a64);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.5), 0 0 0 3px var(--pm-accent-a16);
+}
+
+
+/* =====================================================================================
+   11  MOTION
+   ===================================================================================== */
+
+/* ---- Scroll reveal -----------------------------------------------------------------
+   premium.js adds `pm-js` to <html> at parse time, so the hidden state only applies
+   when JS is actually running. No JS => content is simply visible. That's the whole
+   graceful-degradation story.
+
+   Movement is deliberately SMALL (14px) and the blur is what sells it. Big 60px slides
+   read as "AOS.js 2019"; 12–16px + a 6px blur + 600ms expo-out reads as 2026.        */
+[data-pm-reveal] { --pm-reveal-delay: 0ms; }
+.pm-js [data-pm-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  filter: blur(6px);
+  transition:
+      opacity   var(--pm-slow) var(--pm-ease-out) var(--pm-reveal-delay),
+      transform var(--pm-slow) var(--pm-ease-out) var(--pm-reveal-delay),
+      filter    var(--pm-slow) var(--pm-ease-out) var(--pm-reveal-delay);
+  will-change: opacity, transform;
+}
+.pm-js [data-pm-reveal="left"]  { transform: translate3d(-22px, 0, 0); }
+.pm-js [data-pm-reveal="right"] { transform: translate3d(22px, 0, 0); }
+.pm-js [data-pm-reveal="scale"] { transform: scale(0.965); }
+.pm-js [data-pm-reveal="fade"]  { transform: none; }
+.pm-js [data-pm-reveal].pm-in {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+}
+
+/* Stagger: premium.js writes --pm-i on each child; multiply by a step. */
+[data-pm-stagger] > * { --pm-reveal-delay: calc(var(--pm-i, 0) * var(--pm-stagger-step, 60ms)); }
+
+/* ---- Marquee -----------------------------------------------------------------------
+   Two identical tracks translating by -100% - gap. The edge mask is mandatory: without
+   it you see items pop in at the boundary, which instantly looks broken.             */
+.pm-marquee {
+  display: flex;
+  overflow: hidden;
+  gap: var(--pm-marquee-gap);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.pm-marquee__track {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--pm-marquee-gap);
+  min-width: 100%;
+  animation: pm-marquee var(--pm-marquee-dur) linear infinite;
+  will-change: transform;
+}
+@keyframes pm-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(calc(-100% - var(--pm-marquee-gap)), 0, 0); }
+}
+.pm-marquee--reverse .pm-marquee__track { animation-direction: reverse; }
+.pm-marquee--pause:hover .pm-marquee__track { animation-play-state: paused; }
+.pm-marquee--slow  { --pm-marquee-dur: 70s; }
+
+/* Vertical variant. */
+.pm-marquee--v { flex-direction: column; height: 100%;
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 10%, #000 90%, transparent);
+          mask-image: linear-gradient(180deg, transparent, #000 10%, #000 90%, transparent); }
+.pm-marquee--v .pm-marquee__track { flex-direction: column; min-width: 0; min-height: 100%;
+  animation-name: pm-marquee-v; }
+@keyframes pm-marquee-v {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(0, calc(-100% - var(--pm-marquee-gap)), 0); }
+}
+
+/* ---- Cursor spotlight ---------------------------------------------------------------
+   premium.js writes --pm-mx / --pm-my (in px, element-relative). CSS does the drawing,
+   so the JS work per pointermove is two setProperty calls inside a rAF — no layout.  */
+.pm-spotlight { position: relative; isolation: isolate; overflow: hidden; }
+.pm-spotlight::before {
+  content: "";
+  position: absolute; inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--pm-med) var(--pm-ease);
+  background: radial-gradient(
+      var(--pm-spot-size, 340px) circle at var(--pm-mx, 50%) var(--pm-my, 50%),
+      var(--pm-spot-color, rgba(255, 255, 255, 0.09)), transparent 70%);
+}
+.pm-spotlight:hover::before,
+.pm-spotlight.pm-spot-on::before { opacity: 1; }
+
+/* Spotlight that lights up the BORDER only (Aceternity "Glowing Effect" / Linear's
+   card hover). Same radial, masked to the 1px ring. Much classier than a fill wash. */
+.pm-spotlight-ring { position: relative; }
+.pm-spotlight-ring::after {
+  content: "";
+  position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  padding: 1px;
+  background: radial-gradient(var(--pm-spot-size, 260px) circle at var(--pm-mx, 50%) var(--pm-my, 50%),
+      var(--pm-accent-a64), transparent 65%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--pm-med) var(--pm-ease);
+}
+.pm-spotlight-ring:hover::after,
+.pm-spotlight-ring.pm-spot-on::after { opacity: 1; }
+
+/* A page-level pointer glow (drop it on <body> or a hero). Uses fixed positioning and
+   viewport coordinates written by premium.js as --pm-px/--pm-py. */
+.pm-cursor-glow::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(520px circle at var(--pm-px, 50vw) var(--pm-py, 30vh),
+      var(--pm-accent-a08), transparent 65%);
+  transition: opacity var(--pm-slow) var(--pm-ease);
+}
+
+/* ---- 3D tilt ------------------------------------------------------------------------
+   Perspective on the wrapper, preserve-3d on the inner. JS writes --pm-rx/--pm-ry.
+   Keep max rotation <= 8deg; anything more looks like a toy. The glare layer is what
+   makes it read as glass rather than cardboard.                                       */
+.pm-tilt { perspective: 900px; }
+.pm-tilt__inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--pm-rx, 0deg)) rotateY(var(--pm-ry, 0deg)) translate3d(0, 0, 0);
+  transition: transform 320ms var(--pm-ease);
+  will-change: transform;
+}
+.pm-tilt.pm-tilt-active .pm-tilt__inner { transition: transform 80ms linear; }
+.pm-tilt__layer { transform: translateZ(var(--pm-z, 40px)); }
+.pm-tilt__glare {
+  position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: radial-gradient(260px circle at var(--pm-mx, 50%) var(--pm-my, 50%),
+      rgba(255, 255, 255, 0.16), transparent 60%);
+  opacity: 0; transition: opacity var(--pm-med) var(--pm-ease);
+}
+.pm-tilt:hover .pm-tilt__glare { opacity: 1; }
+
+/* ---- Magnetic hover (JS writes --pm-tx/--pm-ty) --------------------------------------- */
+.pm-magnetic {
+  transform: translate3d(var(--pm-tx, 0px), var(--pm-ty, 0px), 0);
+  transition: transform 260ms var(--pm-ease);
+}
+.pm-magnetic.pm-mag-active { transition: transform 90ms linear; }
+
+/* ---- Hover lift for any element -------------------------------------------------------- */
+.pm-lift { transition: transform var(--pm-med) var(--pm-ease), box-shadow var(--pm-med) var(--pm-ease); }
+.pm-lift:hover { transform: translateY(-3px); box-shadow: var(--pm-shadow-lg); }
+
+
+/* =====================================================================================
+   12  SCROLL-LINKED
+   ===================================================================================== */
+
+/* Reading-progress bar. Uses the native scroll-driven animation where available
+   (Chrome 115+, no JS, runs off the main thread); premium.js fills in elsewhere. */
+.pm-progress {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 2px; z-index: 100;
+  transform-origin: 0 50%;
+  transform: scaleX(var(--pm-progress, 0));
+  background: linear-gradient(90deg, var(--pm-accent), var(--pm-accent-2), var(--pm-accent-3));
+}
+@supports (animation-timeline: scroll()) {
+  .pm-progress {
+    animation: pm-progress-grow linear;
+    animation-timeline: scroll(root block);
+  }
+  @keyframes pm-progress-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+}
+
+/* Native scroll reveal — zero JS, zero observers. Used as an enhancement layer on top
+   of the IntersectionObserver version for browsers that support view() timelines. */
+@supports (animation-timeline: view()) {
+  .pm-view-reveal {
+    animation: pm-view-in linear both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 32%;
+  }
+  @keyframes pm-view-in {
+    from { opacity: 0; transform: translateY(24px) scale(0.985); filter: blur(6px); }
+    to   { opacity: 1; transform: none; filter: blur(0); }
+  }
+}
+
+/* Sticky scroll section: a tall wrapper, a viewport-height sticky panel. The panel's
+   content is swapped by premium.js as each step scrolls past mid-viewport. */
+.pm-sticky-wrap { position: relative; }
+.pm-sticky {
+  position: sticky;
+  top: var(--pm-sticky-top, 96px);
+}
+.pm-step { opacity: 0.32; transition: opacity var(--pm-med) var(--pm-ease), color var(--pm-med) var(--pm-ease); }
+.pm-step.pm-step-active { opacity: 1; }
+
+/* Parallax: JS writes --pm-par (px). Transform only — no top/margin, no layout. */
+.pm-parallax { transform: translate3d(0, var(--pm-par, 0px), 0); will-change: transform; }
+
+
+/* =====================================================================================
+   13  MICRO-COMPONENTS
+   ===================================================================================== */
+
+/* Stat block with a number ticker. tabular-nums stops the width jittering as digits
+   change — without it the layout visibly twitches while counting. */
+.pm-stat__value {
+  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  font-variant-numeric: tabular-nums;
+  color: var(--pm-text);
+}
+.pm-stat__label { font-size: 0.8125rem; color: var(--pm-text-3); letter-spacing: -0.01em; }
+
+/* ---- Animated beams connecting nodes (magicui <AnimatedBeam>) -------------------------
+   The React version measures DOM nodes and draws an SVG path. The CSS-only version:
+   author the path in the markup, then run a short dash along it. `stroke-dasharray`
+   with a tiny dash and a huge gap + animated `stroke-dashoffset` = a light pulse.     */
+.pm-beam-svg { width: 100%; height: auto; overflow: visible; }
+.pm-beam-track { stroke: var(--pm-line-2); stroke-width: 1.25; fill: none; }
+.pm-beam-pulse {
+  stroke: var(--pm-accent-2);
+  stroke-width: 1.75;
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 26 460;
+  filter: drop-shadow(0 0 5px var(--pm-accent-2));
+  animation: pm-beam-dash var(--pm-beam-dash-dur, 3.2s) linear infinite;
+  animation-delay: var(--pm-beam-delay, 0s);
+}
+@keyframes pm-beam-dash { from { stroke-dashoffset: 486; } to { stroke-dashoffset: 0; } }
+
+.pm-node {
+  display: grid; place-items: center;
+  width: 46px; height: 46px;
+  border-radius: 14px;
+  background: var(--pm-bg-2);
+  border: 1px solid var(--pm-line-2);
+  box-shadow: var(--pm-shadow-sm), 0 0 24px -6px var(--pm-accent-a32);
+  font-size: 12px; font-weight: 600; color: var(--pm-text-2);
+}
+
+/* ---- Ripple (concentric expanding rings) ----------------------------------------------- */
+.pm-ripple { position: relative; display: grid; place-items: center; }
+.pm-ripple__ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--pm-line-2);
+  animation: pm-ripple 4.5s var(--pm-ease-in-out) infinite;
+  animation-delay: calc(var(--pm-i, 0) * 320ms);
+}
+@keyframes pm-ripple {
+  0%   { transform: scale(0.65); opacity: 0;   }
+  25%  { opacity: 0.75; }
+  100% { transform: scale(1.55); opacity: 0;   }
+}
+
+/* ---- Orbiting dots ------------------------------------------------------------------- */
+.pm-orbit { position: relative; display: grid; place-items: center; }
+.pm-orbit__path {
+  position: absolute;
+  border: 1px dashed rgba(255, 255, 255, 0.09);
+  border-radius: 50%;
+  animation: pm-orbit-spin var(--pm-orbit-dur, 18s) linear infinite;
+  animation-delay: calc(var(--pm-i, 0) * -3s);
+}
+.pm-orbit__path--rev { animation-direction: reverse; }
+.pm-orbit__dot {
+  position: absolute; top: -5px; left: 50%;
+  width: 10px; height: 10px; margin-left: -5px;
+  border-radius: 50%;
+  background: var(--pm-accent-2);
+  box-shadow: 0 0 12px 1px var(--pm-accent-2);
+}
+@keyframes pm-orbit-spin { to { transform: rotate(360deg); } }
+
+/* ---- Meteors (magicui) -----------------------------------------------------------------
+   A rotated 2px head with a linear-gradient tail, translated along its own X axis.
+   The rotation is applied first so translateX moves it diagonally.                     */
+.pm-meteors { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.pm-meteor {
+  position: absolute;
+  top: -10%;
+  width: 2px; height: 2px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 6px 1px rgba(255, 255, 255, 0.18);
+  transform: rotate(var(--pm-angle-deg, 215deg));
+  animation: pm-meteor var(--pm-meteor-dur, 6s) linear infinite;
+  animation-delay: var(--pm-meteor-delay, 0s);
+}
+.pm-meteor::before {
+  content: "";
+  position: absolute; top: 50%; left: 0;
+  width: 130px; height: 1px;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.34), transparent 85%);
+}
+@keyframes pm-meteor {
+  0%   { transform: rotate(var(--pm-angle-deg, 215deg)) translateX(0);      opacity: 0; }
+  8%   { opacity: 1; }
+  70%  { opacity: 1; }
+  100% { transform: rotate(var(--pm-angle-deg, 215deg)) translateX(-780px); opacity: 0; }
+}
+
+/* ---- Scroll-cue chevron ----------------------------------------------------------------- */
+.pm-scroll-cue { animation: pm-float 2.6s var(--pm-ease-in-out) infinite; }
+@keyframes pm-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+
+/* ---- Logo wall item --------------------------------------------------------------------- */
+.pm-logo {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--pm-text-3);
+  font-weight: 560; letter-spacing: -0.02em; font-size: 1.0625rem;
+  opacity: 0.72;
+  transition: opacity var(--pm-med) var(--pm-ease), color var(--pm-med) var(--pm-ease);
+  white-space: nowrap;
+}
+.pm-logo:hover { opacity: 1; color: var(--pm-text); }
+
+/* ---- Docs label used by showcase.html ---------------------------------------------------- */
+.pm-label {
+  display: inline-block;
+  font-family: var(--pm-font-mono);
+  font-size: 11px;
+  letter-spacing: 0;
+  padding: 3px 8px;
+  border-radius: var(--pm-r-6);
+  background: var(--pm-surface-2);
+  border: 1px solid var(--pm-line);
+  color: var(--pm-text-3);
+}
+
+
+
+/* ---- Skeleton shimmer  ·  .pm-skeleton -----------------------------------------------
+   The loading placeholder every dashboard ships. Two things separate a good one from a
+   cheap one: (1) the sheen is a MOVING BACKGROUND-POSITION on a 200%-wide gradient, not
+   a translating child, so there is nothing to clip and nothing to composite badly, and
+   (2) the sheen is a narrow band with soft shoulders, so it reads as a light source
+   passing over a surface rather than a grey bar sliding sideways.
+   Variants: --line (text row) · --title · --circle (avatar) · --block (media).          */
+.pm-skeleton {
+  position: relative;
+  border-radius: var(--pm-r-8);
+  background-color: var(--pm-skeleton-base);
+  background-image: linear-gradient(
+      100deg,
+      transparent 20%,
+      var(--pm-skeleton-sheen) 42%,
+      var(--pm-skeleton-sheen) 48%,
+      transparent 70%);
+  background-size: 220% 100%;
+  background-repeat: no-repeat;
+  animation: pm-skeleton-sweep 1.6s var(--pm-ease-in-out) infinite;
+  overflow: hidden;
+}
+.pm-skeleton--line   { height: 12px; border-radius: var(--pm-r-pill); }
+.pm-skeleton--title  { height: 20px; border-radius: var(--pm-r-6); width: 62%; }
+.pm-skeleton--circle { width: 40px; height: 40px; border-radius: 50%; flex: 0 0 auto; }
+.pm-skeleton--block  { height: 120px; border-radius: var(--pm-r-12); }
+/* Progressive width ladder so a stack of lines looks like real copy, not a barcode. */
+.pm-skeleton--line:nth-child(3n)   { width: 92%; }
+.pm-skeleton--line:nth-child(3n+1) { width: 100%; }
+.pm-skeleton--line:nth-child(3n+2) { width: 74%; }
+@keyframes pm-skeleton-sweep {
+  from { background-position: 160% 0; }
+  to   { background-position: -60% 0; }
+}
+
+/* ---- Tap ripple  ·  [data-pm-tap] ----------------------------------------------------
+   Material's ink ripple, minus Material. JS injects one <span> at the pointer and
+   removes it on animationend; CSS scales it from 0 and fades it out. Sized to the
+   element's diagonal so the ink always covers the far corner.                          */
+.pm-tap { position: relative; overflow: hidden; }
+.pm-tap__ink {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.42) 0%, rgba(255,255,255,0.12) 55%, transparent 72%);
+  transform: scale(0);
+  opacity: 0.9;
+  pointer-events: none;
+  animation: pm-tap-ink 620ms var(--pm-ease-out) forwards;
+}
+@keyframes pm-tap-ink {
+  to { transform: scale(1); opacity: 0; }
+}
+
+/* ---- Animated checkmark draw  ·  .pm-check / [data-pm-check] -------------------------
+   An inline <svg> whose circle and tick are drawn with stroke-dasharray +
+   stroke-dashoffset. The whole path length is set as the dash, so animating the offset
+   from full → 0 "draws" it. The tick starts after the ring is 60% done, which is what
+   makes it feel like one gesture instead of two animations.
+   Without JS (or with reduced motion) it renders fully drawn — never a blank box.      */
+.pm-check { display: inline-block; width: 56px; height: 56px; color: var(--pm-accent-2); }
+.pm-check svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.pm-check__ring,
+.pm-check__tick {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.pm-check__ring { stroke-width: 2; opacity: 0.9; }
+.pm-check__tick { stroke-width: 2.6; }
+/* Only hide the strokes when JS is present to un-hide them again. */
+.pm-js .pm-check[data-pm-check] .pm-check__ring { stroke-dasharray: 166; stroke-dashoffset: 166; }
+.pm-js .pm-check[data-pm-check] .pm-check__tick { stroke-dasharray: 40;  stroke-dashoffset: 40; }
+.pm-js .pm-check.pm-in .pm-check__ring {
+  animation: pm-draw-ring 620ms var(--pm-ease-out) forwards;
+}
+.pm-js .pm-check.pm-in .pm-check__tick {
+  animation: pm-draw-tick 380ms var(--pm-ease-out) 380ms forwards;
+}
+.pm-check.pm-in { animation: pm-check-pop 460ms var(--pm-ease-out) 560ms; }
+@keyframes pm-draw-ring { to { stroke-dashoffset: 0; } }
+@keyframes pm-draw-tick { to { stroke-dashoffset: 0; } }
+@keyframes pm-check-pop { 0%,100% { transform: scale(1); } 45% { transform: scale(1.075); } }
+
+/* ---- Pulsing / breathing border  ·  .pm-border-pulse ---------------------------------
+   A glow ring that breathes. Two shadows: a tight inner ring that keeps the edge
+   readable, and a wide bloom that scales in opacity. box-shadow spread is animated on a
+   composited layer here because the element is isolated and small — for large surfaces
+   prefer scaling a blurred pseudo-element instead.                                      */
+.pm-border-pulse {
+  position: relative;
+  border: 1px solid var(--pm-accent-a32);
+  border-radius: inherit;
+}
+.pm-border-pulse::after {
+  content: "";
+  position: absolute; inset: -1px;
+  border-radius: inherit;
+  border: 1px solid var(--pm-accent);
+  opacity: 0;
+  animation: pm-border-pulse 2.4s var(--pm-ease-in-out) infinite;
+  pointer-events: none;
+}
+@keyframes pm-border-pulse {
+  0%   { opacity: 0.85; transform: scale(1);     filter: blur(0); }
+  70%  { opacity: 0;    transform: scale(1.045); filter: blur(3px); }
+  100% { opacity: 0;    transform: scale(1.045); filter: blur(3px); }
+}
+
+
+/* =====================================================================================
+   14  REDUCED MOTION + PRINT
+   -------------------------------------------------------------------------------------
+   One global switch. Everything decorative stops; nothing disappears. Reveals resolve
+   to their final state so content is never left invisible.
+   ===================================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .pm *,
+  .pm *::before,
+  .pm *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .pm-js [data-pm-reveal] { opacity: 1 !important; transform: none !important; filter: none !important; }
+  .pm-chars > span { opacity: 1; transform: none; filter: none; }
+  .pm-marquee__track { animation: none; }
+  .pm-skeleton { animation: none; background-image: none; }
+  .pm-stars::before, .pm-stars::after, .pm-stars__dust { animation: none; }
+  .pm-border-pulse::after { animation: none; opacity: .5; }
+  .pm-js .pm-check[data-pm-check] .pm-check__ring,
+  .pm-js .pm-check[data-pm-check] .pm-check__tick { stroke-dashoffset: 0; }
+  .pm-bg-mesh::before, .pm-bg-aurora::before, .pm-bg-beams::before { animation: none; }
+}
+
+@media print {
+  .pm-noise::after, .pm-progress, .pm-meteors { display: none !important; }
+  body.pm { background: #fff; color: #000; }
+}
