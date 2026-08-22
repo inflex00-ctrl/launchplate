@@ -2,5 +2,9 @@
   "SAAS": "https://buy.stripe.com/bJeaEW971aXYfLWgS37Re0s",
   "AI": "https://buy.stripe.com/bJecN44QL5DE7fqdFR7Re0t",
   "STUDIO": "https://buy.stripe.com/3cI5kCbf92rs0R231d7Re0u",
-  "BUNDLE": "https://buy.stripe.com/bJefZgerl5DEgQ059l7Re0v"
+  "BUNDLE": "https://buy.stripe.com/bJefZgerl5DEgQ059l7Re0v",
+  "CLINIC": "https://buy.stripe.com/eVq6oG5UPd66czK8lx7Re0z",
+  "FOOD": "https://buy.stripe.com/28E3cu3MH6HIdDOeJV7Re0y",
+  "DIR": "https://buy.stripe.com/aFa00ierl3vwczK45h7Re0x",
+  "LAW": "https://buy.stripe.com/00weVcgzt3vw6bmgS37Re0w"
 }

@@ -38,10 +38,14 @@ var CATALOG={
   SAAS:{n:'SaaS Launch Kit',f:'dl/Qg174mPITh9y7RhReKX2JZF32emRJx8p.zip'},
   AI:{n:'AI Product Kit',f:'dl/BhdN4s7_2xuaQQetOMrSCr1I65iVfcqq.zip'},
   STUDIO:{n:'Studio & Portfolio Kit',f:'dl/9Oa0xko31qYhDmX_jDDIIGnu0euQDaI8.zip'},
+  LAW:{n:'Law Firm & Professional Services Kit',f:'dl/ixZSaXelsPcyzu9q1orCJu_a9tFCmLXJ.zip'},
+  DIR:{n:'Directory & Marketplace Kit',f:'dl/lncxGATSEyCG1umAVhrYydaLl_ivS25Q.zip'},
+  FOOD:{n:'Restaurant & Café Kit',f:'dl/xg1d9HsQm_mAIdsvfACo_fUdJrJQ_wtt.zip'},
+  CLINIC:{n:'Dental & Medical Clinic Kit',f:'dl/yggvBuqvMgzEjwg18nG4CFs1g7mClc_l.zip'},
   BUNDLE:{n:'Complete Bundle',f:null}
 };
 var kit=(new URLSearchParams(location.search).get('kit')||'BUNDLE').toUpperCase();
-var show = kit==='BUNDLE' ? ['SAAS','AI','STUDIO'] : [kit];
+var show = kit==='BUNDLE' ? ['SAAS','AI','STUDIO','LAW','DIR','FOOD','CLINIC'] : [kit];
 document.getElementById('files').innerHTML = show.map(function(k){
   var c=CATALOG[k]; if(!c||!c.f) return '';
   return '<a class="f" href="'+c.f+'" download>'+
