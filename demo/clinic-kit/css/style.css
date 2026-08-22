@@ -60,7 +60,7 @@
   color-scheme: light;
 
   /* -- Brand ------------------------------------------------------------ */
-  --brand: #0e7c8b;
+  --brand: #0c717f;
   --brand-strong: #0a5f6b;
   --brand-soft: #e3f3f5;
   --accent: #d98346;
@@ -69,8 +69,8 @@
 
   /* -- Derived brand ---------------------------------------------------- */
   --brand-contrast: #ffffff;
-  --brand-tint: rgba(14, 124, 139, 0.08);
-  --brand-line: rgba(14, 124, 139, 0.22);
+  --brand-tint: rgba(12, 113, 127, 0.08);
+  --brand-line: rgba(12, 113, 127, 0.22);
   --accent-soft: #fdeee2;
   --accent-text: #a4541c;
 
@@ -88,13 +88,13 @@
 
   --text: #0f2530;
   --text-muted: #4a6672;
-  --text-subtle: #57737f;
+  --text-subtle: #506a76;
   --text-inverse: #f7fbfc;
 
   /* -- Semantic --------------------------------------------------------- */
   --success: #157a52;
   --success-soft: #e4f4ec;
-  --warning: #97650a;
+  --warning: #8a5c06;
   --warning-soft: #fbf1dc;
   --danger: #b32d24;
   --danger-soft: #fbeae8;
@@ -2095,6 +2095,20 @@ p {
   filter: brightness(0.66) saturate(1.22) contrast(1.06);
 }
 
+/* Portraits get a gentler dim — enough that flat pastel artwork stops
+   glaring out of a dark page, not so much that faces go murky. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .portrait,
+  :root:not([data-theme="light"]) .avatar {
+    filter: brightness(0.8) saturate(1.04);
+  }
+}
+
+:root[data-theme="dark"] .portrait,
+:root[data-theme="dark"] .avatar {
+  filter: brightness(0.8) saturate(1.04);
+}
+
 /* --- Framed art: a placeholder with a floating badge and a soft frame --- */
 
 .ph-frame {
@@ -2506,7 +2520,7 @@ p {
 
 .stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 152px), 1fr));
   gap: var(--sp-5);
 }
 

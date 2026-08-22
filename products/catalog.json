@@ -56,8 +56,8 @@
       "accent": "#2b6ca3",
       "demo": "demo/clinic-kit/index.html",
       "shots": [
-        "assets/shots/clinic-kit--about.png",
-        "assets/shots/clinic-kit--appointments.png"
+        "assets/shots/clinic-kit--index.png",
+        "assets/shots/clinic-kit--services.png"
       ],
       "pages": 6
     },
@@ -76,8 +76,8 @@
       "accent": "#b5502a",
       "demo": "demo/restaurant-kit/index.html",
       "shots": [
-        "assets/shots/restaurant-kit--about.png",
-        "assets/shots/restaurant-kit--contact.png"
+        "assets/shots/restaurant-kit--index.png",
+        "assets/shots/restaurant-kit--menu.png"
       ],
       "pages": 6
     },

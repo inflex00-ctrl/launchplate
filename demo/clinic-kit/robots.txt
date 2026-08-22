@@ -1,0 +1,5 @@
+# Brightwater Dental — replace the host below with your own domain before publishing.
+User-agent: *
+Allow: /
+
+Sitemap: https://brightwaterdental.example.com/sitemap.xml

@@ -4,17 +4,26 @@
 <meta charset="utf-8">
 <title>Brightwater Dental — Open Graph card source</title>
 <!--
-  SOURCE FILE for assets/og-image.png (1200x630).
-  This file is not linked from the site. To regenerate the card after
-  rebranding, edit the text below and screenshot it at exactly 1200x630:
+  SOURCE FILE for the six social sharing cards in assets/.
+  Each .card below is exactly 1200 x 630 — the Open Graph size.
 
-  chrome --headless --disable-gpu --window-size=1200,630 \
-         --screenshot=og-image.png --virtual-time-budget=2000 \
-         file:///absolute/path/to/og-image-source.html
+  To regenerate them after rebranding:
+    1. Edit the headings and chips below.
+    2. Screenshot this file at 1200px wide:
+
+       chrome --headless --disable-gpu --hide-scrollbars \
+              --window-size=1200,3780 --screenshot=/tmp/og-strip.png \
+              --virtual-time-budget=2500 \
+              file:///absolute/path/to/assets/og-image-source.html
+
+    3. Slice the tall PNG into six 630px bands and save them as
+       og-home.png, og-services.png, og-team.png,
+       og-appointments.png, og-about.png, og-contact.png
 -->
 <style>
   * { box-sizing: border-box; margin: 0; }
-  body {
+  body { width: 1200px; background: #222; display: grid; }
+  .card {
     width: 1200px; height: 630px; overflow: hidden; position: relative;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background: linear-gradient(150deg, #0d2c37 0%, #0a4551 46%, #0e7c8b 100%);
@@ -43,24 +52,114 @@
 </style>
 </head>
 <body>
-  <span class="orb o1"></span><span class="orb o2"></span>
 
+<!-- og-home.png -->
+<div class="card">
+  <span class="orb o1"></span><span class="orb o2"></span>
   <div class="row">
     <span class="mark">
       <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 2.6c-3 0-5.2 1.6-5.2 4.3 0 2.1.8 3.5 1.3 5.4.4 1.6.5 3.9 1 4.6.6.8 1.7.5 1.8-.6.3-1.4.4-3 1.1-3s.9 1.6 1.1 3c.2 1.1 1.3 1.4 1.8.6.5-.7.6-3 1-4.6.5-1.9 1.3-3.3 1.3-5.4 0-2.7-2.2-4.3-5.2-4.3z"/></svg>
     </span>
     <span class="name">Brightwater<small>Dental</small></span>
   </div>
-
   <h1>Dentistry that takes its time.</h1>
-
   <div class="foot">
     <div class="chips">
-      <span class="chip">Dublin 2 &amp; Sandyford</span>
-      <span class="chip">Fixed written plans</span>
-      <span class="chip">Same-week emergencies</span>
+      <span class="chip">Dublin 2 &amp; Sandyford</span><span class="chip">Fixed written plans</span><span class="chip">Same-week emergencies</span>
     </div>
     <span class="url">brightwaterdental.ie</span>
   </div>
+</div>
+
+<!-- og-services.png -->
+<div class="card">
+  <span class="orb o1"></span><span class="orb o2"></span>
+  <div class="row">
+    <span class="mark">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 2.6c-3 0-5.2 1.6-5.2 4.3 0 2.1.8 3.5 1.3 5.4.4 1.6.5 3.9 1 4.6.6.8 1.7.5 1.8-.6.3-1.4.4-3 1.1-3s.9 1.6 1.1 3c.2 1.1 1.3 1.4 1.8.6.5-.7.6-3 1-4.6.5-1.9 1.3-3.3 1.3-5.4 0-2.7-2.2-4.3-5.2-4.3z"/></svg>
+    </span>
+    <span class="name">Brightwater<small>Dental</small></span>
+  </div>
+  <h1>Every price, in public, before you sit down.</h1>
+  <div class="foot">
+    <div class="chips">
+      <span class="chip">Exams from &euro;65</span><span class="chip">Crowns from &euro;695</span><span class="chip">0% finance</span>
+    </div>
+    <span class="url">brightwaterdental.ie</span>
+  </div>
+</div>
+
+<!-- og-team.png -->
+<div class="card">
+  <span class="orb o1"></span><span class="orb o2"></span>
+  <div class="row">
+    <span class="mark">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 2.6c-3 0-5.2 1.6-5.2 4.3 0 2.1.8 3.5 1.3 5.4.4 1.6.5 3.9 1 4.6.6.8 1.7.5 1.8-.6.3-1.4.4-3 1.1-3s.9 1.6 1.1 3c.2 1.1 1.3 1.4 1.8.6.5-.7.6-3 1-4.6.5-1.9 1.3-3.3 1.3-5.4 0-2.7-2.2-4.3-5.2-4.3z"/></svg>
+    </span>
+    <span class="name">Brightwater<small>Dental</small></span>
+  </div>
+  <h1>Four dentists. No locums.</h1>
+  <div class="foot">
+    <div class="chips">
+      <span class="chip">Sixty-one years combined</span><span class="chip">Specialist endodontist</span><span class="chip">Two practices</span>
+    </div>
+    <span class="url">brightwaterdental.ie</span>
+  </div>
+</div>
+
+<!-- og-appointments.png -->
+<div class="card">
+  <span class="orb o1"></span><span class="orb o2"></span>
+  <div class="row">
+    <span class="mark">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 2.6c-3 0-5.2 1.6-5.2 4.3 0 2.1.8 3.5 1.3 5.4.4 1.6.5 3.9 1 4.6.6.8 1.7.5 1.8-.6.3-1.4.4-3 1.1-3s.9 1.6 1.1 3c.2 1.1 1.3 1.4 1.8.6.5-.7.6-3 1-4.6.5-1.9 1.3-3.3 1.3-5.4 0-2.7-2.2-4.3-5.2-4.3z"/></svg>
+    </span>
+    <span class="name">Brightwater<small>Dental</small></span>
+  </div>
+  <h1>Book in about a minute.</h1>
+  <div class="foot">
+    <div class="chips">
+      <span class="chip">New patients welcome</span><span class="chip">No referral needed</span><span class="chip">Same-day emergencies</span>
+    </div>
+    <span class="url">brightwaterdental.ie</span>
+  </div>
+</div>
+
+<!-- og-about.png -->
+<div class="card">
+  <span class="orb o1"></span><span class="orb o2"></span>
+  <div class="row">
+    <span class="mark">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 2.6c-3 0-5.2 1.6-5.2 4.3 0 2.1.8 3.5 1.3 5.4.4 1.6.5 3.9 1 4.6.6.8 1.7.5 1.8-.6.3-1.4.4-3 1.1-3s.9 1.6 1.1 3c.2 1.1 1.3 1.4 1.8.6.5-.7.6-3 1-4.6.5-1.9 1.3-3.3 1.3-5.4 0-2.7-2.2-4.3-5.2-4.3z"/></svg>
+    </span>
+    <span class="name">Brightwater<small>Dental</small></span>
+  </div>
+  <h1>Seventeen years of asking better questions.</h1>
+  <div class="foot">
+    <div class="chips">
+      <span class="chip">Founded 2009</span><span class="chip">Eleven people</span><span class="chip">Two Dublin locations</span>
+    </div>
+    <span class="url">brightwaterdental.ie</span>
+  </div>
+</div>
+
+<!-- og-contact.png -->
+<div class="card">
+  <span class="orb o1"></span><span class="orb o2"></span>
+  <div class="row">
+    <span class="mark">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 2.6c-3 0-5.2 1.6-5.2 4.3 0 2.1.8 3.5 1.3 5.4.4 1.6.5 3.9 1 4.6.6.8 1.7.5 1.8-.6.3-1.4.4-3 1.1-3s.9 1.6 1.1 3c.2 1.1 1.3 1.4 1.8.6.5-.7.6-3 1-4.6.5-1.9 1.3-3.3 1.3-5.4 0-2.7-2.2-4.3-5.2-4.3z"/></svg>
+    </span>
+    <span class="name">Brightwater<small>Dental</small></span>
+  </div>
+  <h1>Two practices, one phone number.</h1>
+  <div class="foot">
+    <div class="chips">
+      <span class="chip">Marlowe Quay, D02</span><span class="chip">Sandyford, D18</span><span class="chip">24-hour emergency line</span>
+    </div>
+    <span class="url">brightwaterdental.ie</span>
+  </div>
+</div>
+
 </body>
 </html>
