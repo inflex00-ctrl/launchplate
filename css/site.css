@@ -619,8 +619,8 @@ a.frame:hover .frame__veil span,.lift:hover .frame__veil span{transform:none}
 .sub{font-size:clamp(1rem,1.5vw,1.2rem);color:var(--tx-2);line-height:1.6;max-width:62ch}
 
 /* ---- conversion layer ---- */
-.lp-rev{opacity:0;transform:translateY(18px);transition:opacity .6s cubic-bezier(.22,.8,.3,1),transform .6s cubic-bezier(.22,.8,.3,1)}
-.lp-rev.lp-in{opacity:1;transform:none}
+.js-reveal .lp-rev{opacity:0;transform:translateY(18px);transition:opacity .6s cubic-bezier(.22,.8,.3,1),transform .6s cubic-bezier(.22,.8,.3,1)}
+.js-reveal .lp-rev.lp-in{opacity:1;transform:none}
 #lp-sticky{position:fixed;left:0;right:0;bottom:0;z-index:9999;transform:translateY(110%);
   transition:transform .38s cubic-bezier(.22,.9,.3,1);background:rgba(10,12,17,.92);
   backdrop-filter:blur(16px);border-top:1px solid rgba(255,255,255,.09)}

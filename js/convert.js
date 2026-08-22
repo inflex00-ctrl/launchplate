@@ -29,6 +29,10 @@
   function reveals(){
     if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if(!('IntersectionObserver' in window)) return;
+    /* Only now do we allow anything to be hidden — so a JS failure can never
+       leave the page blank. Watchdog below stands the whole system down if
+       nothing has revealed shortly after load. */
+    d.documentElement.classList.add('js-reveal');
     var els=d.querySelectorAll('.card,.prop,.rule,section > .wrap > h2,.pb,article');
     var io=new IntersectionObserver(function(en){
       en.forEach(function(e,i){
@@ -39,6 +43,9 @@
       });
     },{rootMargin:'0px 0px -8% 0px',threshold:.08});
     els.forEach(function(el){el.classList.add('lp-rev');io.observe(el);});
+    setTimeout(function(){
+      if(!d.querySelector('.lp-rev.lp-in')) d.documentElement.classList.remove('js-reveal');
+    },1200);
   }
 
   /* 3. Re-point any buy button injected after store.js ran. */
