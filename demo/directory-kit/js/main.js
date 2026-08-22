@@ -601,6 +601,17 @@ var SL = (function () {
     nodes.forEach(function (n) {
       io.observe(n);
     });
+
+    /* Safety net. A reveal starts at opacity 0, so anything the observer never
+       reports on would stay invisible for good — which can happen inside an
+       off-screen iframe, a display:none ancestor that is later shown, or a
+       browser that throttles observers in a background tab. After four
+       seconds, show everything regardless. */
+    window.setTimeout(function () {
+      nodes.forEach(function (n) {
+        n.classList.add("is-visible");
+      });
+    }, 4000);
   }
 
   /* Apply a stagger index to the children of a container. */

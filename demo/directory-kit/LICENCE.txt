@@ -1,0 +1,103 @@
+DIRECTORY & MARKETPLACE KIT — LICENCE
+=====================================
+
+This licence covers the HTML, CSS, JavaScript, generated artwork and written
+copy contained in this package ("the Kit").
+
+By using the Kit you accept the terms below.
+
+
+1. WHAT YOU MAY DO
+------------------
+
+You are granted a perpetual, worldwide, non-exclusive licence to:
+
+  a. Use the Kit in an unlimited number of personal projects.
+
+  b. Use the Kit in an unlimited number of commercial projects, including
+     projects that generate revenue.
+
+  c. Use the Kit in work you produce for clients, and charge your client for
+     that work. You may hand the resulting site over to the client as part of
+     the deliverable, including the source files for the site you built.
+
+  d. Modify the Kit however you like — the code, the layout, the design, the
+     colours, the copy and the structure. Modified versions remain subject to
+     this licence.
+
+  e. Launch as many separate directories, marketplaces or listing sites with
+     the Kit as you wish. There is no per-project or per-domain fee.
+
+  f. Use the Kit in an open-source project, provided the Kit's own files are
+     not the substance of what is being published (see 2b).
+
+No attribution is required. You are welcome to give some, but you do not
+have to.
+
+
+2. WHAT YOU MAY NOT DO
+----------------------
+
+You may not:
+
+  a. Resell, redistribute, sublicense, share or give away the Kit itself,
+     whether modified or unmodified, as a template, theme, boilerplate,
+     starter or download.
+
+  b. Publish the Kit, or a derivative of it, in a public repository or
+     package in a way that makes the template itself the thing being
+     distributed. Publishing a finished site you built with it is fine;
+     publishing the template is not.
+
+  c. Include the Kit, or any substantial part of it, in another template,
+     theme, kit, UI library or component collection that you sell or
+     distribute.
+
+  d. Upload the Kit to a template marketplace, asset store or similar
+     platform.
+
+  e. Represent yourself as the original author of the Kit.
+
+The distinction that matters: you may sell what you BUILD with the Kit. You
+may not sell the Kit.
+
+
+3. THE DEMO CONTENT
+-------------------
+
+All listings, companies, people, reviews, ratings, statistics and written
+copy in js/data.js are fictional. They were created for this template. Any
+resemblance to a real product or person is coincidental.
+
+The demo content is provided so the template can be evaluated and so the
+layout can be seen fully populated. It is placeholder material and is not
+intended to be published. Replace it before launch.
+
+Example URLs use the .example.com domain, which is reserved by RFC 2606 for
+documentation and cannot be registered.
+
+
+4. NO WARRANTY
+--------------
+
+THE KIT IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+
+IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE KIT OR THE USE OF OR OTHER DEALINGS
+IN THE KIT.
+
+You are responsible for testing the Kit in your own environment, for the
+accuracy of any content you publish with it, and for compliance with any
+laws that apply to your directory — including, where relevant, rules on
+labelling paid placement and advertising.
+
+
+5. TERMINATION
+--------------
+
+This licence terminates automatically if you breach section 2. On
+termination you must stop distributing any material that breached it.
+Sites you have already built and launched are unaffected.

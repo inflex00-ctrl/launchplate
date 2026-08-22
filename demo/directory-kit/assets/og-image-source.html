@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Stacklist — Open Graph image source</title>
+<!--
+  Source for assets/og-image.png (1200 x 630).
+  Edit this file, then re-export a PNG at exactly 1200x630, e.g.:
+
+    chrome --headless --screenshot=assets/og-image.png \
+           --window-size=1200,630 assets/og-image-source.html
+
+  Or open it in a browser at 1200x630 and screenshot it.
+-->
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1200px;height:630px;overflow:hidden}
+  body{
+    font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    background:#fbfaf8;color:#16130f;position:relative;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:76px 82px;
+  }
+  .glow{position:absolute;inset:0;z-index:0;
+    background:
+      radial-gradient(52% 60% at 12% 6%, rgba(214,69,24,.20), transparent 66%),
+      radial-gradient(44% 52% at 92% 88%, rgba(183,121,31,.20), transparent 68%);}
+  .grid{position:absolute;inset:0;z-index:0;opacity:.5;
+    background-image:linear-gradient(#e2ded7 1px,transparent 1px),linear-gradient(90deg,#e2ded7 1px,transparent 1px);
+    background-size:60px 60px;
+    -webkit-mask-image:radial-gradient(75% 70% at 50% 40%,#000 25%,transparent 78%);
+    mask-image:radial-gradient(75% 70% at 50% 40%,#000 25%,transparent 78%);}
+  .in{position:relative;z-index:1}
+  .brand{display:flex;align-items:center;gap:14px;margin-bottom:40px}
+  .brand span{font-size:29px;font-weight:750;letter-spacing:-.028em}
+  .mk{width:52px;height:52px;border-radius:15px;background:#d64518;display:grid;place-items:center}
+  h1{font-size:74px;line-height:1.06;letter-spacing:-.038em;font-weight:750;max-width:16ch}
+  h1 em{font-style:normal;color:#b93a12}
+  p{margin-top:26px;font-size:27px;line-height:1.45;color:#5d564d;max-width:30ch}
+  .row{position:absolute;left:82px;bottom:64px;display:flex;gap:11px;z-index:1}
+  .pill{padding:9px 19px;border:1px solid #cec8be;border-radius:999px;
+    font-size:19px;font-weight:600;color:#5d564d;background:#fff}
+  .tiles{position:absolute;right:74px;bottom:74px;z-index:1;
+    display:grid;grid-template-columns:repeat(2,86px);gap:16px}
+  .t{width:86px;height:86px;border-radius:22px;box-shadow:0 8px 22px rgba(22,19,15,.14)}
+</style>
+</head>
+<body>
+  <div class="glow"></div><div class="grid"></div>
+  <div class="in">
+    <div class="brand">
+      <span class="mk">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 8l8-4 8 4-8 4z"/><path d="M4 13l8 4 8-4"/>
+        </svg>
+      </span>
+      <span>Stacklist</span>
+    </div>
+    <h1>The developer tools worth your <em>afternoon</em></h1>
+    <p>A hand-checked directory. Filter by price, rating and stack.</p>
+  </div>
+  <div class="row">
+    <span class="pill">24 tools</span>
+    <span class="pill">8 categories</span>
+    <span class="pill">Independent</span>
+  </div>
+  <div class="tiles">
+    <span class="t" style="background:linear-gradient(135deg,#0e7c5a,#4ade80)"></span>
+    <span class="t" style="background:linear-gradient(135deg,#1d4ed8,#60a5fa)"></span>
+    <span class="t" style="background:linear-gradient(135deg,#a21caf,#f0abfc)"></span>
+    <span class="t" style="background:linear-gradient(135deg,#c2410c,#fdba74)"></span>
+  </div>
+</body>
+</html>
